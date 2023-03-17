@@ -56,7 +56,6 @@ header{
     width: 25vw;
     height: 12vh;
 
-    background: url(../image/icon/mainlogo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -105,7 +104,6 @@ input[type="text"]{
     height: 30px;
     
     display: inline-block;
-    background: url(../image/icon/searchimg.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
