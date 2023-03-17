@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+/* footer CSS 양식*/
+footer{
+    position: relative;
+    width: 60vw; margin: 0 auto; 
+    
+}
+
+/* 제목 양식 */
+.title{
+   font-size: 2vh;
+}
+/* 하위내용 양식 */
+.sub{
+   font-size: 1.5vh;
+   color: rgba(0, 0, 0, 0.5);
+}
+/* 글씨 진하게 */
+.bold{
+   font-weight: bold;
+}
+
+/* footer 가장 위쪽 */
+#foothead{
+   margin-bottom: 11vh;
+}
+
+/* 이용약관, 고객센터 양식 */
+.ftul{
+   list-style: none;
+   display: inline;
+}
+
+.ftli{
+   display: flex;
+   justify-content: left;
+   text-align: left;
+   margin-top: 1vh;
+}
+
+/* 이용약관 */
+.userterms
+{
+  display: inline-block;
+}
+
+/* 고객센터 */
+.cs{
+   position: absolute;
+   display: inline-block;
+   padding-bottom: 1vh;
+   margin-left: 2vw;
+}
+
+/* 우측 고객센터 양식*/
+.csmemo{
+   margin-top: 1vh;
+   padding-bottom: 1vh;
+   position: absolute;
+   left: 40vw;
+   text-align: left;
+   display: inline-block;
+}
+
+/* 자주 하는 질문*/
+.faq{
+   font-size: 12px;
+   text-align: center;
+   background-color: black;
+   color:white;
+   width: 100px;
+   height: auto;
+   padding-top: 1vh;
+   padding-bottom: 1vh;
+}
+/* 우측 고객센터 하단 양식 */
+.csmemofoot{
+   font-size: 1.5vh;
+   font-weight: bold;
+   padding-bottom: 1vh;
+
+}
+
+/* footer 중간줄*/
+#footb {
+   border-top:1px solid black;
+   margin-bottom: 3%;
+}
+
+/* footer 중간 (회사소개,인재 채용 등등)*/
+.footbbody{
+   display: inline-block;
+   margin-top: 1vh;
+   margin-right: 1vh;
+   font-size: 13px;
+}
+
+/* footer 하단 로고글자*/
+.footfimg{
+   
+   width: 12vw;
+   height: 5vh;
+   background: url(../image/icon/logimg.png);
+   background-size:contain;
+   background-attachment: local;
+   background-position: center center;
+   background-repeat: no-repeat;
+}
