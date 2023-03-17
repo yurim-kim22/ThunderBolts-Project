@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link href="../Byoungoh/resources/css/login.css" rel="stylesheet" tpye="text/css">
-    <script src="../Byoungoh/resources/javascript/footer.js" type="text/Javascript" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <script src="js/footer.js" type="text/Javascript" defer></script>
     <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-   <div id="header"></div>
+  	<div th:replace="common/header/subheader.html"></div>
     <main>
         <form>
             <div class="id">
