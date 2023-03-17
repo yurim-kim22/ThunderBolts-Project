@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link href="css/login.css" rel="stylesheet" type="text/css">
-    <script src="js/footer.js" type="text/Javascript" defer></script>
+    <link href="/css/login/login.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-  	<div th:replace="common/header/subheader.html"></div>
+  	<div th:replace="common/header/subHeader.html"></div>
     <main>
         <form>
             <div class="id">
@@ -29,6 +28,6 @@
 
 
     </main>
-    <div id="footer"></div>
+   	<div th:replace="common/footer/mainFooter.html"></div>
 </body>
 </html>
