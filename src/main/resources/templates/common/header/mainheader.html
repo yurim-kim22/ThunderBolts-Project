@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +14,16 @@
 <body>
     <header>
     	<div id="headermain">
-            <div class="mainmenu"> 홈 </div>
-            <div class="mainmenu"> 로그인 </div>
-            <div class="mainmenu"> 마이페이지 </div>
-            <div class="mainmenu"> 고객센터 </div>
-            <div class="mainmenuend"> 관심상품 </div>
+            <div class="mainmenu home"> 홈 </div>
+            <th:block sec:authorize="isAnonymous()">
+            <div class="mainmenu login"> 로그인 </div>
+            </th:block>
+            <th:block sec:authorize="isAuthenticated()">
+            <div class="mainmenu logout"> 로그아웃 </div>
+            </th:block>  
+            <div class="mainmenu mypage"> 마이페이지 </div>
+            <div class="mainmenu csmenu"> 고객센터 </div>
+            <div class="mainmenuend heartProduct"> 관심상품 </div>
         </div>
     
         <div id="headermain2">

@@ -1,3 +1,4 @@
+window.onload = function() {
 /* 좌측 상단 카테고리 클릭시 진하게 및 밑줄 */
 const $main3 = document.getElementById('headermain3');
 $main3.addEventListener('click', e =>{
@@ -9,3 +10,12 @@ $main3.addEventListener('click', e =>{
     }
   
 });
+
+
+    if(document.getElementById("login")) {
+        const $login = document.getElementById("login");
+        $login.onclick = function() {
+            location.href = "/member/login";
+        }
+    }
+}	
