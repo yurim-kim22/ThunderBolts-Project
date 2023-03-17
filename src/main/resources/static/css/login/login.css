@@ -12,12 +12,73 @@ body{
 }
 
 main{
-    width: 60vw; margin: 0 auto;    
-    min-height: 230px;
+    width: 40vw; margin: 0 auto;    
+    height: 60vh;
 }
 
-
-input[type="text"]{
+input[type="text"], input[type="password"]{
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    font-size: 1vh;
+    color: rgba(0, 0, 0, 0.5);
 }
+
+.loginfalse{
+	 font-size: 1vh;
+	 color: red;
+
+}
+
+
+.password{
+	margin-top: 5vh;
+	margin-bottom:5vh;
+}
+
+form{
+	height:60%;
+}
+
+
+input[type="submit"]{
+	margin-left: 50%;
+	margin-top:0%;
+	height: 8vh;
+    border: 1px solid gray;
+    width: 80%;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-size: 5vh;
+    text-align: center;
+    transform: translate(-50%, -0%); 
+}
+
+.crud{
+	display: flex;
+	justify-content: space-around;
+}
+
+.join, .searchId {
+	width: 30%;
+	border-right: 1px solid black;
+	text-align: center;
+	
+}
+
+ .searchPw{
+	width: 30%;
+	text-align: center;
+	
+}
+
+
+#naverIdLogin{
+	display: none;
+} 
+
+#naverLogin{
+	width:30%
+	
+}
+
