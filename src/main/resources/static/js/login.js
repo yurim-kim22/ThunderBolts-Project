@@ -1,4 +1,3 @@
-
 const naverLogin = new naver.LoginWithNaverId(
             {
                 clientId: "YOUR_CLIENT_ID",
@@ -81,8 +80,18 @@ function kakaoLogout() {
   
 /* 회원 가입 */ 
 if(document.getElementById("loginRegist")) {
-        const $login = document.getElementById("loginRegist");
-        $login.onclick = function() {
+        const $loginRegist = document.getElementById("loginRegist");
+        $loginRegist.onclick = function() {
             location.href = "/login/regist";
         }
     }
+    
+if(document.getElementById("emailId")) {
+        const $emailId = document.getElementById("emailId");
+        $emailId.onfocus = function() {
+           $emailId.value="";
+        }
+        $emailId.onblur = function() {
+           $emailId.value="예) greedy@Thunderbolts.com";
+        }
+    }  

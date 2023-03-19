@@ -13,4 +13,10 @@ window.onload = function() {
             location.href = "/login/main";
         }
     }
+        if(document.getElementById("mypage")) {
+        const $login = document.getElementById("mypage");
+        $login.onclick = function() {
+            location.href = "/mypage/main";
+        }
+    }
 }

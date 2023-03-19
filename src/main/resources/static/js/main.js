@@ -1,3 +1,4 @@
+window.onload = function() {
 /* 메인 베너 하다 버튼 이미지 클릭시 변경*/
 const $bannericon = document.getElementById('bannericon');
 $bannericon.addEventListener('click', e =>{
@@ -24,3 +25,4 @@ $(".nextimg").on('click',function(){
     console.log($('#producthot'))    
     
 });
+}
