@@ -1,0 +1,38 @@
+# server config
+server:
+  port: 8002
+  
+# database config
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url : jdbc:oracle:thin:@localhost:1521:xe
+    username: C##THUNDER
+    password: THUNDER
+
+#file upload config
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+      location: C:\workspase\sub\thunderbolts/
+  
+      
+#image upload directory
+image:
+  image-dir: src/main/resources/upload/image    
+    
+    
+    
+# mybatis congfig
+mybatis:
+  mapper-locations: mappers/**/*.xml
+  
+# log level (root 설정)
+logging:
+  level:
+# root level - 전역 설정
+    root: info
+#package level - 지역 설정
+    '[com.greedy.thunerbolts]': trace 
