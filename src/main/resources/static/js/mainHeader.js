@@ -10,12 +10,17 @@ $main3.addEventListener('click', e =>{
     }
   
 });
-
-
-    if(document.getElementById("login")) {
-        const $login = document.getElementById("login");
+	if(document.getElementById("home")) {
+        const $login = document.getElementById("home");
         $login.onclick = function() {
-            location.href = "/member/login";
+            location.href = "/";
         }
     }
-}	
+
+	if(document.getElementById("login")) {
+        const $login = document.getElementById("login");
+        $login.onclick = function() {
+            location.href = "/login/main";
+        }
+    }
+}

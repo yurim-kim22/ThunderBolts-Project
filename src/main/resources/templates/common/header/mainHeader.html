@@ -7,22 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
     <link href="/css/header/mainHeader.css" rel="stylesheet" type="text/css">
-    <script src="/js/header.js" type="text/Javascript" defer></script>
+    <script src="/js/mainHeader.js" type="text/Javascript" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" ></script>
+  
 </head>
 <body>
     <header>
     	<div id="headerMain">
-            <div class="mainmenu home"> 홈 </div>
+            <div class="mainmenu home" id="home"> 홈 </div>
             <th:block sec:authorize="isAnonymous()">
-            <div class="mainmenu login"> 로그인 </div>
+            <div class="mainmenu login" id="login"> 로그인 </div>
             </th:block>
             <th:block sec:authorize="isAuthenticated()">
-            <div class="mainmenu logout"> 로그아웃 </div>
+            <div class="mainmenu logout" id=logout> 로그아웃 </div>
             </th:block>  
-            <div class="mainmenu mypage"> 마이페이지 </div>
-            <div class="mainmenu csmenu"> 고객센터 </div>
-            <div class="mainmenuend heartProduct"> 관심상품 </div>
+            <div class="mainmenu mypage" id="mypage"> 마이페이지 </div>
+            <div class="mainmenu csmenu" id="csmenu"> 고객센터 </div>
+            <div class="mainmenuend heartProduct" id="heartProduct"> 관심상품 </div>
         </div>
     
         <div id="headermain2">
