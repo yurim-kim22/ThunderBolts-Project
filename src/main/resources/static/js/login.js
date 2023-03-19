@@ -77,3 +77,12 @@ function kakaoLogout() {
     }
   }
   })
+  
+  
+/* 회원 가입 */ 
+if(document.getElementById("loginRegist")) {
+        const $login = document.getElementById("loginRegist");
+        $login.onclick = function() {
+            location.href = "/login/regist";
+        }
+    }

@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .anyRequest().permitAll()
                 .and()
                     .formLogin()
-                    .loginPage("/login/loginMain")             
+                    .loginPage("/login/Main")             
                     .defaultSuccessUrl("/")  
                     .failureForwardUrl("/login/loginfail")
                     .usernameParameter("userId")			// 아이디 파라미터명 설정 기본값 username에서 변경
@@ -45,6 +45,7 @@ public class SecurityConfig {
     			.and()
     				.build();
     }
+	
 
 }
 

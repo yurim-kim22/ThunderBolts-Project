@@ -15,7 +15,7 @@
 <body>
   	<div th:replace="common/header/subHeader.html"></div>
     <main>
-        <form >
+        <form id="loginForm" action="/login/Main" method="post">
             <div class="id">
                 <label>이메일주소</label>
             <input type="text" value="예) greedy@Thunderbolts.com">
@@ -35,7 +35,7 @@
             </div>
         </form>
         <div class="crud">
-	        <div class="join">회원 가입</div>
+	        <div class="join" id="loginRegist">회원 가입</div>
 	        <div class="searchId">아이디 찾기</div>
 	        <div class="searchPw">비밀번호 찾기</div>
 		</div>
