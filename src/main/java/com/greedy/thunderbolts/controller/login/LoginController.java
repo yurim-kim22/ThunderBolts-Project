@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.login.controller;
+package com.greedy.thunderbolts.controller.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

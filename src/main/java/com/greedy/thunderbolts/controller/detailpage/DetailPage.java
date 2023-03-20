@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.detailPage;
+package com.greedy.thunderbolts.controller.detailpage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

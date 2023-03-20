@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.login.service;
+package com.greedy.thunderbolts.model.service.login;
 
 import org.springframework.stereotype.Service;
 

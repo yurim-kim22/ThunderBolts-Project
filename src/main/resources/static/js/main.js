@@ -1,6 +1,7 @@
-window.onload = function() {
+if (document.getElementById('bannericon')){
 /* 메인 베너 하다 버튼 이미지 클릭시 변경*/
 const $bannericon = document.getElementById('bannericon');
+console.log($bannericon);
 $bannericon.addEventListener('click', e =>{
     const $bannerbutton = document.getElementsByClassName('button')
     const $button = Array.from($bannerbutton);
@@ -10,8 +11,9 @@ $bannericon.addEventListener('click', e =>{
     }
   
 });
-
+};
 /* 관심상품 클릭시 하트 이미지 변경*/
+
 $(document).ready(function(){}); 
 
 $(".eheart").on('click', function(e){
@@ -24,4 +26,3 @@ $(".nextimg").on('click',function(){
     console.log($('#producthot'))    
     
 });
-}

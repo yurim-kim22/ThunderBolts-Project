@@ -1,21 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" >
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>detailpage</title>
  <link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
-  <link href="/css/detail/detailPage.css" rel="stylesheet" type="text/css">
+ <link href="/css/detail/detailPage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div th:replace="common/header/mypageHeader.html"></div>
+<div th:replace="common/header/mypageHeader.html"></div>
 	
 	<main>
-		<div>
-			<i class="preimg"></i>
-			<div>d</div>
-			<div></div>
-			<div></div>
-			<i class="nextimg"></i>
+		<div class="detailImgDiv">
+			<i class="preImg"></i> <img src="/upload/image/main/rank/rank5.png">
+
+			<i class="nextImg"></i>
+		</div>
+		<div class="detailTxtDiv">
+			<div>
+				<div class="detailTitle">Wooyoungmi</div>
+				<div class="detailSubTitle">Wooyoungmi Cotton Long Sleeve Back
+					Logo T-Shirt White - 22FW</div>
+			</div>
+			<div class=detailSizeDiv>
+				<div class="detailSize">사이즈</div>
+				<div class="selectSize">사이즈 선택</div>
+			</div>
+			<div class=detailSaleDiv>
+				<div class="curSale">최근 거래가</div>
+				<div class="curSalePrice">298,000원</div>
+			</div>
+			<div class=detailorderdiv>
+				<div class="buyorder">
+					<div class="buyordername">구매</div>
+					<div class="buyorderprice">
+						184,000원<br>
+						<span>즉시구매가
+					</div>
+				</div>
+				<div class="saleorder">
+					<div class="saleordername">판매</div>
+					<div class="saleorderprice">
+						254,000원<br>
+						<span>즉시판매가</span>
+					</div>
+				</div>
+			</div>
+			<div class="heartProduct">
+				관심상품 ${}
+			</div>
 		</div>
 
 
@@ -30,7 +62,6 @@
 
 	</main>
 	<div th:replace="common/footer/mainFooter.html"></div>
-
 
 </body>
 </html>
