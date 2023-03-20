@@ -29,7 +29,9 @@ main{
     width: auto;
     min-height: 60vh;
   
-    background: url(../image/banner/mainbanner1.png);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -134,7 +136,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/men.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -151,7 +152,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/women.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -168,7 +168,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/brand.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -208,7 +207,7 @@ main{
 
 
 .eheart{
-    background-image: url(../image/icon/eheart.png);
+    background-image: url(/image/icon/eheart.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -223,7 +222,7 @@ main{
     transform: translate(-98%, -98%); 
 }
 .heart{
-    background-image: url(../image/icon/heart.png);
+    background-image: url(/image/icon/heart.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -268,7 +267,6 @@ main{
 
 .item1.hotimg{
  
-    background-image: url(../image/hotitem/hitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -303,7 +301,6 @@ main{
 }
 .item2.hotimg{
     
-    background-image: url(../image/hotitem/hitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -321,7 +318,6 @@ main{
 }
 .item3.hotimg{
   
-    background-image: url(../image/hotitem/hitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -339,7 +335,6 @@ main{
 }
 .item4.hotimg{
     
-    background-image: url(../image/hotitem/hitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -357,7 +352,6 @@ main{
 }
 .item5.hotimg{
   
-    background-image: url(../image/hotitem/hitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -365,7 +359,7 @@ main{
 }
 
 .nextimg{
-    background-image: url(../image/icon/next.png);
+    background-image: url(/image/icon/next.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -380,7 +374,7 @@ main{
 }
 
 .preimg{
-    background-image: url(../image/icon/pre.png);
+    background-image: url(/image/icon/pre.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -440,15 +434,104 @@ main{
 }
 
 .rbanner{
-    background-image: url(../image/banner/rsubbanner.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .lbanner{
-    background-image: url(../image/banner/lsubbanner.png);
     background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.newimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(254, 229, 211, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.newimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item2newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(222, 249, 255, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(246, 234, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.newimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(234, 245, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(247, 248, 206, 1);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.newimg{
+  
+    background-size:contain;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
@@ -488,7 +571,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/balenciaga.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -508,7 +590,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/chanel.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -522,7 +603,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/apple.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -536,7 +616,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/stoneisland.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -550,7 +629,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/ami.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -564,7 +642,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/kitsune.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -578,7 +655,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/polo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -592,7 +668,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/heninox.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -606,7 +681,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/louis.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -620,7 +694,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/rolex.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -635,7 +708,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/lolo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -649,7 +721,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/gucci.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -663,7 +734,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/goyard.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -677,7 +747,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/kenzo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -691,108 +760,12 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/onitsuka.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-.newimg{
-    margin-top: 1%;
-    width: 100%;
-    height: 100%;
-   
-}
-.item1newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(254, 229, 211, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 40%;
-    position: relative;
-}
-
-.item1.newimg{
- 
-    background-image: url(../image/newitem/nitem1.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-.item2newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(222, 249, 255, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item2.newimg{
-    
-    background-image: url(../image/newitem/nitem2.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item3newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(246, 234, 249, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item3.newimg{
-  
-    background-image: url(../image/newitem/nitem3.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item4newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(234, 245, 249, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item4.newimg{
-    
-    background-image: url(../image/newitem/nitem4.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item5newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(247, 248, 206, 1);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item5.newimg{
-  
-    background-image: url(../image/newitem/nitem5.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 .seansonimg{
     margin-top: 1%;
@@ -812,7 +785,6 @@ main{
 
 .item1.seansonimg{
  
-    background-image: url(../image/seasonitem/sitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -829,7 +801,6 @@ main{
 }
 .item2.seansonimg{
     
-    background-image: url(../image/seasonitem/sitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -847,7 +818,6 @@ main{
 }
 .item3.seansonimg{
   
-    background-image: url(../image/seasonitem/sitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -865,7 +835,6 @@ main{
 }
 .item4.seansonimg{
     
-    background-image: url(../image/seasonitem/sitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -883,7 +852,6 @@ main{
 }
 .item5.seansonimg{
   
-    background-image: url(../image/seasonitem/sitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -926,7 +894,6 @@ main{
         
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -935,7 +902,6 @@ main{
 }
 
 .mstyleprofileimg1{
-    background-image: url(../image/style/mstyleprofile1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -970,7 +936,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -979,7 +944,6 @@ main{
 }
 
 .mstyleprofileimg2{
-    background-image: url(../image/style/mstyleprofile2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1014,7 +978,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1023,7 +986,6 @@ main{
 }
 
 .mstyleprofileimg3{
-    background-image: url(../image/style/mstyleprofile3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1058,7 +1020,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1067,7 +1028,6 @@ main{
 }
 
 .mstyleprofileimg4{
-    background-image: url(../image/style/mstyleprofile4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1102,7 +1062,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1111,7 +1070,6 @@ main{
 }
 
 .mstyleprofileimg5{
-    background-image: url(../image/style/mstyleprofile5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1161,7 +1119,6 @@ main{
 
 .item1.saleimg{
  
-    background-image: url(../image/saleitem/saleitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1178,7 +1135,6 @@ main{
 }
 .item2.saleimg{
     
-    background-image: url(../image/saleitem/saleitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1196,7 +1152,6 @@ main{
 }
 .item3.saleimg{
   
-    background-image: url(../image/saleitem/saleitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1214,7 +1169,6 @@ main{
 }
 .item4.saleimg{
     
-    background-image: url(../image/saleitem/saleitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1232,7 +1186,6 @@ main{
 }
 .item5.saleimg{
   
-    background-image: url(../image/saleitem/saleitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1305,14 +1258,13 @@ main{
 }
 
 .first.rankimg{
-    background-image: url(../image/icon/rank1.png);
+    background-image: url(/image/icon/rank1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .first.prankimg{
-    background-image: url(../image/rank/rank1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1320,14 +1272,13 @@ main{
 }
 
 .second.rankimg{
-    background-image: url(../image/icon/rank2.png);
+    background-image: url(/image/icon/rank2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .second.prankimg{
-    background-image: url(../image/rank/rank2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1335,14 +1286,13 @@ main{
 }
 
 .third.rankimg{
-    background-image: url(../image/icon/rank3.png);
+    background-image: url(/image/icon/rank3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .third.prankimg{
-    background-image: url(../image/rank/rank3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1350,14 +1300,13 @@ main{
 }
 
 .fourth.rankimg{
-    background-image: url(../image/icon/rank4.png);
+    background-image: url(/image/icon/rank4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .fourth.prankimg{
-    background-image: url(../image/rank/rank4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1365,14 +1314,1310 @@ main{
 }
 
 .fifth.rankimg{
-    background-image: url(../image/icon/rank5.png);
+    background-image: url(/image/icon/rank5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .fifth.prankimg{
+=======
+    background: url(../image/banner/mainbanner1.png);
+>>>>>>> refs/heads/byounggit
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#bannericon{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #DCC0E8;
+    display: flex;
+    justify-content:center;
+    text-align: center;
+    list-style: none;
+
+
+}
+
+#bannericon .bannerbutton{
+    margin-right: 1%;
+    margin-left: 1%;   
+    margin-top: 0.5vh;
+}
+#bannericon .bannerbutton button{
+    
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#bannericon>.button{
+    
+
+    width: 40px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 30% 30% 30% 30% / 50% 50% 50% 50%;
+}
+
+
+.button{
+    margin-right: 1%;
+    margin-left: 1%;   
+    margin-top: 0.5vh; 
+}
+/* main body */
+#bodymainbody{
+
+    height: 100%;
+   
+    width: 60vw; margin: 0 auto; 
+
+    
+}
+
+.mainrecommend
+{  
+    width: 100%;
+    height: 20vh;
+
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.mainrecommend div{
+    display: inline;
+    width: 21%;
+    border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
+}
+.service{
+
+    margin-top: 1%;
+    
+    width: 21%;
+    height: 80%;
+    border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
+ 
+
+    
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+.men{
+    
+    margin-top: 1%;
+    
+    width: 100%;
+    height: 80%;
+    border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
+ 
+
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+.women{
+    
+    margin-top: 1%;
+    
+    width: 100%;
+    height: 80%;
+    border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
+ 
+
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+.brand{
+    
+    margin-top: 1%;
+    
+    width: 100%;
+    height: 80%;
+    border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
+ 
+
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+
+.product
+{
+    width: 100%;
+    height: 35vh;
+    min-height: 35vh;
+    text-align: center;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.maintitle
+{
+    width: 100%;
+    height: 35vh;
+    min-height: 35vh;
+    text-align: center;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+
+
+.eheart{
+    background-image: url(/image/icon/eheart.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    min-width: 10px;
+    min-height: 10px;
+    left:98%;
+    top: 98%;
+    transform: translate(-98%, -98%); 
+}
+.heart{
+    background-image: url(/image/icon/heart.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 20px;
+    height: 20px;
+    min-width: 10px;
+    min-height: 10px;
+    left:98%;
+    top: 98%;
+    transform: translate(-98%, -98%); 
+}
+
+.pro{
+    
+
+    width: 19%;
+    height: 100%;
+    text-align: left;
+    padding-top: 1%;
+}
+.pro.item1{
+    padding-left: 1%;
+}
+
+.hotimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1hotimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #D6D6D6;
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.hotimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.itemtxt{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    font-size: 1vh;
+}
+.brandname{
+    margin-bottom: 3%;
+}
+.pname{
+    font-size: 1.2vh;
+    margin-bottom: 3%;
+}
+.price{
+    font-size: 1.5vh;
+}
+
+.item2hotimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #E5F0F5;
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.hotimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3hotimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #FAF4EF;
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.hotimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4hotimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #EEE3F1;
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.hotimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5hotimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #E2E2E2;
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.hotimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.nextimg{
+    background-image: url(/image/icon/next.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left:100%;
+    top: 35%;
+    transform: translate(-100%, -35%);
+   
+}
+
+.preimg{
+    background-image: url(/image/icon/pre.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left: 0%;
+    top: 35%;
+    z-index: 1;
+    transform: translate(0, -35%); 
+}
+
+.newproduct
+{
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    background-color: #F9F1EA;
+   
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+.newproduct div{  
+   
+    width: 20%;
+    height: 50%;
+}
+.name{
+    max-height: 5vh;
+    min-height: 5vh;
+    margin-top: 2%;
+    padding-left: 1%; 
+    font-weight: 500;
+    font-size: 2vh;
+    
+}
+
+.subbanner
+{  
+    width: 100%;
+    height:  15vh;
+    background-color: #F9F1EA;
+    
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+}
+.subbanner div{
+    display: inline;
+   
+    width: 50%;
+    
+    background-color: #BCBFDD;
+}
+
+.rbanner{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.lbanner{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.newimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(254, 229, 211, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.newimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item2newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(222, 249, 255, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(246, 234, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.newimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(234, 245, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(247, 248, 206, 1);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.newimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbarnd{
+  
+    width: 19%;
+    height: 10vh;
+    min-height: 0vh;
+    text-align: center;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+.mbrandimg{    
+    
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 60%;
+    min-height: 10%;
+    position: relative;
+    border-radius: 20px;
+    margin-top: 3%;
+    align-content: center;
+    
+}
+
+.mbrandimg.mbi1{
+    background-color: rgba(238, 245, 208, 0.57);
+
+}
+.mbimg1{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.mbrandtxt{
+    text-align: center;
+    width: 100%;
+    font-size: 1vh;
+}
+
+
+.mbrandimg.mbi2{
+    background-color: rgba(255, 235, 207, 1);
+}
+.mbimg2{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi3{
+    background-color: rgba(203, 233, 229, 1);
+}
+.mbimg3{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi4{
+    background-color: rgba(241, 245, 255, 1);
+}
+.mbimg4{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi5{
+    background-color: rgba(248, 243, 250, 1);
+}
+.mbimg5{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi6{
+    background-color: rgba(245, 248, 143, 0.61);
+}
+.mbimg6{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi7{
+    background-color: rgba(97, 255, 160, 0.2);
+}
+.mbimg7{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi8{
+    background-color: rgba(226, 52, 52, 0.21);
+}
+.mbimg8{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi9{
+    background-color: rgba(244, 250, 243, 1);
+}
+.mbimg9{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi10{
+    background-color: rgba(156, 229, 220, 0.39);
+}
+.mbimg10{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi11{
+    background-color: rgba(186, 239, 220, 0.56);
+
+}
+.mbimg11{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi12{
+    background-color: rgba(255, 245, 231, 1)
+}
+.mbimg12{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi13{
+    background-color: rgba(142, 218, 83, 0.22);
+}
+.mbimg13{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi14{
+    background-color: rgba(205, 52, 171, 0.1)
+}
+.mbimg14{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.mbrandimg.mbi15{
+    background-color: rgba(74, 116, 224, 0.56);
+}
+.mbimg15{
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+.seansonimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1seansonimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(254, 229, 211, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.seansonimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item2seansonimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(222, 249, 255, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.seansonimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3seansonimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(246, 234, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.seansonimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4seansonimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(234, 245, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.seansonimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5seansonimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(247, 248, 206, 1);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.seansonimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.style
+{
+    width: 100%;
+    height: 35vh;
+    min-height: 35vh;
+    text-align: center;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.mstyle{
+    width: 19%;
+    height: 100%;
+    min-height: 0vh;
+    text-align: center;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+
+}
+.mstyleimg{
+    
+    width: 100%;
+    height: 100%;
+    min-height: 40%;
+    position: relative;
+    
+}
+.mstyleimg1{
+        
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.mstyleprofileimg1{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 5%;
+    top: 1%;
+    transform: translate(-5%, -1%); 
+    border-radius: 50px;
+    border: 1px solid white;
+    
+}
+
+.mstyleid1{
+    color: white;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 3%;
+    top: 100%;
+    transform: translate(-3%, -60%); 
+    
+}
+
+.mstyleimg2{
+    
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.mstyleprofileimg2{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 5%;
+    top: 1%;
+    transform: translate(-5%, -1%); 
+    border-radius: 50px;
+    border: 1px solid white;
+    
+}
+
+.mstyleid2{
+    color: white;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 3%;
+    top: 100%;
+    transform: translate(-3%, -60%); 
+    
+}
+
+.mstyleimg3{
+    
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.mstyleprofileimg3{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 5%;
+    top: 1%;
+    transform: translate(-5%, -1%); 
+    border-radius: 50px;
+    border: 1px solid white;
+    
+}
+
+.mstyleid3{
+    color: white;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 3%;
+    top: 100%;
+    transform: translate(-3%, -60%); 
+    
+}
+
+.mstyleimg4{
+    
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.mstyleprofileimg4{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 5%;
+    top: 1%;
+    transform: translate(-5%, -1%); 
+    border-radius: 50px;
+    border: 1px solid white;
+    
+}
+
+.mstyleid4{
+    color: white;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 3%;
+    top: 100%;
+    transform: translate(-3%, -60%); 
+    
+}
+
+.mstyleimg5{
+    
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+}
+
+.mstyleprofileimg5{
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 5%;
+    top: 1%;
+    transform: translate(-5%, -1%); 
+    border-radius: 50px;
+    border: 1px solid white;
+    
+}
+
+.mstyleid5{
+    color: white;
+    position:absolute;
+    width: 50px;
+    height: 50px;
+    min-width: 10px;
+    min-height: 10px;
+    left: 3%;
+    top: 100%;
+    transform: translate(-3%, -60%); 
+    
+}
+
+
+.saleimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1saleimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(254, 229, 211, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.saleimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item2saleimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(222, 249, 255, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.saleimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3saleimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(246, 234, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.saleimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4saleimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(234, 245, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.saleimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5saleimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(247, 248, 206, 1);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.saleimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.rank
+{
+    
+    background-color: rgba(246, 235, 246, 1);
+    width: 100%;
+    height: 35vh;
+    min-height: 35vh;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.toprank{
+    width: 19%;
+    height: 100%;
+    position: relative;    
+}
+
+.rankimg{
+    top:5%;
+    right: 25%;
+    position:absolute;
+    width: 100%;
+    height: 70%;
+}
+.prankimg{
+    top:10%;
+    left: 20%;
+    position:absolute;
+    width: 78%;
+    height: 70%;  
+
+}
+
+.ranktxt{
+    font-size: 3vh;
+    width: 8vw;
+    height: 3vh;
+    left: 45%;
+    top: 5%;
+    position:absolute;
+    
+}
+.rankbrand{
+    font-size: 100%;
+    font-weight: bold;
+    text-align: right;
+    top: 75%;
+    left: 98%;
+    position:absolute;
+    transform: translate(-98%, -75%); 
+
+
+}
+.rankpname{
+    font-size: 1%;
+    text-align: left;
+    top: 82%;
+    left: 18%;
+    position:absolute;    
+}
+
+.first.rankimg{
+    background-image: url(/image/icon/rank1.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.first.prankimg{
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.second.rankimg{
+    background-image: url(/image/icon/rank2.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.second.prankimg{
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.third.rankimg{
+    background-image: url(/image/icon/rank3.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.third.prankimg{
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.fourth.rankimg{
+    background-image: url(/image/icon/rank4.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.fourth.prankimg{
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.fifth.rankimg{
+    background-image: url(/image/icon/rank5.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.fifth.prankimg{
+<<<<<<< HEAD
+=======
     background-image: url(../image/rank/rank5.png);
+>>>>>>> branch 'master' of https://github.com/yujunglove/thunderbolts.git
+>>>>>>> refs/heads/byounggit
     background-size:contain;
     background-attachment: local;
     background-position: center center;

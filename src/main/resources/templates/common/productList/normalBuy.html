@@ -7,30 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/list/normalBuyStyle.css" type="text/css">
+    <link rel="stylesheet" href="/css/list/orderHeader.css" type="text/css">
 </head>
 <body>
 
 
     <!-- 헤더 -->
-    <header id="header">
-      <div class="back">      
-
-        <div class="header_menu"> 홈 </div>
-        <div class="header_menu"> 로그인 </div>
-        <div class="header_menu"> 마이페이지 </div>
-        <div class="header_menu"> 고객센터 </div>
-        <div class="header_menuend"> 관심상품 </div>
-        
-        <div class="header_img"></div>
-
-
-        <div class="title22">
-          구매하기
-        </div>
-        
-
-      </div>
-    </header>
+	<div th:replace="common/header/orderHeader.html"></div>
 
 
 

@@ -19,7 +19,7 @@ body {
     background-color: #ECECEC;
     margin: 0;
   }
-
+/* 
   #header{
     height: 20vh;
     text-align: right;
@@ -40,9 +40,9 @@ body {
   text-align: center;
   margin-left: 65px;
   margin-top: -30px;
-  margin-bottom: -60px; /* 텍스트를 위로 20px 이동 */
+  margin-bottom: -60px; 텍스트를 위로 20px 이동
   font-weight: bold;
-  font-size: 200%; /* 상위 요소의 크기의 200%로 설정 */
+  font-size: 200%; 상위 요소의 크기의 200%로 설정
 }
 
 
@@ -77,17 +77,17 @@ body {
 } 
 
 .header_img{
-    /* position: absolute; */
+    position: absolute;
     width: 15vw;
     height: 5vw;
     top: 5vh;
     left: -2%;
     background: url(../img/로고글자.png);
     background-size:contain;
-    /* background-attachment: local; */
+    background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
-}
+} */
   
   
   

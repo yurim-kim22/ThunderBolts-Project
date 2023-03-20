@@ -49,3 +49,7 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+#login, #home, #mypage, #csmenu, #heartProduct{
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
