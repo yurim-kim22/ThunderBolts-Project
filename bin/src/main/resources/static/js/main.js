@@ -1,3 +1,4 @@
+window.onload = function() {
 /* 메인 베너 하다 버튼 이미지 클릭시 변경*/
 const $bannericon = document.getElementById('bannericon');
 $bannericon.addEventListener('click', e =>{
@@ -10,17 +11,6 @@ $bannericon.addEventListener('click', e =>{
   
 });
 
-/* 좌측 상단 카테고리 클릭시 진하게 및 밑줄 */
-/*const $main3 = document.getElementById('headermain3');
-$main3.addEventListener('click', e =>{
-    const $mainboldline = document.getElementsByClassName('boldline')
-    const $boldline = Array.from($mainboldline);
-    if(e.target.matches('.categorymenu, .categorymenu boldline')){
-        $boldline.forEach(c => c.className='categorymenu')
-        e.target.className = 'categorymenu boldline';
-    }
-  
-});*/
 /* 관심상품 클릭시 하트 이미지 변경*/
 $(document).ready(function(){}); 
 
@@ -35,3 +25,4 @@ $(".nextimg").on('click',function(){
     console.log($('#producthot'))    
     
 });
+}
