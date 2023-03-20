@@ -17,9 +17,10 @@ main{
 }
 
 input[type="text"], input[type="password"]{
+	display: block;
     border: none;
     border-bottom: 1px solid gray;
-    width: 100%;
+    width: 75%;
     font-size: 1vh;
     color: rgba(0, 0, 0, 0.5);
 }
@@ -37,21 +38,22 @@ input[type="text"], input[type="password"]{
 }
 
 form{
-	height:45%;
+	height:48%;
+	margin-left: 17%;
 }
 
 
 input[type="submit"]{
-	margin-left: 50%;
+	margin-left: 30%;
 	margin-top:0%;
-	height: 3vh;
-    border: 1px solid gray;
+	height: 4vh;
     width: 50%;
-    color: rgba(0, 0, 0, 0.5);
+    color: white;
     border-radius: 10px;
     font-size: 2vh;
     text-align: center;
-    transform: translate(-50%, -0%); 
+    transform: translate(-30%, -0%); 
+    background-color: #BA85D1;
 }
 
 .crud{
@@ -90,7 +92,7 @@ input[type="submit"]{
 	width:50%;
 	min-width:50%;
 	background-color: #03C75A;
-	border: 1.5px solid gray;
+
 	border-radius: 12px;
 	height:10%;
 	
@@ -127,7 +129,6 @@ input[type="submit"]{
 	min-width:50%;
 	margin-top: 1%;
 	background-color: #FEE500;
-	border: 1.5px solid gray;
 	border-radius: 12px;
 	
 	
