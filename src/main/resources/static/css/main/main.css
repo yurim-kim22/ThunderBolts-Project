@@ -854,6 +854,37 @@ main{
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+.styleNextimg{
+    background-image: url(/image/icon/next.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left:100%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+   
+}
+
+.stylePreimg{
+    background-image: url(/image/icon/pre.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left: 0%;
+    top: 50%;
+    z-index: 1;
+    transform: translate(0, -50%); 
+}
+
 .style
 {
     width: 100%;
@@ -864,11 +895,11 @@ main{
     position: relative;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-left: 1%;
+    padding-left: 2%;
     padding-right: 1%;
 }
 .mstyle{
-    width: 19%;
+    width: 18%;
     height: 100%;
     min-height: 0vh;
     text-align: center;
@@ -888,8 +919,8 @@ main{
     
 }
 .mstyleimg1{
-        
-    width: 100%;
+    margin-left:1%;    
+    width: 95%;
     height: 100%;
     background-size:cover;
     background-attachment: local;
@@ -931,7 +962,7 @@ main{
 
 .mstyleimg2{
     
-    width: 100%;
+    width: 95%;
     height: 100%;
     background-size:cover;
     background-attachment: local;
@@ -973,7 +1004,7 @@ main{
 
 .mstyleimg3{
     
-    width: 100%;
+    width: 95%;
     height: 100%;
     background-size:cover;
     background-attachment: local;
@@ -1015,7 +1046,7 @@ main{
 
 .mstyleimg4{
     
-    width: 100%;
+    width: 95%;
     height: 100%;
     background-size:cover;
     background-attachment: local;
@@ -1057,7 +1088,7 @@ main{
 
 .mstyleimg5{
     
-    width: 100%;
+    width: 95%;
     height: 100%;
     background-size:cover;
     background-attachment: local;
