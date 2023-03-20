@@ -18,7 +18,6 @@ $(".eheart").on('click', function(e){
     e.target.classList.toggle('heart')
 });
 
-
 /* 슬라이드 클릭시 변경 (작성중) */
 $(".nextimg").on('click',function(){
     

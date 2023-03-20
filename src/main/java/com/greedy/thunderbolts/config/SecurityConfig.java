@@ -44,8 +44,7 @@ public class SecurityConfig {
                 // 따라서 인가 오류 처리는 생략하였음
     			.and()
     				.build();
-    }
-	
+	}
 
 }
 
