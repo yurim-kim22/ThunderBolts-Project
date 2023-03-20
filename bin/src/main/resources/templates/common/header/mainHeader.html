@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-    <link href="css/header/mainheader.css" rel="stylesheet" type="text/css">
-    <script src="js/header.js" type="text/Javascript" defer></script>
+    <link href="/css/header/mainHeader.css" rel="stylesheet" type="text/css">
+    <script src="/js/mainHeader.js" type="text/Javascript" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" ></script>
-    <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
+  
 </head>
 <body>
     <header>
-    	<div id="headermain">
-            <div class="mainmenu"> 홈 </div>
-            <div class="mainmenu"> 로그인 </div>
-            <div class="mainmenu"> 마이페이지 </div>
-            <div class="mainmenu"> 고객센터 </div>
-            <div class="mainmenuend"> 관심상품 </div>
+    	<div id="headerMain">
+            <div class="mainmenu home" id="home"> 홈 </div>
+            <th:block sec:authorize="isAnonymous()">
+            <div class="mainmenu login" id="login"> 로그인 </div>
+            </th:block>
+            <th:block sec:authorize="isAuthenticated()">
+            <div class="mainmenu logout" id=logout> 로그아웃 </div>
+            </th:block>  
+            <div class="mainmenu mypage" id="mypage"> 마이페이지 </div>
+            <div class="mainmenu csmenu" id="csmenu"> 고객센터 </div>
+            <div class="mainmenuend heartProduct" id="heartProduct"> 관심상품 </div>
         </div>
     
         <div id="headermain2">

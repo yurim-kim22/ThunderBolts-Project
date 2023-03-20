@@ -29,7 +29,6 @@ main{
     width: auto;
     min-height: 60vh;
   
-    background: url(../image/banner/mainbanner1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -134,7 +133,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/men.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -151,7 +149,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/women.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -168,7 +165,6 @@ main{
     border-radius: 20% 20% 20% 20% / 30% 30% 30% 30%;
  
 
-    background: url(../image/category/brand.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -208,7 +204,7 @@ main{
 
 
 .eheart{
-    background-image: url(../image/icon/eheart.png);
+    background-image: url(/image/icon/eheart.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -223,7 +219,7 @@ main{
     transform: translate(-98%, -98%); 
 }
 .heart{
-    background-image: url(../image/icon/heart.png);
+    background-image: url(/image/icon/heart.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -268,7 +264,6 @@ main{
 
 .item1.hotimg{
  
-    background-image: url(../image/hotitem/hitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -303,7 +298,6 @@ main{
 }
 .item2.hotimg{
     
-    background-image: url(../image/hotitem/hitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -321,7 +315,6 @@ main{
 }
 .item3.hotimg{
   
-    background-image: url(../image/hotitem/hitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -339,7 +332,6 @@ main{
 }
 .item4.hotimg{
     
-    background-image: url(../image/hotitem/hitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -357,7 +349,6 @@ main{
 }
 .item5.hotimg{
   
-    background-image: url(../image/hotitem/hitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -365,7 +356,7 @@ main{
 }
 
 .nextimg{
-    background-image: url(../image/icon/next.png);
+    background-image: url(/image/icon/next.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -380,7 +371,7 @@ main{
 }
 
 .preimg{
-    background-image: url(../image/icon/pre.png);
+    background-image: url(/image/icon/pre.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -440,15 +431,104 @@ main{
 }
 
 .rbanner{
-    background-image: url(../image/banner/rsubbanner.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .lbanner{
-    background-image: url(../image/banner/lsubbanner.png);
     background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.newimg{
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+   
+}
+.item1newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(254, 229, 211, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 40%;
+    position: relative;
+}
+
+.item1.newimg{
+ 
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item2newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(222, 249, 255, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item2.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item3newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(246, 234, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item3.newimg{
+  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item4newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(234, 245, 249, 0.7);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item4.newimg{
+    
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.item5newimg{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(247, 248, 206, 1);
+    width: 80%;
+    height: 60%;
+    min-height: 60%;
+    position: relative;
+}
+.item5.newimg{
+  
+    background-size:contain;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
@@ -488,7 +568,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/balenciaga.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -508,7 +587,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/chanel.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -522,7 +600,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/apple.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -536,7 +613,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/stoneisland.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -550,7 +626,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/ami.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -564,7 +639,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/kitsune.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -578,7 +652,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/polo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -592,7 +665,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/heninox.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -606,7 +678,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/louis.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -620,7 +691,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/rolex.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -635,7 +705,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/lolo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -649,7 +718,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/gucci.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -663,7 +731,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/goyard.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -677,7 +744,6 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/kenzo.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -691,108 +757,12 @@ main{
     margin-left: 25%;
     width: 50%;
     height: 100%;
-    background-image: url(../image/brand/onitsuka.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-.newimg{
-    margin-top: 1%;
-    width: 100%;
-    height: 100%;
-   
-}
-.item1newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(254, 229, 211, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 40%;
-    position: relative;
-}
-
-.item1.newimg{
- 
-    background-image: url(../image/newitem/nitem1.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-.item2newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(222, 249, 255, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item2.newimg{
-    
-    background-image: url(../image/newitem/nitem2.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item3newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(246, 234, 249, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item3.newimg{
-  
-    background-image: url(../image/newitem/nitem3.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item4newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(234, 245, 249, 0.7);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item4.newimg{
-    
-    background-image: url(../image/newitem/nitem4.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.item5newimg{
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: rgba(247, 248, 206, 1);
-    width: 80%;
-    height: 60%;
-    min-height: 60%;
-    position: relative;
-}
-.item5.newimg{
-  
-    background-image: url(../image/newitem/nitem5.png);
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 .seansonimg{
     margin-top: 1%;
@@ -812,7 +782,6 @@ main{
 
 .item1.seansonimg{
  
-    background-image: url(../image/seasonitem/sitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -829,7 +798,6 @@ main{
 }
 .item2.seansonimg{
     
-    background-image: url(../image/seasonitem/sitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -847,7 +815,6 @@ main{
 }
 .item3.seansonimg{
   
-    background-image: url(../image/seasonitem/sitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -865,7 +832,6 @@ main{
 }
 .item4.seansonimg{
     
-    background-image: url(../image/seasonitem/sitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -883,7 +849,6 @@ main{
 }
 .item5.seansonimg{
   
-    background-image: url(../image/seasonitem/sitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -926,7 +891,6 @@ main{
         
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -935,7 +899,6 @@ main{
 }
 
 .mstyleprofileimg1{
-    background-image: url(../image/style/mstyleprofile1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -970,7 +933,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -979,7 +941,6 @@ main{
 }
 
 .mstyleprofileimg2{
-    background-image: url(../image/style/mstyleprofile2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1014,7 +975,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1023,7 +983,6 @@ main{
 }
 
 .mstyleprofileimg3{
-    background-image: url(../image/style/mstyleprofile3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1058,7 +1017,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1067,7 +1025,6 @@ main{
 }
 
 .mstyleprofileimg4{
-    background-image: url(../image/style/mstyleprofile4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1102,7 +1059,6 @@ main{
     
     width: 100%;
     height: 100%;
-    background-image: url(../image/style/mstyleimg5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1111,7 +1067,6 @@ main{
 }
 
 .mstyleprofileimg5{
-    background-image: url(../image/style/mstyleprofile5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
@@ -1161,7 +1116,6 @@ main{
 
 .item1.saleimg{
  
-    background-image: url(../image/saleitem/saleitem1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1178,7 +1132,6 @@ main{
 }
 .item2.saleimg{
     
-    background-image: url(../image/saleitem/saleitem2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1196,7 +1149,6 @@ main{
 }
 .item3.saleimg{
   
-    background-image: url(../image/saleitem/saleitem3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1214,7 +1166,6 @@ main{
 }
 .item4.saleimg{
     
-    background-image: url(../image/saleitem/saleitem4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1232,7 +1183,6 @@ main{
 }
 .item5.saleimg{
   
-    background-image: url(../image/saleitem/saleitem5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1305,14 +1255,13 @@ main{
 }
 
 .first.rankimg{
-    background-image: url(../image/icon/rank1.png);
+    background-image: url(/image/icon/rank1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .first.prankimg{
-    background-image: url(../image/rank/rank1.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1320,14 +1269,13 @@ main{
 }
 
 .second.rankimg{
-    background-image: url(../image/icon/rank2.png);
+    background-image: url(/image/icon/rank2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .second.prankimg{
-    background-image: url(../image/rank/rank2.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1335,14 +1283,13 @@ main{
 }
 
 .third.rankimg{
-    background-image: url(../image/icon/rank3.png);
+    background-image: url(/image/icon/rank3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .third.prankimg{
-    background-image: url(../image/rank/rank3.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1350,14 +1297,13 @@ main{
 }
 
 .fourth.rankimg{
-    background-image: url(../image/icon/rank4.png);
+    background-image: url(/image/icon/rank4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .fourth.prankimg{
-    background-image: url(../image/rank/rank4.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
@@ -1365,14 +1311,13 @@ main{
 }
 
 .fifth.rankimg{
-    background-image: url(../image/icon/rank5.png);
+    background-image: url(/image/icon/rank5.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .fifth.prankimg{
-    background-image: url(../image/rank/rank5.png);
     background-size:contain;
     background-attachment: local;
     background-position: center center;
