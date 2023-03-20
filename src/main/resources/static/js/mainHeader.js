@@ -27,7 +27,7 @@ $main3.addEventListener('click', e =>{
     if(document.getElementById("mypage")) {
         const $login = document.getElementById("mypage");
         $login.onclick = function() {
-            location.href = "/mypage/main";
+            location.href = "/mypage";
         }
     }
     
