@@ -15,7 +15,7 @@ header{
     min-height: 230px;
 }
 
-#headermain{
+#headerMain{
     text-align: right;
     padding-top: 2%;
     padding-right: 2%;
@@ -42,6 +42,10 @@ header{
     padding-left: 1%;
     padding-right: 1%;
 } 
+
+#login, #home, #mypage, #csmenu, #heartProduct{
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
 
 
 #headermain2{  

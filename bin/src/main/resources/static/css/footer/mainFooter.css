@@ -33,7 +33,7 @@ footer{
 }
 
 /* footer 가장 위쪽 */
-#foothead{
+#footHead{
    margin-bottom: 11vh;
 }
 
@@ -65,7 +65,7 @@ footer{
 }
 
 /* 우측 고객센터 양식*/
-.csmemo{
+.csMemo{
    margin-top: 1vh;
    padding-bottom: 1vh;
    position: absolute;
@@ -86,7 +86,7 @@ footer{
    padding-bottom: 1vh;
 }
 /* 우측 고객센터 하단 양식 */
-.csmemofoot{
+.csMemofoot{
    font-size: 1.5vh;
    font-weight: bold;
    padding-bottom: 1vh;
