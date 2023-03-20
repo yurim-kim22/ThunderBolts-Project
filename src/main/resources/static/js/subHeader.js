@@ -1,8 +1,8 @@
 window.onload = function() {
 
 	if(document.getElementById("home")) {
-        const $login = document.getElementById("home");
-        $login.onclick = function() {
+        const $home = document.getElementById("home");
+        $home.onclick = function() {
             location.href = "/";
         }
     }
@@ -13,4 +13,13 @@ window.onload = function() {
             location.href = "/login/main";
         }
     }
+
+   if(document.getElementById("mypage")) {
+        const $mypage = document.getElementById("mypage");
+        $mypage.onclick = function() {
+            location.href = "/mypage";
+        }
+    }
+    
+
 }

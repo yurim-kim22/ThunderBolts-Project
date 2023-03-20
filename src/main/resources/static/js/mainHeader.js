@@ -11,8 +11,8 @@ $main3.addEventListener('click', e =>{
   
 });
 	if(document.getElementById("home")) {
-        const $login = document.getElementById("home");
-        $login.onclick = function() {
+        const $home = document.getElementById("home");
+        $home.onclick = function() {
             location.href = "/";
         }
     }
@@ -23,4 +23,13 @@ $main3.addEventListener('click', e =>{
             location.href = "/login/main";
         }
     }
+    
+    if(document.getElementById("mypage")) {
+        const $mypage = document.getElementById("mypage");
+        $mypage.onclick = function() {
+            location.href = "/mypage";
+        }
+    }
+    
+
 }
