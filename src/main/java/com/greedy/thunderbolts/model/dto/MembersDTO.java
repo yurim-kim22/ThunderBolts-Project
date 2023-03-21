@@ -38,7 +38,7 @@ public class MembersDTO implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return userId;
+		return null;
 	}
 	@Override
 	public boolean isAccountNonExpired() {
