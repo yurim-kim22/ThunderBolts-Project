@@ -13,10 +13,13 @@ window.onload = function() {
             location.href = "/login/main";
         }
     }
+<<<<<<< HEAD
+=======
         if(document.getElementById("mypage")) {
         const $login = document.getElementById("mypage");
         $login.onclick = function() {
             location.href = "/mypage/main";
         }
     }
+>>>>>>> refs/heads/byounggit
 }

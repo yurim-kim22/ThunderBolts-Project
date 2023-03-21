@@ -23,6 +23,8 @@ $main3.addEventListener('click', e =>{
             location.href = "/login/main";
         }
     }
+<<<<<<< HEAD
+=======
     
     if(document.getElementById("mypage")) {
         const $login = document.getElementById("mypage");
@@ -37,4 +39,5 @@ $main3.addEventListener('click', e =>{
             location.href = "/login/main";
         }
     }
+>>>>>>> refs/heads/byounggit
 }

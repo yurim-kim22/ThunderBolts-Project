@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.MypageMapper">
+
+  <resultMap id="buyListResultMap" type="com.greedy.thunderbolts.model.dto.BuyListDTO">
+    <result property="productName" column="PRODUCT_NAME"/>
+    <result property="orderDate" column="ORDERS_DATE"/>
+    <result property="orderStatus" column="ORDERS_STATUS"/>
+  </resultMap>
+  
+  <select id="selectBuyList" resultMap="buyListResultMap">
+    SELECT 
+        P.PRODUCT_NAME
+      , O.ORDERS_DATE
+      , O.ORDERS_STATUS
+      <!-- ,F.FILE_PATH -->
+    FROM PRODUCT P
+    JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
+    JOIN BUYING_ORDERS B ON (B.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
+    JOIN ORDERS O ON (O.BUYING_ORDER_CODE = B.BUYING_ORDER_CODE)
+    <!-- LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE) -->
+    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
+    WHERE M.MEMBERS_ID = 'jj417hom2000@naver.com'  
+  </select>
+
+
+</mapper>

@@ -10,7 +10,7 @@ public class DetailPage {
 	
 	@GetMapping("/main")
 	public String DetailPageMain() {
-		
+		 
 		return "/detail/detailMain";
 	}
 	
