@@ -40,8 +40,8 @@ public class SecurityConfig {
                     .loginPage("/login/Main")             
                     .defaultSuccessUrl("/")  
                     .failureForwardUrl("/login/Main")
-                    .usernameParameter("userId")			// 아이디 파라미터명 설정 기본값 username에서 변경
-                    .passwordParameter("userPwd")			// 패스워드 파라미터명 설정 기본값 password에서 변경
+                    .usernameParameter("membersId")			// 아이디 파라미터명 설정 기본값 username에서 변경
+                    .passwordParameter("membersPwd")			// 패스워드 파라미터명 설정 기본값 password에서 변경
                 .and()
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/login/logout"))

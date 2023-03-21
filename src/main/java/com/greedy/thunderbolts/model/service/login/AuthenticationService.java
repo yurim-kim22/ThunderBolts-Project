@@ -20,14 +20,14 @@ public class AuthenticationService implements UserDetailsService {
     }
 
     @Override	
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String membersId) throws UsernameNotFoundException {
 
    
-        log.info("[AuthenticationService] memberId : {}", userId);
+        log.info("[AuthenticationService] memberId : {}", membersId);
 
-        MembersDTO member = mapper.findByMemberId(userId);
+        MembersDTO member = mapper.findByMemberId(membersId);
 
-        log.info("[AuthenticationService] member : {}", member);
+        log.info("[AuthenticationService] member : {}", membersId);
 
         if(member == null){
             throw new UsernameNotFoundException("회원 정보가 존재하지 않습니다");

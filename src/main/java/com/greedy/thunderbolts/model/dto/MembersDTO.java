@@ -2,9 +2,12 @@ package com.greedy.thunderbolts.model.dto;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,37 +30,40 @@ public class MembersDTO implements UserDetails {
 	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+	
+		 Set<GrantedAuthority> roles = new HashSet<>();
+	        for(AuthRoleDTO role : authRoleList) {
+	        	roles.add(new SimpleGrantedAuthority(role.getAuth().getName()));
+	        }
+	        return roles;
 	}
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
+		return membersPwd;
 	}
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return membersId;
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return true;
 	}
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return true;
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return true;
 	}
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return true;
 	}  
 }
