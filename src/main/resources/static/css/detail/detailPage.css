@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
 main{
 	width: 60vw; 
     margin: 0 auto;
@@ -184,8 +193,8 @@ main{
 
 
 .buyorderpricetxt, .saleorderpricetxt{
-
-	font-size: 10%
+	font-size: 10%;
+	padding-bottom: 10%;
 }
 
 
@@ -235,7 +244,10 @@ main{
     transform: translate(0, -50%); 
 }
 
+.deliveryBoard {
+	margin-top:3%;
 
+}
 
 .deliveryIcon {
 	width: 40px;
@@ -249,6 +261,7 @@ main{
 	margin-right: 3%;
 }
 .deliveryTitle{
+	font-weight:600;
 	font-size: 110%;
 	margin-bottom: 2%;
 }
@@ -267,6 +280,82 @@ main{
     margin: 0 auto;
     height: 60vh;
 }
+
+.noticeTitle {
+	margin-top: 3%;
+	font-size: 120%;
+	font-weight: 600;
+	height: 40px;
+	border-bottom: 1px solid gray;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.deliveryNoticeTitle, .checkNoticeTitle, .buyNoticeTitle{
+	margin-top: 3%;
+	font-size: 110%;
+	border-bottom: 1px solid gray;
+	height: 40px;
+	position: relative;
+}
+
+.deliveryNoticeContent, .checkNoticeContent, .buyNoticeContent{
+	color : gray;
+}
+.contentTitle{
+	
+	color : black;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	
+}
+
+.contentName{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.contentText{
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+
+.downImg{
+   background-image: url(/image/icon/down.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left: 100%;
+    top: 40px;
+    transform: translate(-100%, -40px); 
+}
+
+
+.upImg{
+   background-image: url(/image/icon/up.png);
+    background-size:cover;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 30px;
+    height: 30px;
+    left: 100%;
+    top: 40px;
+    transform: translate(-100%, -40px); 
+}
+
+.deliveryNoticeContent, .checkNoticeContent, .buyNoticeContent{
+	display:none;
+}
+
 
 .styleTitle{
     width: 100%;

@@ -45,15 +45,16 @@ form {
 }
 
 input[type="submit"] {
-	margin-left: 30%;
+	border: 0px;
+	margin-left: 25%;
 	margin-top: 0%;
 	height: 4vh;
-	width: 50%;
+	width: 60%;
 	color: white;
 	border-radius: 10px;
 	font-size: 2vh;
 	text-align: center;
-	transform: translate(-30%, -0%);
+	transform: translate(-25%, -0%);
 	background-color: #BA85D1;
 }
 

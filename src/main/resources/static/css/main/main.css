@@ -37,6 +37,7 @@ main{
 
 #bannericon{
     margin: 0;
+    padding:10px;
     height: 100%;
     width: 100%;
     background-color: #DCC0E8;
@@ -48,18 +49,20 @@ main{
 
 }
 
-#bannericon .bannerbutton{
-    margin-right: 1%;
-    margin-left: 1%;   
-    margin-top: 0.5vh;
-}
-#bannericon .bannerbutton button{
+
+#bannericon>.bannerbutton{
     
     width: 20px;
     height: 20px;
     border: 1px solid white;
     background-color: white;
     border-radius: 50%;
+    
+}
+.bannerbutton{
+    margin-right: 1%;
+    margin-left: 1%;   
+
 }
 
 #bannericon>.button{
@@ -76,8 +79,10 @@ main{
 .button{
     margin-right: 1%;
     margin-left: 1%;   
-    margin-top: 0.5vh; 
+
 }
+
+
 /* main body */
 #bodymainbody{
 
