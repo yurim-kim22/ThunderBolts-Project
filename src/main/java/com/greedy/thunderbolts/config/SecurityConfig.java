@@ -10,9 +10,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.greedy.thunderbolts.model.service.login.AuthenticationService;
+
 @EnableWebSecurity
 public class SecurityConfig {
 	
+	private final AuthenticationService authenticationService;
+	
+	public SecurityConfig(AuthenticationService authenticationService) {
+		this.authenticationService = authenticationService;
+	}
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -25,14 +32,14 @@ public class SecurityConfig {
         return http
         		.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/board/**", "/thumbnail/**", "/member/update", "/member/delete").hasRole("MEMBER")
+                .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
                 // 관리자만 사용 가능한 기능은 현재는 없음
                 .anyRequest().permitAll()
                 .and()
                     .formLogin()
                     .loginPage("/login/Main")             
                     .defaultSuccessUrl("/")  
-                    .failureForwardUrl("/login/loginfail")
+                    .failureForwardUrl("/login/Main")
                     .usernameParameter("userId")			// 아이디 파라미터명 설정 기본값 username에서 변경
                     .passwordParameter("userPwd")			// 패스워드 파라미터명 설정 기본값 password에서 변경
                 .and()
@@ -45,6 +52,17 @@ public class SecurityConfig {
     			.and()
     				.build();
 	}
+	
+	@Bean
+	public AuthenticationManager authManager(HttpSecurity http) throws Exception {
+		
+		return http.getSharedObject(AuthenticationManagerBuilder.class)
+				   .userDetailsService(authenticationService)
+				   .passwordEncoder(passwordEncoder())
+				   .and()
+				   .build();
+	}
+
 
 }
 

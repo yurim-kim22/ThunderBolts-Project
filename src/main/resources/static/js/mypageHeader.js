@@ -21,11 +21,18 @@ window.onload = function() {
         }
     }
     
-       if(document.getElementById("header_img")) {
-        const $mypage = document.getElementById("header_img");
-        $mypage.onclick = function() {
+
+	if(document.getElementById("header_img")) {
+        const $header_img = document.getElementById("header_img");
+        $header_img.onclick = function() {
             location.href = "/";
         }
     }
-
+	
+	if(document.getElementById("heartProduct")) {
+        const $heartProduct = document.getElementById("heartProduct");
+        $heartProduct.onclick = function() {
+            location.href = "/mypage/wish";
+        }
+    }
 }
