@@ -15,6 +15,7 @@ public class MypageController {
 		return "mypage/mypageMain";
 	}
 	
+	
 	//마이페이지 관심상품
 	@GetMapping("/wish")
 	public String wish(){
