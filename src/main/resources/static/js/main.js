@@ -1,5 +1,5 @@
-$(document).ready(function() { });
 
+$(document).ready(function() { });
 
 
 if (document.getElementById('bannericon')) {
@@ -22,15 +22,59 @@ $(".eheart").on('click', function(e) {
 	e.target.classList.toggle('heart')
 });
 
-/* 슬라이드 클릭시 변경 (작성중) */
-console.log($('#producthot'));
+/* 슬라이드 클릭시 변경 */
 
-$('#producthot').Slick({
-	infinite: true,
-	slidesToShow: 3,
-	slidesToScroll: 3
+$('#producthot').slick({
+	
+infinite: true,
+	slidesToShow: 5	,
+	slidesToScroll: 1,
+	initialSlide : 0,
+	arrows:true,
+    nextArrow: "<i class='nextimg'></i>",
+	prevArrow: "<i class='preimg'></i>"
 });
 
+$('#productNew').slick({
+	
+infinite: true,
+	slidesToShow: 5	,
+	slidesToScroll: 1,
+	initialSlide : 0,
+	arrows:true,
+    nextArrow: "<i class='nextimg'></i>", 
+	prevArrow: "<i class='preimg'></i>"
+});
 
+$('#productSeason').slick({
+	
+infinite: true,
+	slidesToShow: 5	,
+	slidesToScroll: 1,
+	initialSlide : 0,
+	arrows:true,
+    nextArrow: "<i class='nextimg'></i>", 
+	prevArrow: "<i class='preimg'></i>" 
+});
 
+$('#style').slick({
+	
+infinite: true,
+	slidesToShow: 5	,
+	slidesToScroll: 1,
+	initialSlide : 0,
+	arrows:true,
+    nextArrow: "<i class='styleNextimg'></i>",
+	prevArrow: "<i class='stylePreimg'></i>"
+});
 
+$('#productSale').slick({
+	
+infinite: true,
+	slidesToShow: 5	,
+	slidesToScroll: 1,
+	initialSlide : 0,
+	arrows:true,
+    nextArrow: "<i class='nextimg'></i>", 
+	prevArrow: "<i class='preimg'></i>"
+});

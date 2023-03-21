@@ -7,7 +7,6 @@
     <title>main</title>
     <link href="/css/main/main.css" rel="stylesheet" type="text/css">
     <script src="/js/main.js" type="text/Javascript" defer></script>
-    <script src="/js/mainSlick.js" type="text/Javascript" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
  	 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
@@ -43,8 +42,8 @@
             </div>
             <div class="maintitle name">🔥 요즘 뜨는 핫 상품 🔥</div>
             <div class="product" id="producthot">
-                <i class="preimg"></i>
-                <div class="pro item1">
+          
+                <div class="pro item1">	
                     <div class="item1hotimg">
                         <div class="item1 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem1.png)"></div>
                         <i class="eheart"></i>
@@ -99,15 +98,24 @@
                         <div class="item5 price">1,062,200</div>
                     </div>
                 </div>
-                <i class="nextimg"></i>
+                <div class="pro item5">
+                    <div class="item5hotimg">
+                        <div class="item5 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Maison Margiela</div>
+                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
+                        <div class="item5 price">1,062,200</div>
+                    </div>
+                </div>
             </div>
             <div class="subbanner">
                 <div class="rbanner" style="background-image: url(/upload/image/main/banner/rsubbanner.png)"></div>
                 <div class="lbanner" style="background-image: url(/upload/image/main/banner/lsubbanner.png)"></div>
             </div>
             <div class="maintitle name">⭐New In</div>
-            <div class="product">
-                <i class="preimg"></i>
+            <div class="product" id="productNew">
                 <div class="pro item1">
                     <div class="item1newimg">
                         <div class="item1 newimg" style="background-image: url(/upload/image/main/newitem/nitem1.png)"></div>
@@ -163,7 +171,17 @@
                         <div class="item5 price">-</div>
                     </div>
                 </div>
-                <i class="nextimg"></i>
+                    <div class="pro item5">
+                    <div class="item5newimg">
+                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Bandai</div>
+                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
+                        <div class="item5 price">-</div>
+                    </div>
+                </div>
             </div>
             <div class="maintitle name">추천 브랜드</div>
             <div class="product">
@@ -290,8 +308,7 @@
                 
             </div>
             <div class="maintitle name">설레이는 봄🌷 추천 상품과 함께...</div>
-            <div class="product">
-                <i class="preimg"></i>
+            <div class="product" id="productSeason">
                 <div class="pro item1">
                     <div class="item1seansonimg">
                         <div class="item1 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem1.png)"></div>
@@ -347,11 +364,20 @@
                         <div class="item5 price">465,000</div>
                     </div>
                 </div>
-                <i class="nextimg"></i>
+                <div class="pro item5">
+                    <div class="item5seansonimg">
+                        <div class="item5 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Telfar</div>
+                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
+                        <div class="item5 price">465,000</div>
+                    </div>
+                </div>
             </div>
             <div class="maintitle name">Style Picks!</div>
-            <div class="style">
-                <i class="stylePreimg"></i>
+            <div class="style" id="style">
                 <div class="mstyle">
                     <div class="mstyleimg">
                         <div class="mstyleimg1" style="background-image: url(/upload/image/main/style/mstyleimg1.png)"></div>
@@ -407,12 +433,20 @@
                         <div class="mstyleid5">yejida</div>
                     </div>
                 </div>
-              
-                <i class="styleNextimg"></i>
+                 <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg5" style="background-image: url(/upload/image/main/style/mstyleimg5.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg5" style="background-image: url(/upload/image/main/style/mstyleprofile5.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid5">yejida</div>
+                    </div>
+                </div>
             </div>
             <div class="maintitle name">Sale!</div>
-            <div class="product">
-                <i class="preimg"></i>
+            <div class="product" id="productSale">
                 <div class="pro item1">
                     <div class="item1saleimg">
                         <div class="item1 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem1.png)"></div>
@@ -468,7 +502,6 @@
                         <div class="item5 price">1,186,200</div>
                     </div>
                 </div>
-                <i class="nextimg"></i>
             </div>
             <div class="maintitle name">🥇Best 랭킹</div>
             <div class="rank">
