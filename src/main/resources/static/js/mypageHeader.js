@@ -21,5 +21,11 @@ window.onload = function() {
         }
     }
     
+       if(document.getElementById("header_img")) {
+        const $mypage = document.getElementById("header_img");
+        $mypage.onclick = function() {
+            location.href = "/";
+        }
+    }
 
 }

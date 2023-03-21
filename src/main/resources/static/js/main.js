@@ -27,7 +27,7 @@ if (document.getElementById('bannericon')) {
 };
 
 
-
+/* 메인 베너 2초마다 변경 */
 let countNum = 0;
 function bannerNext(){
 	
