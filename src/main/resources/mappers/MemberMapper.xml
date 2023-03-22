@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.MemberMapper">
+	
+	
+	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="membersId" column="MEMBERS_ID"/>
+		<result property="membersPwd" column="MEMBERS_PWD"/>
+		<result property="membersTel" column="MEMBERS_TEL"/>
+		<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
+		<result property="membersEntire" column="MEMBERS_ENTIRE"/>
+	
+		<!-- 1 대 다 관계로 memberDTO 1개에 memberRoleList는 여러개일수 있다.-->
+		<collection property="authRoleList" resultMap="authRoleResultMap"/>
+	</resultMap>
 
 
+	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="authNum" column="AUTH_NUM"/>
+		<association property="auth" resultMap="authResultMap"/>
+
+	</resultMap>
+	
+		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
+		<id property="num" column="AUTH_NUM"/>
+		<result property="name" column="AUTH_NAME"/>
+		<result property="ko" column="AUTH_KO"/>
+	</resultMap>	
 
 
-<select id="findByMemberId" resultMap="memberResultMap">
+<select id="findByMemberId" resultMap="membersResultMap">
         SELECT
-               A.MEMBER_NO
-		     , A.MEMBER_ID
-             , A.MEMBER_PWD
-		     , A.NICKNAME
-		     , A.PHONE
-		     , A.EMAIL
-		     , A.ADDRESS
-		     , A.ENROLL_DATE
-		     , A.MEMBER_STATUS
-		     , B.MEMBER_NO REF_MEMBER_NO
-		     , B.AUTHORITY_CODE REF_AUTHORITY_CODE
-		     , C.AUTHORITY_CODE REF_AUTHORITY_CODE2
-		     , C.AUTHORITY_NAME
-		     , C.AUTHORITY_DESC
-          FROM TBL_MEMBER A
-          LEFT JOIN TBL_MEMBER_ROLE B ON (A.MEMBER_NO = B.MEMBER_NO)
-		  LEFT JOIN TBL_AUTHORITY C ON (B.AUTHORITY_CODE = C.AUTHORITY_CODE)
-         WHERE A.MEMBER_STATUS = 'Y'
-           AND A.MEMBER_ID = #{ memberId }
+               A.MEMBERS_NO
+		     , A.MEMBERS_ID
+             , A.MEMBERS_PWD
+		     , A.MEMBERS_TEL
+		     , A.MEMBERS_REG_DATE
+		     , A.MEMBERS_ENTIRE
+		     , B.MEMBERS_NO REF_MEMBERS_NO
+		     , B.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NAME
+		     , C.AUTH_KO
+          FROM MEMBERS A
+          LEFT JOIN AUTH_ROLE B ON (A.MEMBERS_NO = B.MEMBERS_NO)
+		  LEFT JOIN AUTH C ON (B.AUTH_NUM = C.AUTH_NUM)
+         WHERE A.MEMBERS_ENTIRE = 'Y'
+           AND A.MEMBERS_ID = #{ memberId }
     </select>
 
 </mapper>

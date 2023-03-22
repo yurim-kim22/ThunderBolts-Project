@@ -16,7 +16,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class MembersDTO implements UserDetails {
 	private int membersNo;
 	private String membersName;
