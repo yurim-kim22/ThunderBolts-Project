@@ -7,8 +7,6 @@
     <title>login</title>
     <link href="/css/login/login.css" rel="stylesheet" type="text/css">
     <script src="/js/loginMain.js" type="text/Javascript" defer></script>
-	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
 	
 	<script>
@@ -28,7 +26,7 @@
             </div>
             <div class="password">
                 <label>비밀번호</label>
-            <input type="password" id="pw1" name="membersPwd">
+            <input type="password" id="pw1" name="membersPwd"  autocomplete="off">
            	 <div class="loginfalse" id="pw1check">영문,숫자,특수문자를 조합해서 입력해주세요(6~16자)</div>
             </div>
             <div>
@@ -42,19 +40,18 @@
 		</div>
 		
 		<div class="snslogin">
-			<div id="naverIdLogin"></div>
-			<div id="naverLogin">
-			<img class="navericonG" src="/image/icon/niconG.png">
+			<div id="naverIdLogin">
+			<div class="nicon"><img class="navericonG" src="/image/icon/niconG.png"></div>
 			<div class=navertxt>네이버 로그인</div>
 			</div>
-			<div id="kakaoIdLogin"></div>
-			<div id="kakaoLogin">
+			<div id="kakaoIdLogin">
+			
 			<img class="kakaoicon" src="/image/icon/kicon.png">
 			</div>
-			
 		</div>
-
-    </main>
+			
+		
+</main>
    	<div th:replace="common/footer/mainFooter.html"></div>
 </body>
 </html>

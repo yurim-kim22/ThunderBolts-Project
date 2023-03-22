@@ -78,13 +78,11 @@ input[type="submit"] {
 	text-align: center;
 }
 
-#naverIdLogin {
-	display: none;
-}
 
-#naverLogin {
+
+#naverIdLogin {
 	position: relative;
-	display: inline-block;
+	display: inline-flex;
 	text-align: left;
 	margin-top: 3%;
 	width: 50%;
@@ -92,30 +90,37 @@ input[type="submit"] {
 	background-color: #03C75A;
 	border-radius: 12px;
 	height: 10%;
+	justify-content: flex-start;
+	
+}
+
+.nicon{
+	display: inline-block;
+    width: 39%;
 }
 
 .navertxt {
-	position: absolute;
-	display: inline-block;
+	/* position:absolute; */
+	/* display: inline-block; */
 	font-size: 0.8vw;
-	color: white;
-	width: 60%;
-	left: 60%;
-	top: 50%;
-	text-align: center;
-	transform: translate(-60%, -50%);
+    color: white;
+    width: 60%;
+    left: 60%;
+    top: 50%;
+    text-align: inherit;
+	transform: translate(5%, 20%);
 }
 
 .navericonG {
-	margin-left: 12%;
+	margin-left: 28%;
 	margin-top: 1%;
 	display: inline-block;
 	text-align: center;
-	width: 10%;
+	width: 30%;
 	min-width: 10%;
 }
 
-#kakaoLogin {
+ #kakaoIdLogin{
 	position: relative;
 	display: inline-block;
 	text-align: center;

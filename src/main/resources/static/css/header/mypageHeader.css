@@ -59,6 +59,7 @@
     background-repeat: no-repeat;
 }
 
-#login, #home, #mypage, #csmenu, #heartProduct{
+#login, #home, #mypage, #csmenu, #heartProduct, #logout, #header_img{
  	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
 }

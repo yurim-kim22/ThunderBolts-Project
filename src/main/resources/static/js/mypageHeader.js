@@ -10,7 +10,7 @@ window.onload = function() {
 	if(document.getElementById("login")) {
         const $login = document.getElementById("login");
         $login.onclick = function() {
-            location.href = "/login/main";
+            location.href = "/login/Main";
         }
     }
 
@@ -18,6 +18,13 @@ window.onload = function() {
         const $mypage = document.getElementById("mypage");
         $mypage.onclick = function() {
             location.href = "/mypage";
+        }
+    }
+    
+        if(document.getElementById("logout")) {
+        const $logout = document.getElementById("logout");
+        $logout.onclick = function() {
+            location.href = "/login/logout";
         }
     }
     
