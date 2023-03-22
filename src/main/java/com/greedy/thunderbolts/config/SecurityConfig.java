@@ -32,14 +32,14 @@ public class SecurityConfig {
         return http
         		.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
+//                .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
                 // 관리자만 사용 가능한 기능은 현재는 없음
                 .anyRequest().permitAll()
                 .and()
                     .formLogin()
                     .loginPage("/login/Main")             
                     .defaultSuccessUrl("/")  
-                    .failureForwardUrl("/login/Main")
+                    .failureForwardUrl("/login/false")
                     .usernameParameter("membersId")			// 아이디 파라미터명 설정 기본값 username에서 변경
                     .passwordParameter("membersPwd")			// 패스워드 파라미터명 설정 기본값 password에서 변경
                 .and()

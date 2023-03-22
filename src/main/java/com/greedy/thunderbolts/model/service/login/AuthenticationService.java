@@ -27,7 +27,7 @@ public class AuthenticationService implements UserDetailsService {
 
         MembersDTO member = mapper.findByMemberId(membersId);
 
-        log.info("[AuthenticationService] member : {}", membersId);
+        log.info("[AuthenticationService] member : {}", member);
 
         if(member == null){
             throw new UsernameNotFoundException("회원 정보가 존재하지 않습니다");

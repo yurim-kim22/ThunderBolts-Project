@@ -23,7 +23,7 @@ public class MembersDTO implements UserDetails {
 	private String membersPwd;
 	private int membersTel;
 	private Date membersRegDate;
-	private int membersEntire;
+	private String membersEntire;
 	private List<AuthRoleDTO> authRoleList;
 	
 	@JsonIgnore
