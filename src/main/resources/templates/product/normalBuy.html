@@ -12,202 +12,118 @@
 <body>
 
     <!-- 헤더 -->
-	<div th:replace="common/header/orderHeader.html"></div>
+    	<div th:replace="common/header/orderHeader.html"></div>
 
 
-  <section id="section03">
-    <form id="selectForm" action="/list/normalBuy" method="post">
+
+<form id="selectForm" action="/list/normalBuy" method="post">
+    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
+    <div class="box" style="display: block;">
+        <span th:each="product : ${productList}">
+            <span th:each="productOption: ${product.productOption}">
+                  <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
+			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no} (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" >220</b></p>
+			        <a style="line-height: 0.5; color: rgb(9, 120, 9);" th:href="@{/list/normalBuy2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
+			      </div>
+            </span>
+        </span>  
+    </div>
+</form>
+
+
+         <!--    <span th:each="productOption : ${product.productOption}">
+                <span th:switch="${productOption.productOptionSize}">
+                    <span th:case="'220'">
+                        <input type="hidden" name="sellingOrderNo" th:value="${productOption.sellingOrders[0].sellingOrderNo}">
+                        <span th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}" 
+                              th:onclick="|location.href='/list/buyAgree?no=${productOption.sellingOrders[0].sellingOrderNo}'|"></span>
+                    </span>
+                </span>
+            </span>
+        </span> -->
+    </div>
+    <button type="submit" id="buyBtn" class="btn btn-primary" disabled>구매하기</button>
+</form>
+
+  
+  
+  
+ <section id="section03">
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
-
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div class="info" style="text-align: left;">
-       <div th:each="product : ${ productList }">
+    <div th:each="product : ${ productList }">
 		  <p style="margin: 0;" th:text="${ product.productCode }"></p>
-   		  <p style="margin: 0;" th:text="${ product.productName }"></p>
+		  <p style="margin: 0;" th:text="${ product.productName }"></p>
 		  <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
 	</div>
-    </div>
+	</div>
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-    
+     
     <div class="container">
       <div class="box" style="display: block;">
         <p style="line-height: 0.5;"><b>220</b></p>
-      <span th:each="productOption : ${product.productOption}"> 
-   			<span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
- 	 		<span th:if="${productOption.productOptionSize} == '220'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}">
-		<span th:unless="${productOption.productOptionSize} == '220'">null
-  	</span>
-  	</span>
-  	</span>
-      </span>
+        <div th:each="product : ${ productList }">
+       <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
       </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
       </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-      
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
+     
 
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
-      
-      </div>
-    
+<!-- 1.div
+2.필요한 정보들(판매의향서 번호만 넘겨야 한다.)
+3.넘길때 폼태 -->
+  <form id="selectForm" action="/list/normalBuy" method="post">
+<div class="box" style="display: block;">
+    <p style="line-height: 0.5;"><b>220</b></p>
+    <span th:each="product : ${productList}">
+        <span th:each="productOption : ${product.productOption}">
+            <span th:switch="${productOption.productOptionSize}">
+                <span th:case="'220'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}">
+                    <input type="hidden" name="productPrice" th:value="${productOption.sellingOrders[0].sellingOrderPrice}">
+                </span>
+                </span>
+            </span>
+        </span>
+</div> 
+</form>
 
 
     </div>
 
       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
-      <button id="my-button">
+   <!-- <button id="my-button">
         즉시 판매 계속
-      </button>
-    </form>
+      </button> -->   
 </section>
-
 <script>
-  var boxes = document.querySelectorAll('.box');
-  var selectedBox = document.querySelector('.selected');
+function updateButtonStatus() {
+	  const myButton = document.getElementById('buyBtn');  // id를 buyBtn으로 수정
+	  const selectedBox = document.querySelector('.selected');
+	  const sellingOrderNo = document.querySelector('input[name=sellingOrderNo]');  // 수정
 
-  function updateButtonStatus() {
-    const myButton = document.getElementById('my-button');
-    const selectedBox = document.querySelector('.selected');
-    if (selectedBox) {
-      myButton.style.opacity = 1;
-      myButton.style.pointerEvents = 'auto';
-      myButton.onclick = function () {
-        window.location.href = 'https://www.google.com';
-      };
-    } else {
-      myButton.style.opacity = 0.5;
-      myButton.style.pointerEvents = 'none';
-      myButton.onclick = null;
-    }
-  }
+	  if (selectedBox) {
+	    myButton.style.opacity = 1;
+	    myButton.style.pointerEvents = 'auto';
 
-  boxes.forEach(function (box) {
-    box.addEventListener('click', function () {
-      if (selectedBox !== null) {
-        selectedBox.classList.remove('selected');
-      }
+	    sellingOrderNo.value = selectedBox.querySelector('p').textContent;  // 수정
+	  } else {
+	    myButton.style.opacity = 0.5;
+	    myButton.style.pointerEvents = 'none';
 
-      if (selectedBox !== this) {
-        this.classList.add('selected');
-        selectedBox = this;
-      } else {
-        selectedBox = null;
-      }
+	    sellingOrderNo.value = '';
+	  }
 
-      updateButtonStatus();
-    });
-  });
+	  myButton.onclick = function () {
+	    document.getElementById('selectForm').submit();  // 수정
+	  };
+	}
 
-  updateButtonStatus();
 </script>
+
   </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.greedy.thunderbolts.model.dto.ProductDTO;
+import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -41,6 +42,18 @@ public class BuySellListController {
 		return "product/list";
 	}
 	
+	@PostMapping("/index")
+	public String productList(
+	    @RequestParam("sellingOrderNo") int sellingOrderNo,
+	    Model model1) {
+	    log.info("구매 요청: sellingOrderNo=" + sellingOrderNo); // 로그 출력
+	    
+	    // 구매 처리 로직 구현
+	    
+	    return "agreeAtc/buyAgree";
+	}
+
+	
 	@GetMapping("/normalBuy")
 	public String normalBuy(Model model){
 		List<ProductDTO> productList = listService.findProduct();
@@ -48,6 +61,13 @@ public class BuySellListController {
 		
 		//로그찍어보기
 		log.info("productList : {}", productList);
+		
+		for (ProductDTO product : productList) {
+			log.info(product.toString());
+			for (ProductOptionDTO option : product.getProductOption()) {
+				log.info(option.getSellingOrders().toString());
+			}
+		}
 		
 		//
 		model.addAttribute("productList",productList);
@@ -60,26 +80,16 @@ public class BuySellListController {
 		return "product/normalBuy";
 		
 	}
-	@PostMapping("/normalBuy")
-	public String normalBuy(@RequestParam("productCode") int productCode,
-	                        @RequestParam("productName") String productName,
-	                        @RequestParam("productNameKr") String productNameKr,
-	                        @RequestParam("productOptionSize") String productOptionSize,
-	                        @RequestParam("productPrice") int productPrice,
-	                       	Model model) {
-	    log.info("Selected product information : productCode={}, productName={}, productNameKr={},productOptionSize={},productPrice={}",
-	             productCode, productName, productNameKr, productOptionSize,productPrice);
+	@GetMapping("/normalBuy2")
+	public String normalBuy(
+	                        @RequestParam("sellingOrderNo") int sellingOrderNo, //보내는 친구
+	                        Model model) {
+		System.out.println("구매 요청: sellingOrderNo=" + sellingOrderNo);
+	    // 구매 처리 로직 구현
 	    
-	    model.addAttribute("productCode", productCode);
-	    model.addAttribute("productName", productName);
-	    model.addAttribute("productNameKr", productNameKr);
-	    
-	    //여기를이렇게적어야할까요 
 	    return "agreeAtc/buyAgree";
-	    
-	    //아니면 이렇게 리 다이렉트로 해야할까요...??
-//	    return "redirect:/list/buyAgree";
 	}
+   // GET, POST 
 
 	@GetMapping("/buyAgree")
 	public String buyAgree() {
