@@ -54,15 +54,21 @@
                 <h3>내 정보 조회</h3>
                 <div class="information">
                     <ul>
-                        <li class="information_img"></li>
+                        <li class="information_wrap">
+                        	<img style="width: 120px; height: 120px;">
+                        </li>
                         <li>
                             <ul class="prifile_text" style="position: relative;">
                                 <li>thbo_123@gmail.com</li>
-                                <li><button class="information_img_btn ">이미지 변경</button></li>
+                                <li><button class="information_img_btn">이미지 변경</button></li>
                                 <li><button class="information_del_btn">삭제</button></li>
                             </ul>
                         </li>
                     </ul>
+                    <!-- 프로필 이미지 변경-->
+                    <div style="display: none;">
+						<input type="file" name="attachImage" accept="image/gif,image/jpeg,image/png"> 
+					</div>
                 </div> <!-- 내 정보 조회 -->
 
                 <div class="information_cont">
@@ -88,6 +94,62 @@
     </div><!-- 사이드바 -->
 	<!-- 푸터 -->
 	<div th:replace="common/footer/mainFooter.html"></div>
+	
+	<script>
+		(function(){
+			/* 프로필 수정 버튼 요소 */
+			const imageArea = document.querySelector(".information_img_btn");
+			/* input type=file 요소 */
+			const fileElements = document.querySelector("[type=file]");
+			/* 이미지 요소 */
+		    const imageElement = document.querySelector(".information_wrap");
+			
+			/* 버튼 클릭 시 open 함수 동작 */
+			imageArea.addEventListener('click', open);
+			/* 파일 첨부가 발생하는 상황에 preview 함수 동작 */
+			fileElements.addEventListener('change', preview);
+			
+			function open() {
+				fileElements.click();
+			}
+			
+			function preview() {
+				
+				console.log(this.files[0]);
+				  /* 첨부된 파일이 존재한다면 */
+				  if (this.files[0]) {
+				    const reader = new FileReader();
+				    reader.readAsDataURL(this.files[0]);
+				    /* 파일 로드 후 동작하는 이벤트 설정 */
+				    reader.onload = function() {					
+				      imageElement.innerHTML = `<img src='${reader.result}' style='width: 120px; height: 120px'>`;
+				      imageElement.querySelector("img").style.display = "block";
+				    }
+				  }
+				}
+		})();
+		
+		
+	</script>
+	<script>
+	(function(){
+		// 이미지 삭제 버튼 요소
+		const deleteBtn = document.querySelector(".information_del_btn");
+		// 이미지 요소
+		const imageElement = document.querySelector(".information_wrap");
+
+		// 삭제 버튼 클릭 시 hideImage 함수 동작
+		deleteBtn.addEventListener('click', hideImage);
+
+		function hideImage() {
+		  // 이미지 요소의 display 속성을 none으로 변경
+		  imageElement.querySelector("img").style.display = "none";
+      	  imageElement.style.border = "1px solid #ddd"; // border 추가
+		}
+
+	})();
+</script>
+
 </body>
 
 </html>

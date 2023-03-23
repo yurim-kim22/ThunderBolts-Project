@@ -52,11 +52,14 @@ a {
     /* margin: 0 auto; */
 }
 
-.information_img {
-    width: 6vw;
-    height: 6vw;
-    border: 1px solid #ddd;
-    border-radius: 100%;
+.information_wrap {
+    width: 120px;
+    height: 120px;
+}
+
+.information_wrap img{
+	margin-top: -11px;
+	margin-left: -11px;
 }
 
 .information>ul {
