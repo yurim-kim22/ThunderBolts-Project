@@ -30,7 +30,7 @@
 	const $editProfile = document.getElementById("side4")
 	console.log($editProfile);
 	$editProfile.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/info";
 	})
 	
 	// 내 문의 내역

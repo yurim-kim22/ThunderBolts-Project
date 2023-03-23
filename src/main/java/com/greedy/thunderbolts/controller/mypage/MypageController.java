@@ -48,6 +48,19 @@ public class MypageController {
 		return "mypage/mypageMain";
 	}
 	
+	//마이페이지 관심상품
+	@GetMapping("/wish")
+	public String wish(){
+		
+		return "mypage/wish";
+	}
+	
+	//마이페이지 관심상품
+	@GetMapping("/info")
+	public String info(){
+			
+		return "mypage/information";
+	}
 	
 
 }
