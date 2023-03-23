@@ -12,33 +12,34 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/wish.css" rel="stylesheet" type="text/css"> 
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
 </head>
 
 <body>
     <!-- 헤더 -->
-
+	<div th:replace="common/header/mypageHeader.html"></div>
     <!-- 바디 -->
     <!-- 사이드바 -->
     <div class="d-flex" id="wrapper">
         <div class="border-end bg-white" id="sidebar-wrapper">
             <a href="#">
-                <div class="sidebar-title ">마이 페이지</div>
+                <div class="sidebar-title" id="side0">마이 페이지</div>
             </a>
             <!-- Sidebar 쇼핑정보 -->
             <div class="sidebar-heading">쇼핑정보</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light " href="#!">구매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" href="#!">판매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light font_weight" href="#!">관심 상품</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
             </div>
 
             <!-- Sidebar 내정보 -->
             <div class="sidebar-heading">내정보</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light" href="#!">내 정보 수정</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" href="#!">내 문의 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" href="#!">주소록</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" href="#!">정산계좌</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
             </div>
         </div>
         <!--sidebar-wrapper-->
@@ -87,4 +88,6 @@
             </div><!-- container-fluid -->
         </div>
     </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
 </body></html>

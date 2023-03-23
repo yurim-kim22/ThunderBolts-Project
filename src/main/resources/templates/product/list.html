@@ -1,0 +1,57 @@
+신발 사이즈 잘 나오는거
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h1 align="center">메뉴 목록 페이지</h1>
+<table align="center" border="1">
+
+<tr>
+<th>신발번호</th>
+<th>신발이름</th>
+<th>신발 한글이름</th>
+<th>신발사이즈260</th>
+<th>신발사이즈220</th>
+<th>신발사이즈</th>
+<th>신발사이즈</th>
+</tr>
+
+<tr th:each="product : ${productList}"> 
+  <td th:text="${product.productCode}"></td> <!-- 신발 번호 -->
+  <td th:text="${product.productName}"></td> <!-- 신발 이름 -->
+  <td th:text="${product.productNameKr}"></td><!-- 신발 한글이름 -->
+  <td>
+    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+      <span th:switch="${productOption.productOptionSize}">
+        <span th:case="'260'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
+      </span>
+    </span>
+  </td>
+  
+  <td>
+    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+      <span th:switch="${productOption.productOptionSize}">
+       
+        <span th:case="'220'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
+      </span>
+    </span>
+  </td>
+  <td>
+   <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+ 	 <span th:if="${productOption.productOptionSize} == '230'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}">
+		<span th:unless="${productOption.productOptionSize} == '230'">null
+  	</span>
+  	</span>
+  	</span>
+  </td>
+</tr>
+
+</table>
+
+
+
+</body>
+</html>

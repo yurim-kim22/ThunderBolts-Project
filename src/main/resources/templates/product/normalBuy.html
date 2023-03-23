@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   
 <head>
     <meta charset="UTF-8">
@@ -11,22 +11,22 @@
 </head>
 <body>
 
-
     <!-- 헤더 -->
 	<div th:replace="common/header/orderHeader.html"></div>
 
 
-
   <section id="section03">
+    <form id="selectForm" action="/list/normalBuy" method="post">
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div class="info" style="text-align: left;">
-      <p style="margin: 0;"><b>DV1309-100</b></p>
-      <p style="margin: 0;"><b>Nike Row Top AJ Black and white</b></p>
-      <p style="margin: 0; color: gray; ">나이키 로우 탑 AJ</p>
-      <p style="margin-top: 10px;">270</p>
+       <div th:each="product : ${ productList }">
+		  <p style="margin: 0;" th:text="${ product.productCode }"></p>
+   		  <p style="margin: 0;" th:text="${ product.productName }"></p>
+		  <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
+	</div>
     </div>
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
@@ -35,8 +35,15 @@
     
     <div class="container">
       <div class="box" style="display: block;">
-        <p style="line-height: 2.0;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(198, 8, 27);">270,000</p>
+        <p style="line-height: 0.5;"><b>220</b></p>
+      <span th:each="productOption : ${product.productOption}"> 
+   			<span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+ 	 		<span th:if="${productOption.productOptionSize} == '220'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}">
+		<span th:unless="${productOption.productOptionSize} == '220'">null
+  	</span>
+  	</span>
+  	</span>
+      </span>
       </div>
 
       <div class="box" style="display: block;">
@@ -160,7 +167,7 @@
       <button id="my-button">
         즉시 판매 계속
       </button>
-   
+    </form>
 </section>
 
 <script>

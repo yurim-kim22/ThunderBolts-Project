@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h1 align="center">메뉴 목록 페이지</h1>
+<table align="center" border="1">
+<tr>
+<th>신발번호</th>
+<th>신발이름</th>
+<th>신발 한글이름</th>
+<th>신발컬러</th>
+<th>신발사이즈</th>
+</tr>
+<tr th:each="product : ${ productList }">
+	<td th:text="${ code }"></td>
+	<td th:text="${ name }"></td>
+	<td th:text="${ productNameKr }"></td>
+	<td th:text="${ color }"></td>
+	<td th:text="${ size }"></td>
+</tr>
+</table>
+</body>
+</html>

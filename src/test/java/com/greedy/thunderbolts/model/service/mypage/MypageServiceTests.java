@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.model.dao;
+package com.greedy.thunderbolts.model.service.mypage;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -13,31 +13,24 @@ import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 @SpringBootTest
 @ContextConfiguration(classes = {Application.class} )
-public class MypageMapperTests {
-
+public class MypageServiceTests {
+	
 	@Autowired
-	private MypageMapper mypageMapper;
+	private MypageService mypageService;
 	
 	@Test
-	public void 매퍼_테스트() {
-		assertNotNull(mypageMapper);
-	}
-	
-	@Test
-	public void 메인_구매내역_디비_조회_테스트() {
+	public void 마이페이지_서비스_메인_판매내역_테스트() {
 		
-		
-		BuyListDTO buyList = mypageMapper.selectBuyList();
+		BuyListDTO buyList = mypageService.selectBuyList();
 		
 		assertNotNull(buyList);
 		System.out.println(buyList);
 	}
 	
 	@Test
-	public void 메인_판매내역_디비_조회_테스트() {
+	public void 마이페이지_서비스_메인_구매내역_테스트() {
 		
-		
-		SellListDTO sellList = mypageMapper.selectSellList();
+		SellListDTO sellList = mypageService.selectSellList();
 		
 		assertNotNull(sellList);
 		System.out.println(sellList);

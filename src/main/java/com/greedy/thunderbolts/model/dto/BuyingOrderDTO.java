@@ -8,9 +8,9 @@ import lombok.Data;
 @Data
 public class BuyingOrderDTO {
 	
+	private int buyingOrderCode;
 	private int membersNo;
 	private int productOptionCode;
-	private int buyingOrderCode;
 	private Date buyingOrderRegistDate;
 	private int buyingOrderPrice;
 	private String buyingOrderStatus;
