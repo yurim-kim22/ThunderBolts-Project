@@ -62,6 +62,38 @@
 		<result property="ordersStatus" column="ORDERS_STATUS"/>
 		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
 	</resultMap>
+	
+	<!-- 메인 아이디 조회 -->
+	<resultMap id="selectIdMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO">
+		<id property="membersNo" column="MEMBERS_NO"></id>
+		<association property="members" resultMap="membersResultMap"/>
+	</resultMap>
+	
+	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="membersId" column="MEMBERS_ID"/>
+		<result property="membersPwd" column="MEMBERS_PWD"/>
+		<result property="membersTel" column="MEMBERS_TEL"/>
+		<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
+		<result property="membersEntire" column="MEMBERS_ENTIRE"/>
+	
+		<!-- 1 대 다 관계로 memberDTO 1개에 memberRoleList는 여러개일수 있다.-->
+		<collection property="authRoleList" resultMap="authRoleResultMap"/>
+	</resultMap>
+	
+	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="authNum" column="AUTH_NUM"/>
+		<association property="auth" resultMap="authResultMap"/>
+
+	</resultMap>
+	
+		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
+		<id property="num" column="AUTH_NUM"/>
+		<result property="name" column="AUTH_NAME"/>
+		<result property="ko" column="AUTH_KO"/>
+	</resultMap>	
+	
  
 	 <!-- 메인 구매내역 조회 -->
 	<select id="selectBuyList" resultMap="buyListResultMap">
@@ -79,7 +111,7 @@
 	    JOIN ORDERS O ON (O.BUYING_ORDER_CODE = B.BUYING_ORDER_CODE)
 	    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
 	    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
-	    WHERE M.MEMBERS_ID = 'TEST1'
+	    WHERE M.MEMBERS_ID = #{ memberId }
 	    ORDER BY O.ORDERS_DATE DESC
 	  )
 	  WHERE ROWNUM = 1
@@ -101,10 +133,18 @@
 		    JOIN ORDERS O ON (O.SELLINGORDER_NO = S.SELLINGORDER_NO)
 		    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
 		    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
-		    WHERE M.MEMBERS_ID = 'TEST1'
+		    WHERE M.MEMBERS_ID = #{ memberId }
 		    ORDER BY O.ORDERS_DATE DESC
 		  )
 		  WHERE ROWNUM = 1
+	</select>
+	
+	<!-- 메인 아이디 조회 -->
+	<select id="selectId" resultMap="selectIdMap">
+		    SELECT
+		      M.MEMBERS_ID
+		    FROM MEMBERS M
+		    WHERE M.MEMBERS_ID = #{ memberId }
 	</select>
 
 

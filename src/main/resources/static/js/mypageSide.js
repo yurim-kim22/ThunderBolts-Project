@@ -2,7 +2,7 @@
 	const $mypageTit = document.getElementById("side0")
 	console.log($mypageTit);
 	$mypageTit.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage";
 	})
 	
 	// 구매 내역
