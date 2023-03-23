@@ -7,6 +7,10 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+/* input box color */
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #fff inset ; -webkit-text-fill-color: #000; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active { transition: background-color 5000s ease-in-out 0s; }
+
 body{
     margin: 0;
 }
@@ -44,7 +48,7 @@ label{
     height: 30px;
    	margin-bottom: 1%;
 	border: none;
-
+	background-color:rgba(224,224,224,1);
    
   }
     
@@ -52,7 +56,7 @@ label{
 	width:89%;
 }
 
-.loginfalse{
+.loginfalse, .phonecheck{
 	 font-size: 1vh;
 	 color: red;
 
@@ -85,8 +89,8 @@ input[type="submit"]{
     font-size: 2vh;
     text-align: center;
     transform: translate(-50%, -0%); 
-    	background-color : #BA85D1;
-    	color: white;
+    background-color : rgba(186,133,209,0.5);
+    color: white;
 }
 
 .crud{
