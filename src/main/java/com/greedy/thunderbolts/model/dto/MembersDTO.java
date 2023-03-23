@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -21,7 +20,7 @@ public class MembersDTO implements UserDetails {
 	private String membersName;
 	private String membersId;
 	private String membersPwd;
-	private int membersTel;
+	private String membersTel;
 	private Date membersRegDate;
 	private String membersEntire;
 	private List<AuthRoleDTO> authRoleList;

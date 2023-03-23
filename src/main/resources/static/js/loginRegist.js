@@ -64,8 +64,9 @@ if (document.getElementById("loginPhone")) {
 /* 이메일 여부 */
 const $emailId = document.getElementById("emailId");
 const $emailIdtxt = document.getElementById("emailIdtext");
+const $duplicationCheck = document.getElementById("duplicationCheck");
 
-
+disabled='disabled'
 
 $emailId.oninput = function() {
 	var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -73,9 +74,11 @@ $emailId.oninput = function() {
 	if (($emailId.value.match(pattern) != null)) {
 
 		$emailIdtxt.innerHTML = "";
+		$duplicationCheck.disabled = false;
 	} else {
 		$emailIdtxt.innerHTML = "이메일 주소를 정확히 입력해주세요";
 		$emailIdtxt.style.color = 'red';
+		$duplicationCheck.disabled = 'disabled';
 	}
 }
 
@@ -150,7 +153,24 @@ $loginPhone.oninput = function() {
 
 
 
-
+/* Email 중복 확인 */
+if (document.getElementById("duplicationCheck")) {
+	const $duplication = document.getElementById("duplicationCheck");
+	$duplication.onclick = function() {
+		/* 유효성 검사하는것이 좋다.*/
+		let memberId = document.getElementById("emailId").value;
+		fetch("/login/idDupCheck", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json;charset=UTF-8'
+			},
+			body: JSON.stringify({ membersId: memberId })
+		})
+			.then(result => result.text())
+			.then(result => alert(result))
+			.catch((error) => error.text().then((res) => alert(res)));
+	}
+}
 
 
 

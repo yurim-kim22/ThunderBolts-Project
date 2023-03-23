@@ -49,5 +49,54 @@
          WHERE A.MEMBERS_ENTIRE = 'Y'
            AND A.MEMBERS_ID = #{ memberId }
     </select>
+    
+    
+    <select id="selectMembersById" resultType="string">
+    	SELECT 
+			   MEMBERS_ID
+		  FROM MEMBERS
+		 WHERE MEMBERS_ENTIRE = 'N'
+		   AND MEMBERS_ID = #{ membersId } 
+    </select>
+
+	<insert id="insertMembers">
+
+		INSERT 
+		  INTO MEMBERS
+		(
+		  Members_No
+        , Members_Name    
+    	, Members_ID    
+    	, Members_PWD    
+    	, Members_Tel   
+    	, Members_Reg_Date   
+    	, Members_Entire 
+		)
+		VALUES
+		(
+		  SEQ_MEMBERS_NO.nextval
+		, #{ membersName }
+		, #{ membersId }
+		, #{ membersPwd }
+		, #{ membersTel }
+		, SYSDATE
+		, 'Y'
+		)
+
+	</insert>
+
+	<insert id="insertMembersRole">
+		INSERT 
+		  INTO AUTH_ROLE
+		(
+		  Members_No
+        , AUTH_NUM    
+		)
+		VALUES
+		(
+		  SEQ_MEMBERS_NO.CURRVAL
+		, 2
+		)
+	</insert>
 
 </mapper>

@@ -100,8 +100,7 @@ input[type="submit"] {
 }
 
 .navertxt {
-	/* position:absolute; */
-	/* display: inline-block; */
+	
 	font-size: 0.8vw;
     color: white;
     width: 60%;

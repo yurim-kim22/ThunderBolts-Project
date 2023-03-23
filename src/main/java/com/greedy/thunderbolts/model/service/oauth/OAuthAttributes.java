@@ -11,13 +11,17 @@ public class OAuthAttributes {
     private String nameAttributeKey;
     private String name;
     private String email;
+    private String provider;
+    private String provideId;
    
     @Builder	
-    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email) {
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String provider, String provideId) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
         this.email = email;
+        this.provider = provider;
+        this.provideId = provideId;
     }
 
     public OAuthAttributes() {
@@ -40,8 +44,10 @@ public class OAuthAttributes {
         Map<String, Object> profile = (Map<String, Object>) kakao_account.get("profile");   // 마찬가지로 profile(nickname, image_url.. 등) 정보가 담긴 값을 꺼낸다.
 
         return OAuthAttributes.builder()
-				.name((String) profile.get("name"))
+				.name((String) profile.get("nickname"))
 				.email((String) kakao_account.get("email"))
+				.provider((String) kakao_account.get("provider"))
+				.provideId((String) kakao_account.get("providerId"))
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();        
@@ -54,6 +60,8 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
 				.name((String) response.get("name"))
 				.email((String) response.get("email"))
+				.provider((String) response.get("provider"))
+				.provideId((String) response.get("providerId"))
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();
@@ -74,6 +82,8 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .role(Role.MEMBER)
+                .provider(provider)
+                .provideId(provideId)
                 .build();
     }
 

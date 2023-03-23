@@ -31,12 +31,18 @@ public class TblUser extends BaseTimeEntity{
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+    
+    private String provider; //어떤 OAuth인지(google, naver 등)
+    private String provideId; // 해당 OAuth 의 key(id)
 
     @Builder
-    public TblUser(String name, String email, Role role) {
+    public TblUser(String name, String email, Role role, String provider, String provideId) {
         this.name = name;
         this.email = email;
         this.role = role;
+        this.provider = provider;
+        this.provideId = provideId;
+        
     }
 
     public TblUser update(String name, String email) {

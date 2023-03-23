@@ -9,4 +9,10 @@ public interface MemberMapper {
 	
 	MembersDTO findByMemberId(String memberId);
 
+	String selectMembersById(String membersId);
+
+	int insertMembers(MembersDTO member);
+
+	int insertMembersRole();
+
 }
