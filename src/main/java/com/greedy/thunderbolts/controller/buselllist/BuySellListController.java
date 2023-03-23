@@ -14,6 +14,7 @@ import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 @RequestMapping("/list")
@@ -24,7 +25,7 @@ public class BuySellListController {
 	public BuySellListController(ListService listService) {
 		this.listService= listService;
 	}
-	
+
 	@GetMapping("/index")
 	public String productList(Model model) {
 		List<ProductDTO> productList = listService.findProduct();
@@ -35,10 +36,8 @@ public class BuySellListController {
 		List<ProductDTO> productSize =listService.findSizePrice();
 		
 		log.info("productSize: {}", productSize);
-		model.addAttribute("pproductSize",productSize);
+		model.addAttribute("productSize",productSize);
 		
-		
-		//호출 해L
 		return "product/list";
 	}
 	
@@ -58,8 +57,6 @@ public class BuySellListController {
 	public String normalBuy(Model model){
 		List<ProductDTO> productList = listService.findProduct();
 		
-		
-		//로그찍어보기
 		log.info("productList : {}", productList);
 		
 		for (ProductDTO product : productList) {
@@ -69,40 +66,57 @@ public class BuySellListController {
 			}
 		}
 		
-		//
 		model.addAttribute("productList",productList);
 		
 		List<ProductDTO> productSize =listService.findSizePrice();
 		
 		log.info("productSize: {}", productSize);
-		model.addAttribute("pproductSize",productSize);
+		model.addAttribute("productSize",productSize);
 
 		return "product/normalBuy";
 		
 	}
+	
+	//오더를 넘기는
 	@GetMapping("/normalBuy2")
 	public String normalBuy(
-	                        @RequestParam("sellingOrderNo") int sellingOrderNo, //보내는 친구
+	                        @RequestParam("sellingOrderNo") int sellingOrderNo,
 	                        Model model) {
-		System.out.println("구매 요청: sellingOrderNo=" + sellingOrderNo);
+		log.info("구매 요청: sellingOrderNo={}" + sellingOrderNo);
+	    
 	    // 구매 처리 로직 구현
 	    
 	    return "agreeAtc/buyAgree";
 	}
-   // GET, POST 
 
-	@GetMapping("/buyAgree")
-	public String buyAgree() {
-	    return "agreeAtc/buyAgree";
+	//이건 아직 안한거임
+	@PostMapping("/normalSell")
+	public String normalSell(Model model) {
+	    // 로직 구현
+	    return "product/normalSell";
 	}
-	
-    
-	
-	@GetMapping("/normalSell")
-	public String normalSell(){
-		return "product/normalSell";
+
+//
 		
+	@PostMapping("/normalOrderPage") 
+	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo, Model model) {
+	    log.info("결제 요청: sellingOrderNo={}" + sellingOrderNo);
+	    
+	    // sellingOrderNo를 사용하여 ProductOption 객체를 불러온 후 모델에 추가하깅
+	    //이 부분익 이게맞나/?
+	    ProductOptionDTO productOption = listService.findProductOptionBySellingOrderNo(sellingOrderNo);
+	    
+//		List<ProductOptionDTO> productSize =listService.findProductOptionBySellingOrderNo(sellingOrderNo);
+		
+	    model.addAttribute("findProductOptionBySellingOrderNo", findProductOptionBySellingOrderNo);
+
+	    return "orderPage/normalOrderPage";
 	}
+
+
+		
+
+
 	
 	@GetMapping("/oneSizeBuying")
 	public String oneSizeBuying(){
@@ -122,11 +136,7 @@ public class BuySellListController {
 //		
 //	}
 	
-	@GetMapping("/sellAgree")
-	public String sellAgree(){
-		return "agreeAtc/sellAgree";
-		
-	}
+
 	
 	@GetMapping("/buyBid")
 	public String buyBid(){

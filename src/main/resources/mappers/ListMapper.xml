@@ -78,4 +78,11 @@ SELECT DISTINCT
         ORDER BY S.SELLINGORDER_PRICE
 </select>
 
+<select id="findProductOptionBySellingOrderNo" resultType="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
+  SELECT * 
+  FROM SELLING_ORDERS 
+  WHERE sellingorder_no = #{sellingOrderNo}
+</select>
+
+
 </mapper>
