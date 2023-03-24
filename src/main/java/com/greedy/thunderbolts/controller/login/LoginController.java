@@ -113,8 +113,9 @@ public class LoginController {
 	/* 아이디 찾기 */
 	@GetMapping("/searchId")
 	public String serachId() {
-		return "agreeAtc/buyAgree";
+		return "login/searchId";
 	}
+	
 	
 
 	
