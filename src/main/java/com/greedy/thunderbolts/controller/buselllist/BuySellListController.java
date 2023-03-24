@@ -108,7 +108,7 @@ public class BuySellListController {
 	    
 //		List<ProductOptionDTO> productSize =listService.findProductOptionBySellingOrderNo(sellingOrderNo);
 		
-	    model.addAttribute("findProductOptionBySellingOrderNo", findProductOptionBySellingOrderNo);
+//	    model.addAttribute("findProductOptionBySellingOrderNo", findProductOptionBySellingOrderNo);
 
 	    return "orderPage/normalOrderPage";
 	}
@@ -123,6 +123,7 @@ public class BuySellListController {
 		return "product/oneSizeBuying";
 		
 	}
+	
 	
 	@GetMapping("/oneSizeSelling")
 	public String oneSizeSelling(){
