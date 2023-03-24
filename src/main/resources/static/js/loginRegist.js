@@ -419,4 +419,26 @@ if (document.getElementById("consentCheckboxTitleCh")) {
 		})
 	
 	}	
+	
+	
+if ($(".consenticon1")) {
+	
+	$('.consenticon1').click(function(){
 		
+		if($('.conseticon1').className!='conseticon1'){
+			console.log($('.conseticon1').className == 'conseticon1');
+			$('conseticon1').removeClass('conseticon1');
+			$('conseticon1').addClass('conseticon2');
+			
+		} else {
+				console.log("음음");
+			$('conseticon1').removeClass('conseticon2');
+			$('conseticon1').addClass('conseticon2');
+			
+		}
+		
+	});
+	
+
+}	
+				

@@ -10,9 +10,25 @@
 <body>
 	
 	<div th:replace="common/header/subHeader.html"></div>
-	<main>
+		<main>
 		
-	</main>
+        <form id="loginForm" action="/login/regist" method="post">
+    
+           
+            <div class="phone">
+                <label>휴대폰번호</label>
+            <input type="text" value="휴대폰 번호는 숫자만 입력하세요" id="loginPhone" name="membersTel" required>
+             <div class="phonecheck" id="phonecheck"></div>
+            </div>
+            
+
+			<div>
+                <input type="submit" value="가입하기" id="registJoin" disabled='disabled'>
+            </div>
+        </form>
+
+    </main>
+    
 	<div th:replace="common/footer/mainFooter.html"></div>
 
 

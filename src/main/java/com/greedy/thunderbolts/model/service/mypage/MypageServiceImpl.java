@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.greedy.thunderbolts.model.dao.MypageMapper;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
-import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 @Service("mypageService")
@@ -31,5 +30,7 @@ public class MypageServiceImpl implements MypageService {
 	public SellListDTO selectSellList(String memberId) {
 		return mypageMapper.selectSellList(memberId);
 	}
+	
+	
 
 }
