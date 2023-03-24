@@ -56,7 +56,7 @@ public class LoginController {
 		
 		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("error.login"));
 		
-		return "redirect:/login/main";
+		return "redirect:/login/Main";
 		
 	}
 	

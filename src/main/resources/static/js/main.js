@@ -1,9 +1,9 @@
 
 $(document).ready(function() { });
-
+let countNum = 0;
 
 if (document.getElementById('bannericon')) {
-	/* 메인 베너 하다 버튼 이미지 클릭시 변경*/
+	/* 메인 베너 하단 버튼 이미지 클릭시 변경*/
 	const $bannericon = document.getElementById('bannericon');
 
 	$bannericon.addEventListener('click', e => {
@@ -19,6 +19,7 @@ if (document.getElementById('bannericon')) {
 		$buttonli.forEach((li,index)=>{
 			if(e.target == li){
 			$bannericon.previousElementSibling.style.backgroundImage="url(/upload/image/main/banner/mainbanner"+(index+1)+".png)";
+			countNum = index;
 			}
 		})
 		
@@ -28,7 +29,7 @@ if (document.getElementById('bannericon')) {
 
 
 /* 메인 베너 2초마다 변경 */
-let countNum = 0;
+
 function bannerNext(){
 	
 	const $bannericon = document.getElementById('bannericon');	
