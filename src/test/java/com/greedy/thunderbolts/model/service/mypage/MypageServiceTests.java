@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
@@ -21,7 +22,7 @@ public class MypageServiceTests {
 	@Test
 	public void 마이페이지_서비스_메인_판매내역_테스트() {
 		
-		String memberId = "TEST1";
+		String memberId = "1111";
 		
 		BuyListDTO buyList = mypageService.selectBuyList(memberId);
 		
@@ -32,11 +33,22 @@ public class MypageServiceTests {
 	@Test
 	public void 마이페이지_서비스_메인_구매내역_테스트() {
 		
-		String memberId = "TEST1";
+		String memberId = "1111";
 		
 		SellListDTO sellList = mypageService.selectSellList(memberId);
 		
 		assertNotNull(sellList);
 		System.out.println(sellList);
+	}
+	
+	@Test
+	public void 내정보관리_조회_테스트() {
+		
+		String memberId = "1111";
+		
+		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		assertNotNull(selectInfo);
+		System.out.println(selectInfo);
 	}
 }

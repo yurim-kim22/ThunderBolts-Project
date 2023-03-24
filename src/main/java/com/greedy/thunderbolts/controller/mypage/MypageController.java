@@ -68,15 +68,26 @@ public class MypageController {
 	
 	//마이페이지 내정보관리 - 조회
 	@GetMapping("/info")
-	public String info(){
+	public String info(@AuthenticationPrincipal MembersDTO membersId, Model model){
+		
+		String memberId = membersId.getMembersId();
+		
+		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		model.addAttribute("memberId", memberId);
+		model.addAttribute("selectInfo", selectInfo);
 			
 		return "mypage/information";
 	}
 	
 	//마이페이지 내정보관리 - 수정
 	@GetMapping("/info/modi")
-	public String modi(){
-			
+	public String modi(@AuthenticationPrincipal MembersDTO membersId, Model model){
+		
+		String memberId = membersId.getMembersId();
+		
+		model.addAttribute("memberId", memberId);
+		
 		return "mypage/modify";
 	}
 	

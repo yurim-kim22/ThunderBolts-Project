@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.greedy.thunderbolts.model.dao.MypageMapper;
+import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
@@ -30,6 +31,12 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public SellListDTO selectSellList(String memberId) {
 		return mypageMapper.selectSellList(memberId);
+	}
+	
+	//내정보관리 - 조회
+	@Override
+	public MembersDTO selectInfo(String memberId) {
+		return mypageMapper.selectInfo(memberId);
 	}
 
 }

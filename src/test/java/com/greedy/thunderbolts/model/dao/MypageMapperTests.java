@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
@@ -27,7 +28,7 @@ public class MypageMapperTests {
 	@Test
 	public void 메인_구매내역_디비_조회_테스트() {
 		
-		String memberId = "TEST1"; // memberId 값을 설정
+		String memberId = "1111"; // memberId 값을 설정
 		
 		BuyListDTO buyList = mypageMapper.selectBuyList(memberId);
 		
@@ -38,7 +39,7 @@ public class MypageMapperTests {
 	@Test
 	public void 메인_판매내역_디비_조회_테스트() {
 		
-		String memberId = "TEST1"; // memberId 값을 설정
+		String memberId = "1111"; // memberId 값을 설정
 		
 		SellListDTO sellList = mypageMapper.selectSellList(memberId);
 		
@@ -47,13 +48,14 @@ public class MypageMapperTests {
 	}
 	
 	@Test
-	public void 메인_아이디_조회_테스트() {
+	public void 내정보관리_조회_테스트() {
 		
 		String memberId = "TEST1"; // memberId 값을 설정
 		
-		MembersIdDTO selectId = mypageMapper.selectId(memberId);
+		MembersDTO selectInfo = mypageMapper.selectInfo(memberId);
 		
-		assertNotNull(selectId);
-		System.out.println(selectId);
+		assertNotNull(selectInfo);
+		System.out.println(selectInfo);
 	}
+	
 }
