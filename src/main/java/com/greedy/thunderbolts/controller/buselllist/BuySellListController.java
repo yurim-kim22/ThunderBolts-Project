@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.greedy.thunderbolts.model.dto.ProductDTO;
+import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 @RequestMapping("/list")
@@ -23,7 +25,7 @@ public class BuySellListController {
 	public BuySellListController(ListService listService) {
 		this.listService= listService;
 	}
-	
+
 	@GetMapping("/index")
 	public String productList(Model model) {
 		List<ProductDTO> productList = listService.findProduct();
@@ -34,71 +36,94 @@ public class BuySellListController {
 		List<ProductDTO> productSize =listService.findSizePrice();
 		
 		log.info("productSize: {}", productSize);
-		model.addAttribute("pproductSize",productSize);
+		model.addAttribute("productSize",productSize);
 		
-		
-		//호출 해L
 		return "product/list";
 	}
+	
+	@PostMapping("/index")
+	public String productList(
+	    @RequestParam("sellingOrderNo") int sellingOrderNo,
+	    Model model1) {
+	    log.info("구매 요청: sellingOrderNo=" + sellingOrderNo); // 로그 출력
+	    
+	    // 구매 처리 로직 구현
+	    
+	    return "agreeAtc/buyAgree";
+	}
+
 	
 	@GetMapping("/normalBuy")
 	public String normalBuy(Model model){
 		List<ProductDTO> productList = listService.findProduct();
 		
-		
-		//로그찍어보기
 		log.info("productList : {}", productList);
 		
-		//
+		for (ProductDTO product : productList) {
+			log.info(product.toString());
+			for (ProductOptionDTO option : product.getProductOption()) {
+				log.info(option.getSellingOrders().toString());
+			}
+		}
+		
 		model.addAttribute("productList",productList);
 		
 		List<ProductDTO> productSize =listService.findSizePrice();
 		
 		log.info("productSize: {}", productSize);
-		model.addAttribute("pproductSize",productSize);
+		model.addAttribute("productSize",productSize);
 
 		return "product/normalBuy";
 		
 	}
-	@PostMapping("/normalBuy")
-	public String normalBuy(@RequestParam("productCode") int productCode,
-	                        @RequestParam("productName") String productName,
-	                        @RequestParam("productNameKr") String productNameKr,
-	                        @RequestParam("productOptionSize") String productOptionSize,
-	                        @RequestParam("productPrice") int productPrice,
-	                       	Model model) {
-	    log.info("Selected product information : productCode={}, productName={}, productNameKr={},productOptionSize={},productPrice={}",
-	             productCode, productName, productNameKr, productOptionSize,productPrice);
+	
+	//오더를 넘기는
+	@GetMapping("/normalBuy2")
+	public String normalBuy(
+	                        @RequestParam("sellingOrderNo") int sellingOrderNo,
+	                        Model model) {
+		log.info("구매 요청: sellingOrderNo={}" + sellingOrderNo);
 	    
-	    model.addAttribute("productCode", productCode);
-	    model.addAttribute("productName", productName);
-	    model.addAttribute("productNameKr", productNameKr);
+	    // 구매 처리 로직 구현
 	    
-	    //여기를이렇게적어야할까요 
 	    return "agreeAtc/buyAgree";
-	    
-	    //아니면 이렇게 리 다이렉트로 해야할까요...??
-//	    return "redirect:/list/buyAgree";
 	}
 
-	@GetMapping("/buyAgree")
-	public String buyAgree() {
-	    return "agreeAtc/buyAgree";
+	//이건 아직 안한거임
+	@PostMapping("/normalSell")
+	public String normalSell(Model model) {
+	    // 로직 구현
+	    return "product/normalSell";
 	}
-	
-    
-	
-	@GetMapping("/normalSell")
-	public String normalSell(){
-		return "product/normalSell";
+
+//
 		
+	@PostMapping("/normalOrderPage") 
+	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo, Model model) {
+	    log.info("결제 요청: sellingOrderNo={}" + sellingOrderNo);
+	    
+	    // sellingOrderNo를 사용하여 ProductOption 객체를 불러온 후 모델에 추가하깅
+	    //이 부분익 이게맞나/?
+	    ProductOptionDTO productOption = listService.findProductOptionBySellingOrderNo(sellingOrderNo);
+	    
+//		List<ProductOptionDTO> productSize =listService.findProductOptionBySellingOrderNo(sellingOrderNo);
+		
+//	    model.addAttribute("findProductOptionBySellingOrderNo", findProductOptionBySellingOrderNo);
+
+	    return "orderPage/normalOrderPage";
 	}
+
+
+		
+
+
 	
 	@GetMapping("/oneSizeBuying")
 	public String oneSizeBuying(){
 		return "product/oneSizeBuying";
 		
 	}
+	
 	
 	@GetMapping("/oneSizeSelling")
 	public String oneSizeSelling(){
@@ -112,11 +137,7 @@ public class BuySellListController {
 //		
 //	}
 	
-	@GetMapping("/sellAgree")
-	public String sellAgree(){
-		return "agreeAtc/sellAgree";
-		
-	}
+
 	
 	@GetMapping("/buyBid")
 	public String buyBid(){

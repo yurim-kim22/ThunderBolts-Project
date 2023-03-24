@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.greedy.thunderbolts.model.dao.ListMapper;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
+import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 
 
 @Service("listService")
@@ -32,5 +33,12 @@ public class ListServiceImpl implements ListService {
 	public List<ProductDTO> findProduct() {
 		return listMapper.findProduct();
 	}
+
+
+	@Override
+	public ProductOptionDTO findProductOptionBySellingOrderNo(int sellingOrderNo) {
+	    return listMapper.findProductOptionBySellingOrderNo(sellingOrderNo);
+	}
+
 
 }

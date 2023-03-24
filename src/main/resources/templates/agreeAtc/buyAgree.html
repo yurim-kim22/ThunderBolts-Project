@@ -117,15 +117,19 @@
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     </div>
-    
-			<button id="my-button" type="submit" value="정산창">
-			  즉시 판매 계속
-			</button>
+<form id="selectForm" action="/list/normalOrderPage" method="post">
+  <button id="my-button" type="submit">
+    즉시 판매 계속
+  </button>
+  <input type="hidden" name="sellingOrderNo" value="12345" />
+</form>
+
+
 
 
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close"></span>
         <p style="text-align: center; font-size: 24px; font-weight: bold;">검수기준</p>
 
         <div class="button-container">
