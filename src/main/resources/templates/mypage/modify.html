@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>THUNDER_BOLT</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/modify.css" rel="stylesheet" type="text/css">
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    
+</head>
+
+<body>
+    <!-- 헤더 -->
+	<div th:replace="common/header/mypageHeader.html"></div>
+    <!-- 바디 -->
+    <!-- 사이드바 -->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <a href="#">
+                <div class="sidebar-title " id="side0">마이 페이지</div>
+            </a>
+            <!-- Sidebar 쇼핑정보 -->
+            <div class="sidebar-heading">쇼핑정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
+            </div>
+
+            <!-- Sidebar 내정보 -->
+            <div class="sidebar-heading">내정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side4">내 정보 관리</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
+            </div>
+        </div>
+        <!--sidebar-wrapperdd-->
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <!-- 내 정보 수정 -->
+                
+                <h3>내 정보 수정</h3>
+                <!-- 프로필 -->
+                <div class="information">
+                    <ul>
+                        <li class="information_wrap">
+                        	<img style="width: 120px; height: 120px;">
+                        </li>
+                        <li>
+                            <ul class="prifile_text" style="position: relative;">
+                                <li>thbo_123@gmail.com</li>
+                                <li><button class="information_img_btn">이미지 변경</button></li>
+                                <li><button class="information_del_btn">삭제</button></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- 프로필 이미지 변경-->
+                    <div style="display: none;">
+						<input type="file" name="attachImage" accept="image/gif,image/jpeg,image/png"> 
+					</div>
+                </div> <!-- 프로필 -->
+                 
+                <form>
+                    <div class="modify_cont">
+                      <div>
+                        <div class="modify_text modify_tit mt ">개인 정보</div>
+                        <!-- 이름 입력 필드 -->
+                        <label for="name" class="mt">이름</label>
+                        <input type="text" id="name" name="name" placeholder="이름">
+                        <p></p>
+                      </div>
+                  
+                      <div>
+                        <div class="modify_text modify_tit mt ">비밀번호 수정</div>
+                         <!-- 이전 비밀번호 입력 필드 -->
+                        <label for="prev-password" class="mt">이전 비밀번호</label>
+                        <input type="password" id="prev-password" name="prev-password" placeholder="이전 비밀번호">
+                        <!-- <div class="modify_text gray"></div> -->
+                        <p></p>
+                        <!-- 새 비밀번호 입력 필드 -->
+                        <label for="new-password" class="mt">새 비밀번호</label>
+                        <input type="password" id="new-password" name="new-password" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
+                        <p></p>
+                        <!-- 새 비밀번호 확인 입력 필드 -->
+                        <label for="new-password-confirm" class="mt">새 비밀번호 확인</label>
+                        <input type="password" id="new-password-confirm" name="new-password-confirm" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
+                        <p></p>
+                        <div class="modify_out_btn">회원탈퇴</div>
+                        <input type="submit" class="modify_btn" value="수정하기">
+                      </div>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
+	
+	<script>
+		(function(){
+			/* 프로필 수정 버튼 요소 */
+			const imageArea = document.querySelector(".information_img_btn");
+			/* input type=file 요소 */
+			const fileElements = document.querySelector("[type=file]");
+			/* 이미지 요소 */
+		    const imageElement = document.querySelector(".information_wrap");
+			
+			/* 버튼 클릭 시 open 함수 동작 */
+			imageArea.addEventListener('click', open);
+			/* 파일 첨부가 발생하는 상황에 preview 함수 동작 */
+			fileElements.addEventListener('change', preview);
+			
+			function open() {
+				fileElements.click();
+			}
+			
+			function preview() {
+				
+				console.log(this.files[0]);
+				  /* 첨부된 파일이 존재한다면 */
+				  if (this.files[0]) {
+				    const reader = new FileReader();
+				    reader.readAsDataURL(this.files[0]);
+				    /* 파일 로드 후 동작하는 이벤트 설정 */
+				    reader.onload = function() {					
+				      imageElement.innerHTML = `<img src='${reader.result}' style='width: 120px; height: 120px'>`;
+				      imageElement.querySelector("img").style.display = "block";
+				    }
+				  }
+				}
+		})();
+		
+		(function(){
+			// 이미지 삭제 버튼 요소
+			const deleteBtn = document.querySelector(".information_del_btn");
+			// 이미지 요소
+			const imageElement = document.querySelector(".information_wrap");
+
+			// 삭제 버튼 클릭 시 hideImage 함수 동작
+			deleteBtn.addEventListener('click', hideImage);
+
+			function hideImage() {
+			  // 이미지 요소의 display 속성을 none으로 변경
+			  imageElement.querySelector("img").style.display = "none";
+	      	  imageElement.style.border = "1px solid #ddd"; // border 추가
+			}
+
+		})();
+	</script>
+</body></html>

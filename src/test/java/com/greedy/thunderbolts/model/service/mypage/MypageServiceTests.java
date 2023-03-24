@@ -21,7 +21,9 @@ public class MypageServiceTests {
 	@Test
 	public void 마이페이지_서비스_메인_판매내역_테스트() {
 		
-		BuyListDTO buyList = mypageService.selectBuyList();
+		String memberId = "TEST1";
+		
+		BuyListDTO buyList = mypageService.selectBuyList(memberId);
 		
 		assertNotNull(buyList);
 		System.out.println(buyList);
@@ -30,7 +32,9 @@ public class MypageServiceTests {
 	@Test
 	public void 마이페이지_서비스_메인_구매내역_테스트() {
 		
-		SellListDTO sellList = mypageService.selectSellList();
+		String memberId = "TEST1";
+		
+		SellListDTO sellList = mypageService.selectSellList(memberId);
 		
 		assertNotNull(sellList);
 		System.out.println(sellList);
