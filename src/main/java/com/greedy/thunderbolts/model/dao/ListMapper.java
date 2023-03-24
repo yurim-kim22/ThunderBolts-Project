@@ -3,6 +3,7 @@ package com.greedy.thunderbolts.model.dao;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.greedy.thunderbolts.model.dto.ProductDTO;
@@ -16,7 +17,7 @@ public interface ListMapper {
 	   
 	   List<ProductDTO> findSizePrice();
 
-	ProductOptionDTO findProductOptionBySellingOrderNo();
 
-	ProductOptionDTO findProductOptionBySellingOrderNo(int sellingOrderNo);
+
+	ProductDTO findSellingProduct(int sellingOrderNo);
 }
