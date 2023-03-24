@@ -38,5 +38,12 @@ $main3.addEventListener('click', e =>{
         }
     }
     
+    	if(document.getElementById("heartProduct")) {
+        const $heartProduct = document.getElementById("heartProduct");
+        $heartProduct.onclick = function() {
+            location.href = "/mypage/wish";
+        }
+    }
+    
 
 }

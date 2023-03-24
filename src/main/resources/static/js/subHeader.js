@@ -28,5 +28,11 @@ window.onload = function() {
         }
     }
     
+    if(document.getElementById("heartProduct")) {
+        const $heartProduct = document.getElementById("heartProduct");
+        $heartProduct.onclick = function() {
+            location.href = "/mypage/wish";
+        }
+    }
 
 }
