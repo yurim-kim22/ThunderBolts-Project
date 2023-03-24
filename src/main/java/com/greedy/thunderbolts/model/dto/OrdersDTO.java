@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.dto;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -11,6 +12,7 @@ public class OrdersDTO {
 	private int ordersPrice;
 	private Date ordersDate;
 	private String ordersDiv;
+	private int sellingOrderNo;
 	private int membersSeller;
 	private String ordersStatus;
 	private int buyingOrderCode;

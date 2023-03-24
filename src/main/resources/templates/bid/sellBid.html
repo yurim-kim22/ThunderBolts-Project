@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>즉시 판매하기</title>
+    <link rel="stylesheet" href="/css/list/bidcss.css" type="text/css">
+    <link rel="stylesheet" href="/css/list/orderHeader.css" type="text/css">
+</head>
+<body>
+
+    <!-- 헤더 -->
+	<div th:replace="common/header/orderHeader2.html"></div>
+
+  
+      <section id="section01">
+
+        <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+
+        <div class="info" style="text-align: left;">
+          <p style="margin: 0;"><b>DV1309-100</b></p>
+          <p style="margin: 0;"><b>Nike Row Top AJ Black and white</b></p>
+          <p style="margin: 0; color: gray; ">나이키 로우 탑 AJ</p>
+          <p style="margin-top: 10px;">270</p>
+        </div>
+
+        </section>
+
+        <section id="section02">
+          <div class="centerler">
+            <p id="toto">즉시 구매가<br></p>
+            <div class="vertical-line"></div>
+            <p id="gogo">즉시 판매가</p>
+          </div>
+          <div class="centerler">
+            <p id="price1">10,000원<br></p>
+            <div class="vertical-line"></div>
+            <p id="price2">10,000원</p>
+          </div>
+          <hr
+          style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+          <!--여기에 버튼 넣기-->
+          <div class="center">
+            <div class="green-box">
+              <p class="bid">판매 입찰하기</p>
+            </div>
+          </div>
+          <hr
+          style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+          <!--여기에 버튼 넣기-->
+          
+
+          <div class="form-group">
+            <div class="form-group">
+              <div class="price-input-wrapper">
+                <label for="price-input">판매 희망가 </label>
+                <input type="number" id="price-input" name="price" min="0" step="100" placeholder="상품 가격을 입력하세요" oninput="calculateTotal()" style="font-size: 1.2rem; border: none;">
+                <p>원</p>
+              </div>
+            </div>
+          
+
+    <div id="price-text" style="display: none;">
+      <hr>
+      <div>
+        <div class="order">
+          <p01>검수비<br></p01>
+          <p01>수수료<br></p01>
+          <p01>배송비<br></p01>
+        </div>
+        <div class="order1">
+          <p02><br></p02>
+          <p02></p02>
+          <p02></p02>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div>정산금액</div>
+        <div class="final2">
+          <p id="total">-</p>
+        </div>
+      </div>
+    </div>
+
+
+    <p><b>입찰 마감기한을 정해주세요.</b></p>
+
+    <div class="deadline">
+      <div class="container">
+        <div class="box" data-days="1">
+          <p><b>1일</b></p>
+        </div>
+    
+        <div class="box" data-days="7">
+          <p><b>7일</b></p>
+        </div>
+    
+        <div class="box" data-days="14">
+          <p><b>14일</b></p>
+        </div>
+    
+        <div class="box selected" data-days="30">
+          <p><b>30일</b></p>
+        </div>
+    
+        <div class="box" data-days="60">
+          <p><b>60일</b></p>
+        </div>
+    
+        <div class="box" data-days="90">
+          <p><b>90일</b></p>
+        </div>
+      </div>
+      <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+    
+      <button id="my-button">
+        판매 입찰 계속
+      </button>
+    
+    
+      <script>
+        const myButton = document.getElementById('my-button');
+        
+        myButton.addEventListener('mouseover', function() {
+          myButton.style.color = '#fff';
+        });
+        
+        myButton.addEventListener('mouseout', function() {
+          myButton.style.color = '#000';
+        });
+        
+        function calculateTotal() {
+          const checkingFee = 5000;
+          const commission = 6000;
+          const shippingFee = 0; // 임의로 0으로 설정
+          
+          const price = document.getElementById("price-input").value;
+          const priceText = document.getElementById("price-text");
+          const checkingFeeText = document.querySelector(".order1 p02:nth-of-type(1)");
+          const commissionText = document.querySelector(".order1 p02:nth-of-type(2)");
+          
+          // 판매가가 입력되면 비용 관련 요소들을 보이도록 합니다.
+          if (price) {
+            priceText.style.display = "block";
+            checkingFeeText.innerHTML = "" + (checkingFee).toLocaleString("en-US");
+            commissionText.innerHTML = "<br>" + (commission).toLocaleString("en-US") + "<br>선불, 판매자 부담";
+          } else {
+            priceText.style.display = "none";
+            checkingFeeText.innerHTML = "-";
+            commissionText.innerHTML = "-";
+          }
+          
+          const total = price ? (price - checkingFee - commission - shippingFee) : 0; // 입력된 가격에서 추가 비용을 뺀 값을 계산합니다.
+          const formattedTotal = total > 0 ? total.toLocaleString("en-US") : "-"; // 계산된 금액을 세자리마다 쉼표를 추가하여 포맷팅합니다. 계산된 금액이 0 이하인 경우는 "-"을 출력합니다.
+          document.getElementById("total").textContent = formattedTotal + "원"; // 계산된 금액을 출력합니다.
+        }
+        
+        const boxes = document.querySelectorAll('.box');
+        const deadlineText = document.createElement('p');
+        const deadlineContainer = document.querySelector('.deadline');
+        deadlineContainer.appendChild(deadlineText);
+        
+        boxes.forEach(box => {
+          box.addEventListener('click', function() {
+            if (this.classList.contains('selected')) {
+              this.classList.remove('selected');
+            } else {
+              boxes.forEach(box => box.classList.remove('selected'));
+              this.classList.add('selected');
+              const days = this.dataset.days;
+              const deadline = new Date();
+              deadline.setDate(deadline.getDate() + parseInt(days));
+              const deadlineStr = deadline.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+              deadlineText.textContent = days + '일 (' + deadlineStr + ' 마감)';
+            }
+          });
+        });
+        </script>
+        
+
+  </body>
+</html>

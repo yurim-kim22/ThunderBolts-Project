@@ -57,6 +57,25 @@ body {
   .selected {
     border-color: black;
   }
+  .all{
+      height: 60px;
+  }
+  .form{
+      flex-basis: calc(33.33% - 40px);
+    flex-grow: 1;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border-width: 2.5px;
+    border-style: solid;
+    border-color: rgb(181, 181, 181);
+    border-image: initial;
+  }
   #section03 {
     background-color: white;
     border-radius: 10px;

@@ -1,0 +1,128 @@
+신발 사이즈 잘 나오는거
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>list</title>
+</head>
+<body>
+<h1 align="center">메뉴 목록 페이지</h1>
+<table align="center" border="1">
+
+<tr>
+<th>신발번호</th>
+<th>신발이름</th>
+<th>신발 한글이름</th>
+<th>신발사이즈260</th>
+<th>신발사이즈220</th>
+<th>신발사이즈</th>
+<th>신발사이즈</th>
+</tr>
+
+<tr th:each="product : ${productList}"> 
+  <td th:text="${product.productCode}"></td> <!-- 신발 번호 -->
+  <td th:text="${product.productName}"></td> <!-- 신발 이름 -->
+  <td th:text="${product.productNameKr}"></td><!-- 신발 한글이름 -->
+  <td>
+    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+      <span th:switch="${productOption.productOptionSize}">
+        <span th:case="'260'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
+      </span>
+    </span>
+  </td>
+  
+  <td>
+    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+      <span th:switch="${productOption.productOptionSize}">
+       	
+        <span th:case="'220'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
+      </span>
+    </span>
+  </td>
+  <td>
+   <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+ 	 <span th:if="${productOption.productOptionSize} == '230'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}">
+		<span th:unless="${productOption.productOptionSize} == '230'">null
+  	</span>
+  	</span>
+  	</span>
+  </td>
+</tr>
+
+</table>
+<span th:each="product : ${productList}"> 
+    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
+      <span th:switch="${productOption.productOptionSize}">
+        <span th:case="'260'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
+      </span>
+    </span>
+    </span>
+    
+    
+<form id="selectForm" action="/list/normalBuy" method="post">
+    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
+    <div class="box" style="display: block;">
+        <p style="line-height: 0.5;"><b>220</b></p>
+       <span th:each="product : ${productList}"> 
+           <span th:each="productOption : ${product.productOption}">
+                <span th:switch="${productOption.productOptionSize}">
+                    <span th:case="'220'">
+                        <input type="hidden" name="sellingOrderNo" th:value="${productOption.sellingOrders[0].sellingOrderNo}">
+                        <span th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}" 
+                              th:onclick="|location.href='/list/buyAgree?no=${productOption.sellingOrders[0].sellingOrderNo}'|"></span>
+                    </span>
+                </span>
+            </span>
+          </span>
+    </div>
+    
+    <button type="submit" id="buyBtn" class="btn btn-primary" disabled>구매하기</button>
+</form>
+
+
+
+</body>
+
+<script>
+  var boxes = document.querySelectorAll('.box');
+  var selectedBox = document.querySelector('.selected');
+
+  function updateButtonStatus() {
+    const myButton = document.getElementById('buyBtn');
+    const selectedBox = document.querySelector('.selected');
+    const sellingOrderNo = document.getElementById('sellingOrderNo');
+
+    if (selectedBox) {
+      myButton.style.opacity = 1;
+      myButton.style.pointerEvents = 'auto';
+
+      sellingOrderNo.value = selectedBox.querySelector('p').textContent;
+    } else {
+      myButton.style.opacity = 0.5;
+      myButton.style.pointerEvents = 'none';
+
+      sellingOrderNo.value = '';
+    }
+  }
+
+  boxes.forEach(function (box) {
+    box.addEventListener('click', function () {
+      if (selectedBox !== null) {
+        selectedBox.classList.remove('selected');
+      }
+
+      if (selectedBox !== this) {
+        this.classList.add('selected');
+        selectedBox = this;
+      } else {
+        selectedBox = null;
+      }
+
+      updateButtonStatus();
+    });
+  });
+
+  updateButtonStatus();
+</script>
+
+</html>

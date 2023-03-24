@@ -11,8 +11,10 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
-    <link href="/css/mypage/wish.css" rel="stylesheet" type="text/css"> 
+    <link href="/css/mypage/information.css" rel="stylesheet" />
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    <script src="/js/myInfo.js" type="text/Javascript" defer></script>
+
 </head>
 
 <body>
@@ -23,7 +25,7 @@
     <div class="d-flex" id="wrapper">
         <div class="border-end bg-white" id="sidebar-wrapper">
             <a href="#">
-                <div class="sidebar-title" id="side0">마이 페이지</div>
+                <div class="sidebar-title " id="side0">마이 페이지</div>
             </a>
             <!-- Sidebar 쇼핑정보 -->
             <div class="sidebar-heading">쇼핑정보</div>
@@ -36,7 +38,7 @@
             <!-- Sidebar 내정보 -->
             <div class="sidebar-heading">내정보</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side4">내 정보 관리</a>
                 <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
                 <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
@@ -47,47 +49,54 @@
         <!-- Page content wrapper-->
         <div id="page-content-wrapper">
             <!-- Page content-->
-            <!-- 관심 상품 -->
             <div class="container-fluid">
-                <h3>관심 상품</h3>   
-                <div class="wish">
-                    <ul>
-                        <li class="wish_img"></li>
-                        <li>
-                            <ul class="wish_text_wrap">
-                                <li>Maison Margiela</li>
-                                <li class="wish_name">Maison Margiela x Gentle Monster MM004 Black Black</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="wish_btn_wrap">
-                               <li><button class="wish_btn">구매하기</button></li>
-                                <li class="wish_delete">삭제</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- wish -->
+                <!-- 내 정보 조회 -->
 
-                <div class="wish">
+                <h3>내 정보 조회</h3>
+                <div class="information">
                     <ul>
-                        <li class="wish_img"></li>
-                        <li>
-                            <ul class="wish_text_wrap">
-                                <li>Maison Margiela</li>
-                                <li class="wish_name">Maison Margiela x Gentle Monster MM004 Black Black</li>
-                            </ul>
+                        <li class="information_wrap">
+                        	<img style="width: 120px; height: 120px;">
                         </li>
                         <li>
-                            <ul class="wish_btn_wrap">
-                               <li><button class="wish_btn">구매하기</button></li>
-                                <li class="wish_delete">삭제</li>
+                            <ul class="prifile_text" style="position: relative;">
+                            	<li></li>
+                                <li>thbo_123@gmail.com</li>
                             </ul>
                         </li>
                     </ul>
-                </div><!-- wish -->
-            </div><!-- container-fluid -->
+                    <!-- 프로필 이미지 변경-->
+                    <div style="display: none;">
+						<input type="file" name="attachImage" accept="image/gif,image/jpeg,image/png"> 
+					</div>
+                </div> <!-- 내 정보 조회 -->
+
+                <div class="information_cont">
+                    <div>
+                        <div class="information_text">로그인 정보</div>
+                        <div class="information_text gray">이메일 주소</div>
+                        <p></p>
+                        <div class="information_text gray">비밀 번호</div>
+                        <p></p>
+                    </div>
+
+                    <div>
+                        <div class="information_text">개인 정보</div>
+                        <div class="information_text gray">이름</div>
+                        <p></p>
+                        <div class="information_text gray">휴대폰 번호</div>
+                        <p></p>
+                        <button id="info_btn" class="information_btn">수정</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div><!-- 사이드바 -->
-    <!-- 푸터 -->
+	<!-- 푸터 -->
 	<div th:replace="common/footer/mainFooter.html"></div>
-</body></html>
+	
+
+
+</body>
+
+</html>
