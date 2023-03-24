@@ -63,38 +63,6 @@
 		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
 	</resultMap>
 	
-	<!-- 메인 아이디 조회 -->
-	<resultMap id="selectIdMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO">
-		<id property="membersNo" column="MEMBERS_NO"></id>
-		<association property="members" resultMap="membersResultMap"/>
-	</resultMap>
-	
-	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
-		<id property="membersNo" column="MEMBERS_NO"/>
-		<result property="membersId" column="MEMBERS_ID"/>
-		<result property="membersPwd" column="MEMBERS_PWD"/>
-		<result property="membersTel" column="MEMBERS_TEL"/>
-		<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
-		<result property="membersEntire" column="MEMBERS_ENTIRE"/>
-	
-		<!-- 1 대 다 관계로 memberDTO 1개에 memberRoleList는 여러개일수 있다.-->
-		<collection property="authRoleList" resultMap="authRoleResultMap"/>
-	</resultMap>
-	
-	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
-		<id property="membersNo" column="MEMBERS_NO"/>
-		<result property="authNum" column="AUTH_NUM"/>
-		<association property="auth" resultMap="authResultMap"/>
-
-	</resultMap>
-	
-		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
-		<id property="num" column="AUTH_NUM"/>
-		<result property="name" column="AUTH_NAME"/>
-		<result property="ko" column="AUTH_KO"/>
-	</resultMap>	
-	
- 
 	 <!-- 메인 구매내역 조회 -->
 	<select id="selectBuyList" resultMap="buyListResultMap">
 	  SELECT *
@@ -139,14 +107,4 @@
 		  WHERE ROWNUM = 1
 	</select>
 	
-	<!-- 메인 아이디 조회 -->
-	<select id="selectId" resultMap="selectIdMap">
-		    SELECT
-		      M.MEMBERS_ID
-		    FROM MEMBERS M
-		    WHERE M.MEMBERS_ID = #{ memberId }
-	</select>
-
-
-
 </mapper>

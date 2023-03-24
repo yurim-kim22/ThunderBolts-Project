@@ -10,5 +10,4 @@ public interface MypageService {
 	
 	SellListDTO selectSellList(String memberId);
 	
-	MembersIdDTO selectId(String memberId);
 }
