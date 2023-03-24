@@ -285,6 +285,7 @@ const $pw1 = document.getElementById("pw1");
 const $pw2 = document.getElementById("pw2");
 
 const $loginPhone = document.getElementById("loginPhone");
+const $consentCheckboxTitleEs = document.getElementById("consentCheckboxTitleEs")
 
 const $pw1check = document.getElementById('pw1check');
 const $pw2check = document.getElementById('pw2check');
@@ -305,10 +306,14 @@ window.onkeydown = function() {
 		&& $pw1.value == $pw2.value
 		&& $pw1.value != '' && $pw2.value != ''
 		&& $loginPhone.value.match(phonePattern) != null
+		&& $consentCheckboxTitleEs.checked
 	) {
 		
 		$registJoin.disabled = false;
 		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$registJoin.disabled = true;
+		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
@@ -324,10 +329,14 @@ window.onchange = function() {
 		&& $pw1.value == $pw2.value
 		&& $pw1.value != '' && $pw2.value != ''
 		&& $loginPhone.value.match(phonePattern) != null
+		&& $consentCheckboxTitleEs.checked
 	) {
 	
 		$registJoin.disabled = false;
 		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$registJoin.disabled = true;
+		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
@@ -343,11 +352,72 @@ window.onclick = function() {
 		&& $pw1.value == $pw2.value
 		&& $pw1.value != '' && $pw2.value != ''
 		&& $loginPhone.value.match(phonePattern) != null
+		&& $consentCheckboxTitleEs.checked
 	) {
 		
 		$registJoin.disabled = false;
 		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$registJoin.disabled = true;
+		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
+	}
+}
+
+window.oninput = function() {
+	
+	if (
+		($loginName.value != "예) 홍길동")
+		&& ($loginName.value.trim() != null)
+		&& ($emailId.value.match(emailPattern) != null)
+		&& duplicationNum == '1'
+		&& ($pw1.value.match(pwdPattern) != null)
+		&& ($pw2.value.match(pwdPattern) != null)
+		&& $pw1.value == $pw2.value
+		&& $pw1.value != '' && $pw2.value != ''
+		&& $loginPhone.value.match(phonePattern) != null
+		&& $consentCheckboxTitleEs.checked
+	) {
+		
+		$registJoin.disabled = false;
+		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$registJoin.disabled = true;
+		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
 
+
+
+
+/* 상위 동의하기 체크시 전체 체크 */
+
+if (document.getElementById("consentCheckboxTitleEs")) {
+	
+	$('#consentCheckboxTitleEs').click(function(){
+		if($('#consentCheckboxTitleEs').is(':checked')){
+			$('#consentCheckboxSubTitleEs1').prop('checked',true);
+			$('#consentCheckboxSubTitleEs2').prop('checked',true);
+			} else{
+				$('#consentCheckboxSubTitleEs1').prop('checked',false);
+				$('#consentCheckboxSubTitleEs2').prop('checked',false);
+			}
+		})
+	
+	}
+
+if (document.getElementById("consentCheckboxTitleCh")) {
+	
+	$('#consentCheckboxTitleCh').click(function(){
+		if($('#consentCheckboxTitleCh').is(':checked')){
+			$('#consentCheckboxSubTitleCh1').prop('checked',true);
+			$('#consentCheckboxSubTitleCh2').prop('checked',true);
+			} else{
+				$('#consentCheckboxSubTitleCh1').prop('checked',false);
+				$('#consentCheckboxSubTitleCh2').prop('checked',false);
+			}
+		})
+	
+	}	
+		
+		

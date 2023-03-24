@@ -46,8 +46,28 @@
             <input type="text" value="휴대폰 번호는 숫자만 입력하세요" id="loginPhone" name="membersTel" required>
              <div class="phonecheck" id="phonecheck"></div>
             </div>
-
-            <div>
+            
+            <ul class="consent">
+            	<li class="consentli">
+            		<input type="checkbox" id="consentCheckboxTitleEs" required><span class="consentTitle">[필수] 만 14세 이상이며 모두 동의합니다.</span>
+            		<ul class="consentdetail">
+            			<li class="consentli"><input type="checkbox" id="consentCheckboxSubTitleEs1" required><span class="consentSubTitle">이용약관 동의</span></li>
+            			<li class="consentli"><input type="checkbox" id="consentCheckboxSubTitleEs2" required><span>개인정보 수집 및 이용 동의</span></li>
+            		</ul>
+            	
+            	</li>	
+            	<li class="consentli">
+            		<input type="checkbox" id="consentCheckboxTitleCh"><span class="consentTitle">[선택] 광고성 정보 수신에 모두 동의 합니다.</span>
+            		<ul class="consentdetail">
+            			<li class="consentli"><input type="checkbox" id="consentCheckboxSubTitleCh1"><span class="consentSubTitle">문자 메세지</span></li>
+            			<li class="consentli"><input type="checkbox" id="consentCheckboxSubTitleCh2"><span class="consentSubTitle">이메일</span></li>
+            		</ul>
+            	
+            	</li>	      
+            </ul>
+            
+            
+			<div>
                 <input type="submit" value="가입하기" id="registJoin" disabled='disabled'>
             </div>
         </form>

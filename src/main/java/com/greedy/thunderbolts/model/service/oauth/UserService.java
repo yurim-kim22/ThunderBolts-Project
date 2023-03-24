@@ -13,7 +13,8 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
+import com.greedy.thunderbolts.model.dao.MemberMapper;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,10 +23,12 @@ public class UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2U
 	
 	private final UserRepository userRepository;
     private final HttpSession httpSession;
+    private final MemberMapper mapper;
     
-    public UserService ( UserRepository userRepository, HttpSession httpSession ) {
+    public UserService ( UserRepository userRepository, HttpSession httpSession, MemberMapper mapper ) {
     	this.userRepository = userRepository;
     	this.httpSession = httpSession;
+    	this.mapper = mapper;
     }
  
 
@@ -33,7 +36,7 @@ public class UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2U
     public OAuth2User loadUser(OAuth2UserRequest oAuth2UserRequest) throws OAuth2AuthenticationException {
         OAuth2UserService oAuth2UserService = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = oAuth2UserService.loadUser(oAuth2UserRequest);
-        log.info("userRepository : {}" + oAuth2User);
+        log.info("UserService 첫번째 : {}" , oAuth2UserRequest.getClientRegistration());
         // 현재 진행중인 서비스를 구분하기 위해 문자열로 받음. oAuth2UserRequest.getClientRegistration().getRegistrationId()에 값이 들어있다. {registrationId='naver'} 이런식으로
         String registrationId = oAuth2UserRequest.getClientRegistration().getRegistrationId();
 
@@ -42,11 +45,12 @@ public class UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2U
 
 	// OAuth2 로그인을 통해 가져온 OAuth2User의 attribute를 담아주는 of 메소드.
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
-
+        log.info("UserService 두번째 :  {}" , oAuth2User.getAttributes());
+        log.info("UserService 두번째 attributes :  {}" , attributes.getAttributes().get(userNameAttributeName));
         TblUser user = saveOrUpdate(attributes);
         httpSession.setAttribute("user", new SessionUser(user));
         
-        log.info("[userService] : {} " + user);
+        
         System.out.println(attributes.getAttributes());
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey()))
                 , attributes.getAttributes()

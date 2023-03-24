@@ -38,7 +38,10 @@ public class LoginController {
 		this.memberService = memberService;
 		this.passwordEncoder = passwordEncoder;
 	}
-	
+	@GetMapping("/oauth/kakao")
+    public void kakaoCallback(@RequestParam String code) {
+        System.out.println(code);
+    }
 	
 	@GetMapping("/Main")
 	public String loginMain(Model model) {
@@ -107,6 +110,11 @@ public class LoginController {
 		return redirectUrl;
 	}
 	
+	/* 아이디 찾기 */
+	@GetMapping("/searchId")
+	public String serachId() {
+		return "agreeAtc/buyAgree";
+	}
 	
 
 	
