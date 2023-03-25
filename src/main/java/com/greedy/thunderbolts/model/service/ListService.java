@@ -18,6 +18,8 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
     ProductDTO findSellingProduct(String productOptionSize);
 
     ProductDTO findProductOptionSize (String productOptionSize);
+    
+    List<ProductDTO> finalBuyBidOrderPage();
 
 
 //    ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice);

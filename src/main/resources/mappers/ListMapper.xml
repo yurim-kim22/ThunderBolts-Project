@@ -143,6 +143,21 @@ WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
         AND P.PRODUCT_CODE = 4
     </select>
 
+	<select id="finalBuyBidOrderPage" resultMap="productResultMap">
+		SELECT P.PRODUCT_CODE,
+	    P.PRODUCT_NAME,
+	    P.PRODUCT_NAME_KR,
+	    PO.PRODUCT_OPTION_COLOR,
+	    PO.PRODUCT_OPTION_SIZE,
+	    #{buyingOrderPrice} AS BUYING_ORDER_PRICE,
+	    #{buyingOrderDeadlineDate} AS BUYING_ORDER_DEADLINE_DATE
+	FROM PRODUCT P,
+	    PRODUCT_OPTION PO
+	WHERE PO.PRODUCT_OPTION_SIZE = #{productOptionSize}
+	    AND P.PRODUCT_CODE = PO.PRODUCT_CODE
+	    AND P.PRODUCT_CODE = 4;
+		
+	</select>
 
 
 

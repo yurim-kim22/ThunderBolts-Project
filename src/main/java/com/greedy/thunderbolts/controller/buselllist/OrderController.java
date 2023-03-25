@@ -1,11 +1,13 @@
 package com.greedy.thunderbolts.controller.buselllist;
 
+import java.util.Date;
 import java.util.List;
 
-import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.service.ListService;
@@ -48,5 +50,24 @@ public class OrderController {
 	    model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
 
 	    return "orderPage/normalOrderPage";
+	}
+	@PostMapping("/buyBidOrderPage")
+	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
+									@RequestParam("buyingOrderDeadlineDate") Date buyingOrderDeadlineDate,
+									Model model) {
+		
+		log.info("입찰 구매로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
+		log.info("입찰 구매로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
+		//List<ProductDTO> productSize =listService.findSizePrice();
+		List<ProductDTO> finalBuyOrder =listService.finalBuyBidOrderPage();
+
+
+		 model.addAttribute("ProductDTO",finalBuyOrder);
+		 model.addAttribute("buyingOrderPrice",buyingOrderPrice);
+		 model.addAttribute("buyingOrderDeadlineDate",buyingOrderDeadlineDate);
+		// model.addAttribute("productName", productSize.getProductName());
+		   
+		   
+		    return "orderPage/buyBidOrderPage";
 	}
 }

@@ -27,6 +27,8 @@ public interface ListMapper {
 
 	ProductDTO findProductOptionSize(String productOptionSize);
 
+	List<ProductDTO> finalBuyBidOrderPage();
+
 //	ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice);
 //	//프로젝트 옵션사이즈랑, 바잉프라이즈, 마감기한 날짜
 //
