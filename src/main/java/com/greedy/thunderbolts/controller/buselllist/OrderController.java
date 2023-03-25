@@ -1,5 +1,6 @@
 package com.greedy.thunderbolts.controller.buselllist;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -51,23 +52,30 @@ public class OrderController {
 
 	    return "orderPage/normalOrderPage";
 	}
+//	@PostMapping("/buyBidOrderPage")
+//	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
+//									@RequestParam("buyingOrderDeadlineDate") Date buyingOrderDeadlineDate,
+//									Model model) {
 	@PostMapping("/buyBidOrderPage")
-	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
-									@RequestParam("buyingOrderDeadlineDate") Date buyingOrderDeadlineDate,
-									Model model) {
-		
+	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice ,
+			 @RequestParam("buyingOrderDeadlineDate") Date buyingOrderDeadlineDate,
+			 Model model) {
+ 	log.info("찍어");
 		log.info("입찰 구매로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
 		log.info("입찰 구매로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
 		//List<ProductDTO> productSize =listService.findSizePrice();
-		List<ProductDTO> finalBuyOrder =listService.finalBuyBidOrderPage();
-
-
-		 model.addAttribute("ProductDTO",finalBuyOrder);
+		// List<ProductDTO> finalBuyOrder =listService.finalBuyBidOrderPage();
+//정처기 ->ㅠㅠ 대기업 중견(코딩테스트?ㅠㅠ)
+//		 model.addAttribute("ProductDTO",finalBuyOrder);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		 model.addAttribute("buyingOrderPrice",buyingOrderPrice);
-		 model.addAttribute("buyingOrderDeadlineDate",buyingOrderDeadlineDate);
-		// model.addAttribute("productName", productSize.getProductName());
+		 model.addAttribute("buyingOrderDeadlineDate",sdf.format(buyingOrderDeadlineDate));
+//		 model.addAttribute("productName", productSize.getProductName());
 		   
-		   
+//		   return "";
 		    return "orderPage/buyBidOrderPage";
 	}
+	
+	@Post Httpsession
 }

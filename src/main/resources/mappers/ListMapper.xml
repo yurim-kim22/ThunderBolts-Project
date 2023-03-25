@@ -158,6 +158,7 @@ WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
 	    AND P.PRODUCT_CODE = 4;
 		
 	</select>
+insert
 
 
 

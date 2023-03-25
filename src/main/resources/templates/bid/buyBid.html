@@ -119,13 +119,15 @@
         </div>
         <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
-        <button id="my-button">
+     <!--    <button id="my-button">
             입찰 구매 계속
         </button>
-
+ -->
         <form id="selectForm" action="/orderPage/buyBidOrderPage" method="POST">
-            <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}">
-            <input type="hidden" name="buyingOrderDeadlineDate" th:value="${buyingOrderDeadlineDate}">
+        <input type="hidden" id="test3" name="productName" th:value="${productName}">
+
+                  <input type="hidden" id="test" name="buyingOrderPrice">
+            <input type="hidden" id="test2" name="buyingOrderDeadlineDate">
             <button id="my-button" type="submit">
                 입찰 구매 계속
             </button>
@@ -136,6 +138,7 @@
 
 <script>
 const myButton = document.getElementById('my-button');
+
 
 myButton.addEventListener('mouseover', function() {
   myButton.style.color = '#fff';
@@ -168,6 +171,7 @@ function calculateTotal() {
 
   const total = price ? (price - checkingFee - commission - shippingFee) : 0; // 입력된 가격에서 추가 비용을 뺀 값을 계산합니다.
   const formattedTotal = total > 0 ? total.toLocaleString("en-US") : "-"; // 계산된 금액을 세자리마다 쉼표를 추가하여 포맷팅합니다. 계산된 금액이 0 이하인 경우는 "-"을 출력합니다.
+  document.getElementById("test").value = total;
   document.getElementById("total").textContent = formattedTotal + "원"; // 계산된 금액을 출력합니다.
 }
 
@@ -178,6 +182,8 @@ deadlineContainer.appendChild(deadlineText);
 
 boxes.forEach(box => {
   box.addEventListener('click', function() {
+	
+	  
     if (this.classList.contains('selected')) {
       this.classList.remove('selected');
     } else {
@@ -186,11 +192,15 @@ boxes.forEach(box => {
       const days = this.dataset.days;
       const deadline = new Date();
       deadline.setDate(deadline.getDate() + parseInt(days));
+      
+      
       const deadlineStr = deadline.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+      document.getElementById("test2").value = deadlineStr;
       deadlineText.textContent = days + '일 (' + deadlineStr + ' 마감)';
     }
-  });
+  })
 });
+
 
 </script>
 

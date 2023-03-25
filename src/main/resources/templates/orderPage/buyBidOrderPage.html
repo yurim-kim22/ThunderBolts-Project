@@ -14,7 +14,13 @@
     <!-- 헤더 -->
     	<div th:replace="common/header/orderHeader.html"></div>
 
- 
+ <form id="selectForm" action="/orderPage/buyBidOrderPage" method="POST">
+                  <input type="hidden" id="test" name="buyingOrderPrice" th:value="${buyingOrderPrice}">
+            <input type="hidden" id="test2" name="buyingOrderDeadlineDate" th:value="${buyingOrderDeadlineDate}">
+            <button id="my-button" type="submit">
+                입찰 구매 계속
+            </button>
+        </form>
   <section id="section01">
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
@@ -112,7 +118,7 @@
       </div>
       <div class="final1">
 		  <!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
-		<p id="final-price" th:text="${sellingOrderPrice + 11000}" style="color: red; font-size: large;"></p>
+		<p id="final-price"  style="color: red; font-size: large;"></p>
 		
 		</div>
       <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
@@ -128,19 +134,13 @@
 		</div>
       
 <div class="order1">
-  <p02><b th:text="${sellingOrderPrice}"></b></p02><br>
+  <p02><b ></b></p02><br>
   <p02><br></p02>
   <p02>5,000원</p02><br>
   <p02>6,000원</p02><br>
   <p02>3,000원</p02>
 </div>
-<!--       <div class="order1">
-        <p02 th:text="${sellingOrderPrice}"><b></b></p02><br>
-        <p02><br></p02>
-        <p02>무료</p02><br>
-        <p02>6,000원</p02><br>
-        <p02>3,000원</p02>
-      </div> -->
+
   </section>
 
   <section id="section04">
@@ -207,8 +207,9 @@
         <br>
         총 결제금액
         <div class="final2">
-        <p id="final-price" th:text="${sellingOrderPrice + 14000}" style="color: red; font-size: x-large;"></p>
+        <p id="final-price"  style="color: red; font-size: x-large;"></p>
         </div>
+        <form 
         <button id="my-button">
           결제하기
         </button>
@@ -992,8 +993,8 @@
 
       /**/
     window.onload = function() {
-        var sellingOrderPrice = [[${sellingOrderPrice}]];
-        var finalPrice = sellingOrderPrice + 14000;
+        
+       
         document.getElementById("final-price").innerHTML = finalPrice;
     }
 
