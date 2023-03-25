@@ -16,7 +16,10 @@
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
     <link href="/css/footer/mainFooter.css" rel="stylesheet" type="text/css">
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    
+    <script>
+    	const message = '[[${message}]]';
+    	message && alert(message);
+    </script>
     
 
 </head>
@@ -82,29 +85,28 @@
         </div>
         <!-- 팝업 -->
         <div id="address_modal" >
-            <form>
+            <form action="/mypage/address" method="POST">
                 <div class="modal-content">
                     <div class="close">&times;</div>
                     <h5>새 주소 추가</h5>
                     <!-- 이름 입력 필드 -->
                     <label for="name">이름</label>
-                    <input type="text" id="name" name="name" placeholder="이름">
-                    <!-- <div class="modify_text gray"></div> -->
+                    <input type="text" id="name" name="receiverName" placeholder="이름">
                     <span></span>
                     <!-- 우편번호 입력 필드 -->
                     <label for="postnum" class="mt">우편번호</label>
                     <ul class="postnum_wrap">
-                        <li><input type="text" id="postnum" name="postnum" placeholder="우편번호를 검색하세요."></li>
+                        <li><input type="text" id="postnum" name="addressesPostNo" placeholder="우편번호를 검색하세요."></li>
                         <li><button type="button" class="postnum_del_btn">검색</button></li>
                     </ul>
                     <span></span>
                     <!-- 주소 입력 필드 -->
                     <label for="myaddress" class="mt">주소</label>
-                    <input  type="text" disabled id="myaddress" name="myaddress" placeholder="우편번호 검색 후 자동 입력 됩니다. ">
+                    <input  type="text" disabled id="myaddress" name="addressesName" placeholder="우편번호 검색 후 자동 입력 됩니다. ">
                     <span></span>
                     <!-- 상세 주소 입력 필드 -->
                     <label for="myaddress_detail" class="mt">상세 주소</label>
-                    <input  type="text" id="myaddress_detail" name="myaddress_detail" placeholder="건물, 아파트, 동/호수 입력">
+                    <input  type="text" id="myaddress_detail" name="addressesAdds" placeholder="건물, 아파트, 동/호수 입력">
                     <span></span>
 
                     <input type="submit" class="modify_btn" value="추가하기">

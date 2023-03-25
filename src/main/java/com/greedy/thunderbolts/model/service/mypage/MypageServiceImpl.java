@@ -8,6 +8,7 @@ import com.greedy.thunderbolts.config.SecurityConfig;
 import com.greedy.thunderbolts.model.dao.MypageMapper;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
@@ -49,6 +50,11 @@ public class MypageServiceImpl implements MypageService {
 	public void updateInfo(AttachmentFileDTO attachment) {
 		log.info("[updateInfo] : {} " + attachment);
 		mypageMapper.insertProfile(attachment);
+	}
+	//주소록
+	@Override
+	public int insertAddress(AddressDTO address, int memberNo) {
+		return mypageMapper.insertAddress(address, memberNo);
 	}
 
 }

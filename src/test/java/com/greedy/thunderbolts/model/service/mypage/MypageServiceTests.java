@@ -8,11 +8,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.model.dao.MypageMapperTests;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @SpringBootTest
 @ContextConfiguration(classes = {Application.class} )
 public class MypageServiceTests {
@@ -68,5 +72,28 @@ public class MypageServiceTests {
 	    // 출력문을 사용하여 updateInfo() 메서드가 정상적으로 실행되었는지 확인합니다.
 	    System.out.println(attachment);
 	}
+	
+	@Test
+	public void 주소록_인서트() {
+		int memberNo = 2;
+		
+		AddressDTO address = new AddressDTO();
+		address.setAddressesNo(1);
+		address.setAddressesName("경기도");
+		address.setAddressesPostNo("12222");
+		address.setReceiverName("홍길동");
+		address.setAddressesAdds("수원");
+		
+		log.info("address : {}", address);
+		
+		int insertAddress = mypageService.insertAddress(address, memberNo);
+
+		log.info("insertAddress : {}", insertAddress);
+	}
+	
+	
+	
+	
+	
 
 }

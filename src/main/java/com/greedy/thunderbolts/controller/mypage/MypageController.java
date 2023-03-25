@@ -2,28 +2,28 @@ package com.greedy.thunderbolts.controller.mypage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping; 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.service.mypage.MypageService;
 
 import lombok.extern.slf4j.Slf4j;
-import net.coobird.thumbnailator.Thumbnails;
 
 @Slf4j
 @Controller
@@ -33,11 +33,13 @@ public class MypageController {
 	@Value("${image.image-dir}")
 	private String IMAGE_DIR;
 	
-	private MypageService mypageService;
+	private final MypageService mypageService;
+	private final MessageSourceAccessor messageSourceAccessor;
 	
 	@Autowired
-	public MypageController(MypageService mypageService) {
+	public MypageController(MypageService mypageService, MessageSourceAccessor messageSourceAccessor) {
 		this.mypageService = mypageService;
+		this.messageSourceAccessor = messageSourceAccessor;
 	}
 	
 	//마이페이지 메인
@@ -45,8 +47,10 @@ public class MypageController {
 	public String mypageMain(@AuthenticationPrincipal MembersDTO membersId, Model model) {
 		
 		String memberId = membersId.getMembersId();
+		int membersNo = membersId.getMembersNo();
 		
-	    log.info("[Controller] : {}", memberId );
+	    log.info("[Controller memberId] : {}", memberId );
+	    log.info("[Controller memberId] : {}", membersNo );
 	    
 	    BuyListDTO buyList = mypageService.selectBuyList(memberId);
 	    SellListDTO sellList = mypageService.selectSellList(memberId);
@@ -178,15 +182,35 @@ public class MypageController {
 		
 		mypageService.updateInfo(attachment);
 		
-		return "/mypage/information";
+		return "redirect:/mypage/information";
+	}
+	
+	@GetMapping("/address")
+	public String addressMain() {
+		
+		return "/mypage/address";
 	}
 	
 	
 	//주소록
-	@GetMapping("/address")
-	public String address(){
+	@PostMapping("/address")
+	public String address(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model, RedirectAttributes rttr){
 		
-		return "mypage/address";
+		int memberNo = members.getMembersNo();
+		log.info("[memberNo] : {}", memberNo);
+		log.info("[address] : {}", address);
+		
+		int insertAddress = mypageService.insertAddress(address, memberNo);
+		
+		log.info("[insertAddress] : {}", insertAddress);
+		
+		if(insertAddress == 0) {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("address.registerror"));
+		}else {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("address.regist"));
+		}
+	
+		return "redirect:/mypage/address";
 	}
 	
 

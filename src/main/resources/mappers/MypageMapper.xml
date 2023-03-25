@@ -81,14 +81,31 @@
 		<id property="membersNo" column="MEMBERS_NO"/>
 		<result property="authNum" column="AUTH_NUM"/>
 		<association property="auth" resultMap="authResultMap"/>
-
 	</resultMap>
 	
 		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
 		<id property="num" column="AUTH_NUM"/>
 		<result property="name" column="AUTH_NAME"/>
 		<result property="ko" column="AUTH_KO"/>
-	</resultMap>		
+	</resultMap>
+	
+	<!-- 주소록 -->
+	<resultMap id="membersAddressResultMap" type="com.greedy.thunderbolts.model.dto.MembersAddressDTO">
+	    <result property="addressesNo" column="ADDRESSES_NO" />
+	    <result property="addressesName" column="ADDRESSES_NAME" />
+	    <result property="addressesPostNo" column="ADDRESSES_POST_NO" />
+	    <result property="addressesAdds" column="ADDRESSES_ADDS" />
+	    <result property="receiverName" column="RECEIVER_NAME" />
+	    <association property="members" resultMap="membersResultMap"/>
+	</resultMap>
+
+
+
+
+
+
+
+		
 	 <!-- 메인 구매내역 조회 -->
 	<select id="selectBuyList" resultMap="buyListResultMap">
 	  SELECT *
@@ -178,5 +195,30 @@
 	   WHERE MEMBERS_ID = #{ memberId }
 	     AND MEMBERS_PWD = #{ existPw }
 	</update>
+	
+	<!-- 주소록 -->
+	<insert id="insertAddress">
+  		INSERT
+		INTO MEMBERS_ADDRESS D
+		(
+		    D.ADDRESSES_NO
+		  ,	D.RECEIVER_NAME
+		  ,	D.ADDRESSES_POST_NO
+		  , D.ADDRESSES_NAME
+		  , D.ADDRESSES_ADDS
+		  , D.MEMBERS_NO
+		)
+		VALUES
+		(
+		    SEQ_ADDRESSES_NO.NEXTVAL
+		  , #{ address.receiverName }
+		  , #{ address.addressesPostNo }
+		  , '경기도'
+		  <!-- , #{ address.addressesName } -->
+		  , #{ address.addressesAdds }
+		  , #{ memberNo }
+		)
+	</insert>
+	
 	
 </mapper>

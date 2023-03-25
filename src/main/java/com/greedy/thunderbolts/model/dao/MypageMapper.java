@@ -1,14 +1,17 @@
 package com.greedy.thunderbolts.model.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 @Mapper
 public interface MypageMapper {
+	
 	//메인 구매내역 조회
 	BuyListDTO selectBuyList(String memberId);
 	//메인 판매내역 조회
@@ -20,8 +23,8 @@ public interface MypageMapper {
 	//내정보관리 수정 이름 비밀번호
 	int modifyInfo(MembersDTO member);
 	//주소록 인서트
-	int selectAddress();
+	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
-	
+	//AddressDTO selectAddress(String memberId);
 	
 }
