@@ -392,6 +392,7 @@ window.oninput = function() {
 
 /* 상위 동의하기 체크시 전체 체크 */
 
+/* 필수 약관 체크시 전체 체크, 전체 해제 */
 if (document.getElementById("consentCheckboxTitleEs")) {
 	
 	$('#consentCheckboxTitleEs').click(function(){
@@ -405,7 +406,40 @@ if (document.getElementById("consentCheckboxTitleEs")) {
 		})
 	
 	}
+/* 필수 약관 하위 체크시 1개라도 체크 안되면 필수 약관 체크 해제 둘다 체크시 체크 */		
+if ($('#consentCheckboxSubTitleEs1') && $('#consentCheckboxSubTitleEs2')) {
 
+	$('#consentCheckboxSubTitleEs1').click(function() {
+		if ($('#consentCheckboxSubTitleEs1').is(':checked')) {
+			if ($('#consentCheckboxSubTitleEs2').is(':checked')) {
+				$('#consentCheckboxTitleEs').prop('checked', true);
+			} else {
+				$('#consentCheckboxTitleEs').prop('checked', false);
+			}
+		} else {
+			if ($('#consentCheckboxSubTitleEs2').is(':checked')) {
+				$('#consentCheckboxTitleEs').prop('checked', false);
+			}
+		}
+	})
+
+	$('#consentCheckboxSubTitleEs2').click(function() {
+		if ($('#consentCheckboxSubTitleEs2').is(':checked')) {
+			if ($('#consentCheckboxSubTitleEs1').is(':checked')) {
+				$('#consentCheckboxTitleEs').prop('checked', true);
+			} else {
+				$('#consentCheckboxTitleEs').prop('checked', false);
+			}
+		} else {
+			if ($('#consentCheckboxSubTitleEs1').is(':checked')) {
+				$('#consentCheckboxTitleEs').prop('checked', false);
+			}
+		}
+	})
+
+}		
+
+/* 선택 약관 체크시 전체 체크, 전체 해제  */
 if (document.getElementById("consentCheckboxTitleCh")) {
 	
 	$('#consentCheckboxTitleCh').click(function(){
@@ -419,28 +453,42 @@ if (document.getElementById("consentCheckboxTitleCh")) {
 		})
 	
 	}	
-	
-if (document.getElementById("consentCheckboxTitleCh")) {
-	
-	$('#consentCheckboxTitleCh').click(function(){
-		if($('#consentCheckboxSubTitleCh1').is(':checked')){
-			$('#consentCheckboxSubTitleCh1').prop('checked',true);
-			$('#consentCheckboxSubTitleCh2').prop('checked',true);
-			} else{
-				$('#consentCheckboxSubTitleCh1').prop('checked',false);
-				$('#consentCheckboxSubTitleCh2').prop('checked',false);
+
+/* 선택 약관 하위 체크시 1개라도 체크 안되면 선택 약관 체크 해제 둘다 체크시 체크 */	
+if ($('#consentCheckboxSubTitleCh1') && $('#consentCheckboxSubTitleCh2')) {
+
+	$('#consentCheckboxSubTitleCh1').click(function() {
+		if ($('#consentCheckboxSubTitleCh1').is(':checked')) {
+			if ($('#consentCheckboxSubTitleCh2').is(':checked')) {
+				$('#consentCheckboxTitleCh').prop('checked', true);
+			} else {
+				$('#consentCheckboxTitleCh').prop('checked', false);
 			}
-		})
-	
-	}	
-if (document.getElementById("consentCheckboxSubTitleCh1")) {	
-		$('#consentCheckboxSubTitleCh1').click(function(){	
-if(!($('#consentCheckboxSubTitleCh1').is(':checked') || $('#consentCheckboxSubTitleCh2').is(':checked'))){
-	$('#consentCheckboxTitleCh').prop('checked',false);
+		} else {
+			if ($('#consentCheckboxSubTitleCh2').is(':checked')) {
+				$('#consentCheckboxTitleCh').prop('checked', false);
+			}
+		}
+	})
+
+	$('#consentCheckboxSubTitleCh2').click(function() {
+		if ($('#consentCheckboxSubTitleCh2').is(':checked')) {
+			if ($('#consentCheckboxSubTitleCh1').is(':checked')) {
+				$('#consentCheckboxTitleCh').prop('checked', true);
+			} else {
+				$('#consentCheckboxTitleCh').prop('checked', false);
+			}
+		} else {
+			if ($('#consentCheckboxSubTitleCh1').is(':checked')) {
+				$('#consentCheckboxTitleCh').prop('checked', false);
+			}
+		}
+	})
+
 }	
-})	
-}	
-	
+
+
+
 if ($(".consenticonEs1")) {
 
 	$('.consenticonEs1').click(function() {
@@ -459,7 +507,9 @@ if ($(".consenticonEs1")) {
 
 }
 
-if ($(".consenticonCh1")) {
+
+
+if ($(".consenticonCh1") && $('.consenticonCh1')&&$('.consenticonCh2')) {
 
 	$('.consenticonCh1').click(function() {
 
