@@ -2,7 +2,6 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
-import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +41,7 @@ public class ListServiceImpl implements ListService {
 	@Override
 	//findSellingProduc
 	public ProductDTO findSellingProduct(int sellingOrderNo) {
+
 		return listMapper.findSellingProduct(sellingOrderNo);
 	}
 	@Override
@@ -49,6 +49,26 @@ public class ListServiceImpl implements ListService {
 	public ProductOptionDTO findSellingProduct2(int sellingOrderPrice) {
 		return listMapper.findSellingProduct2(sellingOrderPrice);
 	}
+	public ProductDTO findSellingProduct(String productOptionSize) {
+
+		return listMapper.findSellingProduct(productOptionSize);
+	}
+
+	@Override
+	public ProductDTO findProductOptionSize(String productOptionSize) {
+		return listMapper.findProductOptionSize(productOptionSize);
+	}
 
 
+//	@Override
+//	public ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice) {
+//		return listMapper.selectProductBySizeAndCode(buyingOrderPrice);
+//
+//	}
+//
+//	@Override
+//	public ProductDTO selectProductBySizeAndCode1(int buyingOrderPrice) {
+//		return listMapper.selectProductBySizeAndCode1(buyingOrderPrice);
+//
+//	}
 }

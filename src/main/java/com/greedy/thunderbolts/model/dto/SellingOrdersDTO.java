@@ -15,4 +15,6 @@ public class SellingOrdersDTO {
 	private Date sellingOrderCancellationDate;
 	private Date sellingOrderSuccessingDate;
 
+	private Date sellingOrderDeadlineDate;
+
 }

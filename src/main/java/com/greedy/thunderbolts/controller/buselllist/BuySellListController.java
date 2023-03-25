@@ -76,31 +76,54 @@ public class BuySellListController {
 		return "product/normalBuy";
 		
 	}
-	
+
 	@GetMapping("/normalBuy2")
-	public String normalBuy2(@RequestParam("sellingOrderNo") int sellingOrderNo,
-			@RequestParam("sellingOrderPrice") int sellingOrderPrice,
+	public String normalBuy2(
+			@RequestParam("sellingOrderNo") int sellingOrderNo,
+			@RequestParam(value = "sellingOrderPrice", required = false) String sellingOrderPrice,
 			Model model) {
-	    log.info("구매 요청 어그리로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
-	    log.info("구매 요청 어그리로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
-	    
-	    // sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
-	    ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
+		log.info("구매 요청 어그리로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
+		log.info("구매 요청 어그리로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
 
+		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
+		ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
 
-	    
-	    // 뷰에서 사용할 모델 객체에 데이터 추가
-	    model.addAttribute("productDTO", findSellingProduct);
-	    model.addAttribute("sellingOrderNo", sellingOrderNo);
-	    model.addAttribute("sellingOrderPrice", sellingOrderPrice); //여 주석을 풀면 에러떠
-	    model.addAttribute("productCode", findSellingProduct.getProductCode());
-	    model.addAttribute("productName", findSellingProduct.getProductName());
-	    model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
-	    model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
+		// 뷰에서 사용할 모델 객체에 데이터 추가
+		model.addAttribute("productDTO", findSellingProduct);
+		model.addAttribute("sellingOrderNo", sellingOrderNo);
+		model.addAttribute("sellingOrderPrice", sellingOrderPrice);
+		model.addAttribute("productCode", findSellingProduct.getProductCode());
+		model.addAttribute("productName", findSellingProduct.getProductName());
+		model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
+		model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
 
-
-	    return "agreeAtc/buyAgree";
+		return "agreeAtc/buyAgree";
 	}
+
+	@GetMapping("/normalBuy3")
+	public String normalBuy3(@RequestParam("productOptionSize") String productOptionSize,
+							 Model model) {
+//		log.info("구매 입찰로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
+		log.info("구매 입찰로 넘어왔음: productOptionSize={}", productOptionSize);
+
+		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
+		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize);
+
+
+
+		// 뷰에서 사용할 모델 객체에 데이터 추가
+		model.addAttribute("productDTO", findProductOptionSize);
+		model.addAttribute("productCode", findProductOptionSize.getProductCode());
+		model.addAttribute("productName", findProductOptionSize.getProductName());
+		model.addAttribute("productNameKr", findProductOptionSize.getProductNameKr());
+		model.addAttribute("productOptionSize", findProductOptionSize.getProductOption().get(0).getProductOptionSize());
+
+
+		return "bid/buyBid";
+	}
+
+
+
 
 
 
@@ -165,7 +188,26 @@ public class BuySellListController {
 
 	
 	@GetMapping("/buyBid")
-	public String buyBid(){
+	public String buyBid(@RequestParam("productOptionSize") String productOptionSize,
+						 Model model) {
+//		log.info("구매 입찰로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
+		log.info("구매 입찰로 넘어왔음: productOptionSize={}", productOptionSize);
+
+		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
+		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize);
+
+
+
+		// 뷰에서 사용할 모델 객체에 데이터 추가
+		model.addAttribute("productDTO", findProductOptionSize);
+//		model.addAttribute("sellingOrderNo", sellingOrderNo);
+//		model.addAttribute("sellingOrderPrice", sellingOrderPrice); //여 주석을 풀면 에러떠
+		model.addAttribute("productCode", findProductOptionSize.getProductCode());
+		model.addAttribute("productName", findProductOptionSize.getProductName());
+		model.addAttribute("productNameKr", findProductOptionSize.getProductNameKr());
+		model.addAttribute("productOptionSize", findProductOptionSize.getProductOption().get(0).getProductOptionSize());
+
+
 		return "bid/buyBid";
 		
 	}

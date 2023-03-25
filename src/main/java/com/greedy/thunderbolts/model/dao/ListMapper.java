@@ -22,4 +22,13 @@ public interface ListMapper {
 	ProductDTO findSellingProduct(int sellingOrderNo);
 
 	ProductOptionDTO findSellingProduct2(int sellingOrderNo);
+
+    ProductDTO findSellingProduct(String productOptionSize);
+
+	ProductDTO findProductOptionSize(String productOptionSize);
+
+//	ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice);
+//	//프로젝트 옵션사이즈랑, 바잉프라이즈, 마감기한 날짜
+//
+//	ProductDTO selectProductBySizeAndCode1(int buyingOrderPrice);
 }

@@ -12,7 +12,6 @@
 <result property="productCount" column="PRODUCT_COUNT"/>
 <collection property="productOption" resultMap="productOptionResultMap"/>
 
-
 </resultMap>
 
 <resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
@@ -23,6 +22,7 @@
 <result property="productOptionEtc" column="PRODUCT_OPTION_ETC"/>
 <result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"/>
 <collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
+    <collection property="buyingOrders" resultMap="buyingOrderResultMap"/>
 </resultMap>
 
 <resultMap id="sellingOrderResultMap" type="com.greedy.thunderbolts.model.dto.SellingOrdersDTO">
@@ -34,7 +34,20 @@
 <result property="sellingOrderStatus" column="SELLINGORDER_STATUS"/>
 <result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"/>
 <result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"/>
+<result property="sellingOrderDeadlineDate" column="SELLING_ORDER_DEADLINE_DATE"/>
 
+</resultMap>
+
+<resultMap id="buyingOrderResultMap" type="com.greedy.thunderbolts.model.dto.BuyingOrdersDTO">
+<id property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+    <result property="membersNo" column="MEMBERS_NO"/>
+    <result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+    <result property="buyingOrderRegistdate" column="BUYING_ORDER_REGISTDATE"/>
+    <result property="buyingOrderPrice" column="BUYING_ORDER_PRICE"/>
+    <result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"/>
+    <result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"/>
+    <result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"/>
+    <result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"/>
 </resultMap>
 
 <select id="findProduct" resultMap="productResultMap">
@@ -113,9 +126,24 @@ WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
 		FROM PRODUCT_OPTION po
 		INNER JOIN SELLING_ORDERS s 
 		ON po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
-		WHERE s.SELLINGORDER_NO = #{sellingOrderNo};
+		WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
 
     </select>
+
+    <select id="findProductOptionSize" resultMap="productResultMap">
+        SELECT P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        PO.PRODUCT_OPTION_COLOR,
+        PO.PRODUCT_OPTION_SIZE
+        FROM PRODUCT P,
+        PRODUCT_OPTION PO
+        WHERE PO.PRODUCT_OPTION_SIZE = #{productOptionSize}
+        AND P.PRODUCT_CODE = PO.PRODUCT_CODE
+        AND P.PRODUCT_CODE = 4
+    </select>
+
+
 
 
 

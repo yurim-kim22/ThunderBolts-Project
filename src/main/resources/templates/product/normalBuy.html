@@ -29,22 +29,22 @@
             th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></span>
         </div>
       </span>
-    </span>  
+    </span>
   </div>
 </form>
-
-<script>
-const $products = document.querySelectorAll(".product");
+    <script>
+  const $products = document.querySelectorAll(".product");
 
 $products.forEach(div => {
   div.addEventListener('click', (e) => {
     console.log(e.currentTarget.dataset);
     const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
     const sellingOrderPrice = e.currentTarget.dataset.sellingOrderPrice;
+    const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
     if (sellingOrderPrice === '0') { // 가격이 0원인 경우
-      location.href = '/list/buyBid';
+        location.href = '/list/normalBuy3?productOptionSize=' + productOptionSize;
     } else { // 그 외의 경우
-      location.href = '/list/normalBuy2?sellingOrderNo=' + sellingOrderNo + '&sellingOrderPrice=' + sellingOrderPrice;
+        location.href = '/list/normalBuy2?sellingOrderNo=' + sellingOrderNo + '&sellingOrderPrice=' + sellingOrderPrice;
     }
   });
 });
@@ -67,6 +67,7 @@ function removeDuplicates() {
 removeDuplicates(); // 중복 제거 함수 호출
 
 </script>
+
 
 
 
