@@ -29,33 +29,16 @@
     
     
     <div class="info" style="text-align: left;">
+    
+	<p th:text="${productCode}"></p>
+	<p th:text="${productName}"></p>
+	<p th:text="${productNameKr}"></p>
+	<p th:text="${productOptionSize}"></p>
+	<p th:text="${sellingOrderPrice}"></p>
 
-      <div th:each="item : ${sellingOrderList}">
-        <span th:text="${item.sellingOrderNo}"></span>
-       <span th:text="${item.productCode}"></span>
-        <span th:text="${item.productName}"></span>
-        <span th:text="${item.productNameKr}"></span>
-         <span th:text="${item.productOptionSize}"></span>
       </div>
 
-        <p>판매 의향서 번호: [[${sellingOrderNo}]]</p>
-        <p>상품 코드: [[${productCode}]]</p>
-        <p>상품명: [[${productName}]]</p>
-        <p>상품명 (한글): [[${productNameKr}]]</p>
-        <p>옵션 사이즈: [[${productOptionSize}]]</p>
-<!--        <p>판매 가격: [[${sellingOrderPrice}]]원</p>-->
-      </div>
-
-    
-     <!--  <p style="margin: 0;"><b>DV1309-100</b></p>
-      <p style="margin: 0;"><b>Nike Row Top AJ Black and white</b></p>
-      <p style="margin: 0; color: gray; ">나이키 로우 탑 AJ</p>
-      <p style="margin-top: 10px;">270</p> -->
-    </div>
-    
-    </form>
-    <hr
-      style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <hr
       style="border: none; border-top: 2px solid rgb(0, 0, 0); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
@@ -100,7 +83,7 @@
         <div id="modalBtn1" style="color: royalblue;"><u>이용정책 확인하기</u></div>
       </li>
       <li>
-          <div class="checkbox-wrapper  umm2">책
+          <div class="checkbox-wrapper  umm2">
               <label>
                   <input type="checkbox" id="checkbox-agree3">
                   <span class="checkmark"></span>
@@ -130,12 +113,14 @@
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     </div>
-<form id="selectForm" action="/list/normalOrderPage" method="post">
+<form id="selectForm" action="/orderPage/normalOrderPage" method="POST">
+  <input type="hidden" name="sellingOrderNo" th:value="${sellingOrderNo}" />
+   <input type="hidden" name="sellingOrderPrice" th:value="${sellingOrderPrice}" />
   <button id="my-button" type="submit">
     즉시 판매 계속
   </button>
-  <input type="hidden" name="sellingOrderNo" value="12345" />
 </form>
+
 
 
 

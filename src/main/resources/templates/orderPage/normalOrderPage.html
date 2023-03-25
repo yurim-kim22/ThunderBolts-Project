@@ -14,22 +14,16 @@
     <!-- 헤더 -->
     	<div th:replace="common/header/orderHeader.html"></div>
 
+ 
   <section id="section01">
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div style="text-align: left;">
-    
-    <div>
-
-
-</div>
-    
-     <!-- 모델에 추가된 ProductOption <p>Product Option Size: <span th:text="${productOption.productOptionSize}"></span></p>
-<p>Selling Order Price: <span th:text="${productOption.sellingOrderPrice}"></span></p>
-      데이터를 참조하여 출력 -->
-
-
+    <p style="margin: 0;" th:text="${productCode}"></p>
+	<p style="margin: 0;" th:text="${productName}"></p>
+	<p style="margin: 0; color: gray;" th:text="${productNameKr}"></p>
+	<p style="margin-top: 0px;" th:text="${productOptionSize}"></p>
     </div>
 
 
@@ -37,7 +31,8 @@
 
   <section id="section02">
     <div style="display: flex; align-items: center;">
-      <h3 style="flex: 1;">배송 주소</h3>
+    
+      <h3 style="flex: 1;"><br>배송 주소</h3>
       <div id="modalBtn1" style="color: gray;"><u>+새 주소 추가</u></div>
     </div>
 
@@ -51,7 +46,7 @@
       </div>
     </div>
     <div class="box2" style="text-align: left; margin-top: 10px;"></div>
-    </div>
+    
 
     <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
 
@@ -64,7 +59,7 @@
       <span style="position: relative; top: 10px;"><b>일반배송 3,000원</b></span><br>
       <span style="position: relative; top: 12px;">검수 후 배송 5-7일 내 도착 예정</span>
     </div>
-
+   
 
   </section>
 
@@ -116,8 +111,10 @@
         <p style="font-size: small;">총 결제 금액</p>
       </div>
       <div class="final1">
-        <p style="color: red; font-size: large;"><b>0,000원</b></p>
-      </div>
+		  <!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
+		<p id="final-price" th:text="${sellingOrderPrice - 11000}" style="color: red; font-size: large;"></p>
+		
+		</div>
       <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
       <div class="order">
         <p01><b>즉시 구매가</b></p01><br>
@@ -126,14 +123,24 @@
         <p01>수수료</p01><br>
         <p01>배송비</p01><br>
       </div>
-      <div class="order1">
-        <p02><b>46,000원</b></p02><br>
+            <div class="final1">
+		  <p id="final-price" style="color: red; font-size: large;"><b></b></p>
+		</div>
+      
+<div class="order1">
+  <p02><b th:text="${sellingOrderPrice}"></b></p02><br>
+  <p02><br></p02>
+  <p02>5,000원</p02><br>
+  <p02>6,000원</p02><br>
+  <p02>3,000원</p02>
+</div>
+<!--       <div class="order1">
+        <p02 th:text="${sellingOrderPrice}"><b></b></p02><br>
         <p02><br></p02>
         <p02>무료</p02><br>
         <p02>6,000원</p02><br>
         <p02>3,000원</p02>
-      </div>
-    </div>
+      </div> -->
   </section>
 
   <section id="section04">
@@ -200,7 +207,7 @@
         <br>
         총 결제금액
         <div class="final2">
-          <p style="color: red;">00,000원</p>
+        <p id="final-price" th:text="${sellingOrderPrice - 11000}" style="color: red; font-size: x-large;"></p>
         </div>
         <button id="my-button">
           결제하기
@@ -984,7 +991,11 @@
       checkboxAgree2.addEventListener('change', updateButtonStatus);
 
       /**/
-      
+    window.onload = function() {
+        var sellingOrderPrice = [[${sellingOrderPrice}]];
+        var finalPrice = sellingOrderPrice + 14000;
+        document.getElementById("final-price").innerHTML = finalPrice;
+    }
 
 
 

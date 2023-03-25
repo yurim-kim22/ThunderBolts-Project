@@ -77,27 +77,32 @@ public class BuySellListController {
 		
 	}
 	
-	//오더를 넘기는
 	@GetMapping("/normalBuy2")
-	public String normalBuy2(@RequestParam("sellingOrderNo") int sellingOrderNo
-							, Model model) {
-		log.info("구매 요청: sellingOrderNo={}", sellingOrderNo);
-		ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
+	public String normalBuy2(@RequestParam("sellingOrderNo") int sellingOrderNo,
+			@RequestParam("sellingOrderPrice") int sellingOrderPrice,
+			Model model) {
+	    log.info("구매 요청 어그리로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
+	    log.info("구매 요청 어그리로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
+	    
+	    // sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
+	    ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
 
 
-		model.addAttribute("productDTO", findSellingProduct);
+	    
+	    // 뷰에서 사용할 모델 객체에 데이터 추가
+	    model.addAttribute("productDTO", findSellingProduct);
+	    model.addAttribute("sellingOrderNo", sellingOrderNo);
+	    model.addAttribute("sellingOrderPrice", sellingOrderPrice); //여 주석을 풀면 에러떠
+	    model.addAttribute("productCode", findSellingProduct.getProductCode());
+	    model.addAttribute("productName", findSellingProduct.getProductName());
+	    model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
+	    model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
 
-		model.addAttribute("sellingOrderNo", sellingOrderNo);
-		model.addAttribute("productCode", findSellingProduct.getProductCode());
-		model.addAttribute("productName",findSellingProduct.getProductName());
-		model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
-		model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
-//		여기가 오류나용 ㅠㅠ
-//		model.addAttribute("sellingOrderPrice", findSellingProduct.getSellingOrders().get(0).getSellingOrderPrice());
 
-
-		return "agreeAtc/buyAgree";
+	    return "agreeAtc/buyAgree";
 	}
+
+
 
 
 
@@ -133,24 +138,7 @@ public class BuySellListController {
 //								   @RequestParam("") Model model
 //													)
 
-	@PostMapping("/someUrl")
-	public String handlePostRequest(@ModelAttribute("productDTO") ProductDTO productDTO,
-									@ModelAttribute("productOptionDTO") ProductOptionDTO productOptionDTO,
-									@RequestParam("sellingOrderNo") int sellingOrderNo,
-									Model model) {
-		log.info("결제 요청: sellingOrderNo={}" + sellingOrderNo);
 
-//		log.info("productList : {}", productList);
-//		model.addAttribute("productList",productList);
-
-		List<ProductDTO> productSize =listService.findSizePrice();
-
-		log.info("productSize: {}", productSize);
-		model.addAttribute("productSize",productSize);
-
-		return "orderPage/normalOrderPage";
-
-	}
 
 
 

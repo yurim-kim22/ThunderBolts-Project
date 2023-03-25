@@ -20,4 +20,6 @@ public interface ListMapper {
 
 
 	ProductDTO findSellingProduct(int sellingOrderNo);
+
+	ProductOptionDTO findSellingProduct2(int sellingOrderNo);
 }

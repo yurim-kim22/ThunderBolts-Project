@@ -15,11 +15,10 @@ public class ProductDTO {
 	    private int brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
-
-	// 추가된 메소드
-	public String getProductOptionName() {
-		return productOption.get(0).getProductOptionColor() + " / " + productOption.get(0).getProductOptionSize();
-	}
+		public List<ProductDTO> getSellingOrders() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
 
 }

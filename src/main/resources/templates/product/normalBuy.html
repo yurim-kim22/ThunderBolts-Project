@@ -18,21 +18,39 @@
 
 <form id="selectForm" action="/list/normalBuy" method="post">
     <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
+
     <div class="box" style="display: block;">
         <span th:each="product : ${productList}">
             <span th:each="productOption: ${product.productOption}">
-                  <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box product" style="display: block;"
-                  th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}">
-                      <span style="line-height: 0.5;"><b th:text="${productOption.productOptionSize}"></b></span>
-                      <span style="line-height: 0.5; color: rgb(9, 120, 9);"  th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></span>
-                  </div>
+				<div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box product" style="display: block;"
+				    th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
+				    th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}">
+				    <span style="line-height: 0.5;"><b th:text="${productOption.productOptionSize}"></b></span>
+				    <span style="line-height: 0.5; color: rgb(9, 120, 9);" th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></span>
+				</div>
             </span>
         </span>  
     </div>
 </form>
+
   
   <script>
-      const $products = document.querySelectorAll(".product");
+
+  
+ const $products = document.querySelectorAll(".product");
+
+  $products.forEach(div => {
+      div.addEventListener('click', (e) => {
+          console.log(e.currentTarget.dataset);
+          const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
+          const sellingOrderPrice = e.currentTarget.dataset.sellingOrderPrice;
+          location.href = '/list/normalBuy2?sellingOrderNo=' + sellingOrderNo + '&sellingOrderPrice=' + sellingOrderPrice;
+      });
+  });
+
+
+
+/*        const $products = document.querySelectorAll(".product");
 
       $products.forEach(div => {
           div.addEventListener('click', (e) => {
@@ -40,7 +58,7 @@
              const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
              location.href='/list/normalBuy2?sellingOrderNo=' + sellingOrderNo;
           });
-      });
+      });   */
 
   </script>
   
@@ -71,8 +89,11 @@
         <span th:each="product : ${productList}">
             <span th:each="productOption: ${product.productOption}">
                   <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no}(no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" >220</b></p>
-                        <a style="line-height: 0.5; color: rgb(9, 120, 9);" th:href="@{/list/normalBuy2?sellingOrderNo={no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
+			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no}
+			        (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" ></b></p>
+                        <a style="line-height: 0.5; color: rgb(9, 120, 9);" 
+                        th:href="@{/list/normalBuy2?sellingOrderNo={no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
+                        th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
 			      	</a>
 			      	</a>
 			      	

@@ -12,6 +12,7 @@
 <result property="productCount" column="PRODUCT_COUNT"/>
 <collection property="productOption" resultMap="productOptionResultMap"/>
 
+
 </resultMap>
 
 <resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
@@ -84,21 +85,37 @@
 </select>
 
     <select id="findSellingProduct" resultMap="productResultMap">
-        SELECT P.PRODUCT_CODE,
-               p.PRODUCT_NAME,
-               p.PRODUCT_NAME_KR,
-               (SELECT o.PRODUCT_OPTION_COLOR
-                FROM PRODUCT_OPTION o
-                WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_COLOR,
-               (SELECT o.PRODUCT_OPTION_SIZE
-                FROM PRODUCT_OPTION o
-                WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_SIZE
-        FROM PRODUCT p,
-             PRODUCT_OPTION po,
-             SELLING_ORDERS s
-        WHERE s.SELLINGORDER_NO =  #{sellingOrderNo}
-          AND po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
-          AND p.PRODUCT_CODE = po.PRODUCT_CODE
+    
+    SELECT P.PRODUCT_CODE,
+       p.PRODUCT_NAME,
+       p.PRODUCT_NAME_KR,
+       (SELECT o.PRODUCT_OPTION_COLOR
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_COLOR,
+       (SELECT o.PRODUCT_OPTION_SIZE
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_SIZE,
+       s.SELLINGORDER_PRICE
+FROM PRODUCT p,
+     PRODUCT_OPTION po,
+     SELLING_ORDERS s
+WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
+  AND po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
+  AND p.PRODUCT_CODE = po.PRODUCT_CODE
+
+    </select>
+    
+   <select id="findSellingProduct2" resultMap="productResultMap">
+    
+		SELECT 
+			po.PRODUCT_OPTION_SIZE, 
+			s.SELLINGORDER_PRICE
+		FROM PRODUCT_OPTION po
+		INNER JOIN SELLING_ORDERS s 
+		ON po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
+		WHERE s.SELLINGORDER_NO = 
+WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
+
     </select>
 
 
