@@ -143,4 +143,40 @@
 		WHERE MEMBERS_ID = #{ memberId }
 	</select>
 	
+	<!-- 내정보관리 - 인서트 프로필 -->
+	<insert id="insertProfile">
+		INSERT
+		INTO ATTACHMENT_FILE A
+		(
+			A.FILE_CODE
+		  ,	A.FILE_ORIGINALNAME
+		  , A.FILE_DIV
+		  , A.FILE_PATH
+		  , A.FILE_DECODED
+		  , A.FILE_DATE
+		  , A.FILE_THUNBNAIL_CHECKING
+		)
+		VALUES
+		(
+		 	SEQ_ATTACHMENT_FILE_CODE.NEXTVAL
+		  , #{ fileOriginalName }
+		  , #{ fileDiv }
+		  , #{ filePath }
+		  , #{ fileDecoded }
+		  , SYSDATE
+		  , #{ fileThumbnailChecking }
+		)
+	
+	</insert>
+	
+	<!-- 내정보관리 - 수정 이름패스워드 -->
+	<update id="modifyInfo">
+		UPDATE 
+		     MEMBERS
+		 SET MEMBERS_NAME = #{name}
+		   , MEMBERS_PWD = #{newPw}
+	   WHERE MEMBERS_ID = #{ memberId }
+	     AND MEMBERS_PWD = #{ existPw }
+	</update>
+	
 </mapper>

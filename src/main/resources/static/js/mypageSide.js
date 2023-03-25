@@ -51,7 +51,7 @@
 	const $addressBook = document.getElementById("side6")
 	console.log($addressBook);
 	$addressBook.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/address";
 	})
 	
 	

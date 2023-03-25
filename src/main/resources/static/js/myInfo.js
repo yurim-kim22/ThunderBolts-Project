@@ -2,5 +2,5 @@
 	const $profile = document.getElementById("info_btn")
 	console.log($profile);
 	$profile.addEventListener('click', function(){
-		location.href ="/mypage/info/modi";
+		location.href ="/mypage/modify";
 	})

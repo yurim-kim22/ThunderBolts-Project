@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
@@ -51,4 +52,21 @@ public class MypageServiceTests {
 		assertNotNull(selectInfo);
 		System.out.println(selectInfo);
 	}
+	
+	@Test
+	public void 내정보관리_프로필_사진_인서트() {
+	    AttachmentFileDTO attachment = new AttachmentFileDTO();
+	    attachment.setFileOriginalName("img");
+	    attachment.setFileDiv("profile");
+	    attachment.setFilePath("c");
+	    attachment.setFileDecoded("d");
+	    attachment.setFileThumbnailChecking("YES");
+
+	    mypageService.updateInfo(attachment);
+
+	    // updateInfo() 메서드의 반환값이 void이므로, insertProfile 변수 대신에
+	    // 출력문을 사용하여 updateInfo() 메서드가 정상적으로 실행되었는지 확인합니다.
+	    System.out.println(attachment);
+	}
+
 }

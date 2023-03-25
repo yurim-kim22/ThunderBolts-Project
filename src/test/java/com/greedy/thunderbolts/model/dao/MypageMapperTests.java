@@ -1,5 +1,5 @@
 package com.greedy.thunderbolts.model.dao;
-
+import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
@@ -57,5 +58,20 @@ public class MypageMapperTests {
 		assertNotNull(selectInfo);
 		System.out.println(selectInfo);
 	}
+	
+	@Test
+	public void 내정보관리_프로필_사진_인서트() {
+	    AttachmentFileDTO attachment = new AttachmentFileDTO();
+	    attachment.setFileOriginalName("img");
+	    attachment.setFileDiv("profile");
+	    attachment.setFilePath("c");
+	    attachment.setFileDecoded("d");
+	    attachment.setFileThumbnailChecking("YES");
+	    
+	    int insertProfile = mypageMapper.insertProfile(attachment);
+	    
+	    System.out.println(insertProfile);
+	}
+
 	
 }
