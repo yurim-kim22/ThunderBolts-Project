@@ -13,6 +13,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 body{
     margin: 0;
+    background-color:white;
 }
 
 main{
@@ -99,9 +100,9 @@ input[type="submit"]{
 	margin-bottom:3%;
 }
 
-.consentdetail{
+.consentdetailEs,.consentdetailCh{
 	padding-left:40px;
-	display: none;
+ 	display: none; 
 }
 .consent {
 	
@@ -111,7 +112,13 @@ input[type="submit"]{
 	list-style:none;
 	margin: 3%;
 	position: relative;
+
 }
+.consentli .Es{
+	display: flex;
+    justify-content: space-between;
+}
+
 input[type="checkbox"]{
 	text-align:left;
 	height: 20px;
@@ -120,7 +127,7 @@ input[type="checkbox"]{
  }
 
 .consentTitle{
- 	font-size: 20px;
+ 	 
  	font-weight:500;
  }
  
@@ -130,7 +137,7 @@ input[type="checkbox"]{
  }
 
 
-.consenticon1{
+.consenticonEs1, .consenticonCh1{
 	width : 45px;
 	height: 45px;
 	left: 98%;
@@ -139,13 +146,75 @@ input[type="checkbox"]{
 	transform: translate(-98%, -3%); 
 }
 
-.consenticon2 {
+.consenticonEs2, .consenticonCh2 {
 	
 	width : 45px;
 	height: 45px;
-	left: 97%;
+	left: 98%;
 	top : 3%;
 	position: absolute;
-	transform: translate(-90%, -3%); 
+	transform: translate(-98%, -3%); 
 }
 
+
+.consentdetailEsModal{
+ font-size: 13px;
+ color: gray;
+  text-decoration: underline;
+}
+
+/* 개인정보 이용약관 */
+
+.perstr{
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.perstable {
+	color: gray;
+	margin-bottom: 2%;
+}
+
+.persmaintitle{
+	text-align: center; 
+	font-size: 24px; 
+	font-weight: bold;
+	margin-bottom: 2%;
+	border: none;
+}
+
+.perstexttitle{
+	text-align:left;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5%;
+	border: none;
+	
+}
+
+.perstmaintext,.persttext1{
+	text-align:left;
+	font-size: 18px;
+	margin-bottom: 5%;
+	border: none;
+	color: gray;
+	
+}
+
+.perstextend{
+	text-align:left;
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 5%;
+	border: none;
+}
+
+.modal-content{
+	width: 60vw; margin: 0 auto;  
+}
+
+.td1{
+	width: 40%;
+}
+.tr1{
+	background-color: rgba(0,0,0,0.15);
+}

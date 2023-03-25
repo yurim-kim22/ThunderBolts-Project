@@ -1,12 +1,12 @@
-const modalBtn2 = document.getElementById("modalBtn2");
+const modalBtn3 = document.getElementById("modalBtn3");
 
-const modal2 = document.getElementById("modal2");
+const modal3 = document.getElementById("modal3");
 const closeBtns = document.getElementsByClassName("close");
 const accordions = document.getElementsByClassName("accordion");
 
 
-modalBtn2.onclick = () => {
-	modal2.style.display = "block";
+modalBtn3.onclick = () => {
+	modal3.style.display = "block";
 };
 
 for (let closeBtn of closeBtns) {
@@ -33,8 +33,7 @@ for (let accordion of accordions) {
 }
 
 window.onclick = (event) => {
-	if (event.target === modal2) {
-		
+	if (event.target === modal3) {
 		event.target.style.display = "none";
 	}
 };

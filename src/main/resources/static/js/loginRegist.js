@@ -420,25 +420,79 @@ if (document.getElementById("consentCheckboxTitleCh")) {
 	
 	}	
 	
+if (document.getElementById("consentCheckboxTitleCh")) {
 	
-if ($(".consenticon1")) {
+	$('#consentCheckboxTitleCh').click(function(){
+		if($('#consentCheckboxSubTitleCh1').is(':checked')){
+			$('#consentCheckboxSubTitleCh1').prop('checked',true);
+			$('#consentCheckboxSubTitleCh2').prop('checked',true);
+			} else{
+				$('#consentCheckboxSubTitleCh1').prop('checked',false);
+				$('#consentCheckboxSubTitleCh2').prop('checked',false);
+			}
+		})
 	
-	$('.consenticon1').click(function(){
+	}	
+if (document.getElementById("consentCheckboxSubTitleCh1")) {	
+		$('#consentCheckboxSubTitleCh1').click(function(){	
+if(!($('#consentCheckboxSubTitleCh1').is(':checked') || $('#consentCheckboxSubTitleCh2').is(':checked'))){
+	$('#consentCheckboxTitleCh').prop('checked',false);
+}	
+})	
+}	
+	
+if ($(".consenticonEs1")) {
+
+	$('.consenticonEs1').click(function() {
+
+		if ($('.consenticonEs1').attr('class') === 'consenticonEs1') {
 		
-		if($('.conseticon1').className!='conseticon1'){
-			console.log($('.conseticon1').className == 'conseticon1');
-			$('conseticon1').removeClass('conseticon1');
-			$('conseticon1').addClass('conseticon2');
+			$('.consenticonEs1').attr('class', 'consenticonEs2');
+			$('.consenticonEs2').attr('src', '/image/icon/minus.png');
+			$('.consentdetailEs').css('display','block');
+		} else {
+			$('.consenticonEs2').attr('class', 'consenticonEs1');
+			$('.consenticonEs1').attr('src', '/image/icon/cross.png');
+			$('.consentdetailEs').css('display','none');
+		}
+	});
+
+}
+
+if ($(".consenticonCh1")) {
+
+	$('.consenticonCh1').click(function() {
+
+		if ($('.consenticonCh1').attr('class') === 'consenticonCh1') {
+			
+			$('.consenticonCh1').attr('class', 'consenticonCh2');
+			$('.consenticonCh2').attr('src', '/image/icon/minus.png');
+			$('.consentdetailCh').css('display','block');
 			
 		} else {
-				console.log("음음");
-			$('conseticon1').removeClass('conseticon2');
-			$('conseticon1').addClass('conseticon2');
-			
+			$('.consenticonCh2').attr('class', 'consenticonCh1');
+			$('.consenticonCh1').attr('src', '/image/icon/cross.png');
+			$('.consentdetailCh').css('display','none');
 		}
-		
 	});
-	
 
-}	
-				
+}
+
+if (document.getElementById("modal3")) {
+	const modal3 = document.getElementById("modal3");
+
+	modalBtn3.onclick = () => {
+		modal3.style.display = "block";
+	};
+
+
+	window.addEventListener('click', function(e) {
+		if (e.target === modal3) {
+			e.target.style.display = "none";
+		}
+
+
+	});
+
+}
+
