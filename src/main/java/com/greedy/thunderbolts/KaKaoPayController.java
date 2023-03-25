@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.controller.buselllist;
+package com.greedy.thunderbolts;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
