@@ -528,21 +528,20 @@ if ($(".consenticonCh1") && $('.consenticonCh1')&&$('.consenticonCh2')) {
 
 }
 
-if (document.getElementById("modal3")) {
-	const modal3 = document.getElementById("modal3");
 
-	modalBtn3.onclick = () => {
-		modal3.style.display = "block";
+if (document.getElementById("modalBtn2a") && document.getElementById("modal2")) {
+	
+	const modalBtn2 = document.getElementById("modalBtn2a");
+	const modal2 = document.getElementById("modal2");
+
+	modalBtn2.onclick = () => {
+		modal2.style.display = "block";
+	};
+	window.onclick = (event) => {
+
+		if (event.target === modal2) {
+			event.target.style.display = "none";
+		}
 	};
 
-
-	window.addEventListener('click', function(e) {
-		if (e.target === modal3) {
-			e.target.style.display = "none";
-		}
-
-
-	});
-
 }
-
