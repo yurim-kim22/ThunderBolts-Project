@@ -21,12 +21,12 @@
 
         <div class="info" style="text-align: left;">
 
-          <p style="margin: 0;" th:text="${productCode}"></p>
-          <p style="margin: 0;" th:text="${productName}"></p>
-          <p style="margin: 0; color: gray;" th:text="${productNameKr}"></p>
-          <p style="margin-top: 0px;" th:text="${productOptionSize}"></p>
-          <div th:text="${buyingOrderPrice}"> 안녕하세요</div>
-          <div th:text="${buyingOrderDeadlineDate}"></div>
+<!-- 요기에 -->
+          <p style="margin: 0;" th:text="${productCode}" id="productCode"></p>
+          <p style="margin: 0;" th:text="${productName}" id="productName"></p>
+          <p style="margin: 0; color: gray;" th:text="${productNameKr}" id="productNameKr"></p>
+          <p style="margin-top: 0px;" th:text="${productOptionSize}" id="productOptionSize"></p>
+
 
         </div>
 
@@ -118,27 +118,40 @@
             </div>
         </div>
         <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+      <button id="my-button">
+        판매 입찰 계속
+      </button>
 
-     <!--    <button id="my-button">
-            입찰 구매 계속
-        </button>
- -->
+
         <form id="selectForm" action="/orderPage/buyBidOrderPage" method="POST">
+        
         <input type="hidden" id="test3" name="productName" th:value="${productName}">
-
-                  <input type="hidden" id="test" name="buyingOrderPrice">
+		<input type="hidden" id="test4" name="productNameKr" th:value="${productNameKr}">
+		<input type="hidden" id="test5" name="productCode" th:value="${productCode}">
+		<input type="hidden" id="test6" name="productOptionCode" th:value="${productOptionCode}">
+           <input type="hidden" id="test" name="buyingOrderPrice">
             <input type="hidden" id="test2" name="buyingOrderDeadlineDate">
             <button id="my-button" type="submit">
                 입찰 구매 계속
             </button>
         </form>
-    </div>
+
 </div>
 </section>
 
 <script>
 const myButton = document.getElementById('my-button');
 
+let productName = document.getElementById('test3');
+let productNameKr = document.getElementById('test4');
+let productCode = document.getElementById('test5');
+/* let productName = document.getElementById('productName');
+let productNameKr = document.getElementById('productNameKr');
+let productCode = document.getElementById('productCode'); */
+
+/* productName.value = document.getElementById('productName').innerText;
+productNameKr.value = document.getElementById('productNameKr').innerText;
+productCode.value = document.getElementById('productCode').innerText; */
 
 myButton.addEventListener('mouseover', function() {
   myButton.style.color = '#fff';

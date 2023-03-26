@@ -14,23 +14,19 @@
     <!-- 헤더 -->
     	<div th:replace="common/header/orderHeader.html"></div>
 
- <form id="selectForm" action="/orderPage/buyBidOrderPage" method="POST">
-                  <input type="hidden" id="test" name="buyingOrderPrice" th:value="${buyingOrderPrice}">
-            <input type="hidden" id="test2" name="buyingOrderDeadlineDate" th:value="${buyingOrderDeadlineDate}">
-            <button id="my-button" type="submit">
-                입찰 구매 계속
-            </button>
-        </form>
+
   <section id="section01">
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div style="text-align: left;">
-    <p style="margin: 0;" th:text="${productCode}"></p>
-	<p style="margin: 0;" th:text="${productName}"></p>
-	<p style="margin: 0; color: gray;" th:text="${productNameKr}"></p>
-	<p style="margin-top: 0px;" th:text="${productOptionSize}"></p>
+
+    
     </div>
+     <p01 th:text="${buyingOrderPrice}"><br></p01> <!-- 애는가고 -->
+      <p01 th:text="${productCode}"><br></p01> <!-- //이친구는 안가용  -->
+
+
 
 
   </section>
@@ -124,7 +120,7 @@
       <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
       <div class="order">
         <p01><b>즉시 구매가</b></p01><br>
-        <p01><br></p01>
+        <p01 th:text="${buyingOrderPrice}"><br></p01>
         <p01>검수비</p01><br>
         <p01>수수료</p01><br>
         <p01>배송비</p01><br>
@@ -209,10 +205,13 @@
         <div class="final2">
         <p id="final-price"  style="color: red; font-size: x-large;"></p>
         </div>
-        <form 
-        <button id="my-button">
-          결제하기
-        </button>
+ <form id="selectForm" action="/agreeAtc/orderCompliete" method="POST">
+                  <input type="hidden" id="test" name="buyingOrderPrice" th:value="${buyingOrderPrice}">
+            <input type="hidden" id="test2" name="buyingOrderDeadlineDate" th:value="${buyingOrderDeadlineDate}">
+            <button id="my-button" type="submit">
+                결제
+            </button>
+        </form>
       </strong>
     </div>
     </div>

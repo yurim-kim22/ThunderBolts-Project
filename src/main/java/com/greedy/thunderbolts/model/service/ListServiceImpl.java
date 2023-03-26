@@ -67,6 +67,13 @@ public class ListServiceImpl implements ListService {
 	}
 
 
+	@Override
+	public List<ProductDTO> allFinalBuyBidOrderPage() {
+		// TODO Auto-generated method stub
+		return listMapper.allFinalBuyBidOrderPage();
+	}
+
+
 //	@Override
 //	public ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice) {
 //		return listMapper.selectProductBySizeAndCode(buyingOrderPrice);

@@ -197,7 +197,6 @@ public class BuySellListController {
 		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize);
 
 
-
 		// 뷰에서 사용할 모델 객체에 데이터 추가
 		model.addAttribute("productDTO", findProductOptionSize);
 //		model.addAttribute("sellingOrderNo", sellingOrderNo);

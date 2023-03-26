@@ -15,10 +15,7 @@ public class ProductDTO {
 	    private int brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
-		public List<ProductDTO> getSellingOrders() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+
 
 
 }
