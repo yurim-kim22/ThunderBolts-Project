@@ -2,6 +2,8 @@ package com.greedy.thunderbolts.controller.mypage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,10 +187,26 @@ public class MypageController {
 		return "redirect:/mypage/information";
 	}
 	
+	//주소록
 	@GetMapping("/address")
-	public String addressMain() {
+	public String addressMain(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model) {
 		
-		return "/mypage/address";
+		int memberNo = members.getMembersNo();
+		
+		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
+		log.info("[selectAddress] selectAddress : {}", selectAddress);
+		
+		// 주소와 상세주소 합치기
+		/*
+		 * List<String> fullAddresses = new ArrayList<>(); for(AddressDTO addressDTO :
+		 * selectAddress) { fullAddresses.add(addressDTO.getAddressesName() + " " +
+		 * addressDTO.getAddressesAdds()); }
+		 */
+
+	    model.addAttribute("selectAddress", selectAddress);
+		/* model.addAttribute("fullAddresses", fullAddresses); */
+		
+		return "mypage/address";
 	}
 	
 	
@@ -213,5 +231,10 @@ public class MypageController {
 		return "redirect:/mypage/address";
 	}
 	
+	//정산계좌
+	@GetMapping("/bank")
+	public String bankMain() {
+		return "mypage/bank";
+	}
 
 }

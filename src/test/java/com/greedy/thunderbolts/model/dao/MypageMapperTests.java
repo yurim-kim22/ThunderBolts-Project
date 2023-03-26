@@ -2,7 +2,8 @@ package com.greedy.thunderbolts.model.dao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.apache.ibatis.annotations.Param;
+import java.util.List;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
@@ -97,6 +99,28 @@ public class MypageMapperTests {
 		int insertAddress = mypageMapper.insertAddress(address, memberNo);
 
 		log.info("insertAddress : {}", insertAddress);
+	}
+	
+	@Test
+	public void 주소록_조회_테스트() {
+
+		int memberNo = 2; 
+
+		List<AddressDTO> selectAddress = mypageMapper.selectAddress(memberNo);
+
+		assertNotNull(selectAddress);
+		System.out.println(selectAddress);
+	}
+	
+	@Test
+	public void 계좌_조회_테스트() {
+
+		int memberNo = 2; 
+
+		MembersAccountsDTO selectAccounts = mypageMapper.selectAccounts(memberNo);
+
+		assertNotNull(selectAccounts);
+		System.out.println(selectAccounts);
 	}
 	 
 

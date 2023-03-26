@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>THUNDER_BOLT</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/bank.css" rel="stylesheet" type="text/css">
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+</head>
+
+<body>
+    <!-- 헤더 -->
+	<div th:replace="common/header/mypageHeader.html"></div>
+    <!-- 바디 -->
+    <!-- 사이드바 -->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <a href="#">
+                <div class="sidebar-title" id="side0">마이 페이지</div>
+            </a>
+            <!-- Sidebar 쇼핑정보 -->
+            <div class="sidebar-heading">쇼핑정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
+            </div>
+
+            <!-- Sidebar 내정보 -->
+            <div class="sidebar-heading">내정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side7">정산계좌</a>
+            </div>
+        </div>
+        <!--sidebar-wrapperdd-->
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <!-- 판매 정산 계좌 -->
+
+                <h3>판매 정산 계좌</h3>
+
+                <div class="bank_account">
+                    <div class="account_tit">등록된 계좌 정보</div>
+                    <div class="account_my">홍길동</div>
+                    <div class="account_name">우리은행/</div>
+                    <div class="account_number">1234567890</div>
+                </div>
+
+
+                <form>
+                    <div class="modify_cont">
+                        <div>
+                            <!-- 예금주 입력 필드 -->
+                            <label for="bank_own" class="mt">예금주</label>
+                            <input type="text" id="bank_own" name="bank_own" placeholder="예금주">
+                            <p></p>
+                        </div>
+
+                        <div>
+                            <!-- 은행명 입력 필드 -->
+                            <label for="bank" class="mt">은행명</label>
+                            <input type="text" id="bank" name="bank" placeholder="은행명">
+                            <p></p>
+                        </div>
+
+                        <div>
+                            <!-- 계좌번호 입력 필드 -->
+                            <label for="bank_num" class="mt">계좌번호</label>
+                            <input type="text" id="bank_num" name="bank_num" placeholder="계좌번호">
+                            <p></p>
+                            <input type="submit" class="modify_btn" value="저장하기">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
+
+</body>
+
+</html>

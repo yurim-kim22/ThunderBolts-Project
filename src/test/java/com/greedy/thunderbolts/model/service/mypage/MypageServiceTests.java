@@ -2,6 +2,8 @@ package com.greedy.thunderbolts.model.service.mypage;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -91,7 +93,16 @@ public class MypageServiceTests {
 		log.info("insertAddress : {}", insertAddress);
 	}
 	
-	
+	@Test
+	public void 주소록_조회_테스트() {
+		
+		int memberNo = 2;
+		
+		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
+		
+		assertNotNull(selectAddress);
+		System.out.println(selectAddress);
+	}
 	
 	
 	

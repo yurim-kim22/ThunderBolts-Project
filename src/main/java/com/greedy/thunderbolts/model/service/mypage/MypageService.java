@@ -1,5 +1,7 @@
 package com.greedy.thunderbolts.model.service.mypage;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
@@ -20,5 +22,7 @@ public interface MypageService {
 	void updateInfo(AttachmentFileDTO attachment);
 	//주소록 추가
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
+	//주소록 조회
+	List<AddressDTO> selectAddress(int memberNo);
 	
 }

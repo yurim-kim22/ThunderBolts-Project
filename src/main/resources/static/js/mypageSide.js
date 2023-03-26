@@ -39,19 +39,19 @@
 	$inquiryHistory.addEventListener('click', function(){
 		location.href ="/";
 	})
-	
-	// 정산계좌
-	const $settlementAccount = document.getElementById("side7")
-	console.log($settlementAccount);
-	$settlementAccount.addEventListener('click', function(){
-		location.href ="/";
-	})
-	
+
 	// 주소록
 	const $addressBook = document.getElementById("side6")
 	console.log($addressBook);
 	$addressBook.addEventListener('click', function(){
 		location.href ="/mypage/address";
+	})
+		
+	// 정산계좌
+	const $settlementAccount = document.getElementById("side7")
+	console.log($settlementAccount);
+	$settlementAccount.addEventListener('click', function(){
+		location.href ="/mypage/bank";
 	})
 	
 	

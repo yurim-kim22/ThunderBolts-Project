@@ -1,5 +1,7 @@
 package com.greedy.thunderbolts.model.service.mypage;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,10 +53,15 @@ public class MypageServiceImpl implements MypageService {
 		log.info("[updateInfo] : {} " + attachment);
 		mypageMapper.insertProfile(attachment);
 	}
-	//주소록
+	//주소록 추가
 	@Override
 	public int insertAddress(AddressDTO address, int memberNo) {
 		return mypageMapper.insertAddress(address, memberNo);
+	}
+	//주소록 조회
+	@Override
+	public List<AddressDTO> selectAddress(int memberNo) {
+		return mypageMapper.selectAddress(memberNo);
 	}
 
 }

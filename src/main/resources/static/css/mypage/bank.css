@@ -1,0 +1,95 @@
+
+/*reset*/
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+body{line-height: 100%;}
+
+ul, ol, li{list-style: none;}
+
+a{text-decoration: none; color: inherit;}
+
+.clear_fix::after, .clear_fix::before{
+    content: ""; display: block; clear: both;
+}
+
+#wrapper{
+    width: 60vw; 
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+h3{
+    margin-bottom: 2.4vw;
+}
+
+input{
+    display: block;
+    margin-top: 1vw;
+    border: none;
+}
+
+.font_weight{
+    color: black;
+ }
+
+ .mt{
+    /* margin: 0.4vw 0; */
+    margin-top: 0.4vw;
+    height: 1vw;
+    /* border: 1px solid red; */
+}
+
+/* 등록계좌정보 */
+.bank_account{
+    width: 40vw;
+    margin-bottom: 2vw;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 1vw;
+    line-height: 22px;
+}
+
+.account_tit{
+    font-size: 0.8rem;
+}
+.account_name{
+float: left; 
+}
+
+#delivery_num input{
+    border: none;
+}
+#delivery_num input::placeholder{
+    color: #555;
+  }
+
+.modify_cont{
+   position: relative;
+}
+
+.modify_cont p{
+    width: 40vw;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 버튼 */
+.modify_btn{
+    text-align: center;
+    width: 5vw;
+    height: 1.8vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.3vw !important; 
+    margin-top: 4vw;
+    margin-left: 18vw;
+    background-color: #BA85D1;
+    color: #fff;
+}
