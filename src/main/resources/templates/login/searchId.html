@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>serchId</title>
- <link href="/css/login/loginRegist.css" rel="stylesheet" type="text/css">
+ <link href="/css/login/searchId.css" rel="stylesheet" type="text/css">
     <script src="/js/loginRegist.js" type="text/Javascript" defer></script>
 	<link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
 </head>
@@ -11,9 +11,11 @@
 	
 	<div th:replace="common/header/subHeader.html"></div>
 		<main>
+		<div class="searchIdMainTitle">이메일 아이디 찾기</div>
 		
+		<div class="serchIdTitle">가입 시 등록한 휴대폰 번호를 입력하면 이메일 주소의 일부를 알려드립니다.</div>
         <form id="loginForm" action="/login/regist" method="post">
-    
+    		
            
             <div class="phone">
                 <label>휴대폰번호</label>
@@ -23,7 +25,7 @@
             
 
 			<div>
-                <input type="submit" value="가입하기" id="registJoin" disabled='disabled'>
+                <input type="submit" value="이메일 아이디 찾긴" id="registJoin" disabled='disabled'>
             </div>
         </form>
 

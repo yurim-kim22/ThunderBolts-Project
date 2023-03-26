@@ -289,7 +289,7 @@
 	background-color: rgba(0,0,0,0.15);
 }
 
-.ussAgreebody{
+.agreebody{
 
 	padding-left: 4%;
 	padding-right: 4%;
@@ -321,3 +321,8 @@ li.usetext.ols:nth-child(3)::marker {
 b{
 	font-size: 18px;
 }
+a{
+	color: rgba(186,133,209,1);
+		cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
+

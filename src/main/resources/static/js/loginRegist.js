@@ -528,20 +528,35 @@ if ($(".consenticonCh1") && $('.consenticonCh1')&&$('.consenticonCh2')) {
 
 }
 
-
-if (document.getElementById("modalBtn2a") && document.getElementById("modal2")) {
+if (document.getElementById("modalBtn3a") && document.getElementById("modal3")) {
 	
-	const modalBtn2 = document.getElementById("modalBtn2a");
-	const modal2 = document.getElementById("modal2");
-
-	modalBtn2.onclick = () => {
-		modal2.style.display = "block";
-	};
-	window.onclick = (event) => {
-
-		if (event.target === modal2) {
+	const modalBtn3 = document.getElementById("modalBtn3a");
+	const modal3 = document.getElementById("modal3");
+	
+	modalBtn3.addEventListener('click',function(){
+		modal3.style.display = "block";
+	});
+	
+	window.addEventListener('click',function(event){
+		if(event.target === modal3) {
 			event.target.style.display = "none";
 		}
-	};
+	})
+
+}
+if (document.getElementById("modalBtn5a") && document.getElementById("modal5")) {
+
+	const modalBtn5 = document.getElementById("modalBtn5a");
+	const modal5 = document.getElementById("modal5");
+
+	modalBtn5.addEventListener('click', function() {
+		modal5.style.display = "block";
+	});
+
+	window.addEventListener('click', function(event) {
+		if (event.target === modal5) {
+			event.target.style.display = "none";
+		}
+	})
 
 }

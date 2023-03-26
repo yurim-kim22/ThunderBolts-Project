@@ -146,3 +146,7 @@ input[type="submit"] {
 #loginButton{
 	    background-color : rgba(186,133,209,0.5);
 }
+
+#loginRegist, #searchId {
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
