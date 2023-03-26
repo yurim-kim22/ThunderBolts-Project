@@ -33,7 +33,8 @@ public interface MypageMapper {
 	MembersAccountsDTO selectAccounts(int memberNo);
 	//계좌 인서트
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
-	
+	//계좌 수정
+	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	
 	
 }

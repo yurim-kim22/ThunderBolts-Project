@@ -9,14 +9,14 @@
 	const $purchaseHistory = document.getElementById("side1")
 	console.log($purchaseHistory);
 	$purchaseHistory.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/mybuy";
 	})
 	
 	// 판매 내역
 	const $salesHistory = document.getElementById("side2")
 	console.log($salesHistory);
 	$salesHistory.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/mysell";
 	})
 	
 	// 관심 상품 

@@ -192,7 +192,7 @@
 		)
 	</insert>
 	
-	<!-- 내정보관리 - 수정 이름패스워드 -->
+	<!-- 내정보관리 - 수정 이름패스워드  -->
 	<update id="modifyInfo">
 		UPDATE 
 		     MEMBERS
@@ -258,12 +258,22 @@
 		)
 		VALUES
 		(
-		    #{account.accountNo}
+		    #{ account.accountNo }
 		  , #{ account.accountBank }
 		  , #{ account.accountMaster }
 		  , #{ memberNo }
 		)
 	</insert>
+	
+	<!-- 계좌 수정 -->
+	<update id="modifyAccounts">
+		UPDATE 
+				MEMBERS_ACCOUNTS
+		   SET  ACCOUNT_NO = #{ account.accountNo }
+		      , ACCOUNT_BANK = #{ account.accountBank }
+		      , ACCOUNT_MASTER = #{ account.accountMaster }
+	     WHERE  MEMBERS_NO = #{ memberNo }
+	</update>
 	
 	
 </mapper>

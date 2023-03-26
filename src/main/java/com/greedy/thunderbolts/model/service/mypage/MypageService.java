@@ -29,4 +29,6 @@ public interface MypageService {
 	MembersAccountsDTO selectAccounts(int memberNo);
 	//계좌 추가
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
+	//계좌 수정
+	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 }

@@ -134,6 +134,23 @@ public class MypageServiceTests {
 		log.info("insertAddress : {}", inserAccounts);
 	}
 	
+	@Test
+	public void 계좌_수정_테스트() {
+		
+		int memberNo = 2;
+		
+		MembersAccountsDTO account = new MembersAccountsDTO();
+		account.setAccountNo("1");
+		account.setAccountBank("국민은행");
+		account.setAccountMaster("김예지");
+		
+		log.info("account : {}", account);
+		
+		int modifyAccounts = mypageService.modifyAccounts(account, memberNo);
+
+		log.info("insertAddress : {}", modifyAccounts);
+	}
+	
 	
 	
 

@@ -74,5 +74,10 @@ public class MypageServiceImpl implements MypageService {
 	public int inserAccounts(MembersAccountsDTO account, int memberNo) {
 		return mypageMapper.inserAccounts(account, memberNo);
 	}
+	//계좌 수정
+	@Override
+	public int modifyAccounts(MembersAccountsDTO account, int memberNo) {
+		return mypageMapper.modifyAccounts(account, memberNo);
+	}
 
 }

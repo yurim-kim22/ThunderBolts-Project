@@ -75,6 +75,31 @@ public class MypageController {
 	    return "mypage/mypageMain";
 	}
 	
+	//마이페이지 구매내역
+	@GetMapping("/mybuy")
+	public String myBuy(){
+		return "mypage/myBuy";
+	}
+	
+	//마이페이지 구매내역 상세
+	@GetMapping("/mybuydetail")
+	public String myBuyDetail(){
+		return "mypage/myBuyDetail";
+	}
+	
+	//마이페이지 판매내역
+	@GetMapping("/mysell")
+	public String mySell(){
+		return "mypage/mySell";
+	}
+	
+	//마이페이지 판매내역 상세
+	@GetMapping("/myselldetail")
+	public String mySellDetail(){
+		return "mypage/mySellDetail";
+	}
+	
+	
 	//마이페이지 관심상품
 	@GetMapping("/wish")
 	public String wish(){
@@ -259,20 +284,20 @@ public class MypageController {
 	}
 	
 	@PostMapping("/bankModify")
-	public String bank() {
+	public String bankModify(@AuthenticationPrincipal MembersDTO members, MembersAccountsDTO account, Model model, RedirectAttributes rttr) {
 		
-		/*
-		 * int memberNo = members.getMembersNo(); log.info("[memberNo] : {}", memberNo);
-		 * log.info("[account] : {}", account);
-		 * 
-		 * int inserAccounts = mypageService.inserAccounts(account, memberNo);
-		 * log.info("[insertAddress] : {}", inserAccounts);
-		 * 
-		 * if(inserAccounts == 0) { rttr.addFlashAttribute("message",
-		 * messageSourceAccessor.getMessage("account.registerror")); }else {
-		 * rttr.addFlashAttribute("message",
-		 * messageSourceAccessor.getMessage("account.regist")); }
-		 */
+		int memberNo = members.getMembersNo();
+		log.info("[memberNo] : {}", memberNo);
+		log.info("[account] : {}", account);
+		
+		int modifyAccounts = mypageService.modifyAccounts(account, memberNo);
+		log.info("[modifyAccounts] : {}", modifyAccounts);
+		
+		if(modifyAccounts == 0) {
+			rttr.addFlashAttribute("messageModify", messageSourceAccessor.getMessage("account.modifyerror"));
+		}else {
+			rttr.addFlashAttribute("messageModify", messageSourceAccessor.getMessage("account.modify"));
+		}
 		
 		return "redirect:/mypage/bank";
 	}

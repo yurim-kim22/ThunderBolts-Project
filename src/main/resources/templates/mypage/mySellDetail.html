@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>THUNDER_BOLT</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/mySellDetail.css" rel="stylesheet" type="text/css">
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    
+</head>
+
+<body>
+    <!-- 헤더 -->
+	<div th:replace="common/header/mypageHeader.html"></div>
+    <!-- 바디 -->
+    <!-- 사이드바 -->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <a href="#">
+                <div class="sidebar-title " id="side0">마이 페이지</div>
+            </a>
+           <!-- Sidebar 쇼핑정보 -->
+           <div class="sidebar-heading">쇼핑정보</div>
+           <div class="list-group list-group-flush">
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side2">판매 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
+           </div>
+
+           <!-- Sidebar 내정보 -->
+           <div class="sidebar-heading">내정보</div>
+           <div class="list-group list-group-flush">
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
+           </div>
+        </div>
+        <!--sidebar-wrapper-->
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <!-- 판매 상세 내역 -->
+                <h3>판매 상세 내역</h3>   
+                <div class="sell_detail">
+                    <ul>
+                        <li class="sell_detail_img"></li>
+                        <ul  class="sell_detail_text">
+                            <li>상품명</li>
+                            <li>상품옵션</li>
+                            <li><button class="sell_detail_btn">상품 상세</button></li>
+                        </ul>
+                    </ul>
+                </div> <!-- sell_detail -->
+                
+                <!-- 박스 아래 cont -->  
+                <div class="sell_detail_cont">
+                    <div>
+                        <h4>정산 금액</h4>
+                        <p></p>
+                        <div class="sell_detail_cont_txt">총 정산 금액 <span>214,500원</span></div>
+                    </div>
+                    
+                    <div>
+                        <h4>보내실 곳</h4>
+                        <p></p>
+                        <div class="sell_detail_cont_txt">서울시 강남구 테헤란로 123번길 12</div>
+                    </div>
+
+                    <div>
+                        <h4>발송 정보 등록</h4>  
+                        <p class="delivery_p"></p>
+                        <ul class="delivery">
+                            <li class="delivery_txt">CJ대한통운5147862488996</li>
+                            <li><button class="delivery_btn">등록하기</button></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
+</body></html>
