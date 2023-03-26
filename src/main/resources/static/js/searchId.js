@@ -151,23 +151,27 @@ if (document.getElementById("searchIdbutton")) {
 			if(result=='일치하는 회원정보가 없습니다.') {
 					 alert(result); 
 				  } else {
-			
-			const searchIdMainTitle = document.getElementById("serchIdTitle");
-      			searchIdMainTitle.insertAdjacentHTML("beforeend", `<span>${result}</span>`);
-				searchIdMainTitle.remove();
+				const mkEmail = result.replace(/^(.{1}).*?(@.*$)/, "$1******$2");
+				
+		/*	const searchIdMainTitle = document.getElementById("serchIdTitle");
+      			searchIdMainTitle.insertAdjacentHTML("beforeend", `<span>${mkEmail}</span>`);
+				searchIdMainTitle.remove();*/
 				document.getElementById("searchMain").innerHTML=
-				`<div class="searchIdMainTitle" id="searchIdMainTitle">이메일 주소 찾기에 성공하였습니다.</div>
+			`<div class="searchIdMainTitle" id="searchIdMainTitle">이메일 주소 찾기에 성공하였습니다.</div>
 
-		<div class="serchIdTitle" id="serchIdTitle">이메일</div ><div class="serchIdTitle">${result}</div>
-		<div class="searchPw">
-			<button onclick="location.href='/login/searchPw'" class="searchPwbutton"
-				id="searchPwbutton" >비밀번호 찾기</button>
-		</div>
-		<div class="searchPw">
-			<button href="/login/main" class="searchPwbutton"
-				id="searchPwbutton" >로그인 하기</button>
-		</div>
-		`;
+				<div class="serchIdEmailTitle" id="serchIdEmailTitle">이메일 주소</div >
+				<div class="serchIdEmail">${mkEmail}</div>
+				
+				<div>
+				
+					<input type="button" value="비밀번호 찾기"onclick="location.href='/login/searchPw'" class="searchPwbutton"
+					id="searchPwbutton" >
+				
+					<input type="button" value="로그인" onclick="location.href='/login/main'" class="searchtologin"
+					id="searchtologin" >
+			
+				</div>
+			`;	
 				zindex();
       			
       			}

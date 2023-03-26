@@ -58,11 +58,7 @@ label{
 }
 
 
-.searchPw{
-	z-index:-1;
-}
-
-.searchIdbutton, .searchPwbutton{
+.searchIdbutton{
 	margin-left: 50%;
 	margin-top:0%;
 	height: 4vh;
@@ -88,6 +84,33 @@ label{
 
 .serchIdTitle{
 	padding: 5% 0;
+	height: 5%;
+	text-align: center;
+}
+
+
+.searchPwbutton, .searchtologin{
+
+	height: 4vh;
+    border: none;
+    width: 48%;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-size: 2vh;
+    text-align: center;
+
+    background-color : rgba(186,133,209,0.5);
+    color: white;
+}	
+
+.serchIdEmailTitle{
+	margin-top: 3%;
+	height: 5%;
+	text-align: center;
+	color:gray;
+}
+.serchIdEmail{
+	
 	height: 5%;
 	text-align: center;
 }
