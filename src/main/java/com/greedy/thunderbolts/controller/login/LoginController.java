@@ -112,11 +112,31 @@ public class LoginController {
 	
 	/* 아이디 찾기 */
 	@GetMapping("/searchId")
-	public String serachId() {
+	public String searchIdPage() {
 		return "login/searchId";
 	}
 	
+	/* 아이디 찾기 진행 */
+	@PostMapping("/searchId")
+	public String searchId(String membersTel) {
+		
+		
+		return "login/loginMain";
+	}
 	
-
+	
+	
+	/* 비밀번호 찾기 페이지 */
+	@GetMapping("/searchPw")
+	public String serachPwPage() {
+		return "login/searchPw";
+	}
+	
+	/* 비밀번호 찾기 진행 */
+	@PostMapping("/searchPw")
+	public String serachPw() {
+		return "login/loginMain";
+	}
+	
 	
 }

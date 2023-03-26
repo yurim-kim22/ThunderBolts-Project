@@ -21,7 +21,7 @@ if (document.getElementById("loginRegist")) {
 	}
 }
 
-/* 회원 가입 */
+/* 아이디 찾기 */
 if (document.getElementById("searchId")) {
 	const $searchId = document.getElementById("searchId");
 	$searchId.onclick = function() {
@@ -29,6 +29,15 @@ if (document.getElementById("searchId")) {
 	}
 }
 
+/* 비밀번호 찾기 */
+if (document.getElementById("searchPw")) {
+	const $searchPw = document.getElementById("searchPw");
+	$searchPw.onclick = function() {
+		location.href = "/login/searchPw";
+	}
+}
+
+/* 이메일 작성시 포커스 여부에 따라 예시 출력 ( 내용 기재시 초기화 하지 않음 ) */
 if (document.getElementById("emailId")) {
 	const $emailId = document.getElementById("emailId");
 

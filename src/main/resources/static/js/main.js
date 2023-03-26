@@ -127,4 +127,6 @@ infinite: true,
 });
 
 
-
+$(".product").on('click', function(){
+	  location.href = "/detail/Main";
+})
