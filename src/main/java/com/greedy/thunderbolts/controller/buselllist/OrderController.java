@@ -69,19 +69,13 @@ public class OrderController {
 		log.info("입찰 구매로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
 		log.info("입찰 구매로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
 		log.info("productDTO: productDTO={}", productDTO);
-		//log.info("AllFinalBuyBidOrderPage:{}", AllFinalBuyBidOrderPage);
-		//List<ProductDTO> productSize =listService.findSizePrice();
-		// List<ProductDTO> finalBuyOrder =listService.finalBuyBidOrderPage();
-//정처기 ->ㅠㅠ 대기업 중견(코딩테스트?ㅠㅠ
-//		 model.addAttribute("ProductDTO",finalBuyOrder);
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		//List<ProductDTO> AllFinalBuyBidOrderPage =listService.allFinalBuyBidOrderPage();
 
 		model.addAttribute("productCode", productDTO.getProductCode());
 		model.addAttribute("productName", productDTO.getProductName());
-		//죄송해용 여기네요 ㅠ
-		//   //productName,productNameKr,productCode 입니당!!
-		
+
 		 model.addAttribute("buyingOrderPrice",buyingOrderPrice);
 		 model.addAttribute("buyingOrderDeadlineDate",sdf.format(buyingOrderDeadlineDate));
 		// model.addAttribute("AllFinalBuyBidOrderPage",AllFinalBuyBidOrderPage);

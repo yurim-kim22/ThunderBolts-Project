@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=\, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/css/list/orderBuyStyle.css" type="text/css">
-
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <body>
 
 
@@ -20,8 +23,9 @@
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div style="text-align: left;">
-    <p style="margin: 0;" th:text="${productCode}"></p>
-	<p style="margin: 0;" th:text="${productName}"></p>
+
+        <p style="margin: 0;" id="productName" th:text="${productName}"></p>
+      <p style="margin: 0;" th:text="${productCode}"></p>
 	<p style="margin: 0; color: gray;" th:text="${productNameKr}"></p>
 	<p style="margin-top: 0px;" th:text="${productOptionSize}"></p>
     </div>
@@ -162,10 +166,10 @@
     <div class="btn-container">
       <div class="naver-btn">
         <img src="../img/네이버페이 로고.png" style="float: left; margin-right: 10px; width: 30px; height: 30px;">
-        네이버페이
+        <button onclick="requestPay()">카카오페이</button> <!-- 결제하기 버튼 생성 -->
       </div>
       <div class="credit-btn">
-        신용카드
+        <button onclick="requestPayKg()">신용카드</button> <!-- 결제하기 버튼 생성 -->
       </div>
     </div>
   </section>
@@ -209,7 +213,7 @@
         <div class="final2">
         <p id="final-price" th:text="${sellingOrderPrice + 14000}" style="color: red; font-size: x-large;"></p>
         </div>
-        <button id="my-button">
+        <button id="my-button" onclick="requestPay()">
           결제하기
         </button>
       </strong>
@@ -995,6 +999,68 @@
         var sellingOrderPrice = [[${sellingOrderPrice}]];
         var finalPrice = sellingOrderPrice + 14000;
         document.getElementById("final-price").innerHTML = finalPrice;
+    }
+
+    //카카오페이 결제코드
+       var IMP = window.IMP;
+        IMP.init("imp48741283");
+
+        var today = new Date();
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+        const $productName = document.getElementById('productName').innerText;
+
+
+
+
+        function requestPay() {
+            IMP.request_pay({
+                pg : 'kcp',
+                pay_method : 'card',
+                merchant_uid: "IMP"+makeMerchantUid,
+                name : $productName,
+                amount : 1004,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456'
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+
+
+
+        function requestPayKg() {
+      // IMP.request_pay(param, callback) 결제창 호출
+      IMP.request_pay({ // param
+          pg: "html5_inicis",
+          pay_method: "card",
+          merchant_uid: "ORD20180131-0000011",
+          name: $productName,
+          amount: 64900,
+          buyer_email: "gildong@gmail.com",
+          buyer_name: "홍길동",
+          buyer_tel: "010-4242-4242",
+          buyer_addr: "서울특별시 강남구 신사동",
+          buyer_postcode: "01181"
+      }, function (rsp) { // callback
+          if (rsp.success) {
+              console.log();
+              // 결제 성공 시 로직,
+
+          } else {
+            console.log();
+          }
+      });
     }
 
 
