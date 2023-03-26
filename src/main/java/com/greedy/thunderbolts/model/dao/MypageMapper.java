@@ -35,4 +35,5 @@ public interface MypageMapper {
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	
 	
+	
 }

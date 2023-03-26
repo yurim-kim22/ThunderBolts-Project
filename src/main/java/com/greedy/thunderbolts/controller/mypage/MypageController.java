@@ -257,5 +257,24 @@ public class MypageController {
 		
 		return "redirect:/mypage/bank";
 	}
+	
+	@PostMapping("/bankModify")
+	public String bank() {
+		
+		/*
+		 * int memberNo = members.getMembersNo(); log.info("[memberNo] : {}", memberNo);
+		 * log.info("[account] : {}", account);
+		 * 
+		 * int inserAccounts = mypageService.inserAccounts(account, memberNo);
+		 * log.info("[insertAddress] : {}", inserAccounts);
+		 * 
+		 * if(inserAccounts == 0) { rttr.addFlashAttribute("message",
+		 * messageSourceAccessor.getMessage("account.registerror")); }else {
+		 * rttr.addFlashAttribute("message",
+		 * messageSourceAccessor.getMessage("account.regist")); }
+		 */
+		
+		return "redirect:/mypage/bank";
+	}
 
 }
