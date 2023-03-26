@@ -50,7 +50,7 @@ public class SecurityConfig {
         .anyRequest().permitAll()
         .and()
             .formLogin()
-            .loginPage("/login/Main")             
+            .loginPage("/login/main")             
             .defaultSuccessUrl("/")  
             .failureForwardUrl("/login/false")
             .usernameParameter("membersId")			// 아이디 파라미터명 설정 기본값 username에서 변경

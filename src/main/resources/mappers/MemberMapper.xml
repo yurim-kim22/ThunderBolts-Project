@@ -46,7 +46,7 @@
           FROM MEMBERS A
           LEFT JOIN AUTH_ROLE B ON (A.MEMBERS_NO = B.MEMBERS_NO)
 		  LEFT JOIN AUTH C ON (B.AUTH_NUM = C.AUTH_NUM)
-         WHERE A.MEMBERS_ENTIRE = 'Y'
+         WHERE A.MEMBERS_ENTIRE = 'N'
            AND A.MEMBERS_ID = #{ memberId }
     </select>
     
@@ -98,5 +98,15 @@
 		, 2
 		)
 	</insert>
+	
+	<select id="selectIdByTel" resultType="string">
+		SELECT
+		       MEMBERS_ID
+          FROM MEMBERS
+         WHERE MEMBERS_ENTIRE = 'N'
+           AND MEMBERS_TEL = #{ membersTel }
+	
+	
+	</select>
 
 </mapper>

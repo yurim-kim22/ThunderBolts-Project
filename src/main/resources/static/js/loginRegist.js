@@ -252,7 +252,7 @@ if (document.getElementById("duplicationCheck")) {
 		})
 			.then(result => result.text())
 			.then(result => {
-				
+				console.log(result);
 				if (result == "사용 가능한 아이디입니다.") {
 					dupliNum();
 				} else { dulimNum(); }
@@ -262,6 +262,7 @@ if (document.getElementById("duplicationCheck")) {
 
 	}
 }
+
 
 function dupliNum() {
 	duplicationNum = '1';

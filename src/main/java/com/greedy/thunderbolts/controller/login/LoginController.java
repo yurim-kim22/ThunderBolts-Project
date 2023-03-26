@@ -43,7 +43,7 @@ public class LoginController {
         System.out.println(code);
     }
 	
-	@GetMapping("/Main")
+	@GetMapping("/main")
 	public String loginMain(Model model) {
 		 	
 	        SessionUser user = (SessionUser) httpSession.getAttribute("user");
@@ -81,6 +81,7 @@ public class LoginController {
 	public ResponseEntity<String> checkDuplication(@RequestBody MembersDTO member) {
 		String result = "사용 가능한 아이디입니다.";
 		log.info("[MemberController] Request Check ID : {}", member.getMembersId());
+		
 		if (memberService.selectMemberById(member.getMembersId())) {
 			log.info("[MemberController] Already Exist");
 			result = "중복 된 아이디가 존재합니다.";
@@ -118,10 +119,24 @@ public class LoginController {
 	
 	/* 아이디 찾기 진행 */
 	@PostMapping("/searchId")
-	public String searchId(String membersTel) {
+	public ResponseEntity<String> searchId(@RequestBody MembersDTO membersTel) {
+		
+		log.info("[MemberController] Request Check TEL: {}", membersTel);
+		
+		String memberTel = membersTel.getMembersTel();
+		String result = memberService.selectIdByTel(memberTel);
+		
+		if(result == null) {
+			log.info("[MemberController] Already Exist");
+			 result = "일치하는 회원정보가 없습니다.";
+		}
 		
 		
-		return "login/loginMain";
+		 
+		// ResponseEntity의 body를 String으로 선언하여 result라는 String을 반환한다.
+		// Ok라는 상태코드 (200)을 반환 한다 (result)와 함께 - alert하기 위해서 반환 js파일쪽으로
+		return ResponseEntity.ok(result);
+		
 	}
 	
 	

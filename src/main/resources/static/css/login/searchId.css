@@ -50,22 +50,19 @@ label{
 }
 
 
-.password, .id, .phone{
-	margin-top: 5vh;
-	margin-bottom:5vh;
-}
+
 
 .phone {
 	margin-top: 5vh;
 	margin-bottom:3vh;
 }
 
-form{
-	height:45%;
+
+.searchPw{
+	z-index:-1;
 }
 
-
-input[type="submit"]{
+.searchIdbutton, .searchPwbutton{
 	margin-left: 50%;
 	margin-top:0%;
 	height: 4vh;

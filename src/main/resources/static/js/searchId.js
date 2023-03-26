@@ -56,12 +56,13 @@ if (document.getElementById("loginPhone")) {
 
 
 /* 가입하기 버튼 활성화 */
-const $registJoin = document.getElementById("registJoin");
+const $searchIdbutton = document.getElementById("searchIdbutton");
 
 
 const $loginPhone = document.getElementById("loginPhone");
 
 const phonePattern = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+
 
 
 
@@ -73,43 +74,44 @@ window.onkeydown = function() {
 	
 	) {
 		
-		$registJoin.disabled = false;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+		$searchIdbutton.disabled = false;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,1)';
 	} else {
-		$registJoin.disabled = true;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
+		$searchIdbutton.disabled = true;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
+
 window.onchange = function() {
-	
+
 	if (
 		
 		$loginPhone.value.match(phonePattern) != null
 	
 	) {
 	
-		$registJoin.disabled = false;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+		$searchIdbutton.disabled = false;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,1)';
 	} else {
-		$registJoin.disabled = true;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
+		$searchIdbutton.disabled = true;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
 window.onclick = function() {
-	
+
 	if (
 		
 		 $loginPhone.value.match(phonePattern) != null
 		
 	) {
 		
-		$registJoin.disabled = false;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+		$searchIdbutton.disabled = false;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,1)';
 	} else {
-		$registJoin.disabled = true;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
+		$searchIdbutton.disabled = true;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
@@ -121,16 +123,65 @@ window.oninput = function() {
 		
 	) {
 		
-		$registJoin.disabled = false;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,1)';
+		$searchIdbutton.disabled = false;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,1)';
 	} else {
-		$registJoin.disabled = true;
-		$registJoin.style.backgroundColor = 'rgba(186,133,209,0.5)';
+		$searchIdbutton.disabled = true;
+		$searchIdbutton.style.backgroundColor = 'rgba(186,133,209,0.5)';
 	}
 }
 
 
+/* 아이디 확인 비동기통신 확인 */
+if (document.getElementById("searchIdbutton")) {
+	const $searchIdbutton = document.getElementById("searchIdbutton");
+	$searchIdbutton.onclick = function() {
+		/* 유효성 검사하는것이 좋다. */
+		let MembersTel = document.getElementById("loginPhone").value;
+		console.log(MembersTel);
+		fetch("/login/searchId", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json;charset=UTF-8'
+			},
+			body: JSON.stringify({ membersTel: MembersTel })
+		})
+		   .then(result => result.text())
+			.then(result => {
+			if(result=='일치하는 회원정보가 없습니다.') {
+					 alert(result); 
+				  } else {
+			
+			const searchIdMainTitle = document.getElementById("serchIdTitle");
+      			searchIdMainTitle.insertAdjacentHTML("beforeend", `<span>${result}</span>`);
+				searchIdMainTitle.remove();
+				document.getElementById("searchMain").innerHTML=
+				`<div class="searchIdMainTitle" id="searchIdMainTitle">이메일 주소 찾기에 성공하였습니다.</div>
 
-
-
-
+		<div class="serchIdTitle" id="serchIdTitle">이메일</div ><div class="serchIdTitle">${result}</div>
+		<div class="searchPw">
+			<button onclick="location.href='/login/searchPw'" class="searchPwbutton"
+				id="searchPwbutton" >비밀번호 찾기</button>
+		</div>
+		<div class="searchPw">
+			<button href="/login/main" class="searchPwbutton"
+				id="searchPwbutton" >로그인 하기</button>
+		</div>
+		`;
+				zindex();
+      			
+      			}
+			})
+			.catch(() =>  alert("에러가 발생하였습니다. 다시 시도 해주세요"));
+	}
+}
+function zindex (){
+	$(".searchPw").css('zindex',1);
+	
+	if (document.getElementById("searchPw")) {
+	const $searchPw = document.getElementById("searchPw");
+	$searchPw.onclick = function() {
+		location.href = "/login/searchPw";
+	}
+}
+}

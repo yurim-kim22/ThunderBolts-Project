@@ -15,4 +15,6 @@ public interface MemberMapper {
 
 	int insertMembersRole();
 
+	String selectIdByTel(String memberTel);
+
 }

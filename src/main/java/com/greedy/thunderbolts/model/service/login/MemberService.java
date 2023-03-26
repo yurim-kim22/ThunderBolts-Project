@@ -3,7 +3,6 @@ package com.greedy.thunderbolts.model.service.login;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.greedy.thunderbolts.controller.login.LoginController;
 import com.greedy.thunderbolts.model.dao.MemberMapper;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 
@@ -47,9 +46,18 @@ public class MemberService {
 		return message;
 	}
 
-//	public String selectIDbyTel() {
-//		
-//	}
+	public String selectIdByTel(String memberTel) {
+		
+		log.info("[Service] selectIdByTel MembersTel : {}", memberTel);
+		
+		String result  = mapper.selectIdByTel(memberTel);
+		
+		log.info("[Service] selectIdByTel membersId : {}", result);
+		
+		
+		return result;
+		
+	}
 	
 
 	
