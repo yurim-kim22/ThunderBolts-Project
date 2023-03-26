@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.greedy.thunderbolts.config.SecurityConfig;
 import com.greedy.thunderbolts.model.dao.MypageMapper;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
@@ -62,6 +63,16 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public List<AddressDTO> selectAddress(int memberNo) {
 		return mypageMapper.selectAddress(memberNo);
+	}
+	//계좌 조회
+	@Override
+	public MembersAccountsDTO selectAccounts(int memberNo) {
+		return mypageMapper.selectAccounts(memberNo);
+	}
+	//계좌 추가
+	@Override
+	public int inserAccounts(MembersAccountsDTO account, int memberNo) {
+		return mypageMapper.inserAccounts(account, memberNo);
 	}
 
 }

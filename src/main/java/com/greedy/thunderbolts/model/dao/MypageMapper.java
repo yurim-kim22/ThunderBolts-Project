@@ -32,6 +32,7 @@ public interface MypageMapper {
 	//계좌 조회
 	MembersAccountsDTO selectAccounts(int memberNo);
 	//계좌 인서트
+	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	
 	
 }

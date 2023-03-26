@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
@@ -196,21 +197,13 @@ public class MypageController {
 		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
 		log.info("[selectAddress] selectAddress : {}", selectAddress);
 		
-		// 주소와 상세주소 합치기
-		/*
-		 * List<String> fullAddresses = new ArrayList<>(); for(AddressDTO addressDTO :
-		 * selectAddress) { fullAddresses.add(addressDTO.getAddressesName() + " " +
-		 * addressDTO.getAddressesAdds()); }
-		 */
-
 	    model.addAttribute("selectAddress", selectAddress);
-		/* model.addAttribute("fullAddresses", fullAddresses); */
 		
 		return "mypage/address";
 	}
 	
 	
-	//주소록
+	//주소록 추가
 	@PostMapping("/address")
 	public String address(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model, RedirectAttributes rttr){
 		
@@ -233,8 +226,36 @@ public class MypageController {
 	
 	//정산계좌
 	@GetMapping("/bank")
-	public String bankMain() {
+	public String bankMain(@AuthenticationPrincipal MembersDTO members, MembersAccountsDTO account, Model model) {
+		
+		int memberNo = members.getMembersNo();
+		log.info("[memberNo] : {}", memberNo);
+		
+		MembersAccountsDTO selectAccounts = mypageService.selectAccounts(memberNo);
+		model.addAttribute("accounts", selectAccounts);
+		
+		log.info("[selectAccounts] : {}", selectAccounts);
+		
 		return "mypage/bank";
+	}
+	//정산계좌 추가
+	@PostMapping("/bank")
+	public String bank(@AuthenticationPrincipal MembersDTO members, MembersAccountsDTO account, Model model, RedirectAttributes rttr) {
+		
+		int memberNo = members.getMembersNo();
+		log.info("[memberNo] : {}", memberNo);
+		log.info("[account] : {}", account);
+		
+		int inserAccounts = mypageService.inserAccounts(account, memberNo);
+		log.info("[insertAddress] : {}", inserAccounts);
+		
+		if(inserAccounts == 0) {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("account.registerror"));
+		}else {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("account.regist"));
+		}
+		
+		return "redirect:/mypage/bank";
 	}
 
 }

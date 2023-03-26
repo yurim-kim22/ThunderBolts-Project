@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
@@ -24,5 +25,8 @@ public interface MypageService {
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
-	
+	//계좌 조회
+	MembersAccountsDTO selectAccounts(int memberNo);
+	//계좌 추가
+	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 }

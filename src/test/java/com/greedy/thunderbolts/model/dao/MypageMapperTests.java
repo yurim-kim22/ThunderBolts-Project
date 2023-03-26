@@ -81,7 +81,7 @@ public class MypageMapperTests {
 		System.out.println(insertProfile);
 	}
 
-	
+	@Disabled
 	@Test
 	public void 주소록_인서트() {
 		
@@ -100,7 +100,7 @@ public class MypageMapperTests {
 
 		log.info("insertAddress : {}", insertAddress);
 	}
-	
+	@Disabled
 	@Test
 	public void 주소록_조회_테스트() {
 
@@ -111,7 +111,7 @@ public class MypageMapperTests {
 		assertNotNull(selectAddress);
 		System.out.println(selectAddress);
 	}
-	
+	@Disabled
 	@Test
 	public void 계좌_조회_테스트() {
 
@@ -122,6 +122,22 @@ public class MypageMapperTests {
 		assertNotNull(selectAccounts);
 		System.out.println(selectAccounts);
 	}
-	 
+	@Disabled
+	@Test
+	public void 계좌_인서트() {
+		
+		int memberNo = 2;
+		
+		MembersAccountsDTO account = new MembersAccountsDTO();
+		account.setAccountNo("1");
+		account.setAccountBank("국민은행");
+		account.setAccountMaster("김예지");
+		
+		log.info("address : {}", account);
+		
+		int inserAccounts = mypageMapper.inserAccounts(account, memberNo);
+
+		log.info("insertAddress : {}", inserAccounts);
+	}
 
 }

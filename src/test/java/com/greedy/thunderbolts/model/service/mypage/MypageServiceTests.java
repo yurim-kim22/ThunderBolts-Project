@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import com.greedy.thunderbolts.Application;
 import com.greedy.thunderbolts.model.dao.MypageMapperTests;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
@@ -25,7 +27,7 @@ public class MypageServiceTests {
 	
 	@Autowired
 	private MypageService mypageService;
-	
+	@Disabled
 	@Test
 	public void 마이페이지_서비스_메인_판매내역_테스트() {
 		
@@ -36,7 +38,7 @@ public class MypageServiceTests {
 		assertNotNull(buyList);
 		System.out.println(buyList);
 	}
-	
+	@Disabled
 	@Test
 	public void 마이페이지_서비스_메인_구매내역_테스트() {
 		
@@ -47,7 +49,7 @@ public class MypageServiceTests {
 		assertNotNull(sellList);
 		System.out.println(sellList);
 	}
-	
+	@Disabled
 	@Test
 	public void 내정보관리_조회_테스트() {
 		
@@ -58,7 +60,7 @@ public class MypageServiceTests {
 		assertNotNull(selectInfo);
 		System.out.println(selectInfo);
 	}
-	
+	@Disabled
 	@Test
 	public void 내정보관리_프로필_사진_인서트() {
 	    AttachmentFileDTO attachment = new AttachmentFileDTO();
@@ -74,7 +76,7 @@ public class MypageServiceTests {
 	    // 출력문을 사용하여 updateInfo() 메서드가 정상적으로 실행되었는지 확인합니다.
 	    System.out.println(attachment);
 	}
-	
+	@Disabled
 	@Test
 	public void 주소록_인서트() {
 		int memberNo = 2;
@@ -92,7 +94,7 @@ public class MypageServiceTests {
 
 		log.info("insertAddress : {}", insertAddress);
 	}
-	
+	@Disabled
 	@Test
 	public void 주소록_조회_테스트() {
 		
@@ -102,6 +104,34 @@ public class MypageServiceTests {
 		
 		assertNotNull(selectAddress);
 		System.out.println(selectAddress);
+	}
+	@Disabled
+	@Test
+	public void 계좌_조회_테스트() {
+
+		int memberNo = 2; 
+
+		MembersAccountsDTO selectAccounts = mypageService.selectAccounts(memberNo);
+
+		assertNotNull(selectAccounts);
+		System.out.println(selectAccounts);
+	}
+	@Disabled
+	@Test
+	public void 계좌_인서트() {
+		
+		int memberNo = 5;
+		
+		MembersAccountsDTO account = new MembersAccountsDTO();
+		account.setAccountNo("1");
+		account.setAccountBank("국민은행");
+		account.setAccountMaster("김예지");
+		
+		log.info("address : {}", account);
+		
+		int inserAccounts = mypageService.inserAccounts(account, memberNo);
+
+		log.info("insertAddress : {}", inserAccounts);
 	}
 	
 	

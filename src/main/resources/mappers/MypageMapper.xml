@@ -246,5 +246,24 @@
 		WHERE MEMBERS_NO = #{ memberNo }
 	</select>
 	
+	<!-- 계좌 인서트 -->
+	<insert id="inserAccounts">
+  		INSERT
+		INTO MEMBERS_ACCOUNTS 
+		(
+		    ACCOUNT_NO
+		  , ACCOUNT_BANK  
+		  , ACCOUNT_MASTER
+		  , MEMBERS_NO
+		)
+		VALUES
+		(
+		    #{account.accountNo}
+		  , #{ account.accountBank }
+		  , #{ account.accountMaster }
+		  , #{ memberNo }
+		)
+	</insert>
+	
 	
 </mapper>
