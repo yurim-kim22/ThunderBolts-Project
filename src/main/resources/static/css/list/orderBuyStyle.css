@@ -117,7 +117,7 @@ margin-top: -30px; /* 위치 조절을 위해 margin-top 값을 음수로 조정
 display: flex;
 flex-wrap: wrap;
 font-size: 90%;
-color: gray;
+
 }
 
 .order p01 {
@@ -130,7 +130,6 @@ margin-bottom: 1px;
 display: flex;
 flex-wrap: wrap;
 font-size: 90%;
-color: gray;
 }
 
 .order1 {
@@ -157,7 +156,10 @@ margin-right: 10px;
 text-align: left;
 }
 
-  .p01{line-height:60%}
+  .p01{
+  line-height:60%
+  
+  }
   .h3{line-height:60%}
 
   #section03 {

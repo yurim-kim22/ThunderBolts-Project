@@ -24,6 +24,9 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
     List<ProductDTO> finalBuyBidOrderPage();
     //모든바잉오더 주문 조회
     List<ProductDTO> allFinalBuyBidOrderPage();
+    
+	//주소록 조회
+	List<AddressDTO> selectAddress(int memberNo);
 //    int insertAddress(@Param("address") AddressDTO address , @Param("memberNo") int memberNo);
 //    //주소록 조회
 //    List<AddressDTO> selectAddress(int memberNo);

@@ -20,8 +20,8 @@
       <span th:each="productOption: ${product.productOption}">
         <div class="box product" style="display: block;"
           th:if="${productOption.sellingOrders != null and not #lists.isEmpty(productOption.sellingOrders)}"
-          th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
-          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}">
+	          th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
+	          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}">
           <span style="line-height: 0.5;">
             <b th:text="${productOption.productOptionSize}"></b>
           </span>
@@ -38,9 +38,11 @@
 $products.forEach(div => {
   div.addEventListener('click', (e) => {
     console.log(e.currentTarget.dataset);
+    
     const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
     const sellingOrderPrice = e.currentTarget.dataset.sellingOrderPrice;
     const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
+    
     if (sellingOrderPrice === '0') { // 가격이 0원인 경우
         location.href = '/list/normalBuy3?productOptionSize=' + productOptionSize;
     } else { // 그 외의 경우

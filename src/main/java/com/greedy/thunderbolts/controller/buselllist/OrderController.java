@@ -1,25 +1,22 @@
 package com.greedy.thunderbolts.controller.buselllist;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-import com.greedy.thunderbolts.model.dto.MembersDTO;
-import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Slf4j
 @Controller
@@ -41,10 +38,21 @@ public class OrderController {
 	@PostMapping("/normalOrderPage")
 	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo,
 								  @RequestParam("sellingOrderPrice") int sellingOrderPrice,
-								 Model model) {
+								 Model model,@AuthenticationPrincipal MembersDTO members,
+									AddressDTO address) {
 
 		log.info("결제요청으로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
 		log.info("결제요청으로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
+		
+		
+		int memberNo = members.getMembersNo();
+		
+		//주소조회
+		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
+		
+	    model.addAttribute("selectAddress", selectAddress);
+		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
+		log.info("멤버 조회 members : {}", members);
 
 		//프로덕트 셀링 넘버 받기
 		ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
@@ -57,7 +65,10 @@ public class OrderController {
 		model.addAttribute("productName", findSellingProduct.getProductName()); //이거
 		model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());//이
 		model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
-
+		
+		model.addAttribute("selectAddress", selectAddress);
+		model.addAttribute("members",members);
+		
 		return "orderPage/normalOrderPage";
 	}
 

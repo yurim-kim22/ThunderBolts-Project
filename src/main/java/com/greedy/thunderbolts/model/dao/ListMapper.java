@@ -32,6 +32,9 @@ public interface ListMapper {
 
 	List<ProductDTO> allFinalBuyBidOrderPage();
 
+	//주소록 조회
+	List<AddressDTO> selectAddress(int memberNo);
+
 //	//주소록 인서트
 //	int insertAddress(@Param("address") AddressDTO address , @Param("memberNo") int memberNo);
 //	//주소록 조회

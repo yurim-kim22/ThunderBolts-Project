@@ -71,8 +71,16 @@ public class ListServiceImpl implements ListService {
 	@Override
 	public List<ProductDTO> allFinalBuyBidOrderPage() {
 		// TODO Auto-generated method stub
+		
 		return listMapper.allFinalBuyBidOrderPage();
 	}
+	
+	//주소록 조회
+		@Override
+		public List<AddressDTO> selectAddress(int memberNo) {
+			return listMapper.selectAddress(memberNo);
+		}
+		//계좌 조회
 
 //	@Override
 //	public int insertAddress(AddressDTO address, int memberNo) {

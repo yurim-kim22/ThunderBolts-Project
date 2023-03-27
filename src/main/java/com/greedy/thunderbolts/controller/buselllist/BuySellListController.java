@@ -4,13 +4,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +60,32 @@ public class BuySellListController {
 
 
 	@GetMapping("/normalBuy")
-	public String normalBuy(Model model){
+	public String GetnormalBuy(Model model){
+		List<ProductDTO> productList = listService.findProduct();
+		List<ProductDTO> productSize =listService.findSizePrice();
+
+		log.info("productList : {}", productList);
+		log.info("productSize: {}", productSize);
+
+
+		for (ProductDTO product : productList) {
+			log.info(product.toString());
+			for (ProductOptionDTO option : product.getProductOption()) {
+				log.info(option.getSellingOrders().toString());
+			}
+		}
+
+		//뷰에 보이는거
+
+		model.addAttribute("productList",productList);
+		model.addAttribute("productSize",productSize);
+
+		return "product/normalBuy";
+
+	}
+	
+	@PostMapping("/normalBuy")
+	public String PostnormalBuy(Model model){
 		List<ProductDTO> productList = listService.findProduct();
 		List<ProductDTO> productSize =listService.findSizePrice();
 
@@ -83,9 +113,20 @@ public class BuySellListController {
 	public String normalBuy2(
 			@RequestParam("sellingOrderNo") int sellingOrderNo,
 			@RequestParam(value = "sellingOrderPrice", required = false) String sellingOrderPrice,
+			@AuthenticationPrincipal MembersDTO members,
+			AddressDTO address,
 			Model model) {
 		log.info("구매 요청 어그리로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
 		log.info("구매 요청 어그리로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
+		
+		int memberNo = members.getMembersNo();
+		
+		//주소조회
+		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
+		
+	    model.addAttribute("selectAddress", selectAddress);
+		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
+		log.info("멤버 조회 members : {}", members);
 
 		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
 		ProductDTO findSellingProduct = listService.findSellingProduct(sellingOrderNo);
@@ -98,7 +139,9 @@ public class BuySellListController {
 		model.addAttribute("productName", findSellingProduct.getProductName());
 		model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
 		model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
-
+		//주소 조회
+		model.addAttribute("selectAddress", selectAddress);
+	
 		return "agreeAtc/buyAgree";
 	}
 
