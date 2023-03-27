@@ -5,7 +5,9 @@ import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 public interface MypageService {
 
-	BuyListDTO selectBuyList();
+	BuyListDTO selectBuyList(String memberId);
 	
-	SellListDTO selectSellList();
+	SellListDTO selectSellList(String memberId);
+	
+	
 }

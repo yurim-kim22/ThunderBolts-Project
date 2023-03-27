@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/detail")
 public class DetailPage {
 	
-	@GetMapping("/main")
+	@GetMapping("/Main")
 	public String DetailPageMain() {
 		 
 		return "/detail/detailMain";

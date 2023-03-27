@@ -9,6 +9,7 @@
 
 body{
     margin: 0;
+    background-color:white;
 }
 
 /* footer CSS 양식*/
@@ -116,4 +117,8 @@ footer{
    background-attachment: local;
    background-position: center center;
    background-repeat: no-repeat;
+}
+
+#modalBtn1, #modalBtn2, #modalBtn3, #modalBtn4, #modalBtn5, #modalBtn6{
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
 }

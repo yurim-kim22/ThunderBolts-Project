@@ -2,7 +2,7 @@
 	const $mypageTit = document.getElementById("side0")
 	console.log($mypageTit);
 	$mypageTit.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage";
 	})
 	
 	// 구매 내역
@@ -30,7 +30,7 @@
 	const $editProfile = document.getElementById("side4")
 	console.log($editProfile);
 	$editProfile.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/info";
 	})
 	
 	// 내 문의 내역

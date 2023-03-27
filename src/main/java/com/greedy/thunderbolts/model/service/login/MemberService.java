@@ -3,7 +3,6 @@ package com.greedy.thunderbolts.model.service.login;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.greedy.thunderbolts.controller.login.LoginController;
 import com.greedy.thunderbolts.model.dao.MemberMapper;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 
@@ -30,10 +29,14 @@ public class MemberService {
 	public String registMember(MembersDTO member) {
 		
 		log.info("[service] : {}" , member);
+		String membersId = member.getMembersId();
+		String result = mapper.selectMembersById(membersId);
+		String message = "";
 		
+		if(result == null) {
 		int result1 = mapper.insertMembers(member); 
 		int result2 = mapper.insertMembersRole();
-		String message = "";
+		
 		
 		log.info("[Service] result1 : {}" , result1);
 		log.info("[Service] result2 : {}" , result2);
@@ -44,10 +47,33 @@ public class MemberService {
 			message = "member.registerror";
 		}
 		log.info("[Service] message : {}" , message);
+		} else {message = "member.registerror";}
 		return message;
 	}
 
-	
+	public String selectIdByTel(String memberTel) {
+		
+		log.info("[Service] selectIdByTel MembersTel : {}", memberTel);
+		
+		String result  = mapper.selectIdByTel(memberTel);
+		
+		log.info("[Service] selectIdByTel membersId : {}", result);
+		
+		
+		return result;
+		
+	}
+
+	public boolean findMemberbyIdTel(MembersDTO member) {
+		log.info("[searchPw service request] : {}",member);
+		
+		MembersDTO members = mapper.findMemberbyIdTel(member);
+		
+		log.info("[searchPw sevice response] : {}",member);
+
+		return members != null ? true : false;	
+		
+	}
 	
 
 	

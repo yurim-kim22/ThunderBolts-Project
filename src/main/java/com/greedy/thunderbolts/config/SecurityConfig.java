@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Component;
 
 import com.greedy.thunderbolts.model.service.login.AuthenticationService;
 import com.greedy.thunderbolts.model.service.oauth.Role;
@@ -44,13 +43,14 @@ public class SecurityConfig {
 		.headers().frameOptions().disable()
 		.and()
         .authorizeRequests()
-//        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
-//        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole(Role.MEMBER.name())
-//        // 관리자만 사용 가능한 기능은 현재는 없음
+        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
+        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole(Role.MEMBER.name())
+        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("ADMIN")
+        // 관리자만 사용 가능한 기능은 현재는 없음
         .anyRequest().permitAll()
         .and()
             .formLogin()
-            .loginPage("/login/Main")             
+            .loginPage("/login/main")             
             .defaultSuccessUrl("/")  
             .failureForwardUrl("/login/false")
             .usernameParameter("membersId")			// 아이디 파라미터명 설정 기본값 username에서 변경
@@ -79,11 +79,7 @@ public class SecurityConfig {
 				   .and()
 				   .build();
 	}
-	
-
-
 
 
 }
-
 

@@ -7,6 +7,12 @@
     box-sizing: border-box;
 }
 
+button{
+  border: 0;
+  background-color: transparent;
+  color:white;
+}
+
 main{
 	width: 60vw; 
     margin: 0 auto;

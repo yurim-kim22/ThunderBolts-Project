@@ -1,0 +1,328 @@
+/*--*/
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+
+
+/*모달 창*/
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+  }
+  
+  .close {
+  color: #aaaaaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  
+
+  .text-button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    cursor: pointer;
+  }
+
+  .text-button:hover {
+    background-color: #eee;
+  }
+  
+  .content {
+    display: none;
+    margin-top: 16px;
+    padding: 8px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  table {
+    margin: auto;
+    border-collapse: collapse;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  td:first-child {
+    border-left: none;
+  }
+  
+  td:last-child {
+    border-right: none;
+  }
+  
+  td:nth-child(3n+1) {
+    border-left: none;
+  }
+  
+  td:nth-child(3n) {
+    border-right: none;
+  }
+#modal4 ul{
+	list-style: none;
+}
+
+  .unregister_detail {
+    display: flex;
+    width: 58vw;
+    /* border: 1px solid red; */
+    /* margin-top: 2vw; */
+}
+
+.unregister_detail li {
+    justify-content: space-between;
+    align-items: end;
+    list-style: none;
+    
+
+}
+
+.final_check {
+  margin-right: 100px;
+}
+
+
+.umm{
+  margin-left: 157px;
+}
+
+.umm1{
+  margin-left: 50px;
+}
+
+.umm2{
+  margin-left: 138px;
+}
+
+.umm3{
+  margin-left: 160px;
+}
+
+.umm4{
+  margin-left: 160px;
+}
+
+.umm5{
+  margin-left: 160px;
+}
+
+.umm6{
+  margin-left: -34px;
+}
+
+.umm7{
+  margin-left: 235px;
+}
+
+.umm8{
+  margin-left: -23px;
+}
+
+.umm9{
+  margin-left: -5px;
+}
+
+/* 개인정보 이용약관 */
+
+.perstr{
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.perstable {
+	color: gray;
+	margin-bottom: 2%;
+}
+
+.persmaintitle, .usemaintitle{
+	text-align: center; 
+	font-size: 24px; 
+	font-weight: bold;
+	margin-bottom: 2%;
+	margin-top: 2%;
+	border: none;
+}
+
+.perstexttitle, .persmaintext, .usetexttitle{
+	text-align:left;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	border: none;
+	
+}
+
+.perstmaintext,.perstext1{
+	text-align:left;
+	font-size: 18px;
+	margin-bottom: 5%;
+	border: none;
+	color: gray;
+	
+}
+
+.usetext{
+	text-align:left;
+	font-size: 15px;
+	margin-bottom: 1%;
+	border: none;
+	color: rgba(0,0,0,0.75);
+}
+
+.perstextend{
+	text-align:left;
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 5%;
+	border: none;
+}
+
+.modal-content{
+	width: 60vw; margin: 0 auto;  
+}
+
+.td1{
+	width: 40%;
+}
+.tr1{
+	background-color: rgba(0,0,0,0.15);
+}
+
+.agreebody{
+
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+.usetext ul{
+	list-style: disc;
+	
+}	
+
+li.usetext.ol:nth-child(1)::marker { 
+	content: '가. '; }
+li.usetext.ol:nth-child(2)::marker { 
+
+	content: '나. '; } 
+li.usetext.ol:nth-child(3)::marker { 
+
+	content: '다. '; } 
+	
+li.usetext.ols:nth-child(1)::marker { 
+	content: '1) '; }
+li.usetext.ols:nth-child(2)::marker { 
+
+	content: '2) '; } 
+li.usetext.ols:nth-child(3)::marker { 
+
+	content: '3) '; } 
+	
+b{
+	font-size: 18px;
+}
+a{
+	color: rgba(186,133,209,1);
+		cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
+

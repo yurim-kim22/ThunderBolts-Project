@@ -46,7 +46,7 @@
           FROM MEMBERS A
           LEFT JOIN AUTH_ROLE B ON (A.MEMBERS_NO = B.MEMBERS_NO)
 		  LEFT JOIN AUTH C ON (B.AUTH_NUM = C.AUTH_NUM)
-         WHERE A.MEMBERS_ENTIRE = 'Y'
+         WHERE A.MEMBERS_ENTIRE = 'N'
            AND A.MEMBERS_ID = #{ memberId }
     </select>
     
@@ -80,7 +80,7 @@
 		, #{ membersPwd }
 		, #{ membersTel }
 		, SYSDATE
-		, 'Y'
+		, 'N'
 		)
 
 	</insert>
@@ -98,5 +98,36 @@
 		, 2
 		)
 	</insert>
+	
+	<select id="selectIdByTel" resultType="string">
+		SELECT
+		       MEMBERS_ID
+          FROM MEMBERS
+         WHERE MEMBERS_ENTIRE = 'N'
+           AND MEMBERS_TEL = #{ membersTel }
+
+	</select>
+	
+	<select id="findMemberbyIdTel" resultMap="membersResultMap">
+		SELECT
+               A.MEMBERS_NO
+		     , A.MEMBERS_ID
+             , A.MEMBERS_PWD
+		     , A.MEMBERS_TEL
+		     , A.MEMBERS_REG_DATE
+		     , A.MEMBERS_ENTIRE
+		     , B.MEMBERS_NO REF_MEMBERS_NO
+		     , B.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NAME
+		     , C.AUTH_KO
+          FROM MEMBERS A
+          LEFT JOIN AUTH_ROLE B ON (A.MEMBERS_NO = B.MEMBERS_NO)
+		  LEFT JOIN AUTH C ON (B.AUTH_NUM = C.AUTH_NUM)
+         WHERE A.MEMBERS_ENTIRE = 'N'
+           AND A.MEMBERS_ID = #{ membersId }
+           AND A.MEMBERS_TEl = #{ membersTel }
+	
+	</select>
 
 </mapper>

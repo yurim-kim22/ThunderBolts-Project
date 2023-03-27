@@ -21,6 +21,23 @@ if (document.getElementById("loginRegist")) {
 	}
 }
 
+/* 아이디 찾기 */
+if (document.getElementById("searchId")) {
+	const $searchId = document.getElementById("searchId");
+	$searchId.onclick = function() {
+		location.href = "/login/searchId";
+	}
+}
+
+/* 비밀번호 찾기 */
+if (document.getElementById("searchPw")) {
+	const $searchPw = document.getElementById("searchPw");
+	$searchPw.onclick = function() {
+		location.href = "/login/searchPw";
+	}
+}
+
+/* 이메일 작성시 포커스 여부에 따라 예시 출력 ( 내용 기재시 초기화 하지 않음 ) */
 if (document.getElementById("emailId")) {
 	const $emailId = document.getElementById("emailId");
 
@@ -40,55 +57,158 @@ if (document.getElementById("emailId")) {
 
 
 /* 이메일 여부 */
-const $emailId = document.getElementById("emailId");
-const $emailIdtxt = document.getElementById("emailIdtext");
+if (document.getElementById("emailId")) {
+	const $emailId = document.getElementById("emailId");
+	$emailId.oninput = function() {
+		const $emailId = document.getElementById("emailId");
+		const $emailIdtxt = document.getElementById("emailIdtext");
+		const emailPattern = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
+		if (($emailId.value.match(emailPattern) != null)) {
 
+			$emailIdtxt.innerHTML = "";
+			
 
-$emailId.oninput = function() {
-	var pattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-	console.log($emailId.value);
-	if (($emailId.value.match(pattern) != null)) {
+		} else {
+			$emailIdtxt.innerHTML = "이메일 주소를 정확히 입력해주세요";
+			$emailIdtxt.style.color = 'red';
 
-		$emailIdtxt.innerHTML = "";
-	} else {
-		$emailIdtxt.innerHTML = "이메일 주소를 정확히 입력해주세요";
-		$emailIdtxt.style.color = 'red';
+		}
 	}
 }
 
+
+
 /* 비밀번호 확인 체크 (6~16글자 및 특수문자) */
 if (document.getElementById("pw1")) {
+
+	const pwdPattern = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 	const $pw1 = document.getElementById("pw1")
 	const $pw1check = document.getElementById('pw1check');
 
+	if (($pw1.value.match(pwdPattern) != null)) {
+
+		$pw1check.innerHTML = "";
+
+
+	} else {
+		$pw1check.innerHTML = "영문,숫자,특수문자를 조합해서 입력해주세요(8~16자)";
+		$pw1check.style.color = 'red';
+
+
+	}
 
 	$pw1.oninput = function() {
-		var pw = $pw1.value;
-		var SC = ["!", "@", "#", "$", "%"];
-		var check_SC = 0;
+		let pw = $pw1.value;
+		let SC = ["!", "@", "#", "$", "%"];
+		let check_SC = 0;
 
-		if (pw.length < 6 || pw.length > 16) {
-			$pw1check.innerHTML = '비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.';
-			$pw1check.style.color = 'red';
-			pw = '';
+		if (pw.legnth = 0) {
+			$pw1check.innerHTML = '영문,숫자,특수문자를 조합해서 입력해주세요(8~16자)';
 		} else {
-			$pw1check.innerHTML = '';
-			for (var i = 0; i < SC.length; i++) {
-				if (pw.indexOf(SC[i]) != -1) {
-					check_SC = 1;
-				}
-			}
-			if (check_SC == 0) {
-				$pw1check.innerHTML = '!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.';
+			if (pw.length < 6 || pw.length > 16) {
+				$pw1check.innerHTML = '비밀번호는 6글자 이상, 16글자 이하만 이용 가능합니다.';
 				$pw1check.style.color = 'red';
 				pw = '';
 			} else {
 				$pw1check.innerHTML = '';
-			}
-		}
+				for (let i = 0; i < SC.length; i++) {
+					if (pw.indexOf(SC[i]) != -1) {
+						check_SC = 1;
+					}
+				}
+				if (check_SC == 0) {
+					$pw1check.innerHTML = '!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.';
+					$pw1check.style.color = 'red';
+					pw = '';
+				} else {
+					if (($pw1.value.match(pwdPattern) != null)) {
+						$pw1check.innerHTML = "";
 
+					} else {
+						$pw1check.innerHTML = "영문,숫자,특수문자를 조합해서 입력해주세요(8~16자)";
+
+
+					}
+				}
+			}
+
+		}
 	}
 }
 
 
+
+/* 가입하기 버튼 활성화 */
+const $loginButton = document.getElementById("loginButton");
+
+const $emailId = document.getElementById("emailId");
+
+const $pw1 = document.getElementById("pw1");
+
+
+const $pw1check = document.getElementById('pw1check');
+
+const emailPattern = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;;
+const pwdPattern = /^.*(?=^.{8,16}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+
+
+window.onkeydown = function() {
+	
+	if (
+		($emailId.value.match(emailPattern) != null)
+		&& ($pw1.value.match(pwdPattern) != null)
+	) {
+		
+		$loginButton.disabled = false;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$loginButton.disabled = true;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,0.5)';
+	}
+}
+
+window.onchange = function() {
+	
+		if (
+		($emailId.value.match(emailPattern) != null)
+		&& ($pw1.value.match(pwdPattern) != null)
+	) {
+		
+		$loginButton.disabled = false;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$loginButton.disabled = true;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,0.5)';
+	}
+}
+
+window.onclick = function() {
+	
+		if (
+		($emailId.value.match(emailPattern) != null)
+		&& ($pw1.value.match(pwdPattern) != null)
+	) {
+		
+		$loginButton.disabled = false;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$loginButton.disabled = true;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,0.5)';
+	}
+}
+
+window.oninput = function() {
+	
+		if (
+		($emailId.value.match(emailPattern) != null)
+		&& ($pw1.value.match(pwdPattern) != null)
+	) {
+		
+		$loginButton.disabled = false;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,1)';
+	} else {
+		$loginButton.disabled = true;
+		$loginButton.style.backgroundColor = 'rgba(186,133,209,0.5)';
+	}
+}

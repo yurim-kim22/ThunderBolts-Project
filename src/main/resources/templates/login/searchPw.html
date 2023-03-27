@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>serchId</title>
+ <link href="/css/login/searchPw.css" rel="stylesheet" type="text/css">
+    <script src="/js/searchPw.js" type="text/Javascript" defer></script>
+	<link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	
+	<div th:replace="common/header/subHeader.html"></div>
+		<main>
+		<div class="searchIdMainTitle">비밀번호 찾기</div>
+		
+		<div class="serchIdTitle">가입 시 등록하신 휴대폰 번호와 이메일을 입력하시면,이메일로 임시 비밀번호를 전송해 드립니다.</div>
+        <form id="loginForm" action="/login/searchPw" method="post">
+    		<div class="id">
+				<label class="emailLabel">이메일주소</label>
+				<p>
+					<input type="text" value="예) greedy@Thunderbolts.com" id="emailId" name="membersId" required>
+				</p>
+				<div class="loginfalse" id="emailIdtext"></div>
+
+			</div>
+           
+            <div class="phone">
+                <label>휴대폰번호</label>
+            <input type="text" value="휴대폰 번호는 숫자만 입력하세요" id="loginPhone" name="membersTel" required>
+             <div class="phonecheck" id="phonecheck"></div>
+            </div>
+            
+
+			<div>
+                <input type="submit" value="비밀번호 찾기" id="registJoin" disabled='disabled'>
+            </div>
+        </form>
+
+    </main>
+    
+	<div th:replace="common/footer/mainFooter.html"></div>
+
+
+</body>
+</html>

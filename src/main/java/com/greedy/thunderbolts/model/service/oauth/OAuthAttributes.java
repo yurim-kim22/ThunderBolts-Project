@@ -15,13 +15,12 @@ public class OAuthAttributes {
     private String provideId;
    
     @Builder	
-    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email, String provider, String provideId) {
+    public OAuthAttributes(Map<String, Object> attributes, String nameAttributeKey, String name, String email) {
         this.attributes = attributes;
         this.nameAttributeKey = nameAttributeKey;
         this.name = name;
         this.email = email;
-        this.provider = provider;
-        this.provideId = provideId;
+
     }
 
     public OAuthAttributes() {
@@ -46,8 +45,6 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
 				.name((String) profile.get("nickname"))
 				.email((String) kakao_account.get("email"))
-				.provider((String) kakao_account.get("provider"))
-				.provideId((String) kakao_account.get("providerId"))
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();        
@@ -60,8 +57,6 @@ public class OAuthAttributes {
         return OAuthAttributes.builder()
 				.name((String) response.get("name"))
 				.email((String) response.get("email"))
-				.provider((String) response.get("provider"))
-				.provideId((String) response.get("providerId"))
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();
