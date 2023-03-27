@@ -59,7 +59,7 @@ public class LoginController {
 		
 		rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("error.login"));
 		
-		return "redirect:/login/Main";
+		return "redirect:/login/main";
 		
 	}
 	
@@ -105,7 +105,7 @@ public class LoginController {
 		String redirectUrl="redirect:/";
 		
 		if(message != "member.regist") {
-			redirectUrl = "redirect:/login/loginRegist";
+			redirectUrl = "redirect:/login/regist";
 		}
 		log.info("[Controller] message : {}" , redirectUrl);
 		return redirectUrl;

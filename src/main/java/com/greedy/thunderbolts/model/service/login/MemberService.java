@@ -29,10 +29,14 @@ public class MemberService {
 	public String registMember(MembersDTO member) {
 		
 		log.info("[service] : {}" , member);
+		String membersId = member.getMembersId();
+		String result = mapper.selectMembersById(membersId);
+		String message = "";
 		
+		if(result == null) {
 		int result1 = mapper.insertMembers(member); 
 		int result2 = mapper.insertMembersRole();
-		String message = "";
+		
 		
 		log.info("[Service] result1 : {}" , result1);
 		log.info("[Service] result2 : {}" , result2);
@@ -43,6 +47,7 @@ public class MemberService {
 			message = "member.registerror";
 		}
 		log.info("[Service] message : {}" , message);
+		} else {message = "member.registerror";}
 		return message;
 	}
 

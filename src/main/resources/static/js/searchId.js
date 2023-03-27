@@ -153,11 +153,8 @@ if (document.getElementById("searchIdbutton")) {
 				  } else {
 				const mkEmail = result.replace(/^(.{1}).*?(@.*$)/, "$1******$2");
 				
-		/*	const searchIdMainTitle = document.getElementById("serchIdTitle");
-      			searchIdMainTitle.insertAdjacentHTML("beforeend", `<span>${mkEmail}</span>`);
-				searchIdMainTitle.remove();*/
 				document.getElementById("searchMain").innerHTML=
-			`<div class="searchIdMainTitle" id="searchIdMainTitle">이메일 주소 찾기에 성공하였습니다.</div>
+			   `<div class="searchIdMainTitle" id="searchIdMainTitle">이메일 주소 찾기에 성공하였습니다.</div>
 
 				<div class="serchIdEmailTitle" id="serchIdEmailTitle">이메일 주소</div >
 				<div class="serchIdEmail">${mkEmail}</div>
@@ -170,22 +167,11 @@ if (document.getElementById("searchIdbutton")) {
 					<input type="button" value="로그인" onclick="location.href='/login/main'" class="searchtologin"
 					id="searchtologin" >
 			
-				</div>
-			`;	
-				zindex();
+				</div>`;	
+				
       			
       			}
 			})
 			.catch(() =>  alert("에러가 발생하였습니다. 다시 시도 해주세요"));
 	}
-}
-function zindex (){
-	$(".searchPw").css('zindex',1);
-	
-	if (document.getElementById("searchPw")) {
-	const $searchPw = document.getElementById("searchPw");
-	$searchPw.onclick = function() {
-		location.href = "/login/searchPw";
-	}
-}
 }

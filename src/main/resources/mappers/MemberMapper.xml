@@ -80,7 +80,7 @@
 		, #{ membersPwd }
 		, #{ membersTel }
 		, SYSDATE
-		, 'Y'
+		, 'N'
 		)
 
 	</insert>
