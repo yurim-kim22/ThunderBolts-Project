@@ -192,15 +192,14 @@
 		)
 	</insert>
 	
-	<!-- 내정보관리 - 수정 이름패스워드  -->
+	<!-- 내정보관리 - 수정 이름패스워드-->
 	<update id="modifyInfo">
 		UPDATE 
 		     MEMBERS
-		 SET MEMBERS_NAME = #{name}
-		   , MEMBERS_PWD = #{newPw}
+		 SET MEMBERS_NAME = #{ members.membersName }
+		   , MEMBERS_PWD = #{ members.membersPwd }
 	   WHERE MEMBERS_ID = #{ memberId }
-	     AND MEMBERS_PWD = #{ existPw }
-	</update>
+	</update >
 	
 	<!-- 주소록 인서트-->
 	<insert id="insertAddress">

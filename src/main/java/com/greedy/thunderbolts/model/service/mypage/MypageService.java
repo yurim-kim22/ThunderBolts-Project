@@ -19,8 +19,13 @@ public interface MypageService {
 	SellListDTO selectSellList(String memberId);
 	//내정보관리 조회
 	MembersDTO selectInfo(String memberId);
+	
 	//내정보관리 프로필 사진 인서트
-	void updateInfo(AttachmentFileDTO attachment);
+	int insertProfile(AttachmentFileDTO attachment);
+	//내정보관리 수정 이름 비밀번호
+	int modifyInfo(@Param("members")MembersDTO members , @Param("memberId") String memberId);
+	
+	
 	//주소록 추가
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회

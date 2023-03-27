@@ -25,6 +25,7 @@ public class MypageServiceImpl implements MypageService {
 	
 	private final MypageMapper mypageMapper;
 	
+	
 	@Autowired
 	public MypageServiceImpl(MypageMapper mypageMapper) {
 		this.mypageMapper = mypageMapper;
@@ -48,12 +49,23 @@ public class MypageServiceImpl implements MypageService {
 		return mypageMapper.selectInfo(memberId);
 	}
 	
+	
+
 	//내정보관리 프로필 사진 인서트
 	@Override
-	public void updateInfo(AttachmentFileDTO attachment) {
-		log.info("[updateInfo] : {} " + attachment);
-		mypageMapper.insertProfile(attachment);
+	public int insertProfile(AttachmentFileDTO attachment) {
+		return mypageMapper.insertProfile(attachment);
 	}
+	//내정보관리 이름 비밀번호 수정
+	@Override
+	public int modifyInfo(MembersDTO members, String memberId) {
+		// TODO Auto-generated method stub
+		return mypageMapper.modifyInfo(members, memberId);
+	}
+	
+	
+	
+	
 	//주소록 추가
 	@Override
 	public int insertAddress(AddressDTO address, int memberNo) {
@@ -79,5 +91,10 @@ public class MypageServiceImpl implements MypageService {
 	public int modifyAccounts(MembersAccountsDTO account, int memberNo) {
 		return mypageMapper.modifyAccounts(account, memberNo);
 	}
+
+
+
+
+
 
 }

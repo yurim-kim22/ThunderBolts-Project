@@ -70,12 +70,18 @@ public class MypageServiceTests {
 	    attachment.setFileDecoded("d");
 	    attachment.setFileThumbnailChecking("YES");
 
-	    mypageService.updateInfo(attachment);
-
-	    // updateInfo() 메서드의 반환값이 void이므로, insertProfile 변수 대신에
-	    // 출력문을 사용하여 updateInfo() 메서드가 정상적으로 실행되었는지 확인합니다.
-	    System.out.println(attachment);
+	    String memberPwdOld = "new";
+		String memberId = "8888";
+		
+		MembersDTO members = new MembersDTO();
+		members.setMembersName("이사라");
+		members.setMembersPwd("8888");
+		
+		log.info("account : {}", members);
+		mypageService.updateInfo(attachment, members,  memberPwdOld, memberId);
+		
 	}
+	
 	@Disabled
 	@Test
 	public void 주소록_인서트() {
@@ -133,7 +139,7 @@ public class MypageServiceTests {
 
 		log.info("insertAddress : {}", inserAccounts);
 	}
-	
+	@Disabled
 	@Test
 	public void 계좌_수정_테스트() {
 		
@@ -150,6 +156,21 @@ public class MypageServiceTests {
 
 		log.info("insertAddress : {}", modifyAccounts);
 	}
+	
+	/*
+	 * @Test public void 내정보수정_이름_패스워드_수정_테스트() {
+	 * 
+	 * String memberPwdOld = "8888"; String memberId = "8888";
+	 * 
+	 * MembersDTO members = new MembersDTO(); members.setMembersName("이사라");
+	 * members.setMembersPwd("new");
+	 * 
+	 * log.info("account : {}", members);
+	 * 
+	 * int modifyInfo = mypageService.modifyInfo(members, memberPwdOld, memberId);
+	 * 
+	 * log.info("modifyInfo : {}", modifyInfo); }
+	 */
 	
 	
 	

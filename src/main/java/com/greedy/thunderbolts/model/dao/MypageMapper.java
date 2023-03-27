@@ -21,10 +21,16 @@ public interface MypageMapper {
 	SellListDTO selectSellList(String memberId);
 	//내정보관리 조회
 	MembersDTO selectInfo(String memberId);
+	
+	
+	
 	//내정보관리 프로필 사진 인서트
 	int insertProfile(AttachmentFileDTO attachment);
 	//내정보관리 수정 이름 비밀번호
-	int modifyInfo(MembersDTO member);
+	int modifyInfo(@Param("members")MembersDTO members , @Param("memberId") String memberId);
+	
+	
+	
 	//주소록 인서트
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
@@ -35,6 +41,5 @@ public interface MypageMapper {
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	//계좌 수정
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
-	
 	
 }

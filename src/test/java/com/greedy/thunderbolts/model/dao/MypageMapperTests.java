@@ -139,7 +139,7 @@ public class MypageMapperTests {
 
 		log.info("insertAddress : {}", inserAccounts);
 	}
-	
+	@Disabled
 	@Test
 	public void 계좌_수정_테스트() {
 		
@@ -155,6 +155,23 @@ public class MypageMapperTests {
 		int modifyAccounts = mypageMapper.modifyAccounts(account, memberNo);
 
 		log.info("insertAddress : {}", modifyAccounts);
+	}
+	
+	@Test
+	public void 내정보수정_이름_패스워드_수정_테스트() {
+		
+		String memberPwdOld = "8888";
+		String memberId = "8888";
+		
+		MembersDTO members = new MembersDTO();
+		members.setMembersName("이한나");
+		members.setMembersPwd("new");
+		
+		log.info("account : {}", members);
+		
+		int modifyInfo = mypageMapper.modifyInfo(members, memberId);
+
+		log.info("modifyInfo : {}", modifyInfo);
 	}
 
 }
