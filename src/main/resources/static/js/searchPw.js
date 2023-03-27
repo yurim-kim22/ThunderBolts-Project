@@ -35,20 +35,18 @@ if (document.getElementById("emailId")) {
 	$emailId.oninput = function() {
 		const $emailId = document.getElementById("emailId");
 		const $emailIdtxt = document.getElementById("emailIdtext");
-		const $duplicationCheck = document.getElementById("duplicationCheck");
 		const emailPattern = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
 		if (($emailId.value.match(emailPattern) != null)) {
 
 			$emailIdtxt.innerHTML = "";
-			$duplicationCheck.disabled = false;
+
 
 
 		} else {
 			$emailIdtxt.innerHTML = "이메일 주소를 정확히 입력해주세요";
 			$emailIdtxt.style.color = 'red';
-			$duplicationCheck.disabled = 'disabled';
-
+	
 		}
 	}
 }
@@ -96,9 +94,10 @@ if (document.getElementById("loginPhone")) {
 /* 가입하기 버튼 활성화 */
 const $registJoin = document.getElementById("registJoin");
 
-
+const $emailId = document.getElementById("emailId");
 const $loginPhone = document.getElementById("loginPhone");
 
+const emailPattern = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 const phonePattern = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 
 
@@ -107,7 +106,8 @@ window.onkeydown = function() {
 	
 	if (
 
-		 $loginPhone.value.match(phonePattern) != null
+		($emailId.value.match(emailPattern) != null)
+		&& $loginPhone.value.match(phonePattern) != null
 	
 	) {
 		
@@ -122,6 +122,7 @@ window.onkeydown = function() {
 window.onchange = function() {
 	
 	if (
+		
 		($emailId.value.match(emailPattern) != null)
 		&& $loginPhone.value.match(phonePattern) != null
 	

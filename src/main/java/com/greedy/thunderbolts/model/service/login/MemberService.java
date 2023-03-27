@@ -63,6 +63,17 @@ public class MemberService {
 		return result;
 		
 	}
+
+	public boolean findMemberbyIdTel(MembersDTO member) {
+		log.info("[searchPw service request] : {}",member);
+		
+		MembersDTO members = mapper.findMemberbyIdTel(member);
+		
+		log.info("[searchPw sevice response] : {}",member);
+
+		return members != null ? true : false;	
+		
+	}
 	
 
 	

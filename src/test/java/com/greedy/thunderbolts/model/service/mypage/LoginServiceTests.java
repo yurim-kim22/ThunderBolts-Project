@@ -20,7 +20,7 @@ public class LoginServiceTests {
 	
 	@Autowired
 	private MemberService memberService;
-	private MembersDTO membersTel;
+	private String membersTel;
 	
 	@Test
 	public void 서비스_테스트() {
@@ -31,9 +31,9 @@ public class LoginServiceTests {
 	@Test
 	public void 마이페이지_서비스_메인_판매내역_테스트() {
 		
-		membersTel.setMembersTel("01000000000");
+		membersTel= "01000000000";
 		
-		MembersDTO membersId = memberService.selectIdByTel(membersTel);
+		String membersId = memberService.selectIdByTel(membersTel);
 		
 		assertNotNull(membersId);
 		log.info("[Test service] selectIdByTel membersId : {}", membersId);

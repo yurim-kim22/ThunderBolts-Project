@@ -149,9 +149,14 @@ public class LoginController {
 	
 	/* 비밀번호 찾기 진행 */
 	@PostMapping("/searchPw")
-	public String serachPw() {
-		return "login/loginMain";
+	public String serachPw(MembersDTO member) {
+		log.info("[searchPw Controller request] : {}",member);
+		
+		if(memberService.findMemberbyIdTel(member)) 
+		{log.info("[searchPw Controller response] : {}",member);}
+		
+		return "redirect:/login/searchPw";
 	}
 	
-	
+	 	
 }

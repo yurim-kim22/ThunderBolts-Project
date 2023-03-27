@@ -19,7 +19,7 @@ public class LoginMapperTests {
 
 	@Autowired
 	private MemberMapper mapper;
-	private MembersDTO members;
+	private String members;
 
 	@Test
 	public void 매퍼_테스트() {
@@ -32,14 +32,14 @@ public class LoginMapperTests {
 	@Test
 	public void 아이디_찾기_디비_조회_테스트() {
 		
-		members.setMembersTel("dddd");
+		members = "dddd";
 		
-		String memberTel = members.getMembersTel();
+		String memberTel = members;
 		
 		log.info("[Test mapper] selectIdByTel memberTel : {}", memberTel);
 		log.info("[Test mapper] selectIdByTel membersId : {}", members);
 		
-		MembersDTO membersId = mapper.selectIdByTel(members); 
+		String membersId = mapper.selectIdByTel(members); 
 		
 		assertNotNull(memberTel);
 		log.info("[Test mapper] selectIdByTel membersId : {}", memberTel);

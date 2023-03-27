@@ -108,9 +108,11 @@ label{
 	height: 5%;
 	text-align: center;
 	color:gray;
+	
 }
 .serchIdEmail{
 	
 	height: 5%;
 	text-align: center;
+	font-weight:600;
 }

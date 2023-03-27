@@ -17,4 +17,6 @@ public interface MemberMapper {
 
 	String selectIdByTel(String memberTel);
 
+	MembersDTO findMemberbyIdTel(MembersDTO member);
+
 }
