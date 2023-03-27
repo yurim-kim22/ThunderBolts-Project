@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
@@ -27,6 +28,10 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
     
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
+
+    List<ProductDTO> selectBuyingOrder();
+
+    List<BuyingOrdersDTO> selectBuyingOrderAll();
 //    int insertAddress(@Param("address") AddressDTO address , @Param("memberNo") int memberNo);
 //    //주소록 조회
 //    List<AddressDTO> selectAddress(int memberNo);

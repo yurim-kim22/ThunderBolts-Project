@@ -112,11 +112,14 @@ removeDuplicates(); // 중복 제거 함수 호출
         <span th:each="product : ${productList}">
             <span th:each="productOption: ${product.productOption}">
                   <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no}
-			        (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" ></b></p>
+
+                      <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no}
+			        (no=${productOption.sellingOrders[0].sellingOrderNo})}">
+
+                        <b th:text="${productOption.productOptionSize}" ></b>
                         <a style="line-height: 0.5; color: rgb(9, 120, 9);" 
                         th:href="@{/list/normalBuy2?sellingOrderNo={no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
-                        th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
+                        th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'">
 			      	</a>
 			      	</a>
 			      	
@@ -136,7 +139,7 @@ function updateButtonStatus() {
 	  const myButton = document.getElementById('buyBtn');  // id를 buyBtn으로 수정
 	  const selectedBox = document.querySelector('.selected');
 	  const sellingOrderNo = document.querySelector('input[name=sellingOrderNo]');  // 수정
-//학원쌤이 자스로 넣어주셨어
+
 	  if (selectedBox) {
 	    myButton.style.opacity = 1;
 	    myButton.style.pointerEvents = 'auto';

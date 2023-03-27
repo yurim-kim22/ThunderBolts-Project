@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,146 +15,74 @@
 	<div th:replace="common/header/orderHeader2.html"></div>
 
 
-  <section id="section03">
-    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+    <section id="section03">
+        <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+        <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+        <div class="info" style="text-align: left;">
+            <div th:each="productDTO : ${selectBuyingOrder}">
+                <p style="margin: 0;" th:text="${productDTO.productCode}"></p>
+                <p style="margin: 0;" th:text="${productDTO.productName}"></p>
+                <p style="margin: 0; color: gray;" th:text="${productDTO.productNameKr}"></p>
 
-    <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
-
-    <div class="info" style="text-align: left;">
-    <div th:each="product : ${ productList }">
-		  <p style="margin: 0;" th:text="${ product.productCode }"></p>
-		  <p style="margin: 0;" th:text="${ product.productName }"></p>
-		  <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
+</script>
 	</div>
 	</div>
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-    
-
-<form id="select2Form" action="/list/normalSell" method="post">
-    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
-    <div class="all">
-        <div class="box" style="display: block;">
-            <div th:each="product : ${productList}">
-                <div th:each="productOption: ${product.productOption}">
-                    <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-                        <a style="line-height: 2.5; width: 200px;" 
-                            th:href="@{/list/normalSell2?sellingOrderNo={no} (no=${productOption.sellingOrders[0].sellingOrderNo})}" 
-                            th:text="${productOption.productOptionSize}"></a>
-                        <p style="line-height: 0.5; color: rgb(9, 120, 9);" 
-                            th:href="@{/list/normalSell2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
-                            th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
+        <form id="selectForm" action="/list/normalBuy" method="post">
+            <!-- 구매 의향서 번호 받는 클릭 이벤트 -->
+            <div class="box" style="display: block;">
+                <div th:each="productDTO : ${selectBuyingOrder}">
+                <div th:each="productOption: ${productDTO.productOption}">
+                    <div th:if="${!#lists.isEmpty(productOption.buyingOrders)}" class="box" style="display: block;">
+                        <a style="line-height: 0.5;"
+                           th:href="@{/list/normalBuy2(buyingOrderCode=${productOption.buyingOrders[0].buyingOrderCode})}">
+                            <b th:text="${productOption.productOptionSize}"></b>
+                            <a style="line-height: 0.5; color: rgb(9, 120, 9);"
+                               th:href="@{/list/normalBuy2?buyingOrderCode={no}(no=${productOption.buyingOrders[0].buyingOrderCode})}"
+                               th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'">
+                            </a>
+                        </a>
                     </div>
                 </div>
-            </div>  
+                </div>
+            </div>
+        </form>
         </div>
-    </div>
-</form>
 
 
-  
+        <script>
+function updateButtonStatus() {
+  const myButton = document.getElementById('buyBtn');
+  const selectedBox = document.querySelector('.selected');
+  const buyingOrderCode = document.querySelector('input[name=buyingOrderCode]');
+
+  if (selectedBox) {
+    myButton.style.opacity = 1;
+    myButton.style.pointerEvents = 'auto';
+
+    buyingOrderCode.value = selectedBox.querySelector('input[name=buyingOrderCode]').value;
+  } else {
+    myButton.style.opacity = 0.5;
+    myButton.style.pointerEvents = 'none';
+
+    buyingOrderCode.value = '';
+  }
+
+  myButton.onclick = function () {
+    document.getElementById('selectForm').submit();
+  };
+}
+
+updateButtonStatus();
+
+        </script>>
 
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-      
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
 
     </div>

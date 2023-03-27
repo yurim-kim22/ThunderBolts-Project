@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,17 @@ public class ListServiceImpl implements ListService {
 		return listMapper.findSizePrice();
 		
 		
+	}
+	//바잉오더 조
+	//
+	@Override
+	public  List<ProductDTO> selectBuyingOrder(){
+		return listMapper.selectBuyingOrder();
+	}
+
+	@Override
+	public List<BuyingOrdersDTO> selectBuyingOrderAll() {
+		return listMapper.selectBuyingOrderAll();
 	}
 
 

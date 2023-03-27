@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.*;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.greedy.thunderbolts.model.dto.MembersDTO;
-import com.greedy.thunderbolts.model.dto.ProductDTO;
-import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
@@ -100,6 +98,7 @@ public class BuySellListController {
 			}
 		}
 
+
 		//뷰에 보이는거
 
 		model.addAttribute("productList",productList);
@@ -107,6 +106,45 @@ public class BuySellListController {
 
 		return "product/normalBuy";
 
+	}
+	//셀오더 조회 1
+	@GetMapping("/normalSell")
+	public String GetnormalSell(Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
+								BuyingOrdersDTO buyingOrdersDTO){
+
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
+		List<BuyingOrdersDTO> selectBuyingOrderAll = listService.selectBuyingOrderAll();
+
+
+		for (ProductDTO product : selectBuyingOrder) {
+			log.info(product.toString());
+			for (ProductOptionDTO option : product.getProductOption()) {
+				log.info(option.getBuyingOrders().toString());
+			}
+		}
+
+		log.info("selectBuyingOrder: {}",selectBuyingOrder);
+		log.info("구매 의향서 ProductDTO: {}",productDTO);
+		log.info("왜 안나오니 selectBuyingOrderAll : {}",selectBuyingOrderAll);
+		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
+		model.addAttribute("productDTO",productDTO);
+		model.addAttribute("buyingOrdersDTO",buyingOrdersDTO);
+
+
+		return "product/normalSell";
+	}
+
+	//셀오더 조회 2
+	@PostMapping("/normalSell")
+	public String PostnormalSell(Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
+								 BuyingOrdersDTO buyingOrdersDTO){
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
+
+		log.info("selectBuyingOrder: {}",selectBuyingOrder);
+
+		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
+
+		return "product/normalSell";
 	}
 	//구매 동의서
 	@GetMapping("/normalBuy2")
@@ -197,46 +235,6 @@ public class BuySellListController {
 
 
 
-
-
-
-
-	//이건 아직 안한거임
-	@PostMapping("/normalSell")
-	public String normalSell(Model model) {
-		// 로직 구현
-		return "product/normalSell";
-	}
-
-//
-
-//	@PostMapping("/normalOrderPage")
-//	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo, Model model) {
-//	    log.info("결제 요청: sellingOrderNo={}" + sellingOrderNo);
-//
-//	    // sellingOrderNo를 사용하여 ProductOption 객체를 불러온 후 모델에 추가하깅
-//	    //이 부분익 이게맞나/?
-//	    ProductOptionDTO productOption = listService.findProductOptionBySellingOrderNo(sellingOrderNo);
-//
-////		List<ProductOptionDTO> productSize =listService.findProductOptionBySellingOrderNo(sellingOrderNo);
-//
-//
-//	    return "orderPage/normalOrderPage";
-//	}
-//
-//	@GetMapping("/normalOrderPage2")
-//	public String normalOrderPage2(@RequestParam("sellingOrderNo") int sellingOrderNo,
-//								   @RequestParam("productName") String productName,
-//								   @RequestParam("productNameKr") String productNameKr,
-//								   @RequestParam("") Model model
-//													)
-
-
-
-
-
-
-
 	@GetMapping("/oneSizeBuying")
 	public String oneSizeBuying(){
 		return "product/oneSizeBuying";
@@ -248,13 +246,6 @@ public class BuySellListController {
 		return "product/oneSizeSelling";
 
 	}
-
-//	@GetMapping("/buyAgree")
-//	public String buyAgree(){
-//		return "agreeAtc/buyAgree";
-//		
-//	}
-
 
 
 	@GetMapping("/buyBid")

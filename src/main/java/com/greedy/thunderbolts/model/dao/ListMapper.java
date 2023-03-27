@@ -3,6 +3,7 @@ package com.greedy.thunderbolts.model.dao;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,6 +18,9 @@ public interface ListMapper {
 	   List<ProductDTO> findProduct();
 	   
 	   List<ProductDTO> findSizePrice();
+
+	   //바잉오더 조회
+	   List<ProductDTO> selectBuyingOrder();
 
 
 
@@ -34,6 +38,9 @@ public interface ListMapper {
 
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
+
+	List<BuyingOrdersDTO> selectBuyingOrderAll();
+
 
 //	//주소록 인서트
 //	int insertAddress(@Param("address") AddressDTO address , @Param("memberNo") int memberNo);
