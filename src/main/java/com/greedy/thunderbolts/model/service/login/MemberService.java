@@ -1,5 +1,6 @@
 package com.greedy.thunderbolts.model.service.login;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,9 +15,13 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberService {
 
 	private final MemberMapper mapper;
+	private final RandomPw randomPw;
+	private final PasswordEncoder passwordEncoder;
 
-	public MemberService(MemberMapper mapper) {
+	public MemberService(MemberMapper mapper, RandomPw randomPw, PasswordEncoder passwordEncoder) {
 		this.mapper = mapper;
+		this.randomPw = randomPw;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	public boolean selectMemberById(String membersId) {
@@ -71,6 +76,18 @@ public class MemberService {
 		
 		log.info("[searchPw sevice response] : {}",member);
 
+		log.info("[searchPw sevice request pw] : {}",member);
+		if(members != null) {
+		String newPass = randomPw.randowPws();
+		
+		members.setMembersPwd(passwordEncoder.encode(newPass));
+		int result = mapper.updatePwd(members);
+		
+		} else {
+			
+		}
+		
+		
 		return members != null ? true : false;	
 		
 	}

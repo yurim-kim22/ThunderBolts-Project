@@ -129,5 +129,14 @@
            AND A.MEMBERS_TEl = #{ membersTel }
 	
 	</select>
+	<update id="updatePwd">
+		UPDATE
+			   MEMBERS
+		   SET MEMBERS_PWD = #{ membersPwd }
+		 WHERE MEMBERS_ENTIRE = 'N'
+           AND MEMBERS_ID = #{ membersId }
+           AND MEMBERS_TEl = #{ membersTel }
+	 
+	</update>
 
 </mapper>
