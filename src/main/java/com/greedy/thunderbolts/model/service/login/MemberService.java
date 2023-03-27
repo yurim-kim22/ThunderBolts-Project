@@ -1,5 +1,7 @@
 package com.greedy.thunderbolts.model.service.login;
 
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,11 +19,13 @@ public class MemberService {
 	private final MemberMapper mapper;
 	private final RandomPw randomPw;
 	private final PasswordEncoder passwordEncoder;
+	private final MailSender mailSender;
 
-	public MemberService(MemberMapper mapper, RandomPw randomPw, PasswordEncoder passwordEncoder) {
+	public MemberService(MemberMapper mapper, RandomPw randomPw, PasswordEncoder passwordEncoder, MailSender mailSender) {
 		this.mapper = mapper;
 		this.randomPw = randomPw;
 		this.passwordEncoder = passwordEncoder;
+		this.mailSender = mailSender;
 	}
 
 	public boolean selectMemberById(String membersId) {
@@ -76,15 +80,25 @@ public class MemberService {
 		
 		log.info("[searchPw sevice response] : {}",member);
 
-		log.info("[searchPw sevice request pw] : {}",member);
-		if(members != null) {
-		String newPass = randomPw.randowPws();
 		
-		members.setMembersPwd(passwordEncoder.encode(newPass));
-		int result = mapper.updatePwd(members);
-		
-		} else {
-			
+		if (members != null) {
+			String newPass = randomPw.randowPws();
+			log.info("[searchPw sevice request randomPw] : {}", randomPw);
+
+			members.setMembersPwd(passwordEncoder.encode(newPass));
+			int result = mapper.updatePwd(members);
+
+			log.info("[searchPw sevice request members] : {}", members);
+			log.info("[searchPw sevice request result] : {}", result);
+			if (result > 0) {
+
+				MembersDTO pwdEmail = new MembersDTO();
+				pwdEmail.setMembersId(members.getMembersId());
+				pwdEmail.setMembersPwd(newPass);
+
+				mailSend(pwdEmail);
+			} else { members = null;}
+
 		}
 		
 		
@@ -93,7 +107,19 @@ public class MemberService {
 	}
 	
 
-	
+	 public void mailSend(MembersDTO members) {
+	     	String text = "안녕하세요. ThunderBolts 임시비밀번호 안내 관련 이메일 입니다." + " 회원님의 임시 비밀번호는 "
+	                + members.getMembersPwd() + " 입니다." + "로그인 후에 비밀번호를 변경을 해주세요";
+		 	
+	        SimpleMailMessage message = new SimpleMailMessage();
+	        message.setTo(members.getMembersId());
+	        message.setSubject("ThunderBolts 임시비밀번호 안내 이메일 입니다.");
+	        message.setText(text);
+	        message.setFrom("kbo0609@naver.com");
+	        message.setReplyTo("kbo0609@naver.com");
+	      
+	        mailSender.send(message);
+	    }
 	
 	
 	

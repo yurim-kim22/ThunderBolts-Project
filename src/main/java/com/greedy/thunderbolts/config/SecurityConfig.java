@@ -45,7 +45,7 @@ public class SecurityConfig {
         .authorizeRequests()
         .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
         .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole(Role.MEMBER.name())
-        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("ADMIN")
+        //.antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("ADMIN")
         // 관리자만 사용 가능한 기능은 현재는 없음
         .anyRequest().permitAll()
         .and()
