@@ -10,7 +10,7 @@ window.onload = function() {
 	if(document.getElementById("login")) {
         const $login = document.getElementById("login");
         $login.onclick = function() {
-            location.href = "/login/Main";
+            location.href = "/login/main";
         }
     }
     
@@ -28,5 +28,11 @@ window.onload = function() {
         }
     }
     
+    if(document.getElementById("heartProduct")) {
+        const $heartProduct = document.getElementById("heartProduct");
+        $heartProduct.onclick = function() {
+            location.href = "/mypage/wish";
+        }
+    }
 
 }

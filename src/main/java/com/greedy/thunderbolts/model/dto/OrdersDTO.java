@@ -1,8 +1,8 @@
 package com.greedy.thunderbolts.model.dto;
 
 import java.util.Date;
+import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
@@ -16,5 +16,7 @@ public class OrdersDTO {
 	private int membersSeller;
 	private String ordersStatus;
 	private int buyingOrderCode;
-
+	private ProductDTO product;
+	private List<DeliveryDTO> delivery;
+	private BuyingOrdersDTO buying;
 }

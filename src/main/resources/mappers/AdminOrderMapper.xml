@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.adminOrderMapper">
+
+	<resultMap id="adminOrderResultMap" type="com.greedy.thunderbolts.model.dto.AdminOrderDTO">
+	<id property ="ordersNo" column="ORDERS_NO"/>
+	<result property="membersBuyer" column="MEMBERS_BUYER"></result>
+	<result property="ordersPrice" column="ORDERS_PRICE"></result>
+	<result property="ordersDate" column="ORDERS_DATE"></result>
+	<result property="ordersDiv" column="ORDERS_DIV"></result>
+	<result property="sellingorderNo" column="SELLINGORDER_NO"></result>
+	<result property="membsersSeller" column="MEMBERS_SELLER"></result>
+	<result property="ordersStatus" column="ORDERS_STATUS"></result>
+	<result property="buyingOrderCode" column="BUYING_ORDER_CODE"></result>
+	<association property="buyingOrdersDTO"  resultMap="buyingResultMap" ></association>	
+	<association property="sellingOrdersDTO" resultMap="sellingResultMap"></association>
+	</resultMap>
+
+	<resultMap id="buyingResultMap" type="com.greedy.thunderbolts.model.dto.AdminBuyingOrdersDTO">
+	<id property="buyingOrderCode" column="BUYING_ORDER_CODE"></id>
+	<result property="membersNo" column="MEMBERS_NO"></result>
+	<result property="productOptionCode" column="PRODUCT_OPTION_CODE"></result>
+	<result property="buyingOrderRegistdate" column="BUYING_ORDER_REGIST_DATE"></result>
+	<result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"></result>
+	<result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"></result>
+	<result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"></result>
+	<result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"></result>
+	<association property="membersDTO" resultMap="membersResultMap"></association>
+	<association property="OrdersDTO" resultMap="adminOrderResultMap"></association>
+	</resultMap>
+	
+	<resultMap id="sellingResultMap" type="com.greedy.thunderbolts.model.dto.AdminSellingOrdersDTO">
+	<id property="sellingOrderNo" column="SELLINGORDER_NO"></id>
+	<result property="productOptionCode" column="PRODUCT_OPTION_CODE"></result>
+	<result property="membersNo" column="MEMBERS_NO"></result>
+	<result property="sellingOrderDate" column="SELLINGORDER_DATE"></result>
+	<result property="sellingOrderPrice" column="SELLINGORDER_PRICE"></result>
+	<result property="sellingOrderStatus" column="SELLINGORDER_STATUS"></result>
+	<result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"></result>
+	<result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"></result>
+	<result property="sellingOrderDeadlineDate" column="SELLINGORDER_DEADLINE_DATE"></result>
+	<association property="membersDTO" resultMap="membersResultMap"></association>
+	<association property="OrdersDTO" resultMap="adminOrderResultMap"></association>
+	</resultMap>
+	
+	
+	<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.AdminProductDTO">
+	<id property="productCode" column="PRODUCT_CODE"></id>
+	<result property="productName" column="PRODUCT_NAME"></result>
+	<result property="productNameKr" column="PRODUCT_NAME_KR"></result>
+	<result property="productEntryDate" column="PRODUCT_ENTRY_DATE"></result>
+	<result property="categoriesCode" column="CATEGORIES_CODE"></result>
+	<result property="brandNo" column="BRAND_NO"></result>
+	<result property="productCount" column="PRODUCT_COUNT"></result>
+	
+
+	
+	
+	
+	</resultMap>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>
+	
