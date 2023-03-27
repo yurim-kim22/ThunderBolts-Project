@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -72,6 +73,19 @@ public class ListServiceImpl implements ListService {
 		// TODO Auto-generated method stub
 		return listMapper.allFinalBuyBidOrderPage();
 	}
+
+//	@Override
+//	public int insertAddress(AddressDTO address, int memberNo) {
+//
+//		return ListMapper.insertAddress(address, memberNo);
+//	}
+//	//주소록 조회
+//	@Override
+//	public List<AddressDTO> selectAddress(int memberNo) {
+//
+//		return ListMapper.selectAddress(memberNo);
+//	}
+	//계좌 조회
 
 
 //	@Override

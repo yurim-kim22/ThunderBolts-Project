@@ -25,9 +25,9 @@
     <div style="text-align: left;">
 
         <p style="margin: 0;" id="productName" th:text="${productName}"></p>
-      <p style="margin: 0;" th:text="${productCode}"></p>
-	<p style="margin: 0; color: gray;" th:text="${productNameKr}"></p>
-	<p style="margin-top: 0px;" th:text="${productOptionSize}"></p>
+      <p style="margin: 0;" id="productCode" th:text="${productCode}"></p>
+	<p style="margin: 0; color: gray;" id="productNameKr" th:text="${productNameKr}"></p>
+	<p style="margin-top: 0px;" id="productOptionSize" th:text="${productOptionSize}"></p>
     </div>
 
 
@@ -152,22 +152,15 @@
     <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
 
     <div class="wrapper">
-      <p class="left">카드 간편결제</p>
+      <p class="left">간편결제</p>
       <p style="margin-left: 10px; color: gray;">일시불</p>
     </div>
-    <a href="#" class="button">
-      <p>카드를 등록하세요.</p>
-    </a>
-
+    <button onclick="requestPayKakao()">카카오페이</button> <!-- 결제하기 버튼 생성 -->
     <div class="wrapper">
       <p class="left">일반 결제</p>
     </div>
 
     <div class="btn-container">
-      <div class="naver-btn">
-        <img src="../img/네이버페이 로고.png" style="float: left; margin-right: 10px; width: 30px; height: 30px;">
-        <button onclick="requestPay()">카카오페이</button> <!-- 결제하기 버튼 생성 -->
-      </div>
       <div class="credit-btn">
         <button onclick="requestPayKg()">신용카드</button> <!-- 결제하기 버튼 생성 -->
       </div>
@@ -1012,17 +1005,21 @@
         var milliseconds = today.getMilliseconds();
         var makeMerchantUid = hours +  minutes + seconds + milliseconds;
         const $productName = document.getElementById('productName').innerText;
+        const $productCode = document.getElementById('productCode').innerText;
+        const $sellingOrderPrice = document.getElementById('sellingOrderPrice').innerText;
 
 
 
 
-        function requestPay() {
+
+
+        function requestPayKakao() {
             IMP.request_pay({
                 pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid,
                 name : $productName,
-                amount : 1004,
+                amount : '1004',
                 buyer_email : 'Iamport@chai.finance',
                 buyer_name : '아임포트 기술지원팀',
                 buyer_tel : '010-1234-5678',

@@ -1,5 +1,7 @@
 package com.greedy.thunderbolts.controller.buselllist;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.greedy.thunderbolts.model.dto.SellingOrdersDTO;
@@ -17,9 +19,9 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/list")
 public class BuySellListController {
-	
+
 	private ListService listService;
-	
+
 	public BuySellListController(ListService listService) {
 
 		this.listService= listService;
@@ -28,30 +30,30 @@ public class BuySellListController {
 	@GetMapping("/index")
 	public String productList(Model model) {
 		List<ProductDTO> productList = listService.findProduct();
-		
+
 		log.info("productList : {}", productList);
 		model.addAttribute("productList",productList);
-		
+
 		List<ProductDTO> productSize =listService.findSizePrice();
-		
+
 		log.info("productSize: {}", productSize);
 		model.addAttribute("productSize",productSize);
-		
+
 		return "product/list";
 	}
-	
+
 	@PostMapping("/index")
 	public String productList(
-	    @RequestParam("sellingOrderNo") int sellingOrderNo,
-	    Model model1) {
-	    log.info("구매 요청: sellingOrderNo=" + sellingOrderNo); // 로그 출력
-	    
-	    // 구매 처리 로직 구현
-	    
-	    return "agreeAtc/buyAgree";
+			@RequestParam("sellingOrderNo") int sellingOrderNo,
+			Model model1) {
+		log.info("구매 요청: sellingOrderNo=" + sellingOrderNo); // 로그 출력
+
+		// 구매 처리 로직 구현
+
+		return "agreeAtc/buyAgree";
 	}
 
-	
+
 	@GetMapping("/normalBuy")
 	public String normalBuy(Model model){
 		List<ProductDTO> productList = listService.findProduct();
@@ -74,9 +76,9 @@ public class BuySellListController {
 		model.addAttribute("productSize",productSize);
 
 		return "product/normalBuy";
-		
-	}
 
+	}
+	//구매 동의서
 	@GetMapping("/normalBuy2")
 	public String normalBuy2(
 			@RequestParam("sellingOrderNo") int sellingOrderNo,
@@ -99,6 +101,31 @@ public class BuySellListController {
 
 		return "agreeAtc/buyAgree";
 	}
+
+	//입찰 동의서
+	@PostMapping("/normalBuy4")
+	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
+								  @RequestParam("buyingOrderDeadlineDate") Date buyingOrderDeadlineDate,
+								  ProductDTO productDTO,
+								  Model model) {
+
+		log.info("입찰 동의서로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
+		log.info("입찰 동의서로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
+		log.info("productDTO: productDTO={}", productDTO);
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+
+
+
+//	    model.addAttribute("productCode", productDTO.getProductCode());
+//	    model.addAttribute("productName", productDTO.getProductName());
+		model.addAttribute("buyingOrderPrice", buyingOrderPrice);
+		model.addAttribute("buyingOrderDeadlineDate", sdf.format(buyingOrderDeadlineDate));
+
+		return "agreeAtc/buyAgree2";
+	}
+
 
 	@GetMapping("/normalBuy3")
 	public String normalBuy3(@RequestParam("productOptionSize") String productOptionSize,
@@ -134,12 +161,12 @@ public class BuySellListController {
 	//이건 아직 안한거임
 	@PostMapping("/normalSell")
 	public String normalSell(Model model) {
-	    // 로직 구현
-	    return "product/normalSell";
+		// 로직 구현
+		return "product/normalSell";
 	}
 
 //
-		
+
 //	@PostMapping("/normalOrderPage")
 //	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo, Model model) {
 //	    log.info("결제 요청: sellingOrderNo={}" + sellingOrderNo);
@@ -170,23 +197,23 @@ public class BuySellListController {
 	@GetMapping("/oneSizeBuying")
 	public String oneSizeBuying(){
 		return "product/oneSizeBuying";
-		
+
 	}
-	
+
 	@GetMapping("/oneSizeSelling")
 	public String oneSizeSelling(){
 		return "product/oneSizeSelling";
-		
+
 	}
-	
+
 //	@GetMapping("/buyAgree")
 //	public String buyAgree(){
 //		return "agreeAtc/buyAgree";
 //		
 //	}
-	
 
-	
+
+
 	@GetMapping("/buyBid")
 	public String buyBid(@RequestParam("productOptionSize") String productOptionSize,
 						 Model model) {
@@ -208,14 +235,14 @@ public class BuySellListController {
 
 
 		return "bid/buyBid";
-		
+
 	}
-	
-	
+
+
 	@GetMapping("/sellBid")
 	public String sellBid(){
 		return "bid/sellBid";
-		
+
 	}
 
 

@@ -29,13 +29,13 @@
     
     
     <div class="info" style="text-align: left;">
-    
-	<p th:text="${productCode}"></p>
-	<p th:text="${productName}"></p>
-	<p th:text="${productNameKr}"></p>
-	<p th:text="${productOptionSize}"></p>
+      <p th:text="${productDTO.productCode}"></p>
+      <p th:text="${productDTO.productName}"></p>
+      <p th:text="${productDTO.productNameKr}"></p>
+      <p th:text="${productDTO.productOption[0].productOptionSize}"></p>
 
-      </div>
+
+    </div>
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
@@ -111,14 +111,21 @@
     <hr
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
-    </div>
-<form id="selectForm" action="/orderPage/normalOrderPage" method="POST">
-<!--  <input type="hidden" name="sellingOrderNo" th:value="${sellingOrderNo}" />-->
-<!--   <input type="hidden" name="sellingOrderPrice" th:value="${sellingOrderPrice}" />-->
-  <button id="my-button" type="submit">
-    즉시 판매 계속
-  </button>
-</form>
+
+
+    <form id="selectForm" action="/orderPage/buyBidOrderPage" method="POST">
+
+      <input type="hidden" id="test3" name="productName" th:value="${productDTO.productName}">
+      <input type="hidden" id="test4" name="productNameKr" th:value="${productDTO.productNameKr}">
+      <input type="hidden" id="test5" name="productCode" th:value="${productDTO.productCode}">
+      <input type="hidden" id="test6" name="productOption[0].productOptionSize" th:value="${productDTO.productOption[0].productOptionSize}">
+      <input type="hidden" id="test" name="buyingOrderPrice" th:value="${buyingOrderPrice}">
+      <input type="hidden" id="test2" name="buyingOrderDeadlineDate" th:value="${buyingOrderDeadlineDate}">
+      <button id="my-button" type="submit">
+        동의 후 구매 계속
+      </button>
+    </form>
+
 
 
 
@@ -1267,11 +1274,7 @@
           checkboxAgree3.addEventListener('change', updateButtonStatus);
           checkboxAgree4.addEventListener('change', updateButtonStatus);
           
-          myButton.addEventListener('click', function () {
-  if (myButton.style.opacity === "1") {
-    window.location.href = "http://localhost:8002/list/normalBuy"; // 구글 페이지로 이동
-  }
-});
+
 
           
           </script>
