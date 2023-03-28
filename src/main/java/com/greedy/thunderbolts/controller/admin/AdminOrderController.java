@@ -53,7 +53,8 @@ public class AdminOrderController {
 		return "admin/order/orderMain";
 
 	}
-	
+		
+		
 	@GetMapping("/OrderbuyingPage")
 	public String BuyingList(@RequestParam(defaultValue="1") int page, 
 	@RequestParam(required=false) String searchCondition, 
