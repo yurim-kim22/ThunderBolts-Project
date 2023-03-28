@@ -36,10 +36,6 @@ public class LoginController {
 		this.memberService = memberService;
 		this.passwordEncoder = passwordEncoder;
 	}
-	@GetMapping("/oauth/kakao")
-    public void kakaoCallback(@RequestParam String code) {
-        System.out.println(code);
-    }
 	
 	@GetMapping("/main")
 	public String loginMain() {
@@ -149,7 +145,7 @@ public class LoginController {
 		} else {
 			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.searchPwerror"));
 		}
-		
+		 
 		return "redirect:/login/main";
 	}
 	
