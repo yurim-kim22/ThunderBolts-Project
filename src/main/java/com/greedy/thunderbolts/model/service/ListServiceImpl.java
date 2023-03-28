@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,17 @@ public class ListServiceImpl implements ListService {
 		return listMapper.findSizePrice();
 		
 		
+	}
+	//바잉오더 조
+	//
+	@Override
+	public  List<ProductDTO> selectBuyingOrder(){
+		return listMapper.selectBuyingOrder();
+	}
+
+	@Override
+	public List<BuyingOrdersDTO> selectBuyingOrderAll() {
+		return listMapper.selectBuyingOrderAll();
 	}
 
 
@@ -60,6 +72,11 @@ public class ListServiceImpl implements ListService {
 		return listMapper.findProductOptionSize(productOptionSize);
 	}
 
+	@Override
+	public List<ProductDTO> findBuyingProduct(int buyingOrderCode) {
+		return listMapper.findBuyingProduct(int buyingOrderCode);
+	}
+
 
 	@Override
 	public List<ProductDTO> finalBuyBidOrderPage() {
@@ -71,32 +88,15 @@ public class ListServiceImpl implements ListService {
 	@Override
 	public List<ProductDTO> allFinalBuyBidOrderPage() {
 		// TODO Auto-generated method stub
+		
 		return listMapper.allFinalBuyBidOrderPage();
 	}
+	
+	//주소록 조회
+		@Override
+		public List<AddressDTO> selectAddress(int memberNo) {
+			return listMapper.selectAddress(memberNo);
+		}
+		//계좌 조회
 
-//	@Override
-//	public int insertAddress(AddressDTO address, int memberNo) {
-//
-//		return ListMapper.insertAddress(address, memberNo);
-//	}
-//	//주소록 조회
-//	@Override
-//	public List<AddressDTO> selectAddress(int memberNo) {
-//
-//		return ListMapper.selectAddress(memberNo);
-//	}
-	//계좌 조회
-
-
-//	@Override
-//	public ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice) {
-//		return listMapper.selectProductBySizeAndCode(buyingOrderPrice);
-//
-//	}
-//
-//	@Override
-//	public ProductDTO selectProductBySizeAndCode1(int buyingOrderPrice) {
-//		return listMapper.selectProductBySizeAndCode1(buyingOrderPrice);
-//
-//	}
 }

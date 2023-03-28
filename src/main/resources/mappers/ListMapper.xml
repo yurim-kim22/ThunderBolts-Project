@@ -49,7 +49,18 @@
         <result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"/>
         <result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"/>
     </resultMap>
+    
+    <resultMap id="addressResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO">
+	    <result property="addressesNo" column="ADDRESSES_NO" />
+	    <result property="receiverName" column="RECEIVER_NAME" />
+	    <result property="addressesPostNo" column="ADDRESSES_POST_NO" />
+	    <result property="addressesName" column="ADDRESSES_NAME" />
+	    <result property="addressesAdds" column="ADDRESSES_ADDS" />
+	</resultMap>
 
+
+    <!--결과적으로 PRODUCT_CODE=99인 상품의 PRODUCT_NAME,
+    PRODUCT_NAME_KR, SELLINGORDER_PRICE, SELLINGORDER_NO, MIN(O.PRODUCT_OPTION_SIZE)을 조회-->
     <select id="findProduct" resultMap="productResultMap">
         SELECT
         P.PRODUCT_CODE,
@@ -69,11 +80,10 @@
         S.SELLINGORDER_PRICE,
         S.SELLINGORDER_NO
         ORDER BY PRODUCT_OPTION_SIZE ASC
-
-
-
     </select>
 
+    <!--결과적으로 PRODUCT_CODE=99인 상품의 PRODUCT_NAME,
+    PRODUCT_NAME_KR, SELLINGORDER_PRICE, SELLINGORDER_NO, MIN(O.PRODUCT_OPTION_SIZE)을 조회-->
     <select id="findSizePrice" resultMap="productResultMap">
         SELECT
         P.PRODUCT_CODE,
@@ -96,6 +106,7 @@
 
     </select>
 
+        <!--입력(선택)으로 받은 sellingOrderNo에 해당하는 판매 주문서(SELLING_ORDERS)의 정보-->
     <select id="findSellingProduct" resultMap="productResultMap">
 
         SELECT P.PRODUCT_CODE,
@@ -117,6 +128,7 @@
 
     </select>
 
+    <!--입력받은 sellingOrderNo에 해당하는 판매 주문에 대한 상품 옵션 정보와 가격을 조회하는 쿼리-->
     <select id="findSellingProduct2" resultMap="productResultMap">
 
         SELECT
@@ -128,7 +140,7 @@
         WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
 
     </select>
-
+    <!--제품 코드가 99인 상품에 대해, 상품 옵션 크기가 #{productOptionSize}인 모든 상품 옵션 정보를 조회하는 쿼리-->
     <select id="findProductOptionSize" resultMap="productResultMap">
         SELECT P.PRODUCT_CODE,
         P.PRODUCT_NAME,
@@ -142,6 +154,9 @@
         AND P.PRODUCT_CODE = 99
     </select>
 
+    <!--PRODUCT_CODE가 99인 상품과 PRODUCT_OPTION 테이블의 해당 PRODUCT_OPTION_SIZE를 조건으로 사용하여 데이터를 조회합니다.
+    또한, buyingOrderPrice와 buyingOrderDeadlineDate는 조회된 결과에 고정된 값으로 추가
+    이렇게 조회된 결과는 ProductDTO 객체에 매핑-->
     <select id="finalBuyBidOrderPage" resultMap="productResultMap">
         SELECT P.PRODUCT_CODE,
         P.PRODUCT_NAME,
@@ -157,6 +172,8 @@
         AND P.PRODUCT_CODE = 99
 
     </select>
+    <!--PRODUCT 테이블과 PRODUCT_OPTION 테이블을 INNER JOIN으로 조인하고,
+    P.PRODUCT_CODE = 99 조건을 추가해 99번 상품 정보-->
     <select id="allFinalBuyBidOrderPage" resultMap="productResultMap">
         SELECT P.PRODUCT_CODE,
         P.PRODUCT_NAME,
@@ -169,6 +186,55 @@
         WHERE P.PRODUCT_CODE = 99
 
     </select>
+    
+    	<!-- 주소록 조회 -->
+	<select id="selectAddress" resultMap="addressResultMap">
+		SELECT 
+			  RECEIVER_NAME
+			, ADDRESSES_POST_NO
+			, ADDRESSES_NAME
+			, ADDRESSES_ADDS
+		FROM MEMBERS_ADDRESS
+		WHERE MEMBERS_NO = #{ memberNo }
+	</select>
+
+        <!--    바잉오더와 프로덕트 이름, 등 첫번째 조회-->
+    <select id="selectBuyingOrder" resultMap="productResultMap">
+        SELECT P.PRODUCT_CODE, P.PRODUCT_NAME, P.PRODUCT_NAME_KR,
+        O.PRODUCT_OPTION_SIZE, COALESCE(MAX(B.BUYING_ORDER_PRICE), 0) AS BUYING_ORDER_PRICE,
+        B.BUYING_ORDER_CODE
+        FROM PRODUCT P
+        LEFT JOIN PRODUCT_OPTION O ON P.PRODUCT_CODE = O.PRODUCT_CODE
+        LEFT JOIN BUYING_ORDERS B ON O.PRODUCT_OPTION_CODE = B.PRODUCT_OPTION_CODE
+        WHERE P.PRODUCT_CODE = '100'
+        GROUP BY P.PRODUCT_CODE, P.PRODUCT_NAME, P.PRODUCT_NAME_KR, O.PRODUCT_OPTION_SIZE, B.BUYING_ORDER_PRICE, B.BUYING_ORDER_CODE
+        ORDER BY O.PRODUCT_OPTION_SIZE ASC
+
+    </select>
+
+    <!--입력(선택)으로 받은 buyingOrderNo에 해당하는 판매 주문서(SELLING_ORDERS)의 정보-->
+    <select id="findBuyingProduct" resultMap="productResultMap">
+
+        SELECT P.PRODUCT_CODE,
+        p.PRODUCT_NAME,
+        p.PRODUCT_NAME_KR,
+        (SELECT o.PRODUCT_OPTION_COLOR
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = b.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_COLOR,
+        (SELECT o.PRODUCT_OPTION_SIZE
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = b.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_SIZE,
+        b.BUYING_ORDER_PRICE
+        FROM PRODUCT p,
+        PRODUCT_OPTION po,
+        BUYING_ORDERS b
+        WHERE b.BUYING_ORDER_CODE = #{buyingOrderCode}
+        AND po.PRODUCT_OPTION_CODE = b.PRODUCT_OPTION_CODE
+        AND p.PRODUCT_CODE = po.PRODUCT_CODE
+
+
+    </select>
+
 
 
 
