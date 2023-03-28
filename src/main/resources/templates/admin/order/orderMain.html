@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>orderMain</title>
+<link rel="stylesheet" type="text/css" href="/css/admin/orderMain.css">
+<script src="/js/openOrder.js"></script>
+</head>
+<body>
+
+   <!-- 사이드 바-->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="images/logo1.png" id="logoimg">
+        </div>
+        <ul>
+            <div class="sidebar-menu" id="sidebarcontainer">
+                <li class="sidebartexts" id="main-serv"><a
+                        href="http://localhost:8002/admin/orderMainPage"><img class="sidebaricons"
+                            id="truckimg" src="images/home_icon-icons.com_73532.png">MAIN</a></li>
+                <li class="sidebartexts" id="delivery-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="truckimg" src="images/truck_13241.png">배송관리</a></li>
+                <li class="sidebartexts" id="order-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="basketimg" src="images/basket_icon-icons.com_56201.png">주문관리</a></li>
+                <li class="sidebartexts" id="client-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="personimg" src="images/user_84308.png">회원관리</a></li>
+                <li class="sidebartexts" id="product-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="boximg" src="images/box_cube_d_perspective_shape_icon_142362.png">상품관리</a>
+                </li>
+                <li class="sidebartexts" id="board-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="helpimg"
+                            src="images/help-button-speech-bubble-with-question-mark_icon-icons.com_72707.png">게시판관리</a>
+                </li>
+                <li class="sidebartexts" id="logout-serv"><a href="https://www.naver.com"><img class="sidebaricons"
+                            id="cancelimg" src="images/home_icon-icons.com_73532.png">logout</a></li>
+            </div>
+        </ul>
+    </div>
+
+	<h2>주문정보</h2>
+	<table  id="listArea" style="text-align: center">
+		<tr>
+			<th>주문번호</th>
+			<th>아이디</th>
+			<th>상품코드</th>
+			<th>상품명</th>
+			<th>가격</th>
+			<th>구분</th>
+		
+		</tr>
+		
+		
+		<tr th:each=" selectOrderList : ${ orderMain }">
+			<td th:text="${ ordersNo }" >
+			<td th:text="${ membersID }">
+			<td th:text="${ ProductCode }">
+			<td th:text="${ ProductName }">
+			<td th:text="${ ordersPrice }" >
+			<td th:text="${ ordersDiv }">
+		</tr>
+	</table>
+	
+	<!-- 페이징 바 -->
+<div id="paging" align="center" style="margin-top: 20px;">
+    <th:block th:if="${paging.searchCondition != null and paging.searchValue != null}">
+        <!-- 맨 앞으로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=1&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''">&lt;&lt;</button>
+
+        <!-- 이전 페이지로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.page - 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''" th:disabled="${paging.page <= 1}">&lt;</button>
+
+        <!-- 숫자 버튼 -->
+        <th:block th:each="page : ${#numbers.sequence(paging.startPage, paging.endPage)}">
+            <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${page}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''" th:text="${page}" th:disabled="${paging.page eq page}"></button>
+        </th:block>
+
+        <!-- 다음 페이지로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.page + 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''" th:disabled="${paging.page >= paging.maxPage}">></button>
+
+        <!-- 맨 끝으로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.maxPage}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''">>></button>
+    </th:block>
+
+    <th:block th:if="${paging.searchCondition == null or paging.searchCondition.isEmpty() or paging.searchValue == null or paging.searchValue.isEmpty()}">
+        <!-- 맨 앞으로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=1\'">&lt;&lt;</button>
+
+        <!-- 이전 페이지로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.page - 1}} + '\''" th:disabled="${paging.page <= 1}">&lt;</button>
+
+        <!-- 숫자 버튼 -->
+        <th:block th:each="page : ${#numbers.sequence(paging.startPage, paging.endPage)}">
+            <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${page}} + '\''" th:text="${page}" th:disabled="${paging.page eq page}"></button>
+        </th:block>
+
+        <!-- 다음 페이지로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.page + 1}} + '\''" th:disabled="${paging.page >= paging.maxPage}">></button>
+
+        <!-- 맨 끝으로 이동 -->
+        <button th:onclick="'location.href=\'/admin/order/orderMain?page=' + @{${paging.maxPage}} + '\''">>></button>
+    </th:block>
+
+
+	
+
+	</div>
+
+	<!-- 검색 폼 -->
+	<div align="center">
+		<form id="searchForm" action="/admin/orderMainPage" method="get"
+			style="display: inline-block">
+			<select id="searchCondition" name="searchCondition">
+				<option value="productName"
+					th:selected="${ paging.searchCondition eq 'productName'}">상품명</option>
+				<option value="membersBuyer"
+					th:selected="${ paging.searchCondition eq 'membersBuyer'}">구매자</option>
+				<option value="membersSeller"
+					th:selected="${ paging.searchCondition eq 'membersSeller'}">판매자</option>
+				<option value="ordersNo"
+					th:selected="${ paging.searchCondition eq 'ordersNo'}">주문번호</option>
+			</select> <input type="search" id="searchValue" name="searchValue"
+				th:value="${ paging.searchValue }">
+			<button type="submit">검색하기</button>
+		</form>
+		
+	</div>
+
+	
+</body>
+</html>
