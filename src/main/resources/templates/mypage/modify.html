@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -8,12 +8,15 @@
     <meta name="author" content="" />
     <title>THUNDER_BOLT</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/modify.css" rel="stylesheet" type="text/css">
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
-    
+    <script>
+    	const message = '[[${message}]]';
+    	message && alert(message);
+    </script>
 </head>
 
 <body>
@@ -52,6 +55,7 @@
                 <!-- 내 정보 수정 -->
                 
                 <h3>내 정보 수정</h3>
+                <form action="/mypage/modify" method="POST" enctype="multipart/form-data">
                 <!-- 프로필 -->
                 <div class="information">
                     <ul>
@@ -60,9 +64,9 @@
                         </li>
                         <li>
                             <ul class="prifile_text" style="position: relative;">
-                                <li>thbo_123@gmail.com</li>
-                                <li><button class="information_img_btn">이미지 변경</button></li>
-                                <li><button class="information_del_btn">삭제</button></li>
+                                <li th:text="${ memberId }"></li>
+                                <li><button type="button" class="information_img_btn">이미지 변경</button></li>
+                                <li><button type="button" class="information_del_btn">삭제</button></li>
                             </ul>
                         </li>
                     </ul>
@@ -72,13 +76,13 @@
 					</div>
                 </div> <!-- 프로필 -->
                  
-                <form>
+                
                     <div class="modify_cont">
                       <div>
                         <div class="modify_text modify_tit mt ">개인 정보</div>
                         <!-- 이름 입력 필드 -->
                         <label for="name" class="mt">이름</label>
-                        <input type="text" id="name" name="name" placeholder="이름">
+                        <input th:value="${ selectInfo.membersName }" type="text" id="name" name="name">
                         <p></p>
                       </div>
                   
@@ -86,12 +90,12 @@
                         <div class="modify_text modify_tit mt ">비밀번호 수정</div>
                          <!-- 이전 비밀번호 입력 필드 -->
                         <label for="prev-password" class="mt">이전 비밀번호</label>
-                        <input type="password" id="prev-password" name="prev-password" placeholder="이전 비밀번호">
+                        <input type="password" id="prev-password" name="memberPwdOld" placeholder="이전 비밀번호">
                         <!-- <div class="modify_text gray"></div> -->
                         <p></p>
                         <!-- 새 비밀번호 입력 필드 -->
                         <label for="new-password" class="mt">새 비밀번호</label>
-                        <input type="password" id="new-password" name="new-password" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
+                        <input type="password" id="new-password" name="membersPwd" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
                         <p></p>
                         <!-- 새 비밀번호 확인 입력 필드 -->
                         <label for="new-password-confirm" class="mt">새 비밀번호 확인</label>
@@ -124,6 +128,7 @@
 			
 			function open() {
 				fileElements.click();
+				console.log(this);
 			}
 			
 			function preview() {
