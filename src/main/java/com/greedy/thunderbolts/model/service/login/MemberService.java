@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.greedy.thunderbolts.common.RandomPw;
 import com.greedy.thunderbolts.model.dao.MemberMapper;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 

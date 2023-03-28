@@ -38,6 +38,11 @@ label{
 	display : inline;
 	
 } 
+
+#registJoin {
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
+
 #emailId{
 	border: none;
 }
