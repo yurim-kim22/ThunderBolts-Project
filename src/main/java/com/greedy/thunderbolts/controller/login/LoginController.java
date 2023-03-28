@@ -149,13 +149,16 @@ public class LoginController {
 	
 	/* 비밀번호 찾기 진행 */
 	@PostMapping("/searchPw")
-	public String serachPw(MembersDTO member) {
+	public String serachPw(MembersDTO member,RedirectAttributes rttr) {
 		log.info("[searchPw Controller request] : {}",member);
 		
-		if(memberService.findMemberbyIdTel(member)) 
-		{log.info("[searchPw Controller response] : {}",member);}
+		if (memberService.findMemberbyIdTel(member)) {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.searchPw"));
+		} else {
+			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.searchPwerror"));
+		}
 		
-		return "redirect:/login/searchPw";
+		return "redirect:/login/main";
 	}
 	
 	 	

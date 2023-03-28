@@ -19,4 +19,6 @@ public interface MemberMapper {
 
 	MembersDTO findMemberbyIdTel(MembersDTO member);
 
+	int updatePwd(MembersDTO members);
+
 }
