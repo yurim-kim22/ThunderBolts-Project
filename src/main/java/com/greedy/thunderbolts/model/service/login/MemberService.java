@@ -89,7 +89,7 @@ public class MemberService {
 			int result = mapper.updatePwd(members);
 
 			log.info("[searchPw sevice request members] : {}", members);
-			log.info("[searchPw sevice request result] : {}", result);
+			log.info("[searchPw sevice request newPass] : {}", newPass);
 			if (result > 0) {
 
 				MembersDTO pwdEmail = new MembersDTO();
