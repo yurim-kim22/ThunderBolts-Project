@@ -12,8 +12,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.greedy.thunderbolts.model.service.login.AuthenticationService;
-import com.greedy.thunderbolts.model.service.oauth.Role;
-import com.greedy.thunderbolts.model.service.oauth.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,11 +21,10 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityConfig {
 	
 	private final AuthenticationService authenticationService;
-	private final UserService userService;
+
 	
-	public SecurityConfig(AuthenticationService authenticationService, UserService userService) {
+	public SecurityConfig(AuthenticationService authenticationService) {
 		this.authenticationService = authenticationService;
-		this.userService = userService;
 	}
 	
 	@Bean
@@ -38,13 +35,12 @@ public class SecurityConfig {
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
-		http
+	return	http
 		.csrf().disable()
 		.headers().frameOptions().disable()
 		.and()
         .authorizeRequests()
         .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("MEMBER")
-        .antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole(Role.MEMBER.name())
         //.antMatchers("/mypage/**", "/list/**", "/member/update", "/member/delete").hasRole("ADMIN")
         // 관리자만 사용 가능한 기능은 현재는 없음
         .anyRequest().permitAll()
@@ -61,13 +57,9 @@ public class SecurityConfig {
             .deleteCookies("JSESSIONID")
             .invalidateHttpSession(true)
             .logoutSuccessUrl("/")
-        .and()
-            .oauth2Login()
-            .userInfoEndpoint()
-            .userService(userService);
         // 따라서 인가 오류 처리는 생략하였음
-		log.info("[userService] : {} " + userService);
-        return	http.build();
+     	.and()
+     		.build();
 	}
 	
 	@Bean

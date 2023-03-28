@@ -12,9 +12,6 @@ spring:
     username: C##THUNDER
     password: THUNDER
     
-  config:
-    import: application-oauth.yml
-    
   mail:
     host: smtp.naver.com
     port: 465

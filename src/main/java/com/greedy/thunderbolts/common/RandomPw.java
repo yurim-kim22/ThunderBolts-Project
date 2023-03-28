@@ -1,4 +1,4 @@
-package com.greedy.thunderbolts.model.service.login;
+package com.greedy.thunderbolts.common;
 
 import java.util.Random;
 
