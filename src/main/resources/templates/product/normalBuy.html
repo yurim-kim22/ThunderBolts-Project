@@ -14,26 +14,74 @@
     <!-- 헤더 -->
     	<div th:replace="common/header/orderHeader.html"></div>
 
-
-
 <form id="selectForm" action="/list/normalBuy" method="post">
-    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
-    <div class="box" style="display: block;">
-        <span th:each="product : ${productList}">
-            <span th:each="productOption: ${product.productOption}">
-                  <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no} (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" ></b></p>
-			        <a style="line-height: 0.5; color: rgb(9, 120, 9);" th:href="@{/list/normalBuy2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
-			      	</a>
-			      	</a>
-			      	
-			      </div>
-            </span>
-        </span>  
-    </div>
+  <div class="box" style="display: block;">
+    <span th:each="product : ${productList}">
+      <span th:each="productOption: ${product.productOption}">
+        <div class="box product" style="display: block;"
+          th:if="${productOption.sellingOrders != null and not #lists.isEmpty(productOption.sellingOrders)}"
+          th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
+          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}">
+          <span style="line-height: 0.5;">
+            <b th:text="${productOption.productOptionSize}"></b>
+          </span>
+          <span style="line-height: 0.5; color: rgb(9, 120, 9);"
+            th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></span>
+        </div>
+      </span>
+    </span>
+  </div>
 </form>
-  
-  
+    <script>
+  const $products = document.querySelectorAll(".product");
+
+$products.forEach(div => {
+  div.addEventListener('click', (e) => {
+    console.log(e.currentTarget.dataset);
+    const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
+    const sellingOrderPrice = e.currentTarget.dataset.sellingOrderPrice;
+    const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
+    if (sellingOrderPrice === '0') { // 가격이 0원인 경우
+        location.href = '/list/normalBuy3?productOptionSize=' + productOptionSize;
+    } else { // 그 외의 경우
+        location.href = '/list/normalBuy2?sellingOrderNo=' + sellingOrderNo + '&sellingOrderPrice=' + sellingOrderPrice;
+    }
+  });
+});
+
+// 중복된 프로덕트 옵션 사이즈를 제거하는 함수
+function removeDuplicates() {
+  const sizeSet = new Set(); // Set 객체 생성
+  const $sizes = document.querySelectorAll(".product b");
+
+  $sizes.forEach(size => {
+    const sizeText = size.textContent.trim();
+    if (sizeSet.has(sizeText)) { // 중복인 경우
+      size.parentNode.parentNode.style.display = "none"; // 해당 div 숨기기
+    } else { // 중복이 아닌 경우
+      sizeSet.add(sizeText); // Set에 추가
+    }
+  });
+}
+
+removeDuplicates(); // 중복 제거 함수 호출
+
+</script>
+
+
+
+
+<!-- /*        const $products = document.querySelectorAll(".product");
+
+      $products.forEach(div => {
+          div.addEventListener('click', (e) => {
+              console.log(e.currentTarget.dataset)
+             const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
+             location.href='/list/normalBuy2?sellingOrderNo=' + sellingOrderNo;
+          });
+      });   */ -->
+
+ 
   
  <section id="section03">
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
@@ -44,6 +92,7 @@
 		  <p style="margin: 0;" th:text="${ product.productCode }"></p>
 		  <p style="margin: 0;" th:text="${ product.productName }"></p>
 		  <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
+
 	</div>
 	</div>
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
@@ -55,37 +104,37 @@
 <!-- 1.div
 2.필요한 정보들(판매의향서 번호만 넘겨야 한다.)
 3.넘길때 폼태 -->
-<form id="selectForm" action="/list/normalBuy" method="post">
-    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
-    <div class="box" style="display: block;">
+        <form id="selectForm" action="/list/normalBuy" method="post">
+            <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
+            <div class="box" style="display: block;">
         <span th:each="product : ${productList}">
             <span th:each="productOption: ${product.productOption}">
                   <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no} (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" >220</b></p>
-			        <a style="line-height: 0.5; color: rgb(9, 120, 9);" th:href="@{/list/normalBuy2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
+			        <a style="line-height: 0.5;" th:href="@{/list/normalBuy2?sellingOrderNo={no}
+			        (no=${productOption.sellingOrders[0].sellingOrderNo})}"><b th:text="${productOption.productOptionSize}" ></b></p>
+                        <a style="line-height: 0.5; color: rgb(9, 120, 9);" 
+                        th:href="@{/list/normalBuy2?sellingOrderNo={no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
+                        th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
 			      	</a>
 			      	</a>
 			      	
 			      </div>
             </span>
-        </span>  
-    </div>
-</form>
+        </span></div>
+        </form>
 
 
     </div>
 
       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
-   <!-- <button id="my-button">
-        즉시 판매 계속
-      </button> -->   
+
 </section>
 <script>
 function updateButtonStatus() {
 	  const myButton = document.getElementById('buyBtn');  // id를 buyBtn으로 수정
 	  const selectedBox = document.querySelector('.selected');
 	  const sellingOrderNo = document.querySelector('input[name=sellingOrderNo]');  // 수정
-
+//학원쌤이 자스로 넣어주셨어
 	  if (selectedBox) {
 	    myButton.style.opacity = 1;
 	    myButton.style.pointerEvents = 'auto';

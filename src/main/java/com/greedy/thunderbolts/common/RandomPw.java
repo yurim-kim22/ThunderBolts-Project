@@ -13,7 +13,11 @@ public class RandomPw {
 	private final String[] number =  {"1","2","3","4","5","6","7","8","9","0"};
 	private final String[] sign =  {"!", "@", "#", "$", "%", "^", "&", "*", "(" ,")"};
 	
+<<<<<<< HEAD
 	@Bean
+=======
+	  
+>>>>>>> refs/heads/MasterMerge
 	public String randowPws() {
 
 		Random rand = new Random();

@@ -2,87 +2,176 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.ListMapper">
 
-<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.ProductDTO">
-<id property="productCode" column="PRODUCT_CODE"/>
-<result property="productName" column="PRODUCT_NAME"/>
-<result property="productNameKr" column="PRODUCT_NAME_KR"/>
-<result property="productEntryDate" column="PRODUCT_ENTRY_DATE"/>
-<result property="categoriesCode" column="CATEGORIES_CODE"/>
-<result property="brandNo" column="BRAND_NO"/>
-<result property="productCount" column="PRODUCT_COUNT"/>
-<collection property="productOption" resultMap="productOptionResultMap"/>
+    <resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.ProductDTO">
+        <id property="productCode" column="PRODUCT_CODE"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="productNameKr" column="PRODUCT_NAME_KR"/>
+        <result property="productEntryDate" column="PRODUCT_ENTRY_DATE"/>
+        <result property="categoriesCode" column="CATEGORIES_CODE"/>
+        <result property="brandNo" column="BRAND_NO"/>
+        <result property="productCount" column="PRODUCT_COUNT"/>
+        <collection property="productOption" resultMap="productOptionResultMap"/>
 
-</resultMap>
+    </resultMap>
 
-<resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
-<id property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
-<result property="productCode" column="PRODUCT_CODE"/>
-<result property="productOptionColor" column="PRODUCT_OPTION_COLOR"/>
-<result property="productOptionSize" column="PRODUCT_OPTION_SIZE"/>
-<result property="productOptionEtc" column="PRODUCT_OPTION_ETC"/>
-<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"/>
-<collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
-</resultMap>
+    <resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
+        <id property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+        <result property="productCode" column="PRODUCT_CODE"/>
+        <result property="productOptionColor" column="PRODUCT_OPTION_COLOR"/>
+        <result property="productOptionSize" column="PRODUCT_OPTION_SIZE"/>
+        <result property="productOptionEtc" column="PRODUCT_OPTION_ETC"/>
+        <result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"/>
+        <collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
+        <collection property="buyingOrders" resultMap="buyingOrderResultMap"/>
+    </resultMap>
 
-<resultMap id="sellingOrderResultMap" type="com.greedy.thunderbolts.model.dto.SellingOrdersDTO">
-<id property="sellingOrderNo" column="SELLINGORDER_NO"/>
-<result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
-<result property="membersNo" column="MEMBERS_NO"/>
-<result property="sellingOrderDate" column="SELLINGORDER_DATE"/>
-<result property="sellingOrderPrice" column="SELLINGORDER_PRICE"/>
-<result property="sellingOrderStatus" column="SELLINGORDER_STATUS"/>
-<result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"/>
-<result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"/>
+    <resultMap id="sellingOrderResultMap" type="com.greedy.thunderbolts.model.dto.SellingOrdersDTO">
+        <id property="sellingOrderNo" column="SELLINGORDER_NO"/>
+        <result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+        <result property="membersNo" column="MEMBERS_NO"/>
+        <result property="sellingOrderDate" column="SELLINGORDER_DATE"/>
+        <result property="sellingOrderPrice" column="SELLINGORDER_PRICE"/>
+        <result property="sellingOrderStatus" column="SELLINGORDER_STATUS"/>
+        <result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"/>
+        <result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"/>
+        <result property="sellingOrderDeadlineDate" column="SELLING_ORDER_DEADLINE_DATE"/>
 
-</resultMap>
+    </resultMap>
 
-<select id="findProduct" resultMap="productResultMap">
-SELECT DISTINCT
+    <resultMap id="buyingOrderResultMap" type="com.greedy.thunderbolts.model.dto.BuyingOrdersDTO">
+        <id property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+        <result property="membersNo" column="MEMBERS_NO"/>
+        <result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+        <result property="buyingOrderRegistdate" column="BUYING_ORDER_REGISTDATE"/>
+        <result property="buyingOrderPrice" column="BUYING_ORDER_PRICE"/>
+        <result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"/>
+        <result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"/>
+        <result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"/>
+        <result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"/>
+    </resultMap>
+
+    <select id="findProduct" resultMap="productResultMap">
+        SELECT
         P.PRODUCT_CODE,
         P.PRODUCT_NAME,
         P.PRODUCT_NAME_KR,
-        O.PRODUCT_OPTION_SIZE,
-        S.SELLINGORDER_PRICE
+        COALESCE(MIN(O.PRODUCT_OPTION_SIZE), '') AS PRODUCT_OPTION_SIZE,
+        COALESCE(MAX(S.SELLINGORDER_PRICE), 0) AS SELLINGORDER_PRICE,
+        S.SELLINGORDER_NO
         FROM PRODUCT P
         LEFT JOIN PRODUCT_OPTION O ON (P.PRODUCT_CODE = O.PRODUCT_CODE)
         LEFT JOIN SELLING_ORDERS S ON (O.PRODUCT_OPTION_CODE = S.PRODUCT_OPTION_CODE)
-        INNER JOIN (SELECT MIN(S2.SELLINGORDER_PRICE) min, O2.PRODUCT_OPTION_SIZE
-            FROM PRODUCT P2
-            INNER JOIN PRODUCT_OPTION O2 ON (P2.PRODUCT_CODE = O2.PRODUCT_CODE)
-             INNER JOIN SELLING_ORDERS S2 ON (O2.PRODUCT_OPTION_CODE = S2.PRODUCT_OPTION_CODE)
-            GROUP BY O2.PRODUCT_OPTION_SIZE) b
-        ON S.SELLINGORDER_PRICE = b.min
-        AND O.PRODUCT_OPTION_SIZE = b.PRODUCT_OPTION_SIZE
-        WHERE P.BRAND_NO = '4' 
-        ORDER BY S.SELLINGORDER_PRICE
-</select>
-
-<select id="findSizePrice" resultMap="productResultMap">
-SELECT DISTINCT
+        WHERE O.PRODUCT_CODE='99'
+        GROUP BY
         P.PRODUCT_CODE,
         P.PRODUCT_NAME,
         P.PRODUCT_NAME_KR,
-        O.PRODUCT_OPTION_SIZE,
-        S.SELLINGORDER_PRICE
+        S.SELLINGORDER_PRICE,
+        S.SELLINGORDER_NO
+        ORDER BY PRODUCT_OPTION_SIZE ASC
+
+
+
+    </select>
+
+    <select id="findSizePrice" resultMap="productResultMap">
+        SELECT
+        P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        COALESCE(MIN(O.PRODUCT_OPTION_SIZE), '') AS PRODUCT_OPTION_SIZE,
+        COALESCE(MAX(S.SELLINGORDER_PRICE), 0) AS SELLINGORDER_PRICE,
+        S.SELLINGORDER_NO
         FROM PRODUCT P
         LEFT JOIN PRODUCT_OPTION O ON (P.PRODUCT_CODE = O.PRODUCT_CODE)
         LEFT JOIN SELLING_ORDERS S ON (O.PRODUCT_OPTION_CODE = S.PRODUCT_OPTION_CODE)
-        INNER JOIN (SELECT MIN(S2.SELLINGORDER_PRICE) min, O2.PRODUCT_OPTION_SIZE
-            FROM PRODUCT P2
-            INNER JOIN PRODUCT_OPTION O2 ON (P2.PRODUCT_CODE = O2.PRODUCT_CODE)
-             INNER JOIN SELLING_ORDERS S2 ON (O2.PRODUCT_OPTION_CODE = S2.PRODUCT_OPTION_CODE)
-            GROUP BY O2.PRODUCT_OPTION_SIZE) b
-        ON S.SELLINGORDER_PRICE = b.min
-        AND O.PRODUCT_OPTION_SIZE = b.PRODUCT_OPTION_SIZE
-        WHERE P.BRAND_NO = '4' 
-        ORDER BY S.SELLINGORDER_PRICE
-</select>
+        WHERE O.PRODUCT_CODE='99'
+        GROUP BY
+        P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        S.SELLINGORDER_PRICE,
+        S.SELLINGORDER_NO
+        ORDER BY PRODUCT_OPTION_SIZE ASC
 
-<select id="findProductOptionBySellingOrderNo" resultType="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
-  SELECT * 
-  FROM SELLING_ORDERS 
-  WHERE sellingorder_no = #{sellingOrderNo}
-</select>
+    </select>
+
+    <select id="findSellingProduct" resultMap="productResultMap">
+
+        SELECT P.PRODUCT_CODE,
+        p.PRODUCT_NAME,
+        p.PRODUCT_NAME_KR,
+        (SELECT o.PRODUCT_OPTION_COLOR
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_COLOR,
+        (SELECT o.PRODUCT_OPTION_SIZE
+        FROM PRODUCT_OPTION o
+        WHERE o.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE) AS PRODUCT_OPTION_SIZE,
+        s.SELLINGORDER_PRICE
+        FROM PRODUCT p,
+        PRODUCT_OPTION po,
+        SELLING_ORDERS s
+        WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
+        AND po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
+        AND p.PRODUCT_CODE = po.PRODUCT_CODE
+
+    </select>
+
+    <select id="findSellingProduct2" resultMap="productResultMap">
+
+        SELECT
+        po.PRODUCT_OPTION_SIZE,
+        s.SELLINGORDER_PRICE
+        FROM PRODUCT_OPTION po
+        INNER JOIN SELLING_ORDERS s
+        ON po.PRODUCT_OPTION_CODE = s.PRODUCT_OPTION_CODE
+        WHERE s.SELLINGORDER_NO = #{sellingOrderNo}
+
+    </select>
+
+    <select id="findProductOptionSize" resultMap="productResultMap">
+        SELECT P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        PO.PRODUCT_OPTION_COLOR,
+        PO.PRODUCT_OPTION_SIZE
+        FROM PRODUCT P,
+        PRODUCT_OPTION PO
+        WHERE PO.PRODUCT_OPTION_SIZE = #{productOptionSize}
+        AND P.PRODUCT_CODE = PO.PRODUCT_CODE
+        AND P.PRODUCT_CODE = 99
+    </select>
+
+    <select id="finalBuyBidOrderPage" resultMap="productResultMap">
+        SELECT P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        PO.PRODUCT_OPTION_COLOR,
+        PO.PRODUCT_OPTION_SIZE,
+        #{buyingOrderPrice} AS BUYING_ORDER_PRICE,
+        #{buyingOrderDeadlineDate} AS BUYING_ORDER_DEADLINE_DATE
+        FROM PRODUCT P,
+        PRODUCT_OPTION PO
+        WHERE PO.PRODUCT_OPTION_SIZE = #{productOptionSize}
+        AND P.PRODUCT_CODE = PO.PRODUCT_CODE
+        AND P.PRODUCT_CODE = 99
+
+    </select>
+    <select id="allFinalBuyBidOrderPage" resultMap="productResultMap">
+        SELECT P.PRODUCT_CODE,
+        P.PRODUCT_NAME,
+        P.PRODUCT_NAME_KR,
+        PO.PRODUCT_OPTION_COLOR,
+        PO.PRODUCT_OPTION_SIZE
+        FROM PRODUCT P
+        INNER JOIN PRODUCT_OPTION PO
+        ON P.PRODUCT_CODE = PO.PRODUCT_CODE
+        WHERE P.PRODUCT_CODE = 99
+
+    </select>
+
+
+
 
 
 </mapper>

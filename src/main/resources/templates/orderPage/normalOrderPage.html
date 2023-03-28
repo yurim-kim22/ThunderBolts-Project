@@ -7,28 +7,27 @@
   <meta name="viewport" content="width=\, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/css/list/orderBuyStyle.css" type="text/css">
-
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <body>
 
 
     <!-- 헤더 -->
     	<div th:replace="common/header/orderHeader.html"></div>
 
+ 
   <section id="section01">
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div style="text-align: left;">
-    
-    <div>
 
-
-</div>
-    
-     <!-- 모델에 추가된 ProductOption 데이터를 참조하여 출력 -->
-<p>Product Option Size: <span th:text="${productOption.productOptionSize}"></span></p>
-<p>Selling Order Price: <span th:text="${productOption.sellingOrderPrice}"></span></p>
-
+        <p style="margin: 0;" id="productName" th:text="${productName}"></p>
+      <p style="margin: 0;" id="productCode" th:text="${productCode}"></p>
+	<p style="margin: 0; color: gray;" id="productNameKr" th:text="${productNameKr}"></p>
+	<p style="margin-top: 0px;" id="productOptionSize" th:text="${productOptionSize}"></p>
     </div>
 
 
@@ -36,7 +35,8 @@
 
   <section id="section02">
     <div style="display: flex; align-items: center;">
-      <h3 style="flex: 1;">배송 주소</h3>
+    
+      <h3 style="flex: 1;"><br>배송 주소</h3>
       <div id="modalBtn1" style="color: gray;"><u>+새 주소 추가</u></div>
     </div>
 
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="box2" style="text-align: left; margin-top: 10px;"></div>
-    </div>
+    
 
     <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
 
@@ -63,7 +63,7 @@
       <span style="position: relative; top: 10px;"><b>일반배송 3,000원</b></span><br>
       <span style="position: relative; top: 12px;">검수 후 배송 5-7일 내 도착 예정</span>
     </div>
-
+   
 
   </section>
 
@@ -115,8 +115,10 @@
         <p style="font-size: small;">총 결제 금액</p>
       </div>
       <div class="final1">
-        <p style="color: red; font-size: large;"><b>0,000원</b></p>
-      </div>
+		  <!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
+		<p id="final-price" th:text="${sellingOrderPrice + 11000}" style="color: red; font-size: large;"></p>
+		
+		</div>
       <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
       <div class="order">
         <p01><b>즉시 구매가</b></p01><br>
@@ -125,14 +127,24 @@
         <p01>수수료</p01><br>
         <p01>배송비</p01><br>
       </div>
-      <div class="order1">
-        <p02><b>46,000원</b></p02><br>
+            <div class="final1">
+		  <p id="final-price" style="color: red; font-size: large;"><b></b></p>
+		</div>
+      
+<div class="order1">
+  <p02><b th:text="${sellingOrderPrice}"></b></p02><br>
+  <p02><br></p02>
+  <p02>5,000원</p02><br>
+  <p02>6,000원</p02><br>
+  <p02>3,000원</p02>
+</div>
+<!--       <div class="order1">
+        <p02 th:text="${sellingOrderPrice}"><b></b></p02><br>
         <p02><br></p02>
         <p02>무료</p02><br>
         <p02>6,000원</p02><br>
         <p02>3,000원</p02>
-      </div>
-    </div>
+      </div> -->
   </section>
 
   <section id="section04">
@@ -140,24 +152,17 @@
     <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
 
     <div class="wrapper">
-      <p class="left">카드 간편결제</p>
+      <p class="left">간편결제</p>
       <p style="margin-left: 10px; color: gray;">일시불</p>
     </div>
-    <a href="#" class="button">
-      <p>카드를 등록하세요.</p>
-    </a>
-
+    <button onclick="requestPayKakao()">카카오페이</button> <!-- 결제하기 버튼 생성 -->
     <div class="wrapper">
       <p class="left">일반 결제</p>
     </div>
 
     <div class="btn-container">
-      <div class="naver-btn">
-        <img src="../img/네이버페이 로고.png" style="float: left; margin-right: 10px; width: 30px; height: 30px;">
-        네이버페이
-      </div>
       <div class="credit-btn">
-        신용카드
+        <button onclick="requestPayKg()">신용카드</button> <!-- 결제하기 버튼 생성 -->
       </div>
     </div>
   </section>
@@ -199,9 +204,9 @@
         <br>
         총 결제금액
         <div class="final2">
-          <p style="color: red;">00,000원</p>
+        <p id="final-price" th:text="${sellingOrderPrice + 14000}" style="color: red; font-size: x-large;"></p>
         </div>
-        <button id="my-button">
+        <button id="my-button" onclick="requestPay()">
           결제하기
         </button>
       </strong>
@@ -983,7 +988,77 @@
       checkboxAgree2.addEventListener('change', updateButtonStatus);
 
       /**/
-      
+    window.onload = function() {
+        var sellingOrderPrice = [[${sellingOrderPrice}]];
+        var finalPrice = sellingOrderPrice + 14000;
+        document.getElementById("final-price").innerHTML = finalPrice;
+    }
+
+    //카카오페이 결제코드
+       var IMP = window.IMP;
+        IMP.init("imp48741283");
+
+        var today = new Date();
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+        const $productName = document.getElementById('productName').innerText;
+        const $productCode = document.getElementById('productCode').innerText;
+        const $sellingOrderPrice = document.getElementById('sellingOrderPrice').innerText;
+
+
+
+
+
+
+        function requestPayKakao() {
+            IMP.request_pay({
+                pg : 'kcp',
+                pay_method : 'card',
+                merchant_uid: "IMP"+makeMerchantUid,
+                name : $productName,
+                amount : '1004',
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456'
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+
+
+
+        function requestPayKg() {
+      // IMP.request_pay(param, callback) 결제창 호출
+      IMP.request_pay({ // param
+          pg: "html5_inicis",
+          pay_method: "card",
+          merchant_uid: "ORD20180131-0000011",
+          name: $productName,
+          amount: 64900,
+          buyer_email: "gildong@gmail.com",
+          buyer_name: "홍길동",
+          buyer_tel: "010-4242-4242",
+          buyer_addr: "서울특별시 강남구 신사동",
+          buyer_postcode: "01181"
+      }, function (rsp) { // callback
+          if (rsp.success) {
+              console.log();
+              // 결제 성공 시 로직,
+
+          } else {
+            console.log();
+          }
+      });
+    }
 
 
 

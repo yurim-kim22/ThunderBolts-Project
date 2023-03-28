@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
 #header{
     width: 60vw; margin: 0 auto;
     height: 20vh;
@@ -18,7 +27,6 @@
     padding-left: 1%;
     padding-right: 1%;
     margin-bottom: 1%;
-    font-family: 'Noto Sans';
     font-style: normal;
 
 } 
@@ -32,7 +40,6 @@
     padding-left: 1%;
     padding-right: 1%;
     margin-bottom: 1%;
-    font-family: 'Noto Sans';
     font-style: normal;
 
 } 
@@ -48,4 +55,9 @@
     /* background-attachment: local; */
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+#login, #home, #mypage, #csmenu, #heartProduct, #logout, #header_img{
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
+}
 }

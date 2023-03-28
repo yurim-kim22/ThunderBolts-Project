@@ -1,3 +1,5 @@
+
+
 # server config
 server:
   port: 8002
@@ -9,6 +11,9 @@ spring:
     url : jdbc:oracle:thin:@localhost:1521:xe
     username: C##THUNDER
     password: THUNDER
+    
+  config:
+    import: application-oauth.yml
 
 #file upload config
   servlet:
@@ -36,3 +41,6 @@ logging:
     root: info
 #package level - 지역 설정
     '[com.greedy.thunerbolts]': trace 
+    
+    
+ 

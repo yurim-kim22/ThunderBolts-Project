@@ -15,8 +15,11 @@ public class ProductDTO {
 	    private int brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
-		
-//		private SellingOrdersDTO sellingOrder;
+
+
+
 }
+
+
 
 
