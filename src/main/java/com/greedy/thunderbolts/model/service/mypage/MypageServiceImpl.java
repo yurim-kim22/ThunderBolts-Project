@@ -1,11 +1,15 @@
 package com.greedy.thunderbolts.model.service.mypage;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.greedy.thunderbolts.common.paging.Pagenation;
+import com.greedy.thunderbolts.common.paging.SelectCriteria;
 import com.greedy.thunderbolts.config.SecurityConfig;
 import com.greedy.thunderbolts.model.dao.MypageMapper;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
@@ -76,6 +80,31 @@ public class MypageServiceImpl implements MypageService {
 	public List<AddressDTO> selectAddress(int memberNo) {
 		return mypageMapper.selectAddress(memberNo);
 	}
+	//주소록 페이징
+	@Override
+	public Map<String, Object> selectAddressList(int memberNo, int page) {
+		//1. 전체 게시글 수 확인
+		int totalCount = mypageMapper.selectTotalCount(memberNo);
+		
+		//한페이지에 보여줄 게시물의 수
+		int limit = 7;
+		//한번에 보여질 페이징 버튼의 수
+		int buttonAmount = 3;
+		
+		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+		log.info("[BoardService] selectCriteria : {}", selectCriteria);
+		
+		Map<String, Object> selectAddressList = new HashMap<>();
+		selectAddressList.put("paging", selectCriteria);
+		
+		return null;
+	}
+	
+	
+	
+	
+	
 	//계좌 조회
 	@Override
 	public MembersAccountsDTO selectAccounts(int memberNo) {
@@ -91,6 +120,7 @@ public class MypageServiceImpl implements MypageService {
 	public int modifyAccounts(MembersAccountsDTO account, int memberNo) {
 		return mypageMapper.modifyAccounts(account, memberNo);
 	}
+
 
 
 

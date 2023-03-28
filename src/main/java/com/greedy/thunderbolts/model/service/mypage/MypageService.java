@@ -1,6 +1,7 @@
 package com.greedy.thunderbolts.model.service.mypage;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -30,10 +31,17 @@ public interface MypageService {
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
+	//주소록 페이징
+	Map<String, Object> selectAddressList(int memberNo, int page);
+		
+		
+		
 	//계좌 조회
 	MembersAccountsDTO selectAccounts(int memberNo);
 	//계좌 추가
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	//계좌 수정
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
+	
+	
 }

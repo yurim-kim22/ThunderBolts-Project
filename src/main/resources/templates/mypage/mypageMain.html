@@ -68,7 +68,7 @@
                     <ul>
                        <li>
                             <div class="main_transaction_tit">구매내역</div>
-                            <ul id="side_myBuy" class="main_transaction_list">
+                            <ul th:if="${buyList != null}" id="side_myBuy" class="main_transaction_list">
                                 <li>
                                 	<img th:src="@{${buyList.file.filePath}}" class="main_transaction_img">
                                 </li>
@@ -80,7 +80,7 @@
 
                         <li class="main_transaction_sell">
                             <div class="main_transaction_tit ">판매내역</div>
-                            <ul id="side_mySell" class="main_transaction_list">
+                            <ul th:if="${sellList != null}" id="side_mySell" class="main_transaction_list">
                                 <li>
                                 	<img th:src="@{${sellList.file.filePath}}" class="main_transaction_img">
                                 </li>

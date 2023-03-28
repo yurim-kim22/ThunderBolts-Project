@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,24 +61,31 @@ public class MypageController {
 		log.info("[Controller memberId] : {}", memberId);
 		log.info("[Controller memberId] : {}", membersNo);
 
-		BuyListDTO buyList = mypageService.selectBuyList(memberId);
-		SellListDTO sellList = mypageService.selectSellList(memberId);
-
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		String formattedBuyDate = dateFormat.format(buyList.getOrder().getOrdersDate());
-		String formattedSellDate = dateFormat.format(sellList.getOrder().getOrdersDate());
-
-		model.addAttribute("buyList", buyList);
-		model.addAttribute("sellList", sellList);
 		model.addAttribute("memberId", memberId);
+		
+		//판매 조건문 추가
+		if(null != mypageService.selectSellList(memberId)) {
+			SellListDTO sellList = mypageService.selectSellList(memberId);
+			SimpleDateFormat sellDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			String formattedSellDate = sellDateFormat.format(sellList.getOrder().getOrdersDate());
+			model.addAttribute("sellList", sellList);
+			model.addAttribute("sellDate", formattedSellDate);
 
-		model.addAttribute("buyDate", formattedBuyDate);
-		model.addAttribute("sellDate", formattedSellDate);
-
-		log.info("buyList : {}", buyList);
-		log.info("sellList : {}", sellList);
+		}
+		
+		//구매 조건문 추가
+		if(null != mypageService.selectBuyList(memberId)) {
+			BuyListDTO buyList = mypageService.selectBuyList(memberId);
+			SimpleDateFormat buyDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			String formattedBuyDate = buyDateFormat.format(buyList.getOrder().getOrdersDate());
+			model.addAttribute("buyList", buyList);
+			model.addAttribute("buyDate", formattedBuyDate);
+		}
+		
+		
 
 		return "mypage/mypageMain";
+		
 	}
 
 	// 마이페이지 구매내역
@@ -157,8 +165,11 @@ public class MypageController {
 		log.info("[encodedOldPwd ] : {}", encodedOldPwd);
 		// 인코딩한 패스워드(인풋에 입력한) 패스워드와 세션의 패스워드 일치하면
 		if (!passwordEncoder.matches(currentUserPwd, encodedOldPwd)) {
-			redirectAttributes.addFlashAttribute("errorMessage",
-					"The provided password does not match the current password.");
+			
+			/*
+			 * redirectAttributes.addFlashAttribute("errorMessage",
+			 * "The provided password does not match the current password.");
+			 */
 
 			// DTO에 새로운 비밀번호와 이름을 set
 			MembersDTO membersDTO = new MembersDTO();
@@ -166,6 +177,14 @@ public class MypageController {
 			membersDTO.setMembersName(name);
 			
 			mypageService.modifyInfo(membersDTO, memberId);
+			
+			/*
+			 * //성공시 alert redirectAttributes.addFlashAttribute("message",
+			 * messageSourceAccessor.getMessage("myInfo.update"));
+			 * log.info("[redirectAttributes] : {}",
+			 * redirectAttributes.addFlashAttribute("message",
+			 * messageSourceAccessor.getMessage("myInfo.update")));
+			 */
 			
 			// return "redirect:/mypage/info";
 		}
@@ -230,11 +249,11 @@ public class MypageController {
 			deleteFile.delete();
 
 		}
-
 		
 		  if(null != attachment.getFileOriginalName()) {
-		  mypageService.insertProfile(attachment);
-		  log.info("[ThumbnailController] attachment request : {}", attachment); }
+			  mypageService.insertProfile(attachment);
+			  log.info("[ThumbnailController] attachment request : {}", attachment);
+		  }
 		 
 
 		return "redirect:/mypage/info";
@@ -242,9 +261,15 @@ public class MypageController {
 
 	// 주소록
 	@GetMapping("/address")
-	public String addressMain(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model) {
-
+	public String addressMain(@AuthenticationPrincipal MembersDTO members
+			, AddressDTO address
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+		
 		int memberNo = members.getMembersNo();
+		
+		//주소페이징
+		Map<String, Object> addressMap = mypageService.selectAddressList(memberNo, page);
 
 		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
 		log.info("[selectAddress] selectAddress : {}", selectAddress);

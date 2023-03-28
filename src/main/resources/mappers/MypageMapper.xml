@@ -235,6 +235,14 @@
 		WHERE MEMBERS_NO = #{ memberNo }
 	</select>
 	
+	<!-- 주소록 페이징 -->
+	<select id="selectTotalCount" resultType="hashmap">
+	    SELECT COUNT(*)
+	    FROM MEMBERS_ADDRESS
+	    WHERE MEMBERS_NO = #{ memberNo }
+	</select>
+
+	
 	<!-- 계좌 조회 -->
 	<select id="selectAccounts" resultMap="membersAccountsMap">
 		SELECT 

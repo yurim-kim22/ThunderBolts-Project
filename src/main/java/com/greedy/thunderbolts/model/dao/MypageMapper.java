@@ -35,11 +35,16 @@ public interface MypageMapper {
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
+	//주소록 페이징
+	int selectTotalCount(int memberNo);
+	
+	
 	//계좌 조회
 	MembersAccountsDTO selectAccounts(int memberNo);
 	//계좌 인서트
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	//계좌 수정
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
+	
 	
 }
