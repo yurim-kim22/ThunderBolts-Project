@@ -72,6 +72,11 @@ public class ListServiceImpl implements ListService {
 		return listMapper.findProductOptionSize(productOptionSize);
 	}
 
+	@Override
+	public List<ProductDTO> findBuyingProduct(int buyingOrderCode) {
+		return listMapper.findBuyingProduct(int buyingOrderCode);
+	}
+
 
 	@Override
 	public List<ProductDTO> finalBuyBidOrderPage() {
@@ -94,29 +99,4 @@ public class ListServiceImpl implements ListService {
 		}
 		//계좌 조회
 
-//	@Override
-//	public int insertAddress(AddressDTO address, int memberNo) {
-//
-//		return ListMapper.insertAddress(address, memberNo);
-//	}
-//	//주소록 조회
-//	@Override
-//	public List<AddressDTO> selectAddress(int memberNo) {
-//
-//		return ListMapper.selectAddress(memberNo);
-//	}
-	//계좌 조회
-
-
-//	@Override
-//	public ProductOptionDTO selectProductBySizeAndCode(int buyingOrderPrice) {
-//		return listMapper.selectProductBySizeAndCode(buyingOrderPrice);
-//
-//	}
-//
-//	@Override
-//	public ProductDTO selectProductBySizeAndCode1(int buyingOrderPrice) {
-//		return listMapper.selectProductBySizeAndCode1(buyingOrderPrice);
-//
-//	}
 }

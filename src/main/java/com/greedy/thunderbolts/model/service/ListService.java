@@ -21,6 +21,12 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
     ProductDTO findSellingProduct(String productOptionSize);
     //옵션사이즈 찾기
     ProductDTO findProductOptionSize (String productOptionSize);
+
+    //바잉오더 옵션사이즈 찾기
+    List<ProductDTO> findBuyingProduct();
+
+    List<ProductDTO> findBuyingProduct(int buyingOrderCode);
+
     //바잉오더 주문
     List<ProductDTO> finalBuyBidOrderPage();
     //모든바잉오더 주문 조회

@@ -31,17 +31,17 @@
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-        <form id="selectForm" action="/list/normalBuy" method="post">
+        <form id="selectForm" action="/list/normalSell" method="post">
             <!-- 구매 의향서 번호 받는 클릭 이벤트 -->
             <div class="box" style="display: block;">
                 <div th:each="productDTO : ${selectBuyingOrder}">
                 <div th:each="productOption: ${productDTO.productOption}">
                     <div th:if="${!#lists.isEmpty(productOption.buyingOrders)}" class="box" style="display: block;">
                         <a style="line-height: 0.5;"
-                           th:href="@{/list/normalBuy2(buyingOrderCode=${productOption.buyingOrders[0].buyingOrderCode})}">
+                           th:href="@{/list/normalSell2(buyingOrderCode=${productOption.buyingOrders[0].buyingOrderCode})}">
                             <b th:text="${productOption.productOptionSize}"></b>
                             <a style="line-height: 0.5; color: rgb(9, 120, 9);"
-                               th:href="@{/list/normalBuy2?buyingOrderCode={no}(no=${productOption.buyingOrders[0].buyingOrderCode})}"
+                               th:href="@{/list/normalSell2?buyingOrderCode={no}(no=${productOption.buyingOrders[0].buyingOrderCode})}"
                                th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'">
                             </a>
                         </a>
