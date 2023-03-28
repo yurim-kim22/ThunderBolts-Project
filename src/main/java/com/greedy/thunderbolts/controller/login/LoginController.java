@@ -145,7 +145,7 @@ public class LoginController {
 		} else {
 			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.searchPwerror"));
 		}
-		
+		 
 		return "redirect:/login/main";
 	}
 	
