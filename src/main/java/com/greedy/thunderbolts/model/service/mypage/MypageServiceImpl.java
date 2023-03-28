@@ -76,10 +76,10 @@ public class MypageServiceImpl implements MypageService {
 		return mypageMapper.insertAddress(address, memberNo);
 	}
 	//주소록 조회
-	@Override
-	public List<AddressDTO> selectAddress(int memberNo) {
-		return mypageMapper.selectAddress(memberNo);
-	}
+	/*
+	 * @Override public List<AddressDTO> selectAddress(int memberNo) { return
+	 * mypageMapper.selectAddress(memberNo); }
+	 */
 	//주소록 페이징
 	@Override
 	public Map<String, Object> selectAddressList(int memberNo, int page) {
@@ -93,12 +93,17 @@ public class MypageServiceImpl implements MypageService {
 		
 		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
 		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
-		log.info("[BoardService] selectCriteria : {}", selectCriteria);
+		log.info("[MypageService] selectCriteria : {}", selectCriteria);
+		
+		//3. 요청 페이지에 맞는 게시글을 조회해온다
+		List<AddressDTO> addressList = mypageMapper.selectAddress(selectCriteria, memberNo);
+		log.info("[addressList] addressList : {}", addressList);
 		
 		Map<String, Object> selectAddressList = new HashMap<>();
 		selectAddressList.put("paging", selectCriteria);
+		selectAddressList.put("addressList", addressList);
 		
-		return null;
+		return selectAddressList;
 	}
 	
 	

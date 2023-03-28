@@ -207,10 +207,11 @@ public class MypageController {
 		/* 디렉토리가 없을 경우 생성한다. */
 		if (!dir1.exists()) {
 			dir1.mkdirs();
+			log.info("[dir1] dir1 : {}", dir1.exists());
 		}
 
 		try {
-
+ 
 			/* 4개의 input type=file이 서버로 전송 되어 List<MultipartFile> attachImage에 담겼다. */
 
 			/* 첨부파일이 실제로 있는 경우에만 로직 수행 */
@@ -269,12 +270,15 @@ public class MypageController {
 		int memberNo = members.getMembersNo();
 		
 		//주소페이징
-		Map<String, Object> addressMap = mypageService.selectAddressList(memberNo, page);
+		//Map<String, Object> addressMap = mypageService.selectAddressList(memberNo, page);
 
-		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
-		log.info("[selectAddress] selectAddress : {}", selectAddress);
-
-		model.addAttribute("selectAddress", selectAddress);
+		Map<String, Object> selectAddressList = mypageService.selectAddressList(memberNo, page);
+		model.addAttribute("paging" , selectAddressList.get("paging"));
+		model.addAttribute("addressList" , selectAddressList.get("addressList"));
+		
+		
+		log.info("[selectAddressList] selectAddress : {}", selectAddressList);
+		log.info("[paging] paging : {}", selectAddressList.get("paging"));
 
 		return "mypage/address";
 	}

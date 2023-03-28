@@ -225,3 +225,10 @@ span{
     cursor: pointer;
 }
 
+#paging > button{
+	border: none;
+	font-size: 1.2rem;
+	background: none;
+	margin-top: -100px;
+	padding: 5px;
+}

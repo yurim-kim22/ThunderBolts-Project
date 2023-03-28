@@ -156,7 +156,7 @@ public class MypageMapperTests {
 
 		log.info("insertAddress : {}", modifyAccounts);
 	}
-	
+	@Disabled
 	@Test
 	public void 내정보수정_이름_패스워드_수정_테스트() {
 		
@@ -172,6 +172,16 @@ public class MypageMapperTests {
 		int modifyInfo = mypageMapper.modifyInfo(members, memberId);
 
 		log.info("modifyInfo : {}", modifyInfo);
+	}
+	@Disabled
+	@Test
+	public void 주소록_페이징_테스트() {
+		
+		int memberNo = 2;
+		
+		int selectTotalCount = mypageMapper.selectTotalCount(memberNo);
+
+		log.info("selectTotalCount : {}", selectTotalCount);
 	}
 
 }

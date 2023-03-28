@@ -105,14 +105,17 @@
 	    <result property="accountMaster" column="ACCOUNT_MASTER"/>
 	</resultMap>
 	
-
-
-
-
-
-
-
-		
+	
+	<!-- 프로필 사진 가져오기 -->
+	<select id="selectProfileImg" resultType="String">
+		SELECT 
+			  FILE_PATH
+		FROM ATTACHMENT_FILE
+		WHERE MEMBERS_ID = #{ memberId }
+	</select>
+	
+	
+	
 	 <!-- 메인 구매내역 조회 -->
 	<select id="selectBuyList" resultMap="buyListResultMap">
 	  SELECT *
@@ -226,17 +229,39 @@
 	
 	<!-- 주소록 조회 -->
 	<select id="selectAddress" resultMap="addressResultMap">
-		SELECT 
+<!-- 		SELECT
+			  ROWNUM  
 			  RECEIVER_NAME
 			, ADDRESSES_POST_NO
 			, ADDRESSES_NAME
 			, ADDRESSES_ADDS
 		FROM MEMBERS_ADDRESS
 		WHERE MEMBERS_NO = #{ memberNo }
+		 <![CDATA[
+                  AND ROWNUM <= #{ criteria.endRow }
+                  ]]>
+        AND ROWNUM >= #{ criteria.startRow } -->
+        
+		        SELECT sub.*
+		FROM (
+		  SELECT 
+		      RECEIVER_NAME
+		    , ADDRESSES_POST_NO
+		    , ADDRESSES_NAME
+		    , ADDRESSES_ADDS
+		    , ROWNUM AS RNUM
+		  FROM MEMBERS_ADDRESS
+		  WHERE MEMBERS_NO = #{memberNo}
+		  <![CDATA[
+		    AND ROWNUM <= #{criteria.endRow}
+		    ]]>
+		  ) sub
+		WHERE RNUM >= #{criteria.startRow}
+        
 	</select>
 	
 	<!-- 주소록 페이징 -->
-	<select id="selectTotalCount" resultType="hashmap">
+	<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
 	    SELECT COUNT(*)
 	    FROM MEMBERS_ADDRESS
 	    WHERE MEMBERS_NO = #{ memberNo }

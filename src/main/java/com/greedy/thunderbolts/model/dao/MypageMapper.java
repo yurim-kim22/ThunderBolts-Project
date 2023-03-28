@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.greedy.thunderbolts.common.paging.SelectCriteria;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
@@ -14,6 +15,9 @@ import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 @Mapper
 public interface MypageMapper {
+	
+	//프로필 사진 가져오기
+	String selectProfileImg(String memberId);
 	
 	//메인 구매내역 조회
 	BuyListDTO selectBuyList(String memberId);
@@ -34,7 +38,7 @@ public interface MypageMapper {
 	//주소록 인서트
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
 	//주소록 조회
-	List<AddressDTO> selectAddress(int memberNo);
+	List<AddressDTO> selectAddress(@Param("criteria")SelectCriteria selectCriteria, @Param("memberNo")int memberNo);
 	//주소록 페이징
 	int selectTotalCount(int memberNo);
 	

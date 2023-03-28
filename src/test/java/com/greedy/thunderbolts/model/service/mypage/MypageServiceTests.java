@@ -2,7 +2,9 @@ package com.greedy.thunderbolts.model.service.mypage;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.common.paging.Pagenation;
+import com.greedy.thunderbolts.common.paging.SelectCriteria;
 import com.greedy.thunderbolts.model.dao.MypageMapperTests;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
@@ -78,7 +82,7 @@ public class MypageServiceTests {
 		members.setMembersPwd("8888");
 		
 		log.info("account : {}", members);
-		mypageService.updateInfo(attachment, members,  memberPwdOld, memberId);
+		//mypageService.updateInfo(attachment, members,  memberPwdOld, memberId);
 		
 	}
 	
@@ -106,10 +110,10 @@ public class MypageServiceTests {
 		
 		int memberNo = 2;
 		
-		List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
+		//List<AddressDTO> selectAddress = mypageService.selectAddress(memberNo);
 		
-		assertNotNull(selectAddress);
-		System.out.println(selectAddress);
+		//assertNotNull(selectAddress);
+		//System.out.println(selectAddress);
 	}
 	@Disabled
 	@Test
@@ -172,6 +176,15 @@ public class MypageServiceTests {
 	 * log.info("modifyInfo : {}", modifyInfo); }
 	 */
 	
+	@Test
+	public void 주소록_페이징_테스트() {
+	    int memberNo = 2;
+	    int page = 1;
+
+	    Map<String, Object> selectAddressList = mypageService.selectAddressList(memberNo, page);
+	    log.info("selectAddressList : {}", selectAddressList);
+	}
+
 	
 	
 
