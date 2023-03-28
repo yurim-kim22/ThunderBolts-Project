@@ -90,7 +90,26 @@ public class MypageController {
 
 	// 마이페이지 구매내역
 	@GetMapping("/mybuy")
-	public String myBuy() {
+	public String myBuy(@AuthenticationPrincipal MembersDTO members
+			, BuyListDTO buyList
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+		
+		int memberNo = members.getMembersNo();
+		
+		Map<String, Object> selectbuyingList = mypageService.BuyingList(memberNo, page);
+		model.addAttribute("paging" , selectbuyingList.get("paging"));
+		model.addAttribute("buyingList" , selectbuyingList.get("buyingList"));
+		
+		
+		log.info("[selectbuyingList] selectbuyingList : {}", selectbuyingList);
+		log.info("[paging] paging : {}", selectbuyingList.get("paging"));
+		
+		SimpleDateFormat buyDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String formattedBuyDate = buyDateFormat.format(buyList.getOrder().getOrdersDate());
+		model.addAttribute("buyDate", formattedBuyDate);
+		
+		
 		return "mypage/myBuy";
 	}
 
@@ -102,7 +121,28 @@ public class MypageController {
 
 	// 마이페이지 판매내역
 	@GetMapping("/mysell")
-	public String mySell() {
+	public String mySell(@AuthenticationPrincipal MembersDTO members
+			, SellListDTO sellList
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+		
+		int memberNo = members.getMembersNo();
+		
+		//주소페이징
+		//Map<String, Object> addressMap = mypageService.selectAddressList(memberNo, page);
+
+		Map<String, Object> selectSellingList = mypageService.SellingList(memberNo, page);
+		model.addAttribute("paging" , selectSellingList.get("paging"));
+		model.addAttribute("sellingList" , selectSellingList.get("sellingList"));
+		
+		
+		log.info("[selectSellingList] selectSellingList : {}", selectSellingList);
+		log.info("[paging] paging : {}", selectSellingList.get("paging"));
+		
+		SimpleDateFormat sellDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		String formattedSellDate = sellDateFormat.format(sellList.getOrder().getOrdersDate());
+		model.addAttribute("sellDate", formattedSellDate);
+		
 		return "mypage/mySell";
 	}
 

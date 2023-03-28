@@ -34,9 +34,9 @@ public interface MypageMapper {
 	int modifyInfo(@Param("members")MembersDTO members , @Param("memberId") String memberId);
 	
 	
-	
 	//주소록 인서트
 	int insertAddress(@Param("address")AddressDTO address , @Param("memberNo") int memberNo);
+	
 	//주소록 조회
 	List<AddressDTO> selectAddress(@Param("criteria")SelectCriteria selectCriteria, @Param("memberNo")int memberNo);
 	//주소록 페이징
@@ -49,6 +49,16 @@ public interface MypageMapper {
 	int inserAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	//계좌 수정
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
+	
+	//구매내역 목록 조회
+	List<BuyListDTO> selectManyBuying(@Param("criteria")SelectCriteria selectCriteria, @Param("memberNo") int memberNo);
+	//구매내역 목록 페이징
+	int manyBuyingCount(int memberNo);
+	
+	//판매내역 목록 조회
+	List<SellListDTO> selectManySelling(@Param("criteria")SelectCriteria selectCriteria, @Param("memberNo") int memberNo);
+	//판매내역 목록 페이징
+	int manySellingCount(int memberNo);
 	
 
 }

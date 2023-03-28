@@ -44,5 +44,11 @@ public interface MypageService {
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	
 	
+	//구매내역목록 페이징
+	Map<String, Object> BuyingList(int memberNo, int page);
+	
+	//판매내역목록 페이징
+	Map<String, Object> SellingList(int memberNo, int page);
+	
 	
 }

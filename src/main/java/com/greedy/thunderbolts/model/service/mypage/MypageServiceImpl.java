@@ -125,10 +125,57 @@ public class MypageServiceImpl implements MypageService {
 	public int modifyAccounts(MembersAccountsDTO account, int memberNo) {
 		return mypageMapper.modifyAccounts(account, memberNo);
 	}
-
-
-
-
+	
+	//구매내역목록 페이징
+	@Override
+	public Map<String, Object> BuyingList(int memberNo, int page) {
+		//1. 전체 게시글 수 확인
+		int totalCount = mypageMapper.manyBuyingCount(memberNo);
+		
+		//한페이지에 보여줄 게시물의 수
+		int limit = 7;
+		//한번에 보여질 페이징 버튼의 수
+		int buttonAmount = 3;
+		
+		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+		log.info("[MypageService] selectCriteria : {}", selectCriteria);
+		
+		//3. 요청 페이지에 맞는 게시글을 조회해온다
+		List<BuyListDTO> buyingList = mypageMapper.selectManyBuying(selectCriteria, memberNo);
+		log.info("[buyingList] buyingList : {}", buyingList);
+		
+		Map<String, Object> selectbuyingList = new HashMap<>();
+		selectbuyingList.put("paging", selectCriteria);
+		selectbuyingList.put("buyingList", buyingList);
+		
+		return selectbuyingList;
+	}
+	//판매내역목록 페이징
+	@Override
+	public Map<String, Object> SellingList(int memberNo, int page) {
+		//1. 전체 게시글 수 확인
+		int totalCount = mypageMapper.manySellingCount(memberNo);
+		
+		//한페이지에 보여줄 게시물의 수
+		int limit = 7;
+		//한번에 보여질 페이징 버튼의 수
+		int buttonAmount = 3;
+		
+		/* 2. 페이징 처리와 연관 된 값을 계산하여 SelectCriteria 타입의 객체에 담는다. */
+		SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount);
+		log.info("[MypageService] selectCriteria : {}", selectCriteria);
+		
+		//3. 요청 페이지에 맞는 게시글을 조회해온다
+		List<SellListDTO> sellingList = mypageMapper.selectManySelling(selectCriteria, memberNo);
+		log.info("[sellingList] sellingList : {}", sellingList);
+		
+		Map<String, Object> selectSellingList = new HashMap<>();
+		selectSellingList.put("paging", selectCriteria);
+		selectSellingList.put("sellingList", sellingList);
+		
+		return selectSellingList;
+	}
 
 
 
