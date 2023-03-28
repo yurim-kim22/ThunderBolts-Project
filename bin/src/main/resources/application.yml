@@ -1,3 +1,5 @@
+
+
 # server config
 server:
   port: 8002
@@ -9,6 +11,18 @@ spring:
     url : jdbc:oracle:thin:@localhost:1521:xe
     username: C##THUNDER
     password: THUNDER
+    
+  config:
+    import: application-oauth.yml
+    
+  mail:
+    host: smtp.naver.com
+    port: 465
+    username: kbo0609@naver.com
+    password: 이메일 비번
+    properties:
+     mail.smtp.auth: true
+     mail.smtp.ssl.enable: true    
 
 #file upload config
   servlet:
@@ -36,3 +50,6 @@ logging:
     root: info
 #package level - 지역 설정
     '[com.greedy.thunerbolts]': trace 
+    
+    
+ 

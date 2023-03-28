@@ -1,132 +1,311 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.MypageMapper">
-<resultMap id="buyListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO">
-<id property="orderNo" column="ORDERS_NO"></id>
-<association property="file" resultMap="attachmentFileResultMap"/>
-<association property="product" resultMap="productResultMap"/>
-<association property="order" resultMap="ordersResultMap"/>
-<!-- <result property="productName" column="PRODUCT_NAME"/>
- <result property="orderDate" column="ORDERS_DATE"/>
- <result property="orderStatus" column="ORDERS_STATUS"/> -->
-</resultMap>
-<resultMap id="sellListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO">
-<id property="orderNo" column="ORDERS_NO"></id>
-<association property="file" resultMap="attachmentFileResultMap"/>
-<association property="product" resultMap="productResultMap"/>
-<association property="order" resultMap="ordersResultMap"/>
-<!-- <result property="productName" column="PRODUCT_NAME"/>
- <result property="orderDate" column="ORDERS_DATE"/>
- <result property="orderStatus" column="ORDERS_STATUS"/> -->
-</resultMap>
+
+	<resultMap id="buyListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO">
+		<id property="orderNo" column="ORDERS_NO"></id>
+		<association property="file" resultMap="attachmentFileResultMap"/>
+		<association property="product" resultMap="productResultMap"/>
+		<association property="order" resultMap="ordersResultMap"/>
+		<!--  <result property="productName" column="PRODUCT_NAME"/>
+		<result property="orderDate" column="ORDERS_DATE"/>
+		<result property="orderStatus" column="ORDERS_STATUS"/> -->
+	</resultMap>
+	
+	<resultMap id="sellListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO">
+		<id property="orderNo" column="ORDERS_NO"></id>
+		<association property="file" resultMap="attachmentFileResultMap"/>
+		<association property="product" resultMap="productResultMap"/>
+		<association property="order" resultMap="ordersResultMap"/>
+		<!--  <result property="productName" column="PRODUCT_NAME"/>
+		<result property="orderDate" column="ORDERS_DATE"/>
+		<result property="orderStatus" column="ORDERS_STATUS"/> -->
+	</resultMap>
+    
    <!-- AttachmentFileDTO -->
-<resultMap id="attachmentFileResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
-<id property="fileCode" column="FILE_CODE"/>
-<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
-<result property="fileDiv" column="FILE_DIV"/>
-<result property="reviewCode" column="REVIEW_CODE"/>
-<result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
-<result property="noticeNo" column="NOTICE_NO"/>
-<result property="filePath" column="FILE_PATH"/>
-<result property="fileDecoded" column="FILE_DECODED"/>
-<result property="fileDate" column="FILE_DATE"/>
-<result property="fileThumbnailChecking" column="FILE_THUMBNAIL_CHECKING"/>
-<result property="membersNo" column="MEMBERS_NO"/>
-</resultMap>
-<!-- ProductDTO -->
-<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.ProductDTO">
-<id property="productCode" column="PRODUCT_CODE"/>
-<result property="productName" column="PRODUCT_NAME" />
-<result property="productNameKr" column="PRODUCT_NAME_KR" />
-<result property="productEntryDate" column="PRODUCT_ENTRY_DATE" />
-<result property="categoriesCode" column="CATEGORIES_CODE" />
-<result property="productPrice" column="PRODUCT_PRICE" />
-<result property="brandNo" column="BRAND_NO" />
-<result property="productCount" column="PRODUCT_COUNT" />
-</resultMap>
+	<resultMap id="attachmentFileResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
+		<id property="fileCode" column="FILE_CODE"/>
+		<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="fileDiv" column="FILE_DIV"/>
+		<result property="reviewCode" column="REVIEW_CODE"/>
+		<result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+		<result property="noticeNo" column="NOTICE_NO"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileDecoded" column="FILE_DECODED"/>
+		<result property="fileDate" column="FILE_DATE"/>
+		<result property="fileThumbnailChecking" column="FILE_THUMBNAIL_CHECKING"/>
+		<result property="membersNo" column="MEMBERS_NO"/>
+	</resultMap>
+ 
+ 
+	 <!-- ProductDTO -->
+	<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.ProductDTO">
+		<id property="productCode" column="PRODUCT_CODE"/>
+		<result property="productName" column="PRODUCT_NAME" />
+		<result property="productNameKr" column="PRODUCT_NAME_KR" />
+		<result property="productEntryDate" column="PRODUCT_ENTRY_DATE" />
+		<result property="categoriesCode" column="CATEGORIES_CODE" />
+		<result property="productPrice" column="PRODUCT_PRICE" />
+		<result property="brandNo" column="BRAND_NO" />
+		<result property="productCount" column="PRODUCT_COUNT" />
+	</resultMap>
+ 
  <!-- OrdersDTO -->
-<resultMap id="ordersResultMap" type="com.greedy.thunderbolts.model.dto.OrdersDTO">
-<id property="orderNo" column="ORDER_NO"/>
-<result property="memberBuyer" column="MEMBERS_BUYER"/>
-<result property="ordersPrice" column="ORDERS_PRICE"/>
-<result property="ordersDate" column="ORDERS_DATE"/>
-<result property="ordersDiv" column="ORDERS_DIV"/>
-<result property="sellingOrderNo" column="SELLINGORDER_NO" />
-<result property="membersSeller" column="MEMBERS_SELLER"/>
-<result property="ordersStatus" column="ORDERS_STATUS"/>
-<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
-</resultMap>
-<!-- 내정보관리 memberDTO -->
-<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
-<id property="membersNo" column="MEMBERS_NO"/>
-<result property="membersName" column="MEMBERS_NAME"/>
-<result property="membersId" column="MEMBERS_ID"/>
-<result property="membersPwd" column="MEMBERS_PWD"/>
-<result property="membersTel" column="MEMBERS_TEL"/>
-<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
-<result property="membersEntire" column="MEMBERS_ENTIRE"/>
-<collection property="authRoleList" resultMap="authRoleResultMap"/>
-</resultMap>
- <resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
-<id property="membersNo" column="MEMBERS_NO"/>
-<result property="authNum" column="AUTH_NUM"/>
-<association property="auth" resultMap="authResultMap"/>
-</resultMap>
-<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
-<id property="num" column="AUTH_NUM"/>
-<result property="name" column="AUTH_NAME"/>
-<result property="ko" column="AUTH_KO"/>
-</resultMap>
-<!-- 메인 구매내역 조회 -->
-<select id="selectBuyList" resultMap="buyListResultMap">
-SELECT *
-FROM (
-SELECT
-O.ORDERS_NO
-, F.FILE_PATH
-, P.PRODUCT_NAME
-, O.ORDERS_DATE
-, O.ORDERS_STATUS
-FROM PRODUCT P
-JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
-JOIN BUYING_ORDERS B ON (B.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
-JOIN ORDERS O ON (O.BUYING_ORDER_CODE = B.BUYING_ORDER_CODE)
-LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
-LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
-WHERE M.MEMBERS_ID = #{ memberId }
-ORDER BY O.ORDERS_DATE DESC
-)
-WHERE ROWNUM = 1
-</select>
-<!-- 메인 구매 내역 조회 -->
-<select id="selectSellList" resultMap="sellListResultMap">
-SELECT *
-FROM (
-SELECT
-O.ORDERS_NO
-, F.FILE_PATH
-, P.PRODUCT_NAME
-, O.ORDERS_DATE
-, O.ORDERS_STATUS
-FROM PRODUCT P
-JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
-JOIN SELLING_ORDERS S ON (S.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
-JOIN ORDERS O ON (O.SELLINGORDER_NO = S.SELLINGORDER_NO)
-LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
-LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
-WHERE M.MEMBERS_ID = #{ memberId }
-ORDER BY O.ORDERS_DATE DESC
-)
-WHERE ROWNUM = 1
-</select>
-<!-- 내정보관리 - 조회 -->
-<select id="selectInfo" resultMap="membersResultMap">
-SELECT
-MEMBERS_ID
-, MEMBERS_NAME
-, MEMBERS_TEL
-FROM MEMBERS
-WHERE MEMBERS_ID = #{ memberId }
-</select>
-<!-- 내정보관리 - 수정 -->
+	<resultMap id="ordersResultMap" type="com.greedy.thunderbolts.model.dto.OrdersDTO">
+		<id property="orderNo" column="ORDER_NO"/>
+		<result property="memberBuyer" column="MEMBERS_BUYER"/>
+		<result property="ordersPrice" column="ORDERS_PRICE"/>
+		<result property="ordersDate" column="ORDERS_DATE"/>
+		<result property="ordersDiv" column="ORDERS_DIV"/>
+		<result property="sellingOrderNo" column="SELLINGORDER_NO" />
+		<result property="membersSeller" column="MEMBERS_SELLER"/>
+		<result property="ordersStatus" column="ORDERS_STATUS"/>
+		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+	</resultMap>
+	
+	<!-- 내정보관리 memberDTO -->
+	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="membersName" column="MEMBERS_NAME"/>
+		<result property="membersId" column="MEMBERS_ID"/>
+		<result property="membersPwd" column="MEMBERS_PWD"/>
+		<result property="membersTel" column="MEMBERS_TEL"/>
+		<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
+		<result property="membersEntire" column="MEMBERS_ENTIRE"/>
+	
+		<collection property="authRoleList" resultMap="authRoleResultMap"/>
+	</resultMap>
+
+
+	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="authNum" column="AUTH_NUM"/>
+		<association property="auth" resultMap="authResultMap"/>
+	</resultMap>
+	
+		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
+		<id property="num" column="AUTH_NUM"/>
+		<result property="name" column="AUTH_NAME"/>
+		<result property="ko" column="AUTH_KO"/>
+	</resultMap>
+	
+	<!-- 주소록 -->
+	<resultMap id="addressResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO">
+	    <result property="addressesNo" column="ADDRESSES_NO" />
+	    <result property="receiverName" column="RECEIVER_NAME" />
+	    <result property="addressesPostNo" column="ADDRESSES_POST_NO" />
+	    <result property="addressesName" column="ADDRESSES_NAME" />
+	    <result property="addressesAdds" column="ADDRESSES_ADDS" />
+	</resultMap>
+	
+	<!-- 계좌 -->
+	<resultMap id="membersAccountsMap" type="com.greedy.thunderbolts.model.dto.MembersAccountsDTO">
+	    <id property="accountNo" column="ACCOUNT_NO"/>
+	    <result property="accountBank" column="ACCOUNT_BANK"/>
+	    <result property="accountMaster" column="ACCOUNT_MASTER"/>
+	</resultMap>
+	
+	
+	<!-- 프로필 사진 가져오기 -->
+	<select id="selectProfileImg" resultType="String">
+		SELECT 
+			  FILE_PATH
+		FROM ATTACHMENT_FILE
+		WHERE MEMBERS_ID = #{ memberId }
+	</select>
+	
+	
+	
+	 <!-- 메인 구매내역 조회 -->
+	<select id="selectBuyList" resultMap="buyListResultMap">
+	  SELECT *
+	  FROM (
+	    SELECT
+	      O.ORDERS_NO
+	      , F.FILE_PATH
+	      , P.PRODUCT_NAME
+	      , O.ORDERS_DATE
+	      , O.ORDERS_STATUS
+	    FROM PRODUCT P
+	    JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
+	    JOIN BUYING_ORDERS B ON (B.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
+	    JOIN ORDERS O ON (O.BUYING_ORDER_CODE = B.BUYING_ORDER_CODE)
+	    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
+	    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
+	    WHERE M.MEMBERS_ID = #{ memberId }
+	    ORDER BY O.ORDERS_DATE DESC
+	  )
+	  WHERE ROWNUM = 1
+	</select>
+	
+	<!-- 메인 구매 내역 조회 -->
+	<select id="selectSellList" resultMap="sellListResultMap">
+		SELECT *
+		  FROM (
+		    SELECT
+		      O.ORDERS_NO
+		      , F.FILE_PATH
+		      , P.PRODUCT_NAME
+		      , O.ORDERS_DATE
+		      , O.ORDERS_STATUS
+		    FROM PRODUCT P
+		    JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
+		    JOIN SELLING_ORDERS S ON (S.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
+		    JOIN ORDERS O ON (O.SELLINGORDER_NO = S.SELLINGORDER_NO)
+		    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
+		    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
+		    WHERE M.MEMBERS_ID = #{ memberId }
+		    ORDER BY O.ORDERS_DATE DESC
+		  )
+		  WHERE ROWNUM = 1
+	</select>
+	
+	<!-- 내정보관리 - 조회 -->
+	<select id="selectInfo" resultMap="membersResultMap">
+		SELECT 
+			  MEMBERS_ID
+			, MEMBERS_NAME
+			, MEMBERS_TEL
+		FROM MEMBERS
+		WHERE MEMBERS_ID = #{ memberId }
+	</select>
+	
+	<!-- 내정보관리 - 인서트 프로필 -->
+	<insert id="insertProfile">
+		INSERT
+		INTO ATTACHMENT_FILE A
+		(
+			A.FILE_CODE
+		  ,	A.FILE_ORIGINALNAME
+		  , A.FILE_DIV
+		  , A.FILE_PATH
+		  , A.FILE_DECODED
+		  , A.FILE_DATE
+		  , A.FILE_THUNBNAIL_CHECKING
+		)
+		VALUES
+		(
+		 	SEQ_ATTACHMENT_FILE_CODE.NEXTVAL
+		  , #{ fileOriginalName }
+		  , #{ fileDiv }
+		  , #{ filePath }
+		  , #{ fileDecoded }
+		  , SYSDATE
+		  , #{ fileThumbnailChecking }
+		)
+	</insert>
+	
+	<!-- 내정보관리 - 수정 이름패스워드-->
+	<update id="modifyInfo">
+		UPDATE 
+		     MEMBERS
+		 SET MEMBERS_NAME = #{ members.membersName }
+		   , MEMBERS_PWD = #{ members.membersPwd }
+	   WHERE MEMBERS_ID = #{ memberId }
+	</update >
+	
+	<!-- 주소록 인서트-->
+	<insert id="insertAddress">
+  		INSERT
+		INTO MEMBERS_ADDRESS D
+		(
+		    D.ADDRESSES_NO
+		  ,	D.RECEIVER_NAME
+		  ,	D.ADDRESSES_POST_NO
+		  , D.ADDRESSES_NAME
+		  , D.ADDRESSES_ADDS
+		  , D.MEMBERS_NO
+		)
+		VALUES
+		(
+		    SEQ_ADDRESSES_NO.NEXTVAL
+		  , #{ address.receiverName }
+		  , #{ address.addressesPostNo }
+		  , #{ address.addressesName }
+		  , #{ address.addressesAdds }
+		  , #{ memberNo }
+		)
+	</insert>
+	
+	<!-- 주소록 조회 -->
+	<select id="selectAddress" resultMap="addressResultMap">
+<!-- 		SELECT
+			  ROWNUM  
+			  RECEIVER_NAME
+			, ADDRESSES_POST_NO
+			, ADDRESSES_NAME
+			, ADDRESSES_ADDS
+		FROM MEMBERS_ADDRESS
+		WHERE MEMBERS_NO = #{ memberNo }
+		 <![CDATA[
+                  AND ROWNUM <= #{ criteria.endRow }
+                  ]]>
+        AND ROWNUM >= #{ criteria.startRow } -->
+        
+		        SELECT sub.*
+		FROM (
+		  SELECT 
+		      RECEIVER_NAME
+		    , ADDRESSES_POST_NO
+		    , ADDRESSES_NAME
+		    , ADDRESSES_ADDS
+		    , ROWNUM AS RNUM
+		  FROM MEMBERS_ADDRESS
+		  WHERE MEMBERS_NO = #{memberNo}
+		  <![CDATA[
+		    AND ROWNUM <= #{criteria.endRow}
+		    ]]>
+		  ) sub
+		WHERE RNUM >= #{criteria.startRow}
+        
+	</select>
+	
+	<!-- 주소록 페이징 -->
+	<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+	    SELECT COUNT(*)
+	    FROM MEMBERS_ADDRESS
+	    WHERE MEMBERS_NO = #{ memberNo }
+	</select>
+
+	
+	<!-- 계좌 조회 -->
+	<select id="selectAccounts" resultMap="membersAccountsMap">
+		SELECT 
+			  ACCOUNT_MASTER
+			, ACCOUNT_BANK
+			, ACCOUNT_NO
+		FROM MEMBERS_ACCOUNTS
+		WHERE MEMBERS_NO = #{ memberNo }
+	</select>
+	
+	<!-- 계좌 인서트 -->
+	<insert id="inserAccounts">
+  		INSERT
+		INTO MEMBERS_ACCOUNTS 
+		(
+		    ACCOUNT_NO
+		  , ACCOUNT_BANK  
+		  , ACCOUNT_MASTER
+		  , MEMBERS_NO
+		)
+		VALUES
+		(
+		    #{ account.accountNo }
+		  , #{ account.accountBank }
+		  , #{ account.accountMaster }
+		  , #{ memberNo }
+		)
+	</insert>
+	
+	<!-- 계좌 수정 -->
+	<update id="modifyAccounts">
+		UPDATE 
+				MEMBERS_ACCOUNTS
+		   SET  ACCOUNT_NO = #{ account.accountNo }
+		      , ACCOUNT_BANK = #{ account.accountBank }
+		      , ACCOUNT_MASTER = #{ account.accountMaster }
+	     WHERE  MEMBERS_NO = #{ memberNo }
+	</update>
+	
+	
 </mapper>

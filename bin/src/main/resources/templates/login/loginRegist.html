@@ -3,54 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <title>loginRegist</title>
-    <link href="/css/login/loginRegist.css" rel="stylesheet" type="text/css">
     <script src="/js/loginRegist.js" type="text/Javascript" defer></script>
-    <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/login/loginRegist.css" rel="stylesheet" type="text/css">
 	<link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div th:replace="common/header/subHeader.html"></div>
 	<main>
-        <form id="loginForm" action="/login/Main" method="post">
-            <div class="name">
-                <label>이름</label>
-            <input type="text" value="예) 홍길동" id="loginName">
-            </div>            
-            <div class="id">
-                <label>이메일주소</label>
-            <input type="text" value="예) greedy@Thunderbolts.com" id="emailId">
-            <th:block>
-            <div class="loginfalse"> 이메일 주소를 정확히 입력해주세요</div>
-            </th:block>
-            </div>
-            <div class="password">
-                <label>비밀번호</label>
-            <input type="password" id="pw1">
-            </th:block>
-            <div class="loginfalse" id="pw1check">영문,숫자,특수문자를 조합해서 입력해주세요(8~16자)</div>
-            </th:block>
-            </div>
-            <div class="password" >
-                <label>비밀번호확인</label>
-            	<input type="password" id="pw2">
-            </th:block>
-            	<div class="loginfalse" id="pw2check"></div>
-            </th:block>
-            </div>
-           
-            <div class="phone">
-                <label>휴대폰번호</label>
-            <input type="text" value="휴대폰 번호는 숫자만 입력하세요" id="loginPhone">
-            </div>
+		<form id="loginForm" action="/login/regist" method="POST">
+			<div class="name">
+				<label>이름</label> <input type="text" value="예) 홍길동" id="loginName"
+					name="membersName" required>
+			</div>
+			<div class="id">
+				<label class="emailLabel">이메일주소</label>
+				<p>
+					<input type="text" value="예) greedy@Thunderbolts.com" id="emailId"
+						name="membersId" required> <input type="button"
+						value="중복확인" id="duplicationCheck" disabled='disabled'>
+				</p>
 
-            <div>
-                <input type="submit" value="가입하기">
-            </div>
-        </form>
 
-    </main>
-	
-	
+				<div class="loginfalse" id="emailIdtext"></div>
+
+			</div>
+			<div class="password">
+				<label>비밀번호</label> <input type="password" id="pw1"
+					name="membersPwd" required>
+
+				<div class="loginfalse" id="pw1check">영문,숫자,특수문자를 조합해서
+					입력해주세요(8~16자)</div>
+
+			</div>
+			<div class="password">
+				<label>비밀번호확인</label> <input type="password" id="pw2">
+
+				<div class="loginfalse" id="pw2check"></div>
+
+			</div>
+
+			<div class="phone">
+				<label>휴대폰번호</label> <input type="text" value="휴대폰 번호는 숫자만 입력하세요"
+					id="loginPhone" name="membersTel" required>
+				<div class="phonecheck" id="phonecheck"></div>
+			</div>
+
+			<ul class="consent">
+				<li class="consentli"><input type="checkbox"
+					id="consentCheckboxTitleEs" required> <span
+					class="consentTitle">[필수] 만 14세 이상이며 모두 동의합니다.</span> <img
+					src="/image/icon/cross.png" class="consenticonEs1">
+					<ul class="consentdetailEs">
+						<li class="consentli Es">
+							<div>
+								<input type="checkbox" id="consentCheckboxSubTitleEs1" required>
+								<span class="consentSubTitle">이용약관 동의</span>
+							</div>
+							<div class="consentdetailEsModal" id="modalBtn5a">내용보기</div>
+						</li>
+						<li class="consentli Es">
+							<div>
+								<input type="checkbox" id="consentCheckboxSubTitleEs2" required>
+								<span>개인정보 수집 및 이용 동의</span>
+							</div>
+							<div class="consentdetailEsModal" id="modalBtn3a">내용보기</div>
+						</li>
+					</ul></li>
+				<li class="consentli"><input type="checkbox"
+					id="consentCheckboxTitleCh"> <span class="consentTitle">[선택]
+						광고성 정보 수신에 모두 동의 합니다.</span> <img src="/image/icon/cross.png"
+					class="consenticonCh1">
+					<ul class="consentdetailCh">
+						<li class="consentli">
+							<div>
+								<input type="checkbox" id="consentCheckboxSubTitleCh1">
+								<span class="consentSubTitle">문자 메세지</span>
+							</div>
+						</li>
+						<li class="consentli">
+							<div>
+								<input type="checkbox" id="consentCheckboxSubTitleCh2">
+								<span class="consentSubTitle">이메일</span>
+							</div>
+						</li>
+					</ul></li>
+			</ul>
+
+
+			<div>
+				<input type="submit" value="가입하기" id="registJoin"
+					disabled='disabled'>
+			</div>
+		</form>
+
+		
+	</main>
+
+
 	<div th:replace="common/footer/mainFooter.html"></div>
 
 </body>

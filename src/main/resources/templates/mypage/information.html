@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>THUNDER_BOLT</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/information.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
                         <li>
                             <ul class="prifile_text" style="position: relative;">
                             	<li></li>
-                                <li>thbo_123@gmail.com</li>
+                                <li th:text="${ memberId }"></li>
                             </ul>
                         </li>
                     </ul>
@@ -74,17 +74,15 @@
                 <div class="information_cont">
                     <div>
                         <div class="information_text">로그인 정보</div>
-                        <div class="information_text gray">이메일 주소</div>
-                        <p></p>
-                        <div class="information_text gray">비밀 번호</div>
+                        <div th:text="${ selectInfo.membersId }" class="information_text gray">이메일 주소</div>
                         <p></p>
                     </div>
 
                     <div>
                         <div class="information_text">개인 정보</div>
-                        <div class="information_text gray">이름</div>
+                        <div th:text="${ selectInfo.membersName }" class="information_text gray">이름</div>
                         <p></p>
-                        <div class="information_text gray">휴대폰 번호</div>
+                        <div th:text="${ selectInfo.membersTel }" class="information_text gray">휴대폰 번호</div>
                         <p></p>
                         <button id="info_btn" class="information_btn">수정</button>
                     </div>

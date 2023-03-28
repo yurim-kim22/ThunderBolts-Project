@@ -6,1354 +6,724 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
     <link href="/css/main/main.css" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
     <script src="/js/main.js" type="text/Javascript" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
+   	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
-=======
-<<<<<<< HEAD
-    <link rel="icon" href="/image/icon/favicon.ico" type="image/x-icon">
-</head>
-
-<body>
-	<div th:replace="common/header/mainHeader.html"></div>
-    <main>
-        <div id="bodymainheader">
-            <div id="mainbanner">
-                <div class="banner" style="background-image: url(/upload/image/main/banner/mainbanner1.png)"></div>          
-                <ul id="bannericon">
-                    <li class="button"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                </ul>
-            </div>
-        </div>
-        <div id="bodymainbody">
-            <div class="mainrecommend">
-            	<div class="service img" style="background-image: url(/upload/image/main/category/service.png)">
-                </div>
-                <div class="men img" style="background-image: url(/upload/image/main/category/men.png)">
-                </div>
-                <div class="women img" style="background-image: url(/upload/image/main/category/women.png)">
-                </div>
-                <div class="brand img" style="background-image: url(/upload/image/main/category/brand.png)">
-                </div>
-            </div>
-            <div class="maintitle name">🔥 요즘 뜨는 핫 상품 🔥</div>
-            <div class="product" id="producthot">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1hotimg">
-                        <div class="item1 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">burberry</div>
-                        <div class="item1 pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
-                        <div class="item1 price">834,200</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2hotimg">
-                        <div class="item2 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">23SS 메종 마르지엘라 여성 화이트 독일군 스니커즈</div>
-                        <div class="item2 price">489,900</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3hotimg">
-                        <div class="item3 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Golden Goose</div>
-                        <div class="item3 pname">23SS 골든구스 하이스타 여성 로우탑 스니커즈 GWF00118 F000328 90179</div>
-                        <div class="item3 price">480,200</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4hotimg">
-                         <div class="item4 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Louis Vuitton</div>
-                        <div class="item4 pname">루이비통 포쉐 토일렛 모노그램 풀박스 선물용</div>
-                        <div class="item4 price">1,581,100</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5hotimg">
-                        <div class="item5 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Maison Margiela</div>
-                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
-                        <div class="item5 price">1,062,200</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="subbanner">
-                <div class="rbanner" style="background-image: url(/upload/image/main/banner/rsubbanner.png)"></div>
-                <div class="lbanner" style="background-image: url(/upload/image/main/banner/lsubbanner.png)"></div>
-            </div>
-            <div class="maintitle name">⭐New In</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1newimg">
-                        <div class="item1 newimg" style="background-image: url(/upload/image/main/newitem/nitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Van Cleef & Arpels</div>
-                        <div class="item1 pname">뻬를리 시그니처 브레이슬릿, 미디엄/ 반클리프 아펠</div>
-                        <div class="item1 price">8,990,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2newimg">
-                        <div class="item2 newimg" style="background-image: url(/upload/image/main/newitem/nitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Supreme</div>
-                        <div class="item2 pname">Supreme Kurt Cobain T-Shirt Black - 23SS</div>
-                        <div class="item2 price">126,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3newimg">
-                        <div class="item3 newimg" style="background-image: url(/upload/image/main/newitem/nitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Stone Island</div>
-                        <div class="item3 pname">Stone Island 12321 Nylon Metal Garment Dyed Packable Overshirt Ice - 22SS</div>
-                        <div class="item3 price">770,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4newimg">
-                         <div class="item4 newimg" style="background-image: url(/upload/image/main/newitem/nitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname"> Thom Browne</div>
-                        <div class="item4 pname">Thom Browne Tartan Jacquard Mohair Tweed Cardigan Medium Grey</div>
-                        <div class="item4 price">933,100</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5newimg">
-                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Bandai</div>
-                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
-                        <div class="item5 price">-</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">추천 브랜드</div>
-            <div class="product">
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi1">
-                        <div class="mbimg1" style="background-image: url(/upload/image/main/brand/balenciaga.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt1">발렌시아가</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi2">
-                        <div class="mbimg2" style="background-image: url(/upload/image/main/brand/chanel.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt2">샤넬</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi3">
-                        <div class="mbimg3" style="background-image: url(/upload/image/main/brand/apple.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt3">애플</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi4">
-                        <div class="mbimg4" style="background-image: url(/upload/image/main/brand/stoneisland.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt4">스톤 아일랜드</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi5">
-                        <div class="mbimg5" style="background-image: url(/upload/image/main/brand/ami.png)"></div>
-                    </div>
-                    <div class="mbrandtxt" >
-                        <div class="mbtxt5">아미</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi6">
-                        <div class="mbimg6" style="background-image: url(/upload/image/main/brand/kitsune.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt6">메종 키츠네</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi7">
-                        <div class="mbimg7" style="background-image: url(/upload/image/main/brand/polo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt7">폴로</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi8">
-                        <div class="mbimg8" style="background-image: url(/upload/image/main/brand/heninox.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt8">헬리녹스</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi9">
-                        <div class="mbimg9" style="background-image: url(/upload/image/main/brand/louis.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt9">루이비통</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi10">
-                        <div class="mbimg10" style="background-image: url(/upload/image/main/brand/rolex.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt10">롤렉스</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi11">
-                        <div class="mbimg11" style="background-image: url(/upload/image/main/brand/lolo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt11">로로 피아나</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi12">
-                        <div class="mbimg12" style="background-image: url(/upload/image/main/brand/gucci.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt12">구찌</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi13">
-                        <div class="mbimg13" style="background-image: url(/upload/image/main/brand/goyard.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt13">고야드</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi14">
-                        <div class="mbimg14" style="background-image: url(/upload/image/main/brand/kenzo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt14">겐조</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi15">
-                        <div class="mbimg15" style="background-image: url(/upload/image/main/brand/onitsuka.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt15">오니츠카 타이거</div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="maintitle name">설레이는 봄🌷 추천 상품과 함께...</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1seansonimg">
-                        <div class="item1 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Stussy</div>
-                        <div class="item1 pname">Stussy Relaxed Oversized Crew Green</div>
-                        <div class="item1 price">240,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2seansonimg">
-                        <div class="item2 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Auralee</div>
-                        <div class="item2 pname">Auralee Super Light Wool Check Shirt Brown Herringbone Check - 22AW</div>
-                        <div class="item2 price">510,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3seansonimg">
-                        <div class="item3 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">HERMES</div>
-                        <div class="item3 pname">에르메스 Deep 딥 스니커즈 레더 멀티컬러</div>
-                        <div class="item3 price">1,519,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4seansonimg">
-                         <div class="item4 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Our Legacy</div>
-                        <div class="item4 pname">Our Legacy Cardigan Mohair Baby Blue</div>
-                        <div class="item4 price">360,000</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5seansonimg">
-                        <div class="item5 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Telfar</div>
-                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
-                        <div class="item5 price">465,000</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">Style Picks!</div>
-            <div class="style">
-                <i class="preimg"></i>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg1" style="background-image: url(/upload/image/main/style/mstyleimg1.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg1" style="background-image: url(/upload/image/main/style/mstyleprofile1.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid1">bipresent</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg2" style="background-image: url(/upload/image/main/style/mstyleimg2.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg2" style="background-image: url(/upload/image/main/style/mstyleprofile2.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid2">_beengrae5</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg3" style="background-image: url(/upload/image/main/style/mstyleimg3.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg3" style="background-image: url(/upload/image/main/style/mstyleprofile3.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid3">starting_girls</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg4" style="background-image: url(/upload/image/main/style/mstyleimg4.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg4" style="background-image: url(/upload/image/main/style/mstyleprofile4.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid4">nurungjiji</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg5" style="background-image: url(/upload/image/main/style/mstyleimg5.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg5" style="background-image: url(/upload/image/main/style/mstyleprofile5.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid5">yejida</div>
-                    </div>
-                </div>
-              
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">Sale!</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1saleimg">
-                        <div class="item1 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Bottega Veneta</div>
-                        <div class="item1 pname">Bottega Veneta Small Padded Cassette White</div>
-                        <div class="item1 price">3,524,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2saleimg">
-                        <div class="item2 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">Maison Margiela Zip Around Compact Wallet Black</div>
-                        <div class="item2 price">400,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3saleimg">
-                        <div class="item3 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Bang & Olufsen</div>
-                        <div class="item3 pname">Bang & Olufsen Beoplay HX Timber (Korean Ver.)</div>
-                        <div class="item3 price">530,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4saleimg">
-                         <div class="item4 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Miu Miu</div>
-                        <div class="item4 pname">Miu Miu Matelasse Nappa Leather Card Holder Salvia</div>
-                        <div class="item4 price">380,000</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5saleimg">
-                        <div class="item5 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">USM</div>
-                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
-                        <div class="item5 price">1,186,200</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">🥇Best 랭킹</div>
-            <div class="rank">
-                <div class="toprank first">
-                    <div class="first rankimg"></div>
-                    <div class="first prankimg" style="background-image: url(/upload/image/main/rank/rank1.png)"></div>
-                    <div class="first ranktxt">TOP 1</div>
-                    <div class="first rankbrand">Stussy</div>
-                    <div class="first rankpname">Stussy Basic Stussy LS T-Shirt Black 2022</div>
-                </div>
-                <div class="toprank second">
-                    <div class="second rankimg"></div>
-                    <div class="second prankimg" style="background-image: url(/upload/image/main/rank/rank2.png)"></div>
-                    <div class="second ranktxt">TOP 2</div>
-                    <div class="second rankbrand">Nike</div>
-                    <div class="second rankpname">Nike x Off-White NRG Jersey Imperial Blue - Asia</div>
-                </div>
-                <div class="toprank third">
-                    <div class="third rankimg"></div>
-                    <div class="third prankimg" style="background-image: url(/upload/image/main/rank/rank3.png)"></div>
-                    <div class="third ranktxt">TOP 3</div>
-                    <div class="third rankbrand">Stussy</div>
-                    <div class="third rankpname">Stussy World Tour LS T-Shirt White</div>
-                </div>
-                <div class="toprank fourth">
-                    <div class="fourth rankimg"></div>
-                    <div class="fourth prankimg" style="background-image: url(/upload/image/main/rank/rank4.png)"></div>
-                    <div class="fourth ranktxt">TOP 4</div>
-                    <div class="fourth rankbrand">Wooyoungmi</div>
-                    <div class="fourth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt Black - 22FW</div>
-                </div>
-                <div class="toprank fifth">
-                    <div class="fifth rankimg"></div>
-                    <div class="fifth prankimg" style="background-image: url(/upload/image/main/rank/rank5.png)"></div>
-                    <div class="fifth ranktxt">TOP 5</div>
-                    <div class="fifth rankbrand">Wooyoungmi</div>
-                    <div class="fifth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt White - 22FW</div>
-                </div>
-            </div>
-            <div class="maintitle name">오늘의 핫딜</div>
-                <div class="todayproduct">
-                    <div class="todaypro item1">
-                        <div class="item1todayhotimg">
-                            <div class="item1 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem1.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item1 brandname">Nike</div>
-                            <div class="item1 pname">Nike x Comme des Garcons Homme Plus Air Max Sunder SP Black</div>
-                            <div class="item1 price">420,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item2">
-                        <div class="item2todayhotimg">
-                            <div class="item2 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem2.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item2 brandname">Arc'teryx</div>
-                            <div class="item2 pname">Arc'teryx Heliad 15 Backpack Black</div>
-                            <div class="item2 price">309,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item3">
-                        <div class="item3todayhotimg">
-                            <div class="item3 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem3.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item3 brandname">Stone Island</div>
-                            <div class="item3 pname">Stone Island 99661 6-Panel Cap White - 22SS</div>
-                            <div class="item3 price">129,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item4">
-                        <div class="item4todayhotimg">
-                             <div class="item4 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem4.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item4 brandname">Human Made</div>
-                            <div class="item4 pname">Human Made Rabbit L/S T-Shirt White</div>
-                            <div class="item4 price">230,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item5">
-                        <div class="item5todayhotimg">
-                            <div class="item5 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem5.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item5 brandname">Stussy</div>
-                            <div class="item5 pname">Stussy World Tour Shirt White</div>
-                            <div class="item5 price">225,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item6">
-                        <div class="item6todayhotimg">
-                            <div class="item6 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem6.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item6 brandname">Chanel</div>
-                            <div class="item6 pname">Chanel 22 Small Handbag Shiny Calfskin & Gold White</div>
-                            <div class="item6 price">7,150,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item7">
-                        <div class="item7todayhotimg">
-                            <div class="item7 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem7.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item7 brandname">Our Legacy</div>
-                            <div class="item7 pname">Our Legacy Third Cut Slash Denim Black</div>
-                            <div class="item7 price">324,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item8">
-                        <div class="item8todayhotimg">
-                            <div class="item8 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem8.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item8 brandname">Prada</div>
-                            <div class="item8 pname">Prada Chocolate Brushed Leather Loafers Black</div>
-                            <div class="item8 price">1,200,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item9">
-                        <div class="item9todayhotimg">
-                             <div class="item9 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem9.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item9 brandname">Hermes</div>
-                            <div class="item9 pname">(W) Hermes Small Chaine D'Ancre Enchainee Ring Sterling Silver</div>
-                            <div class="item9 price">703,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item10">
-                        <div class="item10todayhotimg">
-                            <div class="item10 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem10.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item10 brandname">Nike</div>
-                            <div class="item10 pname">Nike x Tom Sachs General Purpose Shoe Archive</div>
-                            <div class="item10 price">330,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item11">
-                        <div class="item11todayhotimg">
-                            <div class="item11 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem11.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item11 brandname">Burberry</div>
-                            <div class="item11 pname">Burberry Mini Two-Tone Canvas and Leather Freya Tote Bag Natural Tan</div>
-                            <div class="item11 price">1,213,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item12">
-                        <div class="item12todayhotimg">
-                            <div class="item12 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem12.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item12 brandname">Diesel</div>
-                            <div class="item12 pname">Diesel C-Seymon Treated Denim Baseball Cap Blue White</div>
-                            <div class="item12 price">350,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item13">
-                        <div class="item13todayhotimg">
-                            <div class="item13 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem13.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item13 brandname">Valentino</div>
-                            <div class="item13 pname">Valentino Vlogo Signature Nappa Mini Bucket Bag with Chain Light Ivory</div>
-                            <div class="item13 price">1,050,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item14">
-                        <div class="item14todayhotimg">
-                             <div class="item14 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem14.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item14 brandname">Celine</div>
-                            <div class="item14 pname">Celine Folco Cuir Triomphe in Smooth Calfskin Tan</div>
-                            <div class="item14 price">2,400,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item15">
-                        <div class="item15todayhotimg">
-                            <div class="item15 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem15.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item15 brandname">Maison Kitsune</div>
-                            <div class="item15 pname">Maison Kitsune Baby Fox Patch R-Neck Fitted Cardigan Beige</div>
-                            <div class="item15 price">365,000</div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </main>
-	<div th:replace="common/footer/mainFooter.html"></div>
-=======
->>>>>>> refs/heads/byounggit
-</head>
-
-<body>
-	<div th:replace="common/header/mainHeader.html"></div>
-    <main>
-        <div id="bodymainheader">
-            <div id="mainbanner">
-                <div class="banner" style="background-image: url(/upload/image/main/banner/mainbanner1.png)"></div>          
-                <ul id="bannericon">
-                    <li class="button"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                    <li class="bannerbutton"><button></button></li>
-                </ul>
-            </div>
-        </div>
-        <div id="bodymainbody">
-            <div class="mainrecommend">
-            	<div class="service img" style="background-image: url(/upload/image/main/category/service.png)">
-                </div>
-                <div class="men img" style="background-image: url(/upload/image/main/category/men.png)">
-                </div>
-                <div class="women img" style="background-image: url(/upload/image/main/category/women.png)">
-                </div>
-                <div class="brand img" style="background-image: url(/upload/image/main/category/brand.png)">
-                </div>
-            </div>
-            <div class="maintitle name">🔥 요즘 뜨는 핫 상품 🔥</div>
-            <div class="product" id="producthot">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1hotimg">
-                        <div class="item1 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">burberry</div>
-                        <div class="item1 pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
-                        <div class="item1 price">834,200</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2hotimg">
-                        <div class="item2 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">23SS 메종 마르지엘라 여성 화이트 독일군 스니커즈</div>
-                        <div class="item2 price">489,900</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3hotimg">
-                        <div class="item3 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Golden Goose</div>
-                        <div class="item3 pname">23SS 골든구스 하이스타 여성 로우탑 스니커즈 GWF00118 F000328 90179</div>
-                        <div class="item3 price">480,200</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4hotimg">
-                         <div class="item4 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Louis Vuitton</div>
-                        <div class="item4 pname">루이비통 포쉐 토일렛 모노그램 풀박스 선물용</div>
-                        <div class="item4 price">1,581,100</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5hotimg">
-                        <div class="item5 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Maison Margiela</div>
-                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
-                        <div class="item5 price">1,062,200</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="subbanner">
-                <div class="rbanner" style="background-image: url(/upload/image/main/banner/rsubbanner.png)"></div>
-                <div class="lbanner" style="background-image: url(/upload/image/main/banner/lsubbanner.png)"></div>
-            </div>
-            <div class="maintitle name">⭐New In</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1newimg">
-                        <div class="item1 newimg" style="background-image: url(/upload/image/main/newitem/nitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Van Cleef & Arpels</div>
-                        <div class="item1 pname">뻬를리 시그니처 브레이슬릿, 미디엄/ 반클리프 아펠</div>
-                        <div class="item1 price">8,990,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2newimg">
-                        <div class="item2 newimg" style="background-image: url(/upload/image/main/newitem/nitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Supreme</div>
-                        <div class="item2 pname">Supreme Kurt Cobain T-Shirt Black - 23SS</div>
-                        <div class="item2 price">126,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3newimg">
-                        <div class="item3 newimg" style="background-image: url(/upload/image/main/newitem/nitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Stone Island</div>
-                        <div class="item3 pname">Stone Island 12321 Nylon Metal Garment Dyed Packable Overshirt Ice - 22SS</div>
-                        <div class="item3 price">770,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4newimg">
-                         <div class="item4 newimg" style="background-image: url(/upload/image/main/newitem/nitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname"> Thom Browne</div>
-                        <div class="item4 pname">Thom Browne Tartan Jacquard Mohair Tweed Cardigan Medium Grey</div>
-                        <div class="item4 price">933,100</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5newimg">
-                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Bandai</div>
-                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
-                        <div class="item5 price">-</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">추천 브랜드</div>
-            <div class="product">
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi1">
-                        <div class="mbimg1" style="background-image: url(/upload/image/main/brand/balenciaga.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt1">발렌시아가</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi2">
-                        <div class="mbimg2" style="background-image: url(/upload/image/main/brand/chanel.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt2">샤넬</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi3">
-                        <div class="mbimg3" style="background-image: url(/upload/image/main/brand/apple.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt3">애플</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi4">
-                        <div class="mbimg4" style="background-image: url(/upload/image/main/brand/stoneisland.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt4">스톤 아일랜드</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi5">
-                        <div class="mbimg5" style="background-image: url(/upload/image/main/brand/ami.png)"></div>
-                    </div>
-                    <div class="mbrandtxt" >
-                        <div class="mbtxt5">아미</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi6">
-                        <div class="mbimg6" style="background-image: url(/upload/image/main/brand/kitsune.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt6">메종 키츠네</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi7">
-                        <div class="mbimg7" style="background-image: url(/upload/image/main/brand/polo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt7">폴로</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi8">
-                        <div class="mbimg8" style="background-image: url(/upload/image/main/brand/heninox.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt8">헬리녹스</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi9">
-                        <div class="mbimg9" style="background-image: url(/upload/image/main/brand/louis.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt9">루이비통</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi10">
-                        <div class="mbimg10" style="background-image: url(/upload/image/main/brand/rolex.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt10">롤렉스</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi11">
-                        <div class="mbimg11" style="background-image: url(/upload/image/main/brand/lolo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt11">로로 피아나</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi12">
-                        <div class="mbimg12" style="background-image: url(/upload/image/main/brand/gucci.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt12">구찌</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi13">
-                        <div class="mbimg13" style="background-image: url(/upload/image/main/brand/goyard.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt13">고야드</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi14">
-                        <div class="mbimg14" style="background-image: url(/upload/image/main/brand/kenzo.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt14">겐조</div>
-                    </div>
-                </div>
-                <div class="mbarnd">
-                    <div class="mbrandimg mbi15">
-                        <div class="mbimg15" style="background-image: url(/upload/image/main/brand/onitsuka.png)"></div>
-                    </div>
-                    <div class="mbrandtxt">
-                        <div class="mbtxt15">오니츠카 타이거</div>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="maintitle name">설레이는 봄🌷 추천 상품과 함께...</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1seansonimg">
-                        <div class="item1 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Stussy</div>
-                        <div class="item1 pname">Stussy Relaxed Oversized Crew Green</div>
-                        <div class="item1 price">240,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2seansonimg">
-                        <div class="item2 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Auralee</div>
-                        <div class="item2 pname">Auralee Super Light Wool Check Shirt Brown Herringbone Check - 22AW</div>
-                        <div class="item2 price">510,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3seansonimg">
-                        <div class="item3 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">HERMES</div>
-                        <div class="item3 pname">에르메스 Deep 딥 스니커즈 레더 멀티컬러</div>
-                        <div class="item3 price">1,519,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4seansonimg">
-                         <div class="item4 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Our Legacy</div>
-                        <div class="item4 pname">Our Legacy Cardigan Mohair Baby Blue</div>
-                        <div class="item4 price">360,000</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5seansonimg">
-                        <div class="item5 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Telfar</div>
-                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
-                        <div class="item5 price">465,000</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">Style Picks!</div>
-            <div class="style">
-                <i class="preimg"></i>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg1" style="background-image: url(/upload/image/main/style/mstyleimg1.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg1" style="background-image: url(/upload/image/main/style/mstyleprofile1.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid1">bipresent</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg2" style="background-image: url(/upload/image/main/style/mstyleimg2.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg2" style="background-image: url(/upload/image/main/style/mstyleprofile2.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid2">_beengrae5</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg3" style="background-image: url(/upload/image/main/style/mstyleimg3.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg3" style="background-image: url(/upload/image/main/style/mstyleprofile3.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid3">starting_girls</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg4" style="background-image: url(/upload/image/main/style/mstyleimg4.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg4" style="background-image: url(/upload/image/main/style/mstyleprofile4.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid4">nurungjiji</div>
-                    </div>
-                </div>
-                <div class="mstyle">
-                    <div class="mstyleimg">
-                        <div class="mstyleimg5" style="background-image: url(/upload/image/main/style/mstyleimg5.png)"></div>
-                    </div>
-                    <div class="mstyleprofile">
-                        <div class="mstyleprofileimg5" style="background-image: url(/upload/image/main/style/mstyleprofile5.png)"></div>
-                    </div>
-                    <div class="mstyleid">
-                        <div class="mstyleid5">yejida</div>
-                    </div>
-                </div>
-              
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">Sale!</div>
-            <div class="product">
-                <i class="preimg"></i>
-                <div class="pro item1">
-                    <div class="item1saleimg">
-                        <div class="item1 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Bottega Veneta</div>
-                        <div class="item1 pname">Bottega Veneta Small Padded Cassette White</div>
-                        <div class="item1 price">3,524,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
-                    <div class="item2saleimg">
-                        <div class="item2 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem2.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">Maison Margiela Zip Around Compact Wallet Black</div>
-                        <div class="item2 price">400,000</div>
-                    </div>
-                </div>
-                <div class="pro item3">
-                    <div class="item3saleimg">
-                        <div class="item3 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem3.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item3 brandname">Bang & Olufsen</div>
-                        <div class="item3 pname">Bang & Olufsen Beoplay HX Timber (Korean Ver.)</div>
-                        <div class="item3 price">530,000</div>
-                    </div>
-                </div>
-                <div class="pro item4">
-                    <div class="item4saleimg">
-                         <div class="item4 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem4.png)"></div>
-                         <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item4 brandname">Miu Miu</div>
-                        <div class="item4 pname">Miu Miu Matelasse Nappa Leather Card Holder Salvia</div>
-                        <div class="item4 price">380,000</div>
-                    </div>
-                </div>
-                <div class="pro item5">
-                    <div class="item5saleimg">
-                        <div class="item5 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">USM</div>
-                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
-                        <div class="item5 price">1,186,200</div>
-                    </div>
-                </div>
-                <i class="nextimg"></i>
-            </div>
-            <div class="maintitle name">🥇Best 랭킹</div>
-            <div class="rank">
-                <div class="toprank first">
-                    <div class="first rankimg"></div>
-                    <div class="first prankimg" style="background-image: url(/upload/image/main/rank/rank1.png)"></div>
-                    <div class="first ranktxt">TOP 1</div>
-                    <div class="first rankbrand">Stussy</div>
-                    <div class="first rankpname">Stussy Basic Stussy LS T-Shirt Black 2022</div>
-                </div>
-                <div class="toprank second">
-                    <div class="second rankimg"></div>
-                    <div class="second prankimg" style="background-image: url(/upload/image/main/rank/rank2.png)"></div>
-                    <div class="second ranktxt">TOP 2</div>
-                    <div class="second rankbrand">Nike</div>
-                    <div class="second rankpname">Nike x Off-White NRG Jersey Imperial Blue - Asia</div>
-                </div>
-                <div class="toprank third">
-                    <div class="third rankimg"></div>
-                    <div class="third prankimg" style="background-image: url(/upload/image/main/rank/rank3.png)"></div>
-                    <div class="third ranktxt">TOP 3</div>
-                    <div class="third rankbrand">Stussy</div>
-                    <div class="third rankpname">Stussy World Tour LS T-Shirt White</div>
-                </div>
-                <div class="toprank fourth">
-                    <div class="fourth rankimg"></div>
-                    <div class="fourth prankimg" style="background-image: url(/upload/image/main/rank/rank4.png)"></div>
-                    <div class="fourth ranktxt">TOP 4</div>
-                    <div class="fourth rankbrand">Wooyoungmi</div>
-                    <div class="fourth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt Black - 22FW</div>
-                </div>
-                <div class="toprank fifth">
-                    <div class="fifth rankimg"></div>
-                    <div class="fifth prankimg" style="background-image: url(/upload/image/main/rank/rank5.png)"></div>
-                    <div class="fifth ranktxt">TOP 5</div>
-                    <div class="fifth rankbrand">Wooyoungmi</div>
-                    <div class="fifth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt White - 22FW</div>
-                </div>
-            </div>
-            <div class="maintitle name">오늘의 핫딜</div>
-                <div class="todayproduct">
-                    <div class="todaypro item1">
-                        <div class="item1todayhotimg">
-                            <div class="item1 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem1.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item1 brandname">Nike</div>
-                            <div class="item1 pname">Nike x Comme des Garcons Homme Plus Air Max Sunder SP Black</div>
-                            <div class="item1 price">420,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item2">
-                        <div class="item2todayhotimg">
-                            <div class="item2 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem2.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item2 brandname">Arc'teryx</div>
-                            <div class="item2 pname">Arc'teryx Heliad 15 Backpack Black</div>
-                            <div class="item2 price">309,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item3">
-                        <div class="item3todayhotimg">
-                            <div class="item3 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem3.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item3 brandname">Stone Island</div>
-                            <div class="item3 pname">Stone Island 99661 6-Panel Cap White - 22SS</div>
-                            <div class="item3 price">129,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item4">
-                        <div class="item4todayhotimg">
-                             <div class="item4 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem4.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item4 brandname">Human Made</div>
-                            <div class="item4 pname">Human Made Rabbit L/S T-Shirt White</div>
-                            <div class="item4 price">230,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item5">
-                        <div class="item5todayhotimg">
-                            <div class="item5 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem5.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item5 brandname">Stussy</div>
-                            <div class="item5 pname">Stussy World Tour Shirt White</div>
-                            <div class="item5 price">225,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item6">
-                        <div class="item6todayhotimg">
-                            <div class="item6 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem6.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item6 brandname">Chanel</div>
-                            <div class="item6 pname">Chanel 22 Small Handbag Shiny Calfskin & Gold White</div>
-                            <div class="item6 price">7,150,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item7">
-                        <div class="item7todayhotimg">
-                            <div class="item7 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem7.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item7 brandname">Our Legacy</div>
-                            <div class="item7 pname">Our Legacy Third Cut Slash Denim Black</div>
-                            <div class="item7 price">324,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item8">
-                        <div class="item8todayhotimg">
-                            <div class="item8 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem8.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item8 brandname">Prada</div>
-                            <div class="item8 pname">Prada Chocolate Brushed Leather Loafers Black</div>
-                            <div class="item8 price">1,200,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item9">
-                        <div class="item9todayhotimg">
-                             <div class="item9 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem9.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item9 brandname">Hermes</div>
-                            <div class="item9 pname">(W) Hermes Small Chaine D'Ancre Enchainee Ring Sterling Silver</div>
-                            <div class="item9 price">703,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item10">
-                        <div class="item10todayhotimg">
-                            <div class="item10 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem10.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item10 brandname">Nike</div>
-                            <div class="item10 pname">Nike x Tom Sachs General Purpose Shoe Archive</div>
-                            <div class="item10 price">330,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item11">
-                        <div class="item11todayhotimg">
-                            <div class="item11 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem11.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item11 brandname">Burberry</div>
-                            <div class="item11 pname">Burberry Mini Two-Tone Canvas and Leather Freya Tote Bag Natural Tan</div>
-                            <div class="item11 price">1,213,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item12">
-                        <div class="item12todayhotimg">
-                            <div class="item12 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem12.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item12 brandname">Diesel</div>
-                            <div class="item12 pname">Diesel C-Seymon Treated Denim Baseball Cap Blue White</div>
-                            <div class="item12 price">350,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item13">
-                        <div class="item13todayhotimg">
-                            <div class="item13 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem13.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item13 brandname">Valentino</div>
-                            <div class="item13 pname">Valentino Vlogo Signature Nappa Mini Bucket Bag with Chain Light Ivory</div>
-                            <div class="item13 price">1,050,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item14">
-                        <div class="item14todayhotimg">
-                             <div class="item14 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem14.png)"></div>
-                             <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item14 brandname">Celine</div>
-                            <div class="item14 pname">Celine Folco Cuir Triomphe in Smooth Calfskin Tan</div>
-                            <div class="item14 price">2,400,000</div>
-                        </div>
-                    </div>
-                    <div class="todaypro item15">
-                        <div class="item15todayhotimg">
-                            <div class="item15 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem15.png)"></div>
-                            <i class="eheart"></i>
-                        </div>
-                        <div class="itemtxt">
-                            <div class="item15 brandname">Maison Kitsune</div>
-                            <div class="item15 pname">Maison Kitsune Baby Fox Patch R-Neck Fitted Cardigan Beige</div>
-                            <div class="item15 price">365,000</div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </main>
-<<<<<<< HEAD
-	<div th:replace="common/footer/mainFooter.html"></div>
-=======
-	<div th:replace="common/footer/mainfooter.html"></div>
->>>>>>> branch 'master' of https://github.com/yujunglove/thunderbolts.git
->>>>>>> refs/heads/byounggit
-
+   
     
+</head>
+
+<body>
+	<div th:replace="common/header/mainHeader.html"></div>
+    <main>
+        <div id="bodymainheader">
+            <div id="mainbanner">
+                <div class="banner" style="background-image: url(/upload/image/main/banner/mainbanner1.png)"></div>          
+                <ul id="bannericon">
+                    <li class="button"></li>
+                    <li class="bannerbutton"></li>
+                    <li class="bannerbutton"></li>
+                    <li class="bannerbutton"></li>
+                    <li class="bannerbutton"></li>
+                </ul>
+            </div>
+        </div>
+        <div id="bodymainbody">
+            <div class="mainrecommend">
+            	<div class="service img" style="background-image: url(/upload/image/main/category/service.png)">
+                </div>
+                <div class="men img" style="background-image: url(/upload/image/main/category/men.png)">
+                </div>
+                <div class="women img" style="background-image: url(/upload/image/main/category/women.png)">
+                </div>
+                <div class="brand img" style="background-image: url(/upload/image/main/category/brand.png)">
+                </div>
+            </div>
+            <div class="maintitle name">🔥 요즘 뜨는 핫 상품 🔥</div>
+            <div class="product" id="producthot">
+          
+                <div class="pro item1">	
+                    <div class="item1hotimg">
+                        <div class="item1 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem1.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item1 brandname">burberry</div>
+                        <div class="item1 pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
+                        <div class="item1 price">834,200</div>
+                    </div>
+                </div>
+                <div class="pro item2">
+                    <div class="item2hotimg">
+                        <div class="item2 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem2.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item2 brandname">Maison Margiela</div>
+                        <div class="item2 pname">23SS 메종 마르지엘라 여성 화이트 독일군 스니커즈</div>
+                        <div class="item2 price">489,900</div>
+                    </div>
+                </div>
+                <div class="pro item3">
+                    <div class="item3hotimg">
+                        <div class="item3 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem3.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item3 brandname">Golden Goose</div>
+                        <div class="item3 pname">23SS 골든구스 하이스타 여성 로우탑 스니커즈 GWF00118 F000328 90179</div>
+                        <div class="item3 price">480,200</div>
+                    </div>
+                </div>
+                <div class="pro item4">
+                    <div class="item4hotimg">
+                         <div class="item4 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem4.png)"></div>
+                         <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item4 brandname">Louis Vuitton</div>
+                        <div class="item4 pname">루이비통 포쉐 토일렛 모노그램 풀박스 선물용</div>
+                        <div class="item4 price">1,581,100</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5hotimg">
+                        <div class="item5 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Maison Margiela</div>
+                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
+                        <div class="item5 price">1,062,200</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5hotimg">
+                        <div class="item5 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Maison Margiela</div>
+                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
+                        <div class="item5 price">1,062,200</div>
+                    </div>
+                </div>
+            </div>
+            <div class="subbanner">
+                <div class="rbanner" style="background-image: url(/upload/image/main/banner/rsubbanner.png)"></div>
+                <div class="lbanner" style="background-image: url(/upload/image/main/banner/lsubbanner.png)"></div>
+            </div>
+            <div class="maintitle name">⭐New In</div>
+            <div class="product" id="productNew">
+                <div class="pro item1">
+                    <div class="item1newimg">
+                        <div class="item1 newimg" style="background-image: url(/upload/image/main/newitem/nitem1.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item1 brandname">Van Cleef & Arpels</div>
+                        <div class="item1 pname">뻬를리 시그니처 브레이슬릿, 미디엄/ 반클리프 아펠</div>
+                        <div class="item1 price">8,990,000</div>
+                    </div>
+                </div>
+                <div class="pro item2">
+                    <div class="item2newimg">
+                        <div class="item2 newimg" style="background-image: url(/upload/image/main/newitem/nitem2.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item2 brandname">Supreme</div>
+                        <div class="item2 pname">Supreme Kurt Cobain T-Shirt Black - 23SS</div>
+                        <div class="item2 price">126,000</div>
+                    </div>
+                </div>
+                <div class="pro item3">
+                    <div class="item3newimg">
+                        <div class="item3 newimg" style="background-image: url(/upload/image/main/newitem/nitem3.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item3 brandname">Stone Island</div>
+                        <div class="item3 pname">Stone Island 12321 Nylon Metal Garment Dyed Packable Overshirt Ice - 22SS</div>
+                        <div class="item3 price">770,000</div>
+                    </div>
+                </div>
+                <div class="pro item4">
+                    <div class="item4newimg">
+                         <div class="item4 newimg" style="background-image: url(/upload/image/main/newitem/nitem4.png)"></div>
+                         <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item4 brandname"> Thom Browne</div>
+                        <div class="item4 pname">Thom Browne Tartan Jacquard Mohair Tweed Cardigan Medium Grey</div>
+                        <div class="item4 price">933,100</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5newimg">
+                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Bandai</div>
+                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
+                        <div class="item5 price">-</div>
+                    </div>
+                </div>
+                    <div class="pro item5">
+                    <div class="item5newimg">
+                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Bandai</div>
+                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
+                        <div class="item5 price">-</div>
+                    </div>
+                </div>
+            </div>
+            <div class="maintitle name">추천 브랜드</div>
+            <div class="product">
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi1">
+                        <div class="mbimg1" style="background-image: url(/upload/image/main/brand/balenciaga.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt1">발렌시아가</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi2">
+                        <div class="mbimg2" style="background-image: url(/upload/image/main/brand/chanel.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt2">샤넬</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi3">
+                        <div class="mbimg3" style="background-image: url(/upload/image/main/brand/apple.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt3">애플</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi4">
+                        <div class="mbimg4" style="background-image: url(/upload/image/main/brand/stoneisland.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt4">스톤 아일랜드</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi5">
+                        <div class="mbimg5" style="background-image: url(/upload/image/main/brand/ami.png)"></div>
+                    </div>
+                    <div class="mbrandtxt" >
+                        <div class="mbtxt5">아미</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi6">
+                        <div class="mbimg6" style="background-image: url(/upload/image/main/brand/kitsune.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt6">메종 키츠네</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi7">
+                        <div class="mbimg7" style="background-image: url(/upload/image/main/brand/polo.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt7">폴로</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi8">
+                        <div class="mbimg8" style="background-image: url(/upload/image/main/brand/heninox.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt8">헬리녹스</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi9">
+                        <div class="mbimg9" style="background-image: url(/upload/image/main/brand/louis.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt9">루이비통</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi10">
+                        <div class="mbimg10" style="background-image: url(/upload/image/main/brand/rolex.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt10">롤렉스</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi11">
+                        <div class="mbimg11" style="background-image: url(/upload/image/main/brand/lolo.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt11">로로 피아나</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi12">
+                        <div class="mbimg12" style="background-image: url(/upload/image/main/brand/gucci.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt12">구찌</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi13">
+                        <div class="mbimg13" style="background-image: url(/upload/image/main/brand/goyard.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt13">고야드</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi14">
+                        <div class="mbimg14" style="background-image: url(/upload/image/main/brand/kenzo.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt14">겐조</div>
+                    </div>
+                </div>
+                <div class="mbarnd">
+                    <div class="mbrandimg mbi15">
+                        <div class="mbimg15" style="background-image: url(/upload/image/main/brand/onitsuka.png)"></div>
+                    </div>
+                    <div class="mbrandtxt">
+                        <div class="mbtxt15">오니츠카 타이거</div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="maintitle name">설레이는 봄🌷 추천 상품과 함께...</div>
+            <div class="product" id="productSeason">
+                <div class="pro item1">
+                    <div class="item1seansonimg">
+                        <div class="item1 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem1.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item1 brandname">Stussy</div>
+                        <div class="item1 pname">Stussy Relaxed Oversized Crew Green</div>
+                        <div class="item1 price">240,000</div>
+                    </div>
+                </div>
+                <div class="pro item2">
+                    <div class="item2seansonimg">
+                        <div class="item2 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem2.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item2 brandname">Auralee</div>
+                        <div class="item2 pname">Auralee Super Light Wool Check Shirt Brown Herringbone Check - 22AW</div>
+                        <div class="item2 price">510,000</div>
+                    </div>
+                </div>
+                <div class="pro item3">
+                    <div class="item3seansonimg">
+                        <div class="item3 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem3.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item3 brandname">HERMES</div>
+                        <div class="item3 pname">에르메스 Deep 딥 스니커즈 레더 멀티컬러</div>
+                        <div class="item3 price">1,519,000</div>
+                    </div>
+                </div>
+                <div class="pro item4">
+                    <div class="item4seansonimg">
+                         <div class="item4 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem4.png)"></div>
+                         <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item4 brandname">Our Legacy</div>
+                        <div class="item4 pname">Our Legacy Cardigan Mohair Baby Blue</div>
+                        <div class="item4 price">360,000</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5seansonimg">
+                        <div class="item5 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Telfar</div>
+                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
+                        <div class="item5 price">465,000</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5seansonimg">
+                        <div class="item5 seansonimg" style="background-image: url(/upload/image/main/seasonitem/sitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">Telfar</div>
+                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
+                        <div class="item5 price">465,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="maintitle name">Style Picks!</div>
+            <div class="style" id="style">
+                <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg1" style="background-image: url(/upload/image/main/style/mstyleimg1.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg1" style="background-image: url(/upload/image/main/style/mstyleprofile1.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid1">bipresent</div>
+                    </div>
+                </div>
+                <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg2" style="background-image: url(/upload/image/main/style/mstyleimg2.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg2" style="background-image: url(/upload/image/main/style/mstyleprofile2.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid2">_beengrae5</div>
+                    </div>
+                </div>
+                <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg3" style="background-image: url(/upload/image/main/style/mstyleimg3.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg3" style="background-image: url(/upload/image/main/style/mstyleprofile3.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid3">starting_girls</div>
+                    </div>
+                </div>
+                <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg4" style="background-image: url(/upload/image/main/style/mstyleimg4.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg4" style="background-image: url(/upload/image/main/style/mstyleprofile4.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid4">nurungjiji</div>
+                    </div>
+                </div>
+                <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg5" style="background-image: url(/upload/image/main/style/mstyleimg5.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg5" style="background-image: url(/upload/image/main/style/mstyleprofile5.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid5">yejida</div>
+                    </div>
+                </div>
+                 <div class="mstyle">
+                    <div class="mstyleimg">
+                        <div class="mstyleimg5" style="background-image: url(/upload/image/main/style/mstyleimg5.png)"></div>
+                    </div>
+                    <div class="mstyleprofile">
+                        <div class="mstyleprofileimg5" style="background-image: url(/upload/image/main/style/mstyleprofile5.png)"></div>
+                    </div>
+                    <div class="mstyleid">
+                        <div class="mstyleid5">yejida</div>
+                    </div>
+                </div>
+            </div>
+            <div class="maintitle name">Sale!</div>
+            <div class="product" id="productSale">
+                <div class="pro item1">
+                    <div class="item1saleimg">
+                        <div class="item1 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem1.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item1 brandname">Bottega Veneta</div>
+                        <div class="item1 pname">Bottega Veneta Small Padded Cassette White</div>
+                        <div class="item1 price">3,524,000</div>
+                    </div>
+                </div>
+                <div class="pro item2">
+                    <div class="item2saleimg">
+                        <div class="item2 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem2.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item2 brandname">Maison Margiela</div>
+                        <div class="item2 pname">Maison Margiela Zip Around Compact Wallet Black</div>
+                        <div class="item2 price">400,000</div>
+                    </div>
+                </div>
+                <div class="pro item3">
+                    <div class="item3saleimg">
+                        <div class="item3 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem3.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item3 brandname">Bang & Olufsen</div>
+                        <div class="item3 pname">Bang & Olufsen Beoplay HX Timber (Korean Ver.)</div>
+                        <div class="item3 price">530,000</div>
+                    </div>
+                </div>
+                <div class="pro item4">
+                    <div class="item4saleimg">
+                         <div class="item4 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem4.png)"></div>
+                         <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item4 brandname">Miu Miu</div>
+                        <div class="item4 pname">Miu Miu Matelasse Nappa Leather Card Holder Salvia</div>
+                        <div class="item4 price">380,000</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5saleimg">
+                        <div class="item5 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">USM</div>
+                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
+                        <div class="item5 price">1,186,200</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5saleimg">
+                        <div class="item5 saleimg" style="background-image: url(/upload/image/main/saleitem/saleitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="item5 brandname">USM</div>
+                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
+                        <div class="item5 price">1,186,200</div>
+                    </div>
+                </div>
+            </div>
+            <div class="maintitle name">🥇Best 랭킹</div>
+            <div class="rank">
+                <div class="toprank first">
+                    <div class="first rankimg"></div>
+                    <div class="first prankimg" style="background-image: url(/upload/image/main/rank/rank1.png)"></div>
+                    <div class="first ranktxt">TOP 1</div>
+                    <div class="first rankbrand">Stussy</div>
+                    <div class="first rankpname">Stussy Basic Stussy LS T-Shirt Black 2022</div>
+                </div>
+                <div class="toprank second">
+                    <div class="second rankimg"></div>
+                    <div class="second prankimg" style="background-image: url(/upload/image/main/rank/rank2.png)"></div>
+                    <div class="second ranktxt">TOP 2</div>
+                    <div class="second rankbrand">Nike</div>
+                    <div class="second rankpname">Nike x Off-White NRG Jersey Imperial Blue - Asia</div>
+                </div>
+                <div class="toprank third">
+                    <div class="third rankimg"></div>
+                    <div class="third prankimg" style="background-image: url(/upload/image/main/rank/rank3.png)"></div>
+                    <div class="third ranktxt">TOP 3</div>
+                    <div class="third rankbrand">Stussy</div>
+                    <div class="third rankpname">Stussy World Tour LS T-Shirt White</div>
+                </div>
+                <div class="toprank fourth">
+                    <div class="fourth rankimg"></div>
+                    <div class="fourth prankimg" style="background-image: url(/upload/image/main/rank/rank4.png)"></div>
+                    <div class="fourth ranktxt">TOP 4</div>
+                    <div class="fourth rankbrand">Wooyoungmi</div>
+                    <div class="fourth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt Black - 22FW</div>
+                </div>
+                <div class="toprank fifth">
+                    <div class="fifth rankimg"></div>
+                    <div class="fifth prankimg" style="background-image: url(/upload/image/main/rank/rank5.png)"></div>
+                    <div class="fifth ranktxt">TOP 5</div>
+                    <div class="fifth rankbrand">Wooyoungmi</div>
+                    <div class="fifth rankpname">Wooyoungmi Cotton Long Sleeve Back Logo T-Shirt White - 22FW</div>
+                </div>
+            </div>
+            <div class="maintitle name">오늘의 핫딜</div>
+                <div class="todayproduct">
+                    <div class="todaypro item1">
+                        <div class="item1todayhotimg">
+                            <div class="item1 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem1.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item1 brandname">Nike</div>
+                            <div class="item1 pname">Nike x Comme des Garcons Homme Plus Air Max Sunder SP Black</div>
+                            <div class="item1 price">420,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item2">
+                        <div class="item2todayhotimg">
+                            <div class="item2 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem2.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item2 brandname">Arc'teryx</div>
+                            <div class="item2 pname">Arc'teryx Heliad 15 Backpack Black</div>
+                            <div class="item2 price">309,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item3">
+                        <div class="item3todayhotimg">
+                            <div class="item3 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem3.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item3 brandname">Stone Island</div>
+                            <div class="item3 pname">Stone Island 99661 6-Panel Cap White - 22SS</div>
+                            <div class="item3 price">129,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item4">
+                        <div class="item4todayhotimg">
+                             <div class="item4 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem4.png)"></div>
+                             <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item4 brandname">Human Made</div>
+                            <div class="item4 pname">Human Made Rabbit L/S T-Shirt White</div>
+                            <div class="item4 price">230,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item5">
+                        <div class="item5todayhotimg">
+                            <div class="item5 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem5.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item5 brandname">Stussy</div>
+                            <div class="item5 pname">Stussy World Tour Shirt White</div>
+                            <div class="item5 price">225,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item6">
+                        <div class="item6todayhotimg">
+                            <div class="item6 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem6.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item6 brandname">Chanel</div>
+                            <div class="item6 pname">Chanel 22 Small Handbag Shiny Calfskin & Gold White</div>
+                            <div class="item6 price">7,150,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item7">
+                        <div class="item7todayhotimg">
+                            <div class="item7 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem7.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item7 brandname">Our Legacy</div>
+                            <div class="item7 pname">Our Legacy Third Cut Slash Denim Black</div>
+                            <div class="item7 price">324,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item8">
+                        <div class="item8todayhotimg">
+                            <div class="item8 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem8.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item8 brandname">Prada</div>
+                            <div class="item8 pname">Prada Chocolate Brushed Leather Loafers Black</div>
+                            <div class="item8 price">1,200,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item9">
+                        <div class="item9todayhotimg">
+                             <div class="item9 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem9.png)"></div>
+                             <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item9 brandname">Hermes</div>
+                            <div class="item9 pname">(W) Hermes Small Chaine D'Ancre Enchainee Ring Sterling Silver</div>
+                            <div class="item9 price">703,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item10">
+                        <div class="item10todayhotimg">
+                            <div class="item10 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem10.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item10 brandname">Nike</div>
+                            <div class="item10 pname">Nike x Tom Sachs General Purpose Shoe Archive</div>
+                            <div class="item10 price">330,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item11">
+                        <div class="item11todayhotimg">
+                            <div class="item11 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem11.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item11 brandname">Burberry</div>
+                            <div class="item11 pname">Burberry Mini Two-Tone Canvas and Leather Freya Tote Bag Natural Tan</div>
+                            <div class="item11 price">1,213,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item12">
+                        <div class="item12todayhotimg">
+                            <div class="item12 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem12.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item12 brandname">Diesel</div>
+                            <div class="item12 pname">Diesel C-Seymon Treated Denim Baseball Cap Blue White</div>
+                            <div class="item12 price">350,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item13">
+                        <div class="item13todayhotimg">
+                            <div class="item13 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem13.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item13 brandname">Valentino</div>
+                            <div class="item13 pname">Valentino Vlogo Signature Nappa Mini Bucket Bag with Chain Light Ivory</div>
+                            <div class="item13 price">1,050,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item14">
+                        <div class="item14todayhotimg">
+                             <div class="item14 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem14.png)"></div>
+                             <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item14 brandname">Celine</div>
+                            <div class="item14 pname">Celine Folco Cuir Triomphe in Smooth Calfskin Tan</div>
+                            <div class="item14 price">2,400,000</div>
+                        </div>
+                    </div>
+                    <div class="todaypro item15">
+                        <div class="item15todayhotimg">
+                            <div class="item15 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem15.png)"></div>
+                            <i class="eheart"></i>
+                        </div>
+                        <div class="itemtxt">
+                            <div class="item15 brandname">Maison Kitsune</div>
+                            <div class="item15 pname">Maison Kitsune Baby Fox Patch R-Neck Fitted Cardigan Beige</div>
+                            <div class="item15 price">365,000</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </main>
+	<div th:replace="common/footer/mainFooter.html"></div>
+
 </body>
 </html>

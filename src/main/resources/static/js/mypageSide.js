@@ -9,14 +9,14 @@
 	const $purchaseHistory = document.getElementById("side1")
 	console.log($purchaseHistory);
 	$purchaseHistory.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/mybuy";
 	})
 	
 	// 판매 내역
 	const $salesHistory = document.getElementById("side2")
 	console.log($salesHistory);
 	$salesHistory.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/mysell";
 	})
 	
 	// 관심 상품 
@@ -39,19 +39,19 @@
 	$inquiryHistory.addEventListener('click', function(){
 		location.href ="/";
 	})
-	
-	// 정산계좌
-	const $settlementAccount = document.getElementById("side7")
-	console.log($settlementAccount);
-	$settlementAccount.addEventListener('click', function(){
-		location.href ="/";
-	})
-	
+
 	// 주소록
 	const $addressBook = document.getElementById("side6")
 	console.log($addressBook);
 	$addressBook.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/address";
+	})
+		
+	// 정산계좌
+	const $settlementAccount = document.getElementById("side7")
+	console.log($settlementAccount);
+	$settlementAccount.addEventListener('click', function(){
+		location.href ="/mypage/bank";
 	})
 	
 	

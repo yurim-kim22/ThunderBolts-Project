@@ -50,34 +50,64 @@
 </tr>
 
 </table>
-<span th:each="product : ${productList}"> 
-    <span th:each="productOption : ${product.productOption}"> <!--신발사이 -->
-      <span th:switch="${productOption.productOptionSize}">
-        <span th:case="'260'" th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}"></span>
-      </span>
-    </span>
-    </span>
+
     
-    
-<form id="selectForm" action="/list/normalBuy" method="post">
-    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
-    <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-       <span th:each="product : ${productList}"> 
-           <span th:each="productOption : ${product.productOption}">
-                <span th:switch="${productOption.productOptionSize}">
-                    <span th:case="'220'">
-                        <input type="hidden" name="sellingOrderNo" th:value="${productOption.sellingOrders[0].sellingOrderNo}">
-                        <span th:text="${productOption.sellingOrders[0].sellingOrderPrice + '원'}" 
-                              th:onclick="|location.href='/list/buyAgree?no=${productOption.sellingOrders[0].sellingOrderNo}'|"></span>
-                    </span>
-                </span>
-            </span>
-          </span>
-    </div>
+
     
     <button type="submit" id="buyBtn" class="btn btn-primary" disabled>구매하기</button>
 </form>
+
+
+<form id="selectForm" action="/list/normalBuy" method="post">
+    <!-- 구매 의향서 번호 받는 클릭 이벤트 -->
+    <div class="box" style="display: block;">
+        <div th:each="productDTO : ${selectBuyingOrder}">
+            <div th:each="productOption: ${productDTO.productOption}">
+                <div th:if="${!#lists.isEmpty(productOption.buyingOrders)}" class="box" style="display: block;">
+                    <a style="line-height: 0.5;" th:href="@{/list/normalBuy2(buyingOrderCode=${productOption.buyingOrders[0].buyingOrderCode})}">
+
+                        <b th:text="${productOption.productOptionSize}"></b>
+                        <a style="line-height: 0.5; color: rgb(9, 120, 9);"
+                           th:href="@{/list/normalBuy2?buyingOrderCode={no}(no=${productOption.buyingOrders[0].buyingOrderCode}}"
+                           th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'">
+
+                        </a>
+                        </b>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<script>
+function updateButtonStatus() {
+	  const myButton = document.getElementById('buyBtn');  // id를 buyBtn으로 수정
+	  const selectedBox = document.querySelector('.selected');
+	  const buyingOrderCode = document.querySelector('input[name=buyingOrderCode]');  // 수정
+
+	  if (selectedBox) {
+	    myButton.style.opacity = 1;
+	    myButton.style.pointerEvents = 'auto';
+
+	    buyingOrderCode.value = selectedBox.querySelector('p').textContent;  // 수정
+	  } else {
+	    myButton.style.opacity = 0.5;
+	    myButton.style.pointerEvents = 'none';
+
+	    buyingOrderCode.value = '';
+	  }
+
+	  myButton.onclick = function () {
+	    document.getElementById('selectForm').submit();  // 수정
+	  };
+	}
+
+</script>
+
 
 
 

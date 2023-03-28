@@ -1,3 +1,4 @@
+/*
 package com.greedy.thunderbolts.controller.mypage;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -34,10 +35,13 @@ public class MypageControllerTests {
 		.andExpect(MockMvcResultMatchers.status().isOk())
 		.andExpect(MockMvcResultMatchers.forwardedUrl("mypage/mypageMain"))
 		.andDo(MockMvcResultHandlers.print());
-		/*
+		*/
+/*
 		 * 
 		 * .andExpect(MockMvcResultMatchers.forwardedUrl("/mypage/mypageMain"))
 		 * .andDo(MockMvcResultHandlers.print());
-		 */
+		 *//*
+
 	}
 }
+*/

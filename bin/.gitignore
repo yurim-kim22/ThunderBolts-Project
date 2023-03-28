@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+/bin/
+/.DS_Store
+/mvnw
+/mvnw.cmd
+/.gitignore

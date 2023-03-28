@@ -24,25 +24,21 @@
 
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
   
-  <!--여기 아래 폼 맞나요?? -->
-  <form id="selectForm" action="/list/normalBuy" method="post">
+<!--  &lt;!&ndash;여기 아래 폼 맞나요?? &ndash;&gt;-->
+<!--  <form id="selectForm" action="/list/normalBuy" method="post">-->
     
     
     <div class="info" style="text-align: left;">
     
-				    <p th:text="${productCode}"></p>
-					<p th:text="${productName}"></p>
-					<p th:text="${productNameKr}"></p>
-    
-     <!--  <p style="margin: 0;"><b>DV1309-100</b></p>
-      <p style="margin: 0;"><b>Nike Row Top AJ Black and white</b></p>
-      <p style="margin: 0; color: gray; ">나이키 로우 탑 AJ</p>
-      <p style="margin-top: 10px;">270</p> -->
-    </div>
-    
-    </form>
-    <hr
-      style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+	<p th:text="${productCode}"></p>
+	<p th:text="${productName}"></p>
+	<p th:text="${productNameKr}"></p>
+	<p th:text="${productOptionSize}"></p>
+	<p th:text="${sellingOrderPrice}"></p>
+
+      </div>
+
+    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <hr
       style="border: none; border-top: 2px solid rgb(0, 0, 0); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
@@ -112,17 +108,20 @@
           </div>
       </li>
   </ul>
-
+<!-- 근데 이건 ㄴ다른 페이지 -->
     <hr
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     </div>
-<form id="selectForm" action="/list/normalOrderPage" method="post">
-  <button id="my-button" type="submit">
+<form id="selectForm" action="/orderPage/normalOrderPage" method="POST">
+  <input type="hidden" name="sellingOrderNo" th:value="${sellingOrderNo}" />
+   <input type="hidden" name="sellingOrderPrice" th:value="${sellingOrderPrice}"/>
+
+  		<button id="my-button" type="submit">
     즉시 판매 계속
-  </button>
-  <input type="hidden" name="sellingOrderNo" value="12345" />
+  		</button>
 </form>
+
 
 
 
