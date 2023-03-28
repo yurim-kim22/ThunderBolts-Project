@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.greedy.thunderbolts.model.dao.adminOrderMapper">
+<mapper namespace="com.greedy.thunderbolts.model.dao.AdminOrderMapper">
 
 	<resultMap id="adminOrderResultMap" type="com.greedy.thunderbolts.model.dto.AdminOrderDTO">
 	<id property ="ordersNo" column="ORDERS_NO"/>
@@ -14,7 +14,8 @@
 	<result property="buyingOrderCode" column="BUYING_ORDER_CODE"></result>
 	<association property="buyingOrdersDTO"  resultMap="buyingResultMap" ></association>	
 	<association property="sellingOrdersDTO" resultMap="sellingResultMap"></association>
-	<association property="membersDTO" resultMap="membersResultMap"></association>
+	<association property="members" resultMap="membersResultMap"></association>
+	<association property="product" resultMap="productResultMap"></association>
 	</resultMap>
 
 	<resultMap id="buyingResultMap" type="com.greedy.thunderbolts.model.dto.AdminBuyingOrdersDTO">
@@ -63,8 +64,8 @@
 	<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
 	<result property="productOptionEtc"  column="PRODUCT_OPTION_ETC"></result>
 	<result property="productOptionQuantitiy"  column="PRODUCT_OPTION_QUANTITIY"></result>
-	<collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
-        <collection property="buyingOrders" resultMap="buyingOrderResultMap"/>
+	<collection property="sellingOrders" resultMap="sellingResultMap"/>
+        <collection property="buyingOrders" resultMap="buyingResultMap"/>
 		
 	</resultMap>
 	
@@ -92,7 +93,7 @@
 		<result property="ko" column="AUTH_KO"/>
 	</resultMap>	
 	
-	<resultMap id="checkingResultMap" type="com.greedy.thunderbolts.model.dto.Checking">
+	<resultMap id="checkingResultMap" type="com.greedy.thunderbolts.model.dto.CheckingDTO">
 		<id property="checkingNo" column="CHECKING_NO"></id>
 		<result property="ordersNo" column="ORDERS_NO"></result>
 		<result property="checkingStat" column="CHECKING_STAT"></result>
@@ -100,14 +101,105 @@
 		<result property="checkingDate" column="CHECKING_DATE"></result>
 	</resultMap>
 	
-	<resultMap id="calculateResultMap" type="com.greedy.thunderbolts.model.dto.Calculate">
+	<resultMap id="calculateResultMap" type="com.greedy.thunderbolts.model.dto.CalculateDTO">
 		<id property="calculateNo" column="CALCULATE_NO"></id>
 		<result property="membersNo" column="MEMBERS_NO"></result>
 		<result property="ordersNo" column="ORDERS_NO"></result>
 		<result property="calculateDate" column="CALCULATE_DATE"></result>
-		<result property="MembersAccounts" column="MEMBSER_ACCOUNTS"></result>
+		
 		
 	</resultMap>
+	
+	<select id="selectorderList" resultMap="adminOrderResultMap">
+  
+     SELECT
+    A.ORDERS_NO,
+    A.PRODUCT_CODE,
+    A.PRODUCT_NAME,
+    A.ORDERS_PRICE,
+    A.ORDERS_DATE
+FROM (
+    SELECT
+        ROWNUM RNUM,
+        D.ORDERS_NO,
+        D.MEMBERS_BUYER,
+        D.ORDERS_PRICE,
+        D.ORDERS_DATE,
+        D.ORDERS_DIV,
+        D.SELLINGORDER_NO,
+        D.MEMBERS_SELLER,
+        D.ORDERS_STATUS,
+        D.BUYING_ORDER_CODE
+        , D.PRODUCT_NAME
+        , D.PRODUCT_CODE
+    FROM (
+        SELECT 
+            E.ORDERS_NO,
+            E.MEMBERS_BUYER,
+            E.ORDERS_PRICE,
+            E.ORDERS_DATE,
+            E.ORDERS_DIV,
+            E.SELLINGORDER_NO,
+            E.MEMBERS_SELLER,
+            E.ORDERS_STATUS,
+            E.BUYING_ORDER_CODE,
+            P.PRODUCT_CODE,
+            P.PRODUCT_NAME
+        FROM ORDERS E
+        LEFT JOIN SELLING_ORDERS S ON E.SELLINGORDER_NO = S.SELLINGORDER_NO
+        LEFT JOIN BUYING_ORDERS Y ON E.BUYING_ORDER_CODE = Y.BUYING_ORDER_CODE
+        LEFT JOIN PRODUCT_OPTION H ON H.PRODUCT_OPTION_CODE = Y.PRODUCT_OPTION_CODE
+        JOIN PRODUCT P ON H.PRODUCT_CODE = P.PRODUCT_CODE
+      <where>
+        <if test="searchCondition == 'membersBuyer'">
+          E.MEMBERS_BUYER = #{searchValue}
+        </if>
+        <if test="searchCondition == 'membersSeller'">
+          E.MEMBERS_SELLER = #{searchValue} AND E.ORDERS_DIV LIKE '%' '판매' '%'
+        </if>
+        <if test="searchCondition == 'productName'">
+          P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+        </if>     
+        <if test="searchCondition == 'ordersNo'">
+          E.ORDERS_NO = #{searchValue}
+        </if>
+      </where>
+      ORDER BY E.ORDERS_NO DESC
+    ) D
+    <![CDATA[
+      WHERE ROWNUM <= #{endRow}
+    ]]>
+  ) A
+  WHERE A.RNUM >= #{startRow}
+  ORDER BY 1 DESC
+</select>
+
+<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+
+	SELECT
+			COUNT(*)
+			FROM ORDERS O
+			JOIN SELLING_ORDERS S ON(S.SELLINGORDER_NO = O.SELLINGORDER_NO)
+			JOIN BUYING_ORDERS B ON (B.BUYING_ORDER_CODE = O.BUYING_ORDER_CODE)
+			JOIN PRODUCT_OPTION T ON (T.PRODUCT_OPTION_CODE = B.BUYING_ORDER_CODE)
+			JOIN PRODUCT P ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
+		 <where>
+		 	<if test="searchCondition == 'productName'">
+		 	    P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+		 	</if>
+		 	<if test="searchCondition == 'ordersNo'">
+		 		O.ORDERS_NO = #{ searchValue}
+		 	</if>
+		 	<if test="searchCondition == 'membersBuyer'">
+		 		B.MEMBERS_NO = #{ searchValue}
+		 	</if>
+		 	<if test="searchCondition == 'membersSeller'">
+		 		S.MEMBERS_NO = #{ searchValue }
+		 	</if>
+		 </where>
+
+</select>
+	
 	
 	
 	<select id="findByMemberId" resultMap="membersResultMap">

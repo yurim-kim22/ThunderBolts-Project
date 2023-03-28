@@ -50,7 +50,7 @@ public class AdminOrderController {
 		model.addAttribute("orderList", OrderListAndPaging.get("orderList"));
 		
 		
-		return "admin/orderMain";
+		return "admin/order/orderMain";
 
 	}
 	

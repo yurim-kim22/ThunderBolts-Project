@@ -10,7 +10,7 @@ public class AdminOrderDTO {
 
 
 	
-		private int orderNo;
+		private int ordersNo;
 		private int memberBuyer;
 		private int ordersPrice;
 		private Date ordersDate;
@@ -19,8 +19,11 @@ public class AdminOrderDTO {
 		private int membersSeller;
 		private String ordersStatus;
 		private int buyingOrderCode;
-		private ProductDTO product;
+		private List<ProductDTO> product;
 		private List<DeliveryDTO> delivery;
-		private BuyingOrdersDTO buying;
+		private BuyingOrdersDTO buyingOrdersDTO;
+		private SellingOrdersDTO	sellingOrdersDTO;
+		private MembersDTO members;
+	
 	
 }

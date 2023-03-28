@@ -15,4 +15,5 @@ public class AdminBuyingOrdersDTO {
     private Date buyingOrderSuccessingDate;
     private Date buyingOrderDeadlineDate;
     private MembersDTO membersDTO;
+    private AdminOrderDTO OrdersDTO;
 }

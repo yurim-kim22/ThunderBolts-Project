@@ -19,4 +19,5 @@ public class OrdersDTO {
 	private ProductDTO product;
 	private List<DeliveryDTO> delivery;
 	private BuyingOrdersDTO buying;
+	private SellingOrdersDTO selling;
 }
