@@ -9,6 +9,10 @@ import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.apache.ibatis.annotations.Param;
 
 public interface ListService {
+	//역할
+	//컨트롤러(페이지 유알 처리해서 데이터 가져와서후에 넘겨주는 일)
+	//,매퍼(데이터를가져올때),서비스(비지니스)
+	//
    List<ProductDTO> findProduct();
 
    List<ProductDTO> findSizePrice();

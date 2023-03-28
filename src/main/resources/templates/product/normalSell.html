@@ -32,7 +32,7 @@
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
 <form id="selectForm" action="/list/normalSell" method="post">
-  <div class="box" style="display: block;">
+  
     <div th:each="productDTO : ${selectBuyingOrder}">
       <div th:each="productOption: ${productDTO.productOption}">
         <div class="box product" style="display: block;"
@@ -98,9 +98,6 @@
     </div>
 
       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
-      <button id="my-button">
-        즉시 판매 계속
-      </button>
     </div>
 </section>
 

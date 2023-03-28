@@ -4,12 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.context.support.MessageSourceAccessor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
@@ -35,8 +37,8 @@ public class OrderController {
 		this.messageSourceAccessor = messageSourceAccessor;
 	}
 
-
 	
+
 	@PostMapping("/normalOrderPage")
 	public String normalOrderPage(@RequestParam("sellingOrderNo") int sellingOrderNo,
 								  @RequestParam("sellingOrderPrice") int sellingOrderPrice,
@@ -74,7 +76,7 @@ public class OrderController {
 		return "orderPage/normalOrderPage";
 	}
 	
-	@PostMapping("/NormalSellPage")
+	@PostMapping("/normalSellPage")
 	public String NormalSellPage(@RequestParam("buyingOrderCode") int buyingOrderCode,
 								  @RequestParam("buyingOrderPrice") int buyingOrderPrice,
 								 Model model,ProductDTO productDTO, ProductOptionDTO productOptionDTO,
@@ -113,22 +115,31 @@ public class OrderController {
 		model.addAttribute("selectAddress", selectAddress);
 		model.addAttribute("members",members);
 		
-		return "orderPage/normalSPage";
+		return "orderPage/normalSellPage";
 	}
 
 	
 	//수정하
 	@PostMapping("/buyBidOrderPage")
 	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
-
+									@AuthenticationPrincipal MembersDTO members,
+									AddressDTO address,
 								  ProductDTO productDTO,
 								  Model model) {
+		int memberNo = members.getMembersNo();
+		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
 
 		log.info("입찰 동의서로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
 
 		log.info("productDTO: productDTO={}", productDTO);
+		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
+		log.info("멤버 조회 members : {}", members);
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		model.addAttribute("selectAddress", selectAddress);
+		model.addAttribute("selectAddress", selectAddress);
+		model.addAttribute("members",members);
+		
 
 //	    model.addAttribute("productCode", productDTO.getProductCode());
 //	    model.addAttribute("productName", productDTO.getProductName());
@@ -140,15 +151,26 @@ public class OrderController {
 
 
 
-	
-	@PostMapping("/succedOrderComplite")
+	//밸류안의 값이 다르기 떄문에 포스트가 충돌이 안난다.
+	@PostMapping("/succedOrderComplete")
 	public String Complite() {
 		//log.info("완: buyingOrderPrice={}", buyingOrderPrice);
 		//log.info("입찰 구매로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
-		return "agreeAtc/orderCompliete";
+		return "agreeAtc/orderComplete";
 	}
 	
 	
-	
+	@ResponseBody
+	@PostMapping(value = "/verifyIamport/{impUid}")
+	public ResponseEntity<String> verifyIamport(
+			@AuthenticationPrincipal MembersDTO members,
+			@RequestParam(value = "membersNo") String memberNo,
+			@RequestParam(value = "sellingOrderNo") int sellingOrderNo,
+			@RequestParam(value = "addressesNo") int addressesNo)
+			 {
+				return ResponseEntity.ok("success");
+		
+		
+	}
 
 }
