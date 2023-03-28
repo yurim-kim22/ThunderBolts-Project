@@ -23,7 +23,7 @@
                 <p style="margin: 0;" th:text="${productDTO.productCode}"></p>
                 <p style="margin: 0;" th:text="${productDTO.productName}"></p>
                 <p style="margin: 0; color: gray;" th:text="${productDTO.productNameKr}"></p>
-
+ 				
 </script>
 	</div>
 	</div>
@@ -31,54 +31,64 @@
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-        <form id="selectForm" action="/list/normalSell" method="post">
-            <!-- 구매 의향서 번호 받는 클릭 이벤트 -->
-            <div class="box" style="display: block;">
-                <div th:each="productDTO : ${selectBuyingOrder}">
-                <div th:each="productOption: ${productDTO.productOption}">
-                    <div th:if="${!#lists.isEmpty(productOption.buyingOrders)}" class="box" style="display: block;">
-                        <a style="line-height: 0.5;"
-                           th:href="@{/list/normalSell2(buyingOrderCode=${productOption.buyingOrders[0].buyingOrderCode})}">
-                            <b th:text="${productOption.productOptionSize}"></b>
-                            <a style="line-height: 0.5; color: rgb(9, 120, 9);"
-                               th:href="@{/list/normalSell2?buyingOrderCode={no}(no=${productOption.buyingOrders[0].buyingOrderCode})}"
-                               th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'">
-                            </a>
-                        </a>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </form>
+<form id="selectForm" action="/list/normalSell" method="post">
+  <div class="box" style="display: block;">
+    <div th:each="productDTO : ${selectBuyingOrder}">
+      <div th:each="productOption: ${productDTO.productOption}">
+        <div class="box product" style="display: block;"
+          th:if="${productOption.buyingOrders != null and not #lists.isEmpty(productOption.buyingOrders)}"
+          th:data-buying-order-code="${productOption.buyingOrders[0].buyingOrderCode}"
+          th:data-buying-order-price="${productOption.buyingOrders[0].buyingOrderPrice}">
+          <span style="line-height: 0.5;">
+            <b th:text="${productOption.productOptionSize}"></b>
+          </span>
+          <span style="line-height: 0.5; color: rgb(9, 120, 9);"
+            th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'"></span>
         </div>
+      </span>
+    </span>
+  </div>
+</form>
 
+<script>
+  const $products = document.querySelectorAll(".product");
 
-        <script>
-function updateButtonStatus() {
-  const myButton = document.getElementById('buyBtn');
-  const selectedBox = document.querySelector('.selected');
-  const buyingOrderCode = document.querySelector('input[name=buyingOrderCode]');
+  $products.forEach(div => {
+    div.addEventListener('click', (e) => {
+      console.log(e.currentTarget.dataset);
 
-  if (selectedBox) {
-    myButton.style.opacity = 1;
-    myButton.style.pointerEvents = 'auto';
+      const buyingOrderCode = e.currentTarget.dataset.buyingOrderCode;
+      const buyingOrderPrice = e.currentTarget.dataset.buyingOrderPrice;
+      const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
 
-    buyingOrderCode.value = selectedBox.querySelector('input[name=buyingOrderCode]').value;
-  } else {
-    myButton.style.opacity = 0.5;
-    myButton.style.pointerEvents = 'none';
+      if (buyingOrderPrice === '0') { // 가격이 0원인 경우
+        location.href = '/list/normalSell3?productOptionSize=' + productOptionSize;
+      } else { // 그 외의 경우
+        location.href = '/list/normalSell2?buyingOrderCode=' + buyingOrderCode + '&buyingOrderPrice=' + buyingOrderPrice;
+      }
+    });
+  });
 
-    buyingOrderCode.value = '';
+  // 중복된 프로덕트 옵션 사이즈를 제거하는 함수
+  function removeDuplicatesForBuyingOrder() {
+    const sizeSet = new Set(); // Set 객체 생성
+    const $sizes = document.querySelectorAll(".product b");
+
+    $sizes.forEach(size => {
+      const sizeText = size.textContent.trim();
+      if (sizeSet.has(sizeText)) { // 중복인 경우
+        size.parentNode.parentNode.style.display = "none"; // 해당 div 숨기기
+      } else { // 중복이 아닌 경우
+        sizeSet.add(sizeText); // Set에 추가
+      }
+    });
   }
 
-  myButton.onclick = function () {
-    document.getElementById('selectForm').submit();
-  };
-}
+  removeDuplicatesForBuyingOrder(); // 중복 제거 함수 호출
 
-updateButtonStatus();
+</script>
 
-        </script>>
+
 
 
 

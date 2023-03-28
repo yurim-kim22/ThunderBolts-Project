@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
+import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.service.ListService;
 
@@ -71,42 +73,51 @@ public class OrderController {
 		
 		return "orderPage/normalOrderPage";
 	}
+	
+	@PostMapping("/NormalSellPage")
+	public String NormalSellPage(@RequestParam("buyingOrderCode") int buyingOrderCode,
+								  @RequestParam("buyingOrderPrice") int buyingOrderPrice,
+								 Model model,ProductDTO productDTO, ProductOptionDTO productOptionDTO,
+								 BuyingOrdersDTO buyingOrdersDTO,
+								 @AuthenticationPrincipal MembersDTO members,
+									AddressDTO address) {
 
-//	//주소록 조회
-//	@GetMapping("/normalOrderPageAdress")
-//	public String addressMain(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model) {
-//
-//		int memberNo = members.getMembersNo();
-//
-//		List<AddressDTO> selectAddress = ListService.selectAddress(memberNo);
-//		log.info("[selectAddress] selectAddress : {}", selectAddress);
-//
-//		model.addAttribute("selectAddress", selectAddress);
-//
-//		return "orderPage/normalOrderPage";
-//	}
+		log.info("결제요청으로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
+		log.info("결제요청으로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
+		
+		
+		int memberNo = members.getMembersNo();
+		
+		//주소조회
+		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
+		
+	    model.addAttribute("selectAddress", selectAddress);
+		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
+		log.info("멤버 조회 members : {}", members);
 
-	//주소록 추가
-//	@PostMapping("/address")
-//	public String address(@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model, RedirectAttributes rttr){
-//
-//		int memberNo = members.getMembersNo();
-//		log.info("[memberNo] : {}", memberNo);
-//		log.info("[address] : {}", address);
-//
-//		int insertAddress = ListService.insertAddress(address, memberNo);
-//
-//		log.info("[insertAddress] : {}", insertAddress);
-//
-//		if(insertAddress == 0) {
-//			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("address.registerror"));
-//		}else {
-//			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("address.regist"));
-//		}
-//
-//		return "redirect:/mypage/address";
-//	}
+		//프로덕트 셀링 넘버 받기
+		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
 
+
+
+		// 뷰에서 사용할 모델 객체에 데이터 추가
+		model.addAttribute("findBuyingProduct",findBuyingProduct);
+		model.addAttribute("buyinOrderCode",buyingOrderCode);
+		model.addAttribute("buyingOrderPrice", buyingOrderPrice); //여 주석을 풀면 에러떠
+		model.addAttribute("productCode", productDTO.getProductCode()); //이
+		model.addAttribute("productName", productDTO.getProductName()); //이거
+		model.addAttribute("productNameKr", productDTO.getProductNameKr());//이
+		model.addAttribute("productOptionSize", productOptionDTO.getProductOptionSize());
+		
+		model.addAttribute("selectAddress", selectAddress);
+		model.addAttribute("members",members);
+		
+		return "orderPage/normalSPage";
+	}
+
+	
+	//수정하
 	@PostMapping("/buyBidOrderPage")
 	public String buyBidOrderPage(@RequestParam("buyingOrderPrice") int buyingOrderPrice,
 
@@ -126,11 +137,6 @@ public class OrderController {
 		return "orderPage/buyBidOrderPage";
 	}
 
-
-	//주소록
-
-
-	//주소록 추가
 
 
 
