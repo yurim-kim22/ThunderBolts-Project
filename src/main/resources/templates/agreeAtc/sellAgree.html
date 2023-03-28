@@ -24,10 +24,13 @@
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div class="info" style="text-align: left;">
-      <p style="margin: 0;"><b>DV1309-100</b></p>
-      <p style="margin: 0;"><b>Nike Row Top AJ Black and white</b></p>
-      <p style="margin: 0; color: gray; ">나이키 로우 탑 AJ</p>
-      <p style="margin-top: 10px;">270</p>
+            <div th:each="productDTO : ${selectBuyingOrder}">
+            <div th:each="productOption: ${productDTO.productOption}">
+                <p style="margin: 0;" th:text="${productDTO.productCode}"></p>
+                <p style="margin: 0;" th:text="${productDTO.productName}"></p>
+                <p style="margin: 0; color: gray;" th:text="${productDTO.productNameKr}"></p>
+				<p th:text="${productOption.productOptionSize}"></p>
+		</div>
     </div>
     <hr
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
@@ -127,9 +130,14 @@
 
     </div>
 
-    <button id="my-button">
-      판매 계속
-    </button>
+    <form id="selectForm" action="/orderPage/NormalSellPage" method="POST">
+  <input type="hidden" name="buyingOrderCode" th:value="${buyingOrderCode}" />
+   <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}"/>
+
+  		<button id="my-button" type="submit">
+    즉시 판매 계속
+  		</button>
+  		</form>
 
     <div id="modal1" class="modal">
       <div class="modal-content">

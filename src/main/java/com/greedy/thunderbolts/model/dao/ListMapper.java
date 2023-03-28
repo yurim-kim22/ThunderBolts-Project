@@ -20,7 +20,7 @@ public interface ListMapper {
 	   //바잉오더 조회
 	   List<ProductDTO> selectBuyingOrder();
 
-ProductDTO findBuyingProduct();
+	   List<ProductDTO> findBuyingProduct();
 
 	ProductDTO findSellingProduct(int sellingOrderNo);
 
@@ -29,6 +29,9 @@ ProductDTO findBuyingProduct();
     ProductDTO findSellingProduct(String productOptionSize);
 
 	ProductDTO findProductOptionSize(String productOptionSize);
+	
+	//이거야
+    List<ProductDTO> findBuyingProduct(int buyingOrderCode);
 
 	List<ProductDTO> finalBuyBidOrderPage();
 

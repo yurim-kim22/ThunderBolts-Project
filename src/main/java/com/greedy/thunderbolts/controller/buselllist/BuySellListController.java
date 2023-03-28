@@ -109,7 +109,8 @@ public class BuySellListController {
 	}
 	//셀오더 조회 1
 	@GetMapping("/normalSell")
-	public String GetnormalSell(Model model, ProductDTO productDTO,
+	public String GetnormalSell(
+			Model model, ProductDTO productDTO,
 								ProductOptionDTO productOptionDTO,
 								BuyingOrdersDTO buyingOrdersDTO){
 
@@ -150,7 +151,7 @@ public class BuySellListController {
 	public String GetNormalSell2(
 			@RequestParam("buyingOrderCode") int buyingOrderCode,
 			@RequestParam(value = "buyingOrderPrice", required = false) String buyingOrderPrice,
-			@AuthenticationPrincipal MembersDTO members,
+			@AuthenticationPrincipal MembersDTO members,ProductDTO productDTO,BuyingOrdersDTO buyingOrdersDTO,
 			AddressDTO address,
 			Model model) {
 		log.info("판매 요청 어그리로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
@@ -166,16 +167,54 @@ public class BuySellListController {
 		log.info("멤버 조회 members : {}", members);
 
 		// buyingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
-		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct();
+		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
+
 
 		// 뷰에서 사용할 모델 객체에 데이터 추가
-		model.addAttribute("productDTO", findBuyingProduct);
+		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
+		model.addAttribute("findBuyingProduct", findBuyingProduct);
 		model.addAttribute("buyingOrderCode", buyingOrderCode);
 		model.addAttribute("buyingOrderPrice", buyingOrderPrice);
-		model.addAttribute("productCode", findBuyingProduct.getProductCode());
-		model.addAttribute("productName", findBuyingProduct.getProductName());
-		model.addAttribute("productNameKr", findBuyingProduct.getProductNameKr());
-		model.addAttribute("productOptionSize", findBuyingProduct.getProductOption().get(0).getProductOptionSize());
+		model.addAttribute("selectAddress", selectAddress);
+
+		return "agreeAtc/sellAgree";
+	}
+	
+	//판매 동의서
+	@PostMapping("/normalSell2")
+	public String PostNormalSell2(
+			@RequestParam("buyingOrderCode") int buyingOrderCode,
+			@RequestParam(value = "buyingOrderPrice", required = false) String buyingOrderPrice,
+			@AuthenticationPrincipal MembersDTO members,ProductDTO productDTO,BuyingOrdersDTO buyingOrdersDTO,
+			AddressDTO address,ProductOptionDTO productOptionDTO,
+			Model model) {
+		log.info("판매 요청 어그리로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
+		log.info("판매 요청 어그리로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
+
+		int memberNo = members.getMembersNo();
+
+		//주소조회
+		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
+
+		model.addAttribute("selectAddress", selectAddress);
+		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
+		log.info("멤버 조회 members : {}", members);
+
+		// buyingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
+		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
+
+
+		// 뷰에서 사용할 모델 객체에 데이터 추가
+		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
+		model.addAttribute("findBuyingProduct", findBuyingProduct);
+		model.addAttribute("buyingOrderCode", buyingOrderCode);
+		model.addAttribute("buyingOrderPrice", buyingOrderPrice);
+		model.addAttribute("productOptionSize", productOptionDTO.getProductOptionSize());
+		model.addAttribute("productOptionSize",productDTO.getProductOption());
+		model.addAttribute("productOptionSize",productDTO.getProductOption().add(productOptionDTO));
+		
 		//주소 조회
 		model.addAttribute("selectAddress", selectAddress);
 
