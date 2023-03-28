@@ -11,7 +11,6 @@ spring:
     url : jdbc:oracle:thin:@localhost:1521:xe
     username: C##THUNDER
     password: THUNDER
-   
     
   mail:
     host: smtp.naver.com

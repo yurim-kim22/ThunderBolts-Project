@@ -6,7 +6,6 @@ import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.service.login.MemberService;
-import com.greedy.thunderbolts.model.service.oauth.SessionUser;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -38,19 +36,9 @@ public class LoginController {
 		this.memberService = memberService;
 		this.passwordEncoder = passwordEncoder;
 	}
-	@GetMapping("/oauth/kakao")
-    public void kakaoCallback(@RequestParam String code) {
-        System.out.println(code);
-    }
 	
 	@GetMapping("/main")
-	public String loginMain(Model model) {
-		 	
-	        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-	        log.info("[Controller] : {}", user );
-	        if(user != null){
-	            model.addAttribute("userName", user.getName());
-	        }
+	public String loginMain() {
 		return "login/loginMain";
 	}
 	
@@ -157,7 +145,7 @@ public class LoginController {
 		} else {
 			rttr.addFlashAttribute("message", messageSourceAccessor.getMessage("member.searchPwerror"));
 		}
-		
+		 
 		return "redirect:/login/main";
 	}
 	
