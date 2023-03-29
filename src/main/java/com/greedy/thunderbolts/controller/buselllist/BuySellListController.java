@@ -32,7 +32,6 @@ public class BuySellListController {
 	}
 
 
-
 	@PostMapping("/normalBuy")
 	public String PostnormalBuy(Model model) {
 		List<ProductDTO> productList = listService.findProduct();

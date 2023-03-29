@@ -3,22 +3,28 @@ package com.greedy.thunderbolts.controller.buselllist;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.OrdersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.service.ListService;
+import com.greedy.thunderbolts.model.service.orderService;
+import com.siot.IamportRestClient.IamportClient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,6 +34,9 @@ import lombok.extern.slf4j.Slf4j;
 public class OrderController {
 
 	private ListService listService;
+	private IamportClient api;
+	private orderService orderService;
+	
 
 	private final MessageSourceAccessor messageSourceAccessor;
 
@@ -35,6 +44,9 @@ public class OrderController {
 
 		this.listService = listService;
 		this.messageSourceAccessor = messageSourceAccessor;
+		
+		this.api = new IamportClient("1560407313735881","0j4FF5Xmm6McTeYcczUAJbjLfqyUFUhcePBrjosz61SyKDz5ZDdXnz2oyJFVjuLlk42HDlxmiQnDaUo1");
+		this.orderService = orderService;
 	}
 
 	@PostMapping("/normalOrderPage")
@@ -161,15 +173,22 @@ public class OrderController {
 		// log.info("입찰 구매로 넘어왔음: buyingOrderDeadlineDate={}", buyingOrderDeadlineDate);
 		return "agreeAtc/orderComplete";
 	}
+	
 
-	@ResponseBody
-	@PostMapping(value = "/verifyIamport/{impUid}")
-	public ResponseEntity<String> verifyIamport(@AuthenticationPrincipal MembersDTO members,
-			@RequestParam(value = "membersNo") String memberNo,
-			@RequestParam(value = "sellingOrderNo") int sellingOrderNo,
-			@RequestParam(value = "addressesNo") int addressesNo) {
-		return ResponseEntity.ok("success");
-
-	}
+//
+//	@ResponseBody
+//	@PostMapping(value = "/{impUid}")
+//	public ResponseEntity<String> verifyIamport(
+//			@AuthenticationPrincipal MembersDTO members,
+//			@RequestParam(value = "membersNo") String memberNo,
+//			@RequestParam(value = "sellingOrderNo") int sellingOrderNo,
+//			@RequestParam(value = "addressesNo") int addressesNo,
+//			@RequestBody OrdersDTO ordersDTO,
+//			Model model,Local local) {
+//		
+//		int result =  orderService.insertPay(pay);
+//		return api.paymentByImpUid(imp_uid);
+//
+//	}
 
 }
