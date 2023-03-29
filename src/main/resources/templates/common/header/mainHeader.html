@@ -14,23 +14,23 @@
 </head>
 <body>
     <header>
-    	<div id="headerMain">
-            <div class="mainmenu home" id="home"> 홈 </div>
-            <th:block sec:authorize="isAnonymous()">
-            <div class="mainmenu login" id="login"> 로그인 </div>
-            </th:block>
-            <th:block sec:authorize="isAuthenticated()">
-            <div class="mainmenu logout" id=logout> 로그아웃 </div>
-            </th:block> 
-            <th:block sec:authorize="hasRole('ADMIN')">
-            <div class="mainmenu admin" id="admin"> 관리자 </div>
-            </th:block>
-            <div class="mainmenu mypage" id="mypage"> 마이페이지 </div>
-            <div class="mainmenu csmenu" id="csmenu"> 고객센터 </div>
-            <div class="mainmenuend heartProduct" id="heartProduct"> 관심상품 </div>
-        </div>
-    
-        <div id="headermain2">
+		<div id="headerMain">
+			<th:block sec:authorize="hasRole('ADMIN')">
+				<div class="mainmenu admin" id="admin">관리자</div>
+			</th:block>
+			<div class="mainmenu home" id="home">홈</div>
+			<th:block sec:authorize="isAnonymous()">
+				<div class="mainmenu login" id="login">로그인</div>
+			</th:block>
+			<th:block sec:authorize="isAuthenticated()">
+				<div class="mainmenu logout" id=logout>로그아웃</div>
+			</th:block>
+			<div class="mainmenu mypage" id="mypage">마이페이지</div>
+			<div class="mainmenu csmenu" id="csmenu">고객센터</div>
+			<div class="mainmenuend heartProduct" id="heartProduct">관심상품</div>
+		</div>
+
+		<div id="headermain2">
             <div id="mainlogo" style="background-image: url(/image/icon/mainlogo.png)"></div>
         </div>
       

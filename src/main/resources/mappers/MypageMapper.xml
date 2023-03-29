@@ -28,7 +28,7 @@
 		<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
 		<result property="fileDiv" column="FILE_DIV"/>
 		<result property="reviewCode" column="REVIEW_CODE"/>
-		<result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+		<result property="productOptionCode" column="PRODUCT_CODE"/>
 		<result property="noticeNo" column="NOTICE_NO"/>
 		<result property="filePath" column="FILE_PATH"/>
 		<result property="fileDecoded" column="FILE_DECODED"/>
@@ -46,8 +46,9 @@
 		<result property="productEntryDate" column="PRODUCT_ENTRY_DATE" />
 		<result property="categoriesCode" column="CATEGORIES_CODE" />
 		<result property="productPrice" column="PRODUCT_PRICE" />
-		<result property="brandNo" column="BRAND_NO" />
 		<result property="productCount" column="PRODUCT_COUNT" />
+		
+		<association property="brandNo" resultMap="BrandResultMap"/>
 	</resultMap>
  
  <!-- OrdersDTO -->
@@ -61,6 +62,12 @@
 		<result property="membersSeller" column="MEMBERS_SELLER"/>
 		<result property="ordersStatus" column="ORDERS_STATUS"/>
 		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+	</resultMap>
+
+	<!-- BrandDTO -->
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+		<id property="brandNo" column="BRAND_NO"/>
+		<result property="brandName" column="BRAND_NAME"/>
 	</resultMap>
 	
 	<!-- 내정보관리 memberDTO -->
@@ -104,6 +111,8 @@
 	    <result property="accountBank" column="ACCOUNT_BANK"/>
 	    <result property="accountMaster" column="ACCOUNT_MASTER"/>
 	</resultMap>
+
+
 	
 	
 	<!-- 프로필 사진 가져오기 -->
@@ -130,7 +139,7 @@
 	    JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
 	    JOIN BUYING_ORDERS B ON (B.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
 	    JOIN ORDERS O ON (O.BUYING_ORDER_CODE = B.BUYING_ORDER_CODE)
-	    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
+	    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_CODE = F.PRODUCT_CODE)
 	    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
 	    WHERE M.MEMBERS_ID = #{ memberId }
 	    ORDER BY O.ORDERS_DATE DESC
@@ -152,7 +161,7 @@
 		    JOIN PRODUCT_OPTION T ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
 		    JOIN SELLING_ORDERS S ON (S.PRODUCT_OPTION_CODE = T.PRODUCT_OPTION_CODE)
 		    JOIN ORDERS O ON (O.SELLINGORDER_NO = S.SELLINGORDER_NO)
-		    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_OPTION_CODE = F.PRODUCT_OPTION_CODE)
+		    LEFT JOIN ATTACHMENT_FILE F ON (T.PRODUCT_CODE = F.PRODUCT_CODE)
 		    LEFT JOIN MEMBERS M ON (M.MEMBERS_NO = O.MEMBERS_BUYER)
 		    WHERE M.MEMBERS_ID = #{ memberId }
 		    ORDER BY O.ORDERS_DATE DESC

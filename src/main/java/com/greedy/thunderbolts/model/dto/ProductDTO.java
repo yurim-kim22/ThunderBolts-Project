@@ -12,7 +12,7 @@ public class ProductDTO {
 	    private String productNameKr;
 	    private Date productEntryDate;
 	    private int categoriesCode;
-	    private int brandNo;
+	    private BrandDTO brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
 

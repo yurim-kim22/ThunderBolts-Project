@@ -8,8 +8,8 @@
         <result property="productNameKr" column="PRODUCT_NAME_KR"/>
         <result property="productEntryDate" column="PRODUCT_ENTRY_DATE"/>
         <result property="categoriesCode" column="CATEGORIES_CODE"/>
-        <result property="brandNo" column="BRAND_NO"/>
         <result property="productCount" column="PRODUCT_COUNT"/>
+        <association property="brandNo" resultMap="BrandResultMap"/>
         <collection property="productOption" resultMap="productOptionResultMap"/>
 
     </resultMap>
@@ -58,6 +58,10 @@
 	    <result property="addressesAdds" column="ADDRESSES_ADDS" />
 	</resultMap>
 
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+		<id property="brandNo" column="BRAND_NO"/>
+		<result property="brandName" column="BRAND_NAME"/>
+	</resultMap>
 
     <!--결과적으로 PRODUCT_CODE=99인 상품의 PRODUCT_NAME,
     PRODUCT_NAME_KR, SELLINGORDER_PRICE, SELLINGORDER_NO, MIN(O.PRODUCT_OPTION_SIZE)을 조회-->
