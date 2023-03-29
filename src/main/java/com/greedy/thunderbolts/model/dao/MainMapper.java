@@ -7,10 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 
 @Mapper
-public class MainMapper {
+public interface MainMapper {
 
-	public static List<ProductDTO> findProduct() {
-		return null;
-	}
+	List<ProductDTO> findNewProduct();
 
 }

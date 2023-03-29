@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class BrandDTO {
 	
-	private int BRAND_NO;
-	private String BRAND_NAME;
+	private int brandNo;
+	private String brandName;
 
 }

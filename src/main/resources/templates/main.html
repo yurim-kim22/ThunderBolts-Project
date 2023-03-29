@@ -17,6 +17,7 @@
 
 <body>
 	<div th:replace="common/header/mainHeader.html"></div>
+           			
     <main>
         <div id="bodymainheader">
             <div id="mainbanner">
@@ -50,9 +51,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item1 brandname">burberry</div>
-                        <div class="item1 pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
-                        <div class="item1 price">834,200</div>
+                        <div class="brandname">burberry</div>
+                        <div class="pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
+                        <div class="price">834,200</div>
                     </div>
                 </div>
                 <div class="pro item2">
@@ -61,9 +62,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">23SS 메종 마르지엘라 여성 화이트 독일군 스니커즈</div>
-                        <div class="item2 price">489,900</div>
+                        <div class="brandname">Maison Margiela</div>
+                        <div class="pname">23SS 메종 마르지엘라 여성 화이트 독일군 스니커즈</div>
+                        <div class="price">489,900</div>
                     </div>
                 </div>
                 <div class="pro item3">
@@ -72,9 +73,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item3 brandname">Golden Goose</div>
-                        <div class="item3 pname">23SS 골든구스 하이스타 여성 로우탑 스니커즈 GWF00118 F000328 90179</div>
-                        <div class="item3 price">480,200</div>
+                        <div class="brandname">Golden Goose</div>
+                        <div class="pname">23SS 골든구스 하이스타 여성 로우탑 스니커즈 GWF00118 F000328 90179</div>
+                        <div class="price">480,200</div>
                     </div>
                 </div>
                 <div class="pro item4">
@@ -83,9 +84,9 @@
                          <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item4 brandname">Louis Vuitton</div>
-                        <div class="item4 pname">루이비통 포쉐 토일렛 모노그램 풀박스 선물용</div>
-                        <div class="item4 price">1,581,100</div>
+                        <div class="brandname">Louis Vuitton</div>
+                        <div class="pname">루이비통 포쉐 토일렛 모노그램 풀박스 선물용</div>
+                        <div class="price">1,581,100</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -94,9 +95,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">Maison Margiela</div>
-                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
-                        <div class="item5 price">1,062,200</div>
+                        <div class="brandname">Maison Margiela</div>
+                        <div class="pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
+                        <div class="price">1,062,200</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -105,9 +106,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">Maison Margiela</div>
-                        <div class="item5 pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
-                        <div class="item5 price">1,062,200</div>
+                        <div class="brandname">Maison Margiela</div>
+                        <div class="pname">22FW 메종 마르지엘라 5AC 블랙 베이비 크로스백</div>
+                        <div class="price">1,062,200</div>
                     </div>
                 </div>
             </div>
@@ -117,48 +118,65 @@
             </div>
             <div class="maintitle name">⭐New In</div>
             <div class="product" id="productNew">
-                <div class="pro item1">
-                    <div class="item1newimg">
-                        <div class="item1 newimg" style="background-image: url(/upload/image/main/newitem/nitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item1 brandname">Van Cleef & Arpels</div>
-                        <div class="item1 pname">뻬를리 시그니처 브레이슬릿, 미디엄/ 반클리프 아펠</div>
-                        <div class="item1 price">8,990,000</div>
-                    </div>
-                </div>
-                <div class="pro item2">
+				<div class="pro item1" th:each="newProductList : ${ newProductList }">
+					<div th:data-product-no=${newProductList.productCode} class="productCode">
+						<div class="item1newimg">
+							<div class="newimg"
+								th:style="'background-image:url(' + ${ newProductList.attachmentFile[0].filePath }+${ newProductList.attachmentFile[0].fileDecoded } + ');'">
+								<i class="eheart"></i>
+							</div>
+						</div>
+						<div class="itemtxt">
+							<div class="brandname"
+								th:text="${ newProductList.brandNo.brandName }"></div>
+							<div class="pname" th:text="${ newProductList.productName }"></div>
+							<div class="price"
+								th:text="${ newProductList.productOption[0].sellingOrders[0].sellingOrderPrice }"></div>
+						</div>
+					</div>
+				</div>
+				<div class="pro item2" >
                     <div class="item2newimg">
-                        <div class="item2 newimg" style="background-image: url(/upload/image/main/newitem/nitem2.png)"></div>
+                        <div class="newimg" style="background-image: url(/upload/image/main/newitem/nitem2.png)"></div>
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item2 brandname">Supreme</div>
-                        <div class="item2 pname">Supreme Kurt Cobain T-Shirt Black - 23SS</div>
-                        <div class="item2 price">126,000</div>
+                        <div class="brandname">Supreme</div>
+                        <div class="pname">Supreme Kurt Cobain T-Shirt Black - 23SS</div>
+                        <div class="price">126,000</div>
                     </div>
                 </div>
                 <div class="pro item3">
                     <div class="item3newimg">
-                        <div class="item3 newimg" style="background-image: url(/upload/image/main/newitem/nitem3.png)"></div>
+                        <div class="newimg" style="background-image: url(/upload/image/main/newitem/nitem3.png)"></div>
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item3 brandname">Stone Island</div>
-                        <div class="item3 pname">Stone Island 12321 Nylon Metal Garment Dyed Packable Overshirt Ice - 22SS</div>
-                        <div class="item3 price">770,000</div>
+                        <div class="brandname">Stone Island</div>
+                        <div class="pname">Stone Island 12321 Nylon Metal Garment Dyed Packable Overshirt Ice - 22SS</div>
+                        <div class="price">770,000</div>
                     </div>
                 </div>
                 <div class="pro item4">
                     <div class="item4newimg">
-                         <div class="item4 newimg" style="background-image: url(/upload/image/main/newitem/nitem4.png)"></div>
+                         <div class="newimg" style="background-image: url(/upload/image/main/newitem/nitem4.png)"></div>
                          <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item4 brandname"> Thom Browne</div>
-                        <div class="item4 pname">Thom Browne Tartan Jacquard Mohair Tweed Cardigan Medium Grey</div>
-                        <div class="item4 price">933,100</div>
+                        <div class="brandname"> Thom Browne</div>
+                        <div class="pname">Thom Browne Tartan Jacquard Mohair Tweed Cardigan Medium Grey</div>
+                        <div class="price">933,100</div>
+                    </div>
+                </div>
+                <div class="pro item5">
+                    <div class="item5newimg">
+                        <div class="newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
+                        <i class="eheart"></i>
+                    </div>
+                    <div class="itemtxt">
+                        <div class="brandname">Bandai</div>
+                        <div class="pname">Bandai MGEX Strike Freedom Gundam</div>
+                        <div class="price">-</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -167,20 +185,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">Bandai</div>
-                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
-                        <div class="item5 price">-</div>
-                    </div>
-                </div>
-                    <div class="pro item5">
-                    <div class="item5newimg">
-                        <div class="item5 newimg" style="background-image: url(/upload/image/main/newitem/nitem5.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="item5 brandname">Bandai</div>
-                        <div class="item5 pname">Bandai MGEX Strike Freedom Gundam</div>
-                        <div class="item5 price">-</div>
+                        <div class="brandname">Bandai</div>
+                        <div class="pname">Bandai MGEX Strike Freedom Gundam</div>
+                        <div class="price">-</div>
                     </div>
                 </div>
             </div>
@@ -316,9 +323,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item1 brandname">Stussy</div>
-                        <div class="item1 pname">Stussy Relaxed Oversized Crew Green</div>
-                        <div class="item1 price">240,000</div>
+                        <div class="brandname">Stussy</div>
+                        <div class="pname">Stussy Relaxed Oversized Crew Green</div>
+                        <div class="price">240,000</div>
                     </div>
                 </div>
                 <div class="pro item2">
@@ -327,9 +334,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item2 brandname">Auralee</div>
-                        <div class="item2 pname">Auralee Super Light Wool Check Shirt Brown Herringbone Check - 22AW</div>
-                        <div class="item2 price">510,000</div>
+                        <div class="brandname">Auralee</div>
+                        <div class="pname">Auralee Super Light Wool Check Shirt Brown Herringbone Check - 22AW</div>
+                        <div class="price">510,000</div>
                     </div>
                 </div>
                 <div class="pro item3">
@@ -338,9 +345,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item3 brandname">HERMES</div>
-                        <div class="item3 pname">에르메스 Deep 딥 스니커즈 레더 멀티컬러</div>
-                        <div class="item3 price">1,519,000</div>
+                        <div class="brandname">HERMES</div>
+                        <div class="pname">에르메스 Deep 딥 스니커즈 레더 멀티컬러</div>
+                        <div class="price">1,519,000</div>
                     </div>
                 </div>
                 <div class="pro item4">
@@ -349,9 +356,9 @@
                          <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item4 brandname">Our Legacy</div>
-                        <div class="item4 pname">Our Legacy Cardigan Mohair Baby Blue</div>
-                        <div class="item4 price">360,000</div>
+                        <div class="brandname">Our Legacy</div>
+                        <div class="pname">Our Legacy Cardigan Mohair Baby Blue</div>
+                        <div class="price">360,000</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -360,9 +367,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">Telfar</div>
-                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
-                        <div class="item5 price">465,000</div>
+                        <div class="brandname">Telfar</div>
+                        <div class="pname">Telfar Small Shopping Bag White</div>
+                        <div class="price">465,000</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -371,9 +378,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">Telfar</div>
-                        <div class="item5 pname">Telfar Small Shopping Bag White</div>
-                        <div class="item5 price">465,000</div>
+                        <div class="brandname">Telfar</div>
+                        <div class="pname">Telfar Small Shopping Bag White</div>
+                        <div class="price">465,000</div>
                     </div>
                 </div>
             </div>
@@ -454,9 +461,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item1 brandname">Bottega Veneta</div>
-                        <div class="item1 pname">Bottega Veneta Small Padded Cassette White</div>
-                        <div class="item1 price">3,524,000</div>
+                        <div class="brandname">Bottega Veneta</div>
+                        <div class="pname">Bottega Veneta Small Padded Cassette White</div>
+                        <div class="price">3,524,000</div>
                     </div>
                 </div>
                 <div class="pro item2">
@@ -465,9 +472,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item2 brandname">Maison Margiela</div>
-                        <div class="item2 pname">Maison Margiela Zip Around Compact Wallet Black</div>
-                        <div class="item2 price">400,000</div>
+                        <div class="brandname">Maison Margiela</div>
+                        <div class="pname">Maison Margiela Zip Around Compact Wallet Black</div>
+                        <div class="price">400,000</div>
                     </div>
                 </div>
                 <div class="pro item3">
@@ -476,9 +483,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item3 brandname">Bang & Olufsen</div>
-                        <div class="item3 pname">Bang & Olufsen Beoplay HX Timber (Korean Ver.)</div>
-                        <div class="item3 price">530,000</div>
+                        <div class="brandname">Bang & Olufsen</div>
+                        <div class="pname">Bang & Olufsen Beoplay HX Timber (Korean Ver.)</div>
+                        <div class="price">530,000</div>
                     </div>
                 </div>
                 <div class="pro item4">
@@ -487,9 +494,9 @@
                          <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item4 brandname">Miu Miu</div>
-                        <div class="item4 pname">Miu Miu Matelasse Nappa Leather Card Holder Salvia</div>
-                        <div class="item4 price">380,000</div>
+                        <div class="brandname">Miu Miu</div>
+                        <div class="pname">Miu Miu Matelasse Nappa Leather Card Holder Salvia</div>
+                        <div class="price">380,000</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -498,9 +505,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">USM</div>
-                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
-                        <div class="item5 price">1,186,200</div>
+                        <div class="brandname">USM</div>
+                        <div class="pname">USM Haller Storage 1x1 Gentian Blue</div>
+                        <div class="price">1,186,200</div>
                     </div>
                 </div>
                 <div class="pro item5">
@@ -509,9 +516,9 @@
                         <i class="eheart"></i>
                     </div>
                     <div class="itemtxt">
-                        <div class="item5 brandname">USM</div>
-                        <div class="item5 pname">USM Haller Storage 1x1 Gentian Blue</div>
-                        <div class="item5 price">1,186,200</div>
+                        <div class="brandname">USM</div>
+                        <div class="pname">USM Haller Storage 1x1 Gentian Blue</div>
+                        <div class="price">1,186,200</div>
                     </div>
                 </div>
             </div>
@@ -560,10 +567,10 @@
                             <div class="item1 todayhotimg" style="background-image: url(/upload/image/main/todayhot/todayhotitem1.png)"></div>
                             <i class="eheart"></i>
                         </div>
-                        <div class="itemtxt">
-                            <div class="item1 brandname">Nike</div>
-                            <div class="item1 pname">Nike x Comme des Garcons Homme Plus Air Max Sunder SP Black</div>
-                            <div class="item1 price">420,000</div>
+                    	 <div class="itemtxt" >
+                            <div class="brandname"></div>
+                            <div class="pname"></div>
+                     		<div class="price"></div>
                         </div>
                     </div>
                     <div class="todaypro item2">
@@ -572,9 +579,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item2 brandname">Arc'teryx</div>
-                            <div class="item2 pname">Arc'teryx Heliad 15 Backpack Black</div>
-                            <div class="item2 price">309,000</div>
+                            <div class="brandname">Arc'teryx</div>
+                            <div class="pname">Arc'teryx Heliad 15 Backpack Black</div>
+                            <div class="price">309,000</div>
                         </div>
                     </div>
                     <div class="todaypro item3">
@@ -583,9 +590,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item3 brandname">Stone Island</div>
-                            <div class="item3 pname">Stone Island 99661 6-Panel Cap White - 22SS</div>
-                            <div class="item3 price">129,000</div>
+                            <div class="brandname">Stone Island</div>
+                            <div class="pname">Stone Island 99661 6-Panel Cap White - 22SS</div>
+                            <div class="price">129,000</div>
                         </div>
                     </div>
                     <div class="todaypro item4">
@@ -594,9 +601,9 @@
                              <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item4 brandname">Human Made</div>
-                            <div class="item4 pname">Human Made Rabbit L/S T-Shirt White</div>
-                            <div class="item4 price">230,000</div>
+                            <div class="brandname">Human Made</div>
+                            <div class="pname">Human Made Rabbit L/S T-Shirt White</div>
+                            <div class="price">230,000</div>
                         </div>
                     </div>
                     <div class="todaypro item5">
@@ -605,9 +612,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item5 brandname">Stussy</div>
-                            <div class="item5 pname">Stussy World Tour Shirt White</div>
-                            <div class="item5 price">225,000</div>
+                            <div class="brandname">Stussy</div>
+                            <div class="pname">Stussy World Tour Shirt White</div>
+                            <div class="price">225,000</div>
                         </div>
                     </div>
                     <div class="todaypro item6">
@@ -616,9 +623,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item6 brandname">Chanel</div>
-                            <div class="item6 pname">Chanel 22 Small Handbag Shiny Calfskin & Gold White</div>
-                            <div class="item6 price">7,150,000</div>
+                            <div class="brandname">Chanel</div>
+                            <div class="pname">Chanel 22 Small Handbag Shiny Calfskin & Gold White</div>
+                            <div class="price">7,150,000</div>
                         </div>
                     </div>
                     <div class="todaypro item7">
@@ -627,9 +634,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item7 brandname">Our Legacy</div>
-                            <div class="item7 pname">Our Legacy Third Cut Slash Denim Black</div>
-                            <div class="item7 price">324,000</div>
+                            <div class="brandname">Our Legacy</div>
+                            <div class="pname">Our Legacy Third Cut Slash Denim Black</div>
+                            <div class="price">324,000</div>
                         </div>
                     </div>
                     <div class="todaypro item8">
@@ -638,9 +645,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item8 brandname">Prada</div>
-                            <div class="item8 pname">Prada Chocolate Brushed Leather Loafers Black</div>
-                            <div class="item8 price">1,200,000</div>
+                            <div class="brandname">Prada</div>
+                            <div class="pname">Prada Chocolate Brushed Leather Loafers Black</div>
+                            <div class="price">1,200,000</div>
                         </div>
                     </div>
                     <div class="todaypro item9">
@@ -649,9 +656,9 @@
                              <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item9 brandname">Hermes</div>
-                            <div class="item9 pname">(W) Hermes Small Chaine D'Ancre Enchainee Ring Sterling Silver</div>
-                            <div class="item9 price">703,000</div>
+                            <div class="brandname">Hermes</div>
+                            <div class="pname">(W) Hermes Small Chaine D'Ancre Enchainee Ring Sterling Silver</div>
+                            <div class="price">703,000</div>
                         </div>
                     </div>
                     <div class="todaypro item10">
@@ -660,9 +667,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item10 brandname">Nike</div>
-                            <div class="item10 pname">Nike x Tom Sachs General Purpose Shoe Archive</div>
-                            <div class="item10 price">330,000</div>
+                            <div class="brandname">Nike</div>
+                            <div class="pname">Nike x Tom Sachs General Purpose Shoe Archive</div>
+                            <div class="price">330,000</div>
                         </div>
                     </div>
                     <div class="todaypro item11">
@@ -671,9 +678,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item11 brandname">Burberry</div>
-                            <div class="item11 pname">Burberry Mini Two-Tone Canvas and Leather Freya Tote Bag Natural Tan</div>
-                            <div class="item11 price">1,213,000</div>
+                            <div class="brandname">Burberry</div>
+                            <div class="pname">Burberry Mini Two-Tone Canvas and Leather Freya Tote Bag Natural Tan</div>
+                            <div class="price">1,213,000</div>
                         </div>
                     </div>
                     <div class="todaypro item12">
@@ -682,9 +689,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item12 brandname">Diesel</div>
-                            <div class="item12 pname">Diesel C-Seymon Treated Denim Baseball Cap Blue White</div>
-                            <div class="item12 price">350,000</div>
+                            <div class="brandname">Diesel</div>
+                            <div class="pname">Diesel C-Seymon Treated Denim Baseball Cap Blue White</div>
+                            <div class="price">350,000</div>
                         </div>
                     </div>
                     <div class="todaypro item13">
@@ -693,9 +700,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item13 brandname">Valentino</div>
-                            <div class="item13 pname">Valentino Vlogo Signature Nappa Mini Bucket Bag with Chain Light Ivory</div>
-                            <div class="item13 price">1,050,000</div>
+                            <div class="brandname">Valentino</div>
+                            <div class="pname">Valentino Vlogo Signature Nappa Mini Bucket Bag with Chain Light Ivory</div>
+                            <div class="price">1,050,000</div>
                         </div>
                     </div>
                     <div class="todaypro item14">
@@ -704,9 +711,9 @@
                              <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item14 brandname">Celine</div>
-                            <div class="item14 pname">Celine Folco Cuir Triomphe in Smooth Calfskin Tan</div>
-                            <div class="item14 price">2,400,000</div>
+                            <div class="brandname">Celine</div>
+                            <div class="pname">Celine Folco Cuir Triomphe in Smooth Calfskin Tan</div>
+                            <div class="price">2,400,000</div>
                         </div>
                     </div>
                     <div class="todaypro item15">
@@ -715,9 +722,9 @@
                             <i class="eheart"></i>
                         </div>
                         <div class="itemtxt">
-                            <div class="item15 brandname">Maison Kitsune</div>
-                            <div class="item15 pname">Maison Kitsune Baby Fox Patch R-Neck Fitted Cardigan Beige</div>
-                            <div class="item15 price">365,000</div>
+                            <div class="brandname">Maison Kitsune</div>
+                            <div class="pname">Maison Kitsune Baby Fox Patch R-Neck Fitted Cardigan Beige</div>
+                            <div class="price">365,000</div>
                         </div>
                     </div>
             </div>

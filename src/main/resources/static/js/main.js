@@ -126,7 +126,17 @@ infinite: true,
 	prevArrow: "<i class='preimg'></i>"
 });
 
-
+/*
 $(".product").on('click', function(){
 	  location.href = "/detail/Main";
-})
+})*/
+
+const productCode = document.querySelectorAll(".productCode");
+
+	productCode.forEach(block => {
+			block.addEventListener("click", (e) => {
+			const productNo = e.currentTarget.dataset.productNo;
+			console.log(productNo);
+			window.location.href = '/detail/main?proCode=' + productNo;
+		});
+	});

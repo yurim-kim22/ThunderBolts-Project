@@ -25,7 +25,7 @@
    <!-- AttachmentFileDTO -->
 	<resultMap id="attachmentFileResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
 		<id property="fileCode" column="FILE_CODE"/>
-		<result property="fileOriginalName" column="FILE_ORIGINAL_NAME"/>
+		<result property="fileOriginalName" column="FILE_ORIGINALNAME"/>
 		<result property="fileDiv" column="FILE_DIV"/>
 		<result property="reviewCode" column="REVIEW_CODE"/>
 		<result property="productOptionCode" column="PRODUCT_CODE"/>
