@@ -44,10 +44,6 @@ public class AdminOrderService {
 		orderListAndPaging.put("paging", selectCriteria);
 		orderListAndPaging.put("orderList", orderList);
 		
-		
-		
-		
-		
 		return orderListAndPaging;
 	}
 	

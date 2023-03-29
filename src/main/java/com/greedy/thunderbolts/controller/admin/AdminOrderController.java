@@ -35,7 +35,7 @@ public class AdminOrderController {
 			@RequestParam(required = false) String searchCondition, @RequestParam(required = false) String searchValue,
 			Model model) {
 
-		log.info("[AdminOrderController} page : {} ", page);
+		log.info("[AdminOrderController] page : {} ", page);
 		// if(searchCondition != null || searchValue != null) {
 		Map<String, String> searchMap = new HashMap<>();
 		searchMap.put("searchCondition", searchCondition);
