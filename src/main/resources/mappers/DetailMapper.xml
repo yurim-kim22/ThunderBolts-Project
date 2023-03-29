@@ -26,6 +26,7 @@
 		<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"/>
 		
 		<collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
+		<collection property="buyingOrders" resultMap="buyingOrderResultMap"/>
 	</resultMap>
 
 	<!-- SellingOrdersDTO -->		
@@ -60,6 +61,19 @@
 		<result property="fileThumbnailChecking" column="FILE_THUMBNAIL_CHECKING"/>
 		<result property="membersNo" column="MEMBERS_NO"/>
 	</resultMap>
+	
+	 <!-- BuyingOrdersDTO-->
+	<resultMap id="buyingOrderResultMap" type="com.greedy.thunderbolts.model.dto.BuyingOrdersDTO">
+        <id property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+        <result property="membersNo" column="MEMBERS_NO"/>
+        <result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+        <result property="buyingOrderRegistdate" column="BUYING_ORDER_REGISTDATE"/>
+        <result property="buyingOrderPrice" column="BUYING_ORDER_PRICE"/>
+        <result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"/>
+        <result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"/>
+        <result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"/>
+        <result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"/>
+    </resultMap>
 
 	<select id="finddetailProductbyProductCode" resultType="_int" resultMap="productResultMap">
 	SELECT
@@ -78,5 +92,28 @@
 	   JOIN ATTACHMENT_FILE AF ON ( AF.PRODUCT_CODE = P.PRODUCT_CODE)
 	   WHERE P.PRODUCT_CODE = #{ ProductCode }
 	   GROUP BY P.PRODUCT_CODE, P.PRODUCT_NAME, B.BRAND_NO, B.BRAND_NAME, P.PRODUCT_ENTRY_DATE, AF.FILE_PATH, AF.FILE_DECODED	
+	</select>
+	
+	
+	<select id="finddetailProductbyProductCodeSell" resultMap="productResultMap">
+		SELECT
+			P.PRODUCT_CODE,
+			P.PRODUCT_NAME,
+			B.BRAND_NO,
+			B.BRAND_NAME,
+			MAX(B.BUYING_ORDER_PRICE) BUYING_ORDER_PRICE,
+			P.PRODUCT_ENTRY_DATE,
+			AF.FILE_PATH,
+			AF.FILE_DECODED
+	   FROM PRODUCT P
+	   JOIN PRODUCT_OPTION PO ON (P.PRODUCT_CODE = PO.PRODUCT_CODE)
+	   JOIN BUYING_ORDERS B ON ( PO.PRODUCT_OPTION_CODE = B.PRODUCT_OPTION_CODE)
+	   JOIN BRAND B ON (P.BRAND_NO = B.BRAND_NO)
+	   JOIN ATTACHMENT_FILE AF ON ( AF.PRODUCT_CODE = P.PRODUCT_CODE)
+	   WHERE P.PRODUCT_CODE = 2
+       
+	   GROUP BY P.PRODUCT_CODE, P.PRODUCT_NAME, B.BRAND_NO, B.BRAND_NAME, P.PRODUCT_ENTRY_DATE, AF.FILE_PATH, AF.FILE_DECODED	
+		
+	
 	</select>
 </mapper>

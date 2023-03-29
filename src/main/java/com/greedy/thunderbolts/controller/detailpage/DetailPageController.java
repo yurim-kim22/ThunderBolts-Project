@@ -32,8 +32,11 @@ public class DetailPageController {
 		MainPageDTO productList = detailService.finddetailProductbyProductCode(ProductCode);
 		log.info("[DetailPageController productList : {}",productList);
 		
+		MainPageDTO sellPrice = detailService.finddetailProductbyProductCodeSell(ProductCode);
+		log.info("[DetailPageController sellPrice : {}",sellPrice);
 		
 		model.addAttribute("productList",productList);
+		model.addAttribute("sellPrice",sellPrice);
 		 
 		return "/detail/detailMain";
 	}

@@ -21,7 +21,7 @@
 			</div>
 
 			<div class="detailTxtDiv">
-				<form id="loginForm">
+				
 				<div class="detailTitleDiv">
 					<div class="detailTitle" th:text="${productList.brandNo.brandName}"></div>
 					<div class="detailSubTitle" th:text="${productList.productName}"></div>
@@ -34,13 +34,16 @@
 					<div class="curSale">최근 거래가</div>
 					<div class="curSalePrice">298,000원</div>
 				</div>
-
+				<form id="loginForm">
+				 <input type="hidden"  name="productCode" th:value="${productList.productCode}">
 				<div class=detailorderdiv>
 					<div class="buyorder">
 						<button type="submit" formaction="/list/normalBuy"
 							formmethod="POST" class="buyordername">구매</button>
-						<div class="buyorderprice" th:data-product-no=${newProductList.productCode}>
-							<p th:text="${productList.productOption[0].sellingOrders[0].sellingOrderPrice}+원" />
+						<div class="buyorderprice" th:data-product-no=${productList.productCode}>
+							<p data-th-text="${#numbers.formatInteger(productList.productOption[0].sellingOrders[0].sellingOrderPrice, 3, 'COMMA') + '원'}"
+							
+							/>
 							<button type="submit" formaction="/list/normalBuy"
 								formmethod="POST" class="buyorderpricetxt">즉시구매가</button>
 						</div>
@@ -50,18 +53,19 @@
 					<button type="submit" formaction="/list/normalSell"
 							formmethod="POST" class="saleordername">판매</button>
 						<div class="saleorderprice">
-							254,000원<br>
+							<p data-th-text="${#numbers.formatInteger(sellPrice.productOption[0].buyingOrders[0].buyingOrderPrice, 3, 'COMMA') + '원'}"
+							/>
 							<button type="submit" formaction="/list/normalBuy"
 								formmethod="POST" class="saleorderpricetxt">즉시판매가</button>
 						</div>
 					</div>
 
 				</div>
-				
+				</form>
 				<div class="heartProduct">
 					<i class="eheart"></i>관심상품
 				</div>
-				</form>
+				
 				<div class=deliveryBoard>
 					<div class="deliveryTitle">배송정보</div>
 					<div class="deliverySub">

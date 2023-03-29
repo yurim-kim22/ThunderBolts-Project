@@ -18,6 +18,8 @@ public class DetailService {
 	public DetailService(DetailMapper mapper) {
 		this.mapper = mapper;
 	}
+	
+	
 
 	public MainPageDTO finddetailProductbyProductCode(int ProductCode) {
 		
@@ -31,6 +33,16 @@ public class DetailService {
 	}
 
 	
+	public MainPageDTO finddetailProductbyProductCodeSell(int ProductCode) {
+		
+		log.info("[detail service] ProductCode : {}", ProductCode);
+		
+		MainPageDTO ProductList = mapper.finddetailProductbyProductCodeSell(ProductCode);
+		
+	log.info("[detail service] ProductList : {}", ProductList);
+	
+		return ProductList;
+	}
 	
 
 }

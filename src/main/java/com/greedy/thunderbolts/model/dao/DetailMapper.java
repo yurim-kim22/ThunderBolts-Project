@@ -9,4 +9,7 @@ import com.greedy.thunderbolts.model.dto.MainPageDTO;
 public interface DetailMapper {
 
 	MainPageDTO finddetailProductbyProductCode(int productCode);
+	
+	MainPageDTO finddetailProductbyProductCodeSell(int productCode);
+	
 }
