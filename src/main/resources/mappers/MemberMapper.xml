@@ -21,8 +21,7 @@
 		<id property="authNum" column="REF_AUTH_NUM"/>
 		<association property="auth" resultMap="authResultMap"/>
 
-	</resultMap>
-	
+	</resultMap>	
 		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
 		<id property="num" column="AUTH_NUM"/>
 		<result property="name" column="AUTH_NAME"/>
