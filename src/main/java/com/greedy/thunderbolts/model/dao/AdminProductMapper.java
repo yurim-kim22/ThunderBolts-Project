@@ -16,4 +16,5 @@ public interface AdminProductMapper {
 
 	List<AdminProductDTO> selectProductList(SelectCriteria selectCriteria);
 	
+	
 }

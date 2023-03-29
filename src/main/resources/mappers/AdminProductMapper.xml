@@ -100,7 +100,7 @@
 				C.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
 			</if>
 			<if test="searchCondition == 'productCode'">
-				C.PRODUCT_CODE LIKE = #{searchValue}
+				C.PRODUCT_CODE  = #{searchValue}
 			</if>
 		</where>
 		ORDER BY C.PRODUCT_CODE ASC
@@ -124,7 +124,7 @@
 		 	    P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
 		 	</if>
 			<if test="searchCondition == 'productCode'">
-				P.PRODUCT_CODE LIKE = #{searchValue}
+				P.PRODUCT_CODE = #{searchValue}
 			</if>
 		</where>
 </select>

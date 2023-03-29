@@ -40,7 +40,7 @@ public class AdminProductController {
 
 		Map<String, Object> ProductListAndPaging = productService.selectProductList(searchMap, page);
 		model.addAttribute("paging", ProductListAndPaging.get("paging"));
-		model.addAttribute("ProductList", ProductListAndPaging.get("ProductList"));
+		model.addAttribute("productList", ProductListAndPaging.get("productList"));
 		
 		
 		return "/admin/product/productMain";
