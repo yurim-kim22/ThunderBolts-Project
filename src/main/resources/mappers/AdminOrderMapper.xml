@@ -27,8 +27,8 @@
 	<result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"></result>
 	<result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"></result>
 	<result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"></result>
-	<association property="membersDTO" resultMap="membersResultMap"></association>
-	<association property="OrdersDTO" resultMap="adminOrderResultMap"></association>
+	<association property="members" resultMap="membersResultMap"></association>
+	<association property="orders" resultMap="adminOrderResultMap"></association>
 	</resultMap>
 	
 	<resultMap id="sellingResultMap" type="com.greedy.thunderbolts.model.dto.AdminSellingOrdersDTO">
@@ -41,7 +41,7 @@
 	<result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"></result>
 	<result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"></result>
 	<result property="sellingOrderDeadlineDate" column="SELLINGORDER_DEADLINE_DATE"></result>
-	<association property="membersDTO" resultMap="membersResultMap"></association>
+	<association property="members" resultMap="membersResultMap"></association>
 	<association property="OrdersDTO" resultMap="adminOrderResultMap"></association>
 	</resultMap>
 	
@@ -64,13 +64,13 @@
 	<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
 	<result property="productOptionEtc"  column="PRODUCT_OPTION_ETC"></result>
 	<result property="productOptionQuantitiy"  column="PRODUCT_OPTION_QUANTITIY"></result>
-	<collection property="sellingOrders" resultMap="sellingResultMap"/>
-        <collection property="buyingOrders" resultMap="buyingResultMap"/>
+	
 		
 	</resultMap>
 	
-	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
+	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.AdminMembersDTO">
 		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="membersName" column="MEMBERS_NAME"/>
 		<result property="membersId" column="MEMBERS_ID"/>
 		<result property="membersPwd" column="MEMBERS_PWD"/>
 		<result property="membersTel" column="MEMBERS_TEL"/>
@@ -112,13 +112,14 @@
 	
 	<select id="selectorderList" resultMap="adminOrderResultMap">
   
-     SELECT
+ SELECT
     A.ORDERS_NO,
     A.PRODUCT_CODE,
     A.PRODUCT_NAME,
     A.ORDERS_PRICE,
     A.ORDERS_DATE,
-    A.ORDERS_DIV
+    A.ORDERS_DIV,
+    A.MEMBERS_ID
 FROM (
     SELECT
         ROWNUM RNUM,
@@ -133,6 +134,7 @@ FROM (
         D.BUYING_ORDER_CODE
         , D.PRODUCT_NAME
         , D.PRODUCT_CODE
+        , D.MEMBERS_ID
     FROM (
         SELECT 
             E.ORDERS_NO,
@@ -145,18 +147,20 @@ FROM (
             E.ORDERS_STATUS,
             E.BUYING_ORDER_CODE,
             P.PRODUCT_CODE,
-            P.PRODUCT_NAME
+            P.PRODUCT_NAME,
+            M.MEMBERS_ID
         FROM ORDERS E
         LEFT JOIN SELLING_ORDERS S ON E.SELLINGORDER_NO = S.SELLINGORDER_NO
         LEFT JOIN BUYING_ORDERS Y ON E.BUYING_ORDER_CODE = Y.BUYING_ORDER_CODE
-        LEFT JOIN PRODUCT_OPTION H ON H.PRODUCT_OPTION_CODE = Y.PRODUCT_OPTION_CODE
-        JOIN PRODUCT P ON H.PRODUCT_CODE = P.PRODUCT_CODE
+        LEFT JOIN PRODUCT_OPTION H ON H.PRODUCT_OPTION_CODE = Y.PRODUCT_OPTION_CODE or H.PRODUCT_OPTION_CODE = s.product_option_code
+        left JOIN PRODUCT P ON H.PRODUCT_CODE = P.PRODUCT_CODE
+        LEFT JOIN MEMBERS M ON E.MEMBERS_SELLER = M.MEMBERS_NO
       <where>
         <if test="searchCondition == 'membersBuyer'">
           E.MEMBERS_BUYER = #{searchValue}
         </if>
         <if test="searchCondition == 'membersSeller'">
-          E.MEMBERS_SELLER = #{searchValue} AND E.ORDERS_DIV LIKE '%' '판매' '%'
+          E.MEMBERS_SELLER = #{searchValue}
         </if>
         <if test="searchCondition == 'productName'">
           P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
@@ -180,8 +184,8 @@ FROM (
 	SELECT
 			COUNT(*)
 			FROM ORDERS O
-			JOIN SELLING_ORDERS S ON(S.SELLINGORDER_NO = O.SELLINGORDER_NO)
-			JOIN BUYING_ORDERS B ON (B.BUYING_ORDER_CODE = O.BUYING_ORDER_CODE)
+		LEFT	JOIN SELLING_ORDERS S ON(S.SELLINGORDER_NO = O.SELLINGORDER_NO)
+		LEFT	JOIN BUYING_ORDERS B ON (B.BUYING_ORDER_CODE = O.BUYING_ORDER_CODE)
 			JOIN PRODUCT_OPTION T ON (T.PRODUCT_OPTION_CODE = B.BUYING_ORDER_CODE)
 			JOIN PRODUCT P ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
 		 <where>

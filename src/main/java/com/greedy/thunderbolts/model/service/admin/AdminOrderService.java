@@ -38,7 +38,7 @@ public class AdminOrderService {
 		log.info("[BoardService] selectCriteria : {}", selectCriteria);	
 		
 		List<AdminOrderDTO> orderList = orderMapper.selectorderList(selectCriteria);
-		
+		log.info("[AdminOrderService] orderList : {}" , orderList);
 		
 		Map<String, Object> orderListAndPaging = new HashMap<>();
 		orderListAndPaging.put("paging", selectCriteria);

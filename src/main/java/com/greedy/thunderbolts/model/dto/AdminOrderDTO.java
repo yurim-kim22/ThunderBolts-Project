@@ -19,11 +19,12 @@ public class AdminOrderDTO {
 		private int membersSeller;
 		private String ordersStatus;
 		private int buyingOrderCode;
-		private List<ProductDTO> product;
-		private List<DeliveryDTO> delivery;
-		private BuyingOrdersDTO buyingOrdersDTO;
-		private SellingOrdersDTO	sellingOrdersDTO;
-		private MembersDTO members;
+		private AdminProductDTO product;
+		private AdminBuyingOrdersDTO buyingOrdersDTO;
+		private AdminSellingOrdersDTO sellingOrdersDTO;
+		private AdminMembersDTO members;
+		
+		
 	
 	
 }
