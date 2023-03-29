@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -53,19 +53,18 @@
                 <!-- 구매 내역 -->
                 <h3>구매 내역</h3>                
                 <div class="buy">
-                    <ul>
-                       <li th:if="${buyingList != null}">
-                            <ul th:each="${buy : sellingList}" id="side_myBuy" class="main_transaction_list">
+                    <ul >
+                       <li th:if="${ buyingList != null}">
+                            <ul th:each= "buy : ${ buyingList }" id="side_myBuy"  class="buy_list">
                                 <li>
-                                	<img th:src="@{${buy.file.filePath}}" class="main_transaction_img">
+                                	<img th:src="@{${buy.file.filePath}}" class="buy_img">
                                 </li>
                                 <li th:text="${ buy.product.productName }"></li>
-                                <li th:text="${ buyDate }"></li>
+                                <li th:text="${#dates.format( buy.order.ordersDate, 'yyyy-MM-dd')}"></li>
                                 <li th:text="${ buy.order.ordersStatus }"></li>
                             </ul>
                        </li>
                     </ul> 
-                    
                 </div>
             </div>
         </div>

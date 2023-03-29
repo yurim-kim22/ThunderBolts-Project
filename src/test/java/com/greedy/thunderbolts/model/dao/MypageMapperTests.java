@@ -12,12 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 import com.greedy.thunderbolts.Application;
+import com.greedy.thunderbolts.common.paging.Pagenation;
+import com.greedy.thunderbolts.common.paging.SelectCriteria;
 import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.WishDTO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,15 +39,11 @@ public class MypageMapperTests {
 	@Disabled
 	@Test
 	public void 메인_구매내역_디비_조회_테스트() {
-<<<<<<< HEAD
-		
-		String memberId = "hy@greedy.com"; // memberId 값을 설정
-		
-=======
+
 
 		String memberId = "1111"; // memberId 값을 설정
 
->>>>>>> refs/heads/yulim4
+
 		BuyListDTO buyList = mypageMapper.selectBuyList(memberId);
 
 		assertNotNull(buyList);
@@ -53,23 +52,17 @@ public class MypageMapperTests {
 	@Disabled
 	@Test
 	public void 메인_판매내역_디비_조회_테스트() {
-<<<<<<< HEAD
-		
-		String memberId = "hy@greedy.com"; // memberId 값을 설정
-		
-=======
+
 
 		String memberId = "1111"; // memberId 값을 설정
 
->>>>>>> refs/heads/yulim4
+
 		SellListDTO sellList = mypageMapper.selectSellList(memberId);
 
 		assertNotNull(sellList);
 		log.info("판매 내역 : {} ", sellList);
 	}
-<<<<<<< HEAD
-	
-=======
+
 	@Disabled
 	@Test
 	public void 내정보관리_조회_테스트() {
@@ -122,10 +115,10 @@ public class MypageMapperTests {
 
 		int memberNo = 2; 
 
-		List<AddressDTO> selectAddress = mypageMapper.selectAddress(memberNo);
+		//List<AddressDTO> selectAddress = mypageMapper.selectAddress(memberNo);
 
-		assertNotNull(selectAddress);
-		System.out.println(selectAddress);
+		//assertNotNull(selectAddress);
+		//System.out.println(selectAddress);
 	}
 	@Disabled
 	@Test
@@ -199,6 +192,16 @@ public class MypageMapperTests {
 
 		log.info("selectTotalCount : {}", selectTotalCount);
 	}
->>>>>>> refs/heads/yulim4
+	@Disabled
+	@Test
+	public void 관심상품_조회_테스트() {
+	    int memberNo = 2; 
+	    SelectCriteria selectCriteria = Pagenation.getSelectCriteria(1, 1, 1, 1);
+	    List<WishDTO> selectAddress = mypageMapper.selectWishList(selectCriteria, memberNo);
+	    assertNotNull(selectAddress);
+	    System.out.println(selectAddress);
+	}
+
+
 
 }

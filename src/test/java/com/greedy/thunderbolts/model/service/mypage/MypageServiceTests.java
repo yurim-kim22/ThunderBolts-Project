@@ -175,7 +175,7 @@ public class MypageServiceTests {
 	 * 
 	 * log.info("modifyInfo : {}", modifyInfo); }
 	 */
-	
+	@Disabled
 	@Test
 	public void 주소록_페이징_테스트() {
 	    int memberNo = 2;
@@ -184,6 +184,16 @@ public class MypageServiceTests {
 	    Map<String, Object> selectAddressList = mypageService.selectAddressList(memberNo, page);
 	    log.info("selectAddressList : {}", selectAddressList);
 	}
+	@Disabled
+	@Test
+	public void 관심상품_테스트() {
+	    int memberNo = 2;
+	    int page = 1;
+
+	    Map<String, Object> selectAddressList = mypageService.wishList(memberNo, page);
+	    log.info("selectAddressList : {}", selectAddressList);
+	}
+
 
 	
 	

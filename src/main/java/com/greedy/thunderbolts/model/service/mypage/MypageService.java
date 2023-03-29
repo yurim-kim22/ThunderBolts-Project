@@ -45,10 +45,12 @@ public interface MypageService {
 	
 	
 	//구매내역목록 페이징
-	Map<String, Object> BuyingList(int memberNo, int page);
-	
+	Map<String, Object> buyingList(int memberNo, int page);
 	//판매내역목록 페이징
-	Map<String, Object> SellingList(int memberNo, int page);
+	Map<String, Object> sellingList(int memberNo, int page);
+	
+	//관심상품목록 페이징
+	Map<String, Object> wishList(int memberNo, int page);
 	
 	
 }

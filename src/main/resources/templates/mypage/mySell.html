@@ -55,12 +55,12 @@
                 <div class="sell">
                     <ul>
                        <li th:if="${sellingList != null}">
-                           <ul th:each="${sell : sellingList}"  id="side_myBuy" class="main_transaction_list">
+                           <ul th:each="sell : ${sellingList}"  id="side_myBuy" class="sell_list">
                                 <li>
-                                	<img th:src="@{${sell.file.filePath}}" class="main_transaction_img">
+                                	<img th:src="@{${sell.file.filePath}}" class="sell_img">
                                 </li>
                                 <li th:text="${ sell.product.productName }"></li>
-                                <li th:text="${ sellDate }"></li>
+                                <li th:text="${#dates.format( sell.order.ordersDate, 'yyyy-MM-dd')}"></li>
                                 <li th:text="${ sell.order.ordersStatus }"></li>
                             </ul>
                        </li>

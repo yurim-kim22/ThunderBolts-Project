@@ -2,92 +2,122 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>THUNDER_BOLT</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
-    <link href="/css/mypage/wish.css" rel="stylesheet" type="text/css"> 
-    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>THUNDER_BOLT</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+<link href="/css/mypage/wish.css" rel="stylesheet" type="text/css">
+<script src="/js/mypageSide.js" type="text/Javascript" defer></script>
 </head>
 
 <body>
-    <!-- 헤더 -->
+	<!-- 헤더 -->
 	<div th:replace="common/header/mypageHeader.html"></div>
-    <!-- 바디 -->
-    <!-- 사이드바 -->
-    <div class="d-flex" id="wrapper">
-        <div class="border-end bg-white" id="sidebar-wrapper">
-            <a href="#">
-                <div class="sidebar-title" id="side0">마이 페이지</div>
-            </a>
-            <!-- Sidebar 쇼핑정보 -->
-            <div class="sidebar-heading">쇼핑정보</div>
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
-            </div>
+	<!-- 바디 -->
+	<!-- 사이드바 -->
+	<div class="d-flex" id="wrapper">
+		<div class="border-end bg-white" id="sidebar-wrapper">
+			<a href="#">
+				<div class="sidebar-title" id="side0">마이 페이지</div>
+			</a>
+			<!-- Sidebar 쇼핑정보 -->
+			<div class="sidebar-heading">쇼핑정보</div>
+			<div class="list-group list-group-flush">
+				<a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side1">구매 내역</a> <a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side2">판매 내역</a> <a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side3">관심 상품</a>
+			</div>
 
-            <!-- Sidebar 내정보 -->
-            <div class="sidebar-heading">내정보</div>
-            <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
-            </div>
-        </div>
-        <!--sidebar-wrapper-->
+			<!-- Sidebar 내정보 -->
+			<div class="sidebar-heading">내정보</div>
+			<div class="list-group list-group-flush">
+				<a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side4">내 정보 관리</a> <a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side5">내 문의 내역</a> <a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side6">주소록</a> <a
+					class="list-group-item list-group-item-action list-group-item-light"
+					id="side7">정산계좌</a>
+			</div>
+		</div>
+		<!--sidebar-wrapper-->
 
-        <!-- Page content wrapper-->
-        <div id="page-content-wrapper">
-            <!-- Page content-->
-            <!-- 관심 상품 -->
-            <div class="container-fluid">
-                <h3>관심 상품</h3>   
-                <div class="wish">
-                    <ul>
-                        <li class="wish_img"></li>
+		<div id="page-content-wrapper">
+    <!-- Page content-->
+    <!-- 관심 상품 -->
+    <div class="container-fluid">
+        <h3>관심 상품</h3>
+        <div>
+            <ul>
+                <li  th:if="${wishList != null}">
+                    <ul th:each="wish : ${wishList}" class="wish_text_wrap">
                         <li>
-                            <ul class="wish_text_wrap">
-                                <li>Maison Margiela</li>
-                                <li class="wish_name">Maison Margiela x Gentle Monster MM004 Black Black</li>
-                            </ul>
+                            <img th:src="${wish.file.filePath}+${wish.file.fileOriginalName}" class="wish_img">
+                        </li>
+                        <li>
+                        	<ul class="wish_text">
+	                            <li th:text="${wish.brand.brandName}"></li>
+	                            <li th:text="${wish.product.productName}" class="wish_name"></li>
+                        	</ul>
                         </li>
                         <li>
                             <ul class="wish_btn_wrap">
-                               <li><button class="wish_btn">구매하기</button></li>
-                                <li class="wish_delete">삭제</li>
+                                <li><button class="wish_btn">구매하기</button></li>
                             </ul>
                         </li>
                     </ul>
-                </div><!-- wish -->
-
-                <div class="wish">
-                    <ul>
-                        <li class="wish_img"></li>
-                        <li>
-                            <ul class="wish_text_wrap">
-                                <li>Maison Margiela</li>
-                                <li class="wish_name">Maison Margiela x Gentle Monster MM004 Black Black</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <ul class="wish_btn_wrap">
-                               <li><button class="wish_btn">구매하기</button></li>
-                                <li class="wish_delete">삭제</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div><!-- wish -->
-            </div><!-- container-fluid -->
+                </li>
+            </ul>
         </div>
-    </div><!-- 사이드바 -->
-    <!-- 푸터 -->
+        <!-- wish -->
+    </div>
+    <!-- container-fluid -->
+</div>
+
+	</div>
+	<!-- 사이드바 -->
+
+	<!-- 페이징 바 -->
+	<div id="paging" align="center" style="margin-top: 20px;">
+		<!-- 맨 앞으로 이동 -->
+		<button th:onclick="location.href=\'/mypage/wish?page=1\'">&lt;&lt;</button>
+
+		<!-- 이전 페이지로 이동 -->
+		<button
+			th:onclick="location.href='/mypage/wish?page=' + ${paging.page - 1}"
+			th:disabled="${paging.page &lt;= 1}">&lt;</button>
+
+		<!-- 숫자 버튼 -->
+		<th:block
+			th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+			<button
+				th:onclick="'location.href=\'/mypage/wish?page=' + @{${page}} + '\''"
+				th:text="${ page }" th:disabled="${ paging.page eq page }"></button>
+		</th:block>
+
+		<!-- 다음 페이지로 이동 -->
+		<button
+			th:onclick="'location.href=\'/mypage/wish?page=' + @{${paging.page + 1}} + '\''"
+			th:disabled="${ paging.page >= paging.maxPage }">&gt;</button>
+
+		<!-- 맨 끝으로 이동 -->
+		<button
+			th:onclick="'location.href=\'/mypage/wish?page=' + @{${paging.maxPage}} + '\''">&gt;&gt;</button>
+	</div>
+	<!-- 페이징 바 -->
+	<!-- 푸터 -->
 	<div th:replace="common/footer/mainFooter.html"></div>
-</body></html>
+</body>
+</html>

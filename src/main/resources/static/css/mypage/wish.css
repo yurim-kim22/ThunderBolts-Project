@@ -56,6 +56,33 @@ a{text-decoration: none; color: inherit;}
 .wish_text_wrap{
     margin-left: -1rem;
     margin-top: 1rem;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 40vw;
+    padding: 1vw;
+}
+
+.wish_text_wrap li:nth-child(2){
+	 margin-top: 10px;
+}
+
+.wish_text{
+/* 	margin-top: 150px; */
+}
+
+.wish_text_wrap li:nth-child(1){
+   /*  width: 15%; */
+}
+.wish_text_wrap li:nth-child(2){
+    width: 40%;
+    margin-left: 3%;
+    margint-top: 100px;
+}
+.wish_text_wrap li:nth-child(3){
+    width: 15%;
+    margin-left: 5%;
+    
 }
 
 .wish_name{
@@ -89,3 +116,12 @@ a{text-decoration: none; color: inherit;}
     margin-top: 3vw;
     cursor: pointer;
 }
+
+#paging > button{
+	border: none;
+	font-size: 1.2rem;
+	background: none;
+	margin-top: -100px;
+	padding: 5px;
+}
+
