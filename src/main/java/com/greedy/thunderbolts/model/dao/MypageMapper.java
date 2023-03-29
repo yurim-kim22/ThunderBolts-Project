@@ -11,6 +11,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.WishDTO;
 
@@ -65,6 +66,15 @@ public interface MypageMapper {
 	List<WishDTO> selectWishList(@Param("criteria")SelectCriteria selectCriteria, @Param("memberNo") int memberNo);
 	//관심상품 목록 페이징 
 	int wishListCount(int memberNo);
+	
+	
+	
+	
+	//구매상세내역
+	DetailDTO detailBuy(Long no);
+	
+	//판매상세내역
+	DetailDTO detailSell(Long no);
 	
 
 }

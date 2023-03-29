@@ -19,6 +19,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.WishDTO;
 
@@ -202,6 +203,28 @@ public class MypageMapperTests {
 	    System.out.println(selectAddress);
 	}
 
+	
+	@Disabled
+	@Test
+	public void 구매상세_테스트() {
 
+		Long no = (long) 12; // memberId 값을 설정
+
+		DetailDTO detailList = mypageMapper.detailBuy(no);
+
+		assertNotNull(detailList);
+		log.info("구매 내역 : {} ", detailList);
+	}
+	@Disabled
+	@Test
+	public void 판매상세_테스트() {
+
+		Long no = (long) 12; // memberId 값을 설정
+
+		DetailDTO detailList = mypageMapper.detailSell(no);
+
+		assertNotNull(detailList);
+		log.info("판매 내역 : {} ", detailList);
+	}
 
 }

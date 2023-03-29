@@ -17,6 +17,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.MembersIdDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.WishDTO;
@@ -191,7 +192,7 @@ public class MypageServiceImpl implements MypageService {
 
 		// 3. 요청 페이지에 맞는 게시글을 조회해온다
 		List<WishDTO> wishList = mypageMapper.selectWishList(selectCriteria, memberNo);
-		log.info("[wishList] wishList : {}", wishList);
+		log.info("[servicefile] wishList : {}", wishList);
 
 		Map<String, Object> selectWishList = new HashMap<>();
 		selectWishList.put("paging", selectCriteria);
@@ -199,6 +200,20 @@ public class MypageServiceImpl implements MypageService {
 
 		return selectWishList;
 		
+	}
+	
+	//구매상세 
+	@Override
+	public DetailDTO detailBuy(Long no) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//판매상세
+	@Override
+	public DetailDTO detailSell(Long no) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

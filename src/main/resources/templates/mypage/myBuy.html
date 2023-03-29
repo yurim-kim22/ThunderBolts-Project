@@ -55,9 +55,11 @@
                 <div class="buy">
                     <ul >
                        <li th:if="${ buyingList != null}">
-                            <ul th:each= "buy : ${ buyingList }" id="side_myBuy"  class="buy_list">
+                            <ul th:each= "buy : ${ buyingList }" 
+                            	th:onclick="|location.href='/mypage/mybuy?no=${buy.orderNo}'|"
+                            	id="side_myBuy"  class="buy_list">
                                 <li>
-                                	<img th:src="@{${buy.file.filePath}}" class="buy_img">
+                                	<img th:src="${buy.file.filePath}+${buy.file.fileDecoded}" class="buy_img">
                                 </li>
                                 <li th:text="${ buy.product.productName }"></li>
                                 <li th:text="${#dates.format( buy.order.ordersDate, 'yyyy-MM-dd')}"></li>

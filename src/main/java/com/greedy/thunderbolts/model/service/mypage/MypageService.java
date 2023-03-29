@@ -11,6 +11,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 public interface MypageService {
@@ -51,6 +52,13 @@ public interface MypageService {
 	
 	//관심상품목록 페이징
 	Map<String, Object> wishList(int memberNo, int page);
+	
+	
+	//구매상세내역
+	DetailDTO detailBuy(Long no);
+		
+	//판매상세내역
+	DetailDTO detailSell(Long no);
 	
 	
 }

@@ -64,7 +64,7 @@
                 <li  th:if="${wishList != null}">
                     <ul th:each="wish : ${wishList}" class="wish_text_wrap">
                         <li>
-                            <img th:src="${wish.file.filePath}+${wish.file.fileOriginalName}" class="wish_img">
+                            <img th:src="${wish.file.filePath}+${wish.file.fileDecoded}" class="wish_img">
                         </li>
                         <li>
                         	<ul class="wish_text">

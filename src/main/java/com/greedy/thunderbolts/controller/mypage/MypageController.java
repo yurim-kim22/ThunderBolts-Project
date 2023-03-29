@@ -90,6 +90,11 @@ public class MypageController {
 		
 	}
 
+	
+	
+	
+	
+	
 	// 마이페이지 구매내역
 	@GetMapping("/mybuy")
 	public String myBuy(@AuthenticationPrincipal MembersDTO members
@@ -109,9 +114,22 @@ public class MypageController {
 
 	// 마이페이지 구매내역 상세
 	@GetMapping("/mybuydetail")
-	public String myBuyDetail() {
+	public String myBuyDetail(@RequestParam Long no, Model model) {
+		
+		//mypageService.selectBuyDetail(no)
+		
 		return "mypage/myBuyDetail";
 	}
+	
+	
+	// 마이페이지 판매내역 상세
+	@GetMapping("/myselldetail")
+	public String mySellDetail(@RequestParam Long no, Model model) {
+		return "mypage/mySellDetail";
+	}
+
+		
+	
 
 	// 마이페이지 판매내역
 	@GetMapping("/mysell")
@@ -131,12 +149,13 @@ public class MypageController {
 		return "mypage/mySell";
 	}
 
-	// 마이페이지 판매내역 상세
-	@GetMapping("/myselldetail")
-	public String mySellDetail() {
-		return "mypage/mySellDetail";
-	}
-
+	
+	
+	
+	
+	
+	
+	
 	// 마이페이지 관심상품
 	@GetMapping("/wish")
 	public String wish(@AuthenticationPrincipal MembersDTO members
