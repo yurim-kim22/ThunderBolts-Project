@@ -75,6 +75,10 @@ public class ListServiceImpl implements ListService {
 	public ProductDTO findProductOptionSize(String productOptionSize) {
 		return listMapper.findProductOptionSize(productOptionSize);
 	}
+	
+	public ProductDTO findBuyingProduct(int buyingOrderCode) {
+		return listMapper.findBuyingProduct(buyingOrderCode);
+	}
 
 
 
@@ -100,17 +104,5 @@ public class ListServiceImpl implements ListService {
 		//계좌 조회
 
 
-		@Override
-		public List<ProductDTO> findBuyingProduct(int buyingOrderCode) {
-			// TODO Auto-generated method stub
-			return listMapper.findBuyingProduct(buyingOrderCode);
-		}
-
-
-		@Override
-		public List<ProductDTO> findBuyingProduct() {
-			// TODO Auto-generated method stub
-			return listMapper.findBuyingProduct();
-		}
 
 }

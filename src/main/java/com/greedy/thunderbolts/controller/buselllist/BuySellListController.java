@@ -151,11 +151,11 @@ public class BuySellListController {
 	public String GetNormalSell2(
 			@RequestParam("buyingOrderCode") int buyingOrderCode,
 			@RequestParam(value = "buyingOrderPrice", required = false) String buyingOrderPrice,
-			@AuthenticationPrincipal MembersDTO members,ProductDTO productDTO,BuyingOrdersDTO buyingOrdersDTO,
+			@AuthenticationPrincipal MembersDTO members,
 			AddressDTO address,
 			Model model) {
-		log.info("판매 요청 어그리로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
-		log.info("판매 요청 어그리로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
+		log.info("get판매 요청 어그리로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
+		log.info("get판매 요청 어그리로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
 
 		int memberNo = members.getMembersNo();
 
@@ -167,15 +167,17 @@ public class BuySellListController {
 		log.info("멤버 조회 members : {}", members);
 
 		// buyingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
-		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
-		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
 
+		ProductDTO findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
 
 		// 뷰에서 사용할 모델 객체에 데이터 추가
-		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
-		model.addAttribute("findBuyingProduct", findBuyingProduct);
 		model.addAttribute("buyingOrderCode", buyingOrderCode);
 		model.addAttribute("buyingOrderPrice", buyingOrderPrice);
+		model.addAttribute("productDTO", findBuyingProduct);
+		model.addAttribute("productName",findBuyingProduct.getProductName());
+		model.addAttribute("productNameKr",findBuyingProduct.getProductNameKr());
+		model.addAttribute("productCode",findBuyingProduct.getProductCode());
+		model.addAttribute("productOptionSize",findBuyingProduct.getProductOption().get(0).getProductOptionSize());
 		model.addAttribute("selectAddress", selectAddress);
 
 		return "agreeAtc/sellAgree";
@@ -202,13 +204,12 @@ public class BuySellListController {
 		log.info("멤버 조회 members : {}", members);
 
 		// buyingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
-		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
+		
 		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
 
 
 		// 뷰에서 사용할 모델 객체에 데이터 추가
 		model.addAttribute("selectBuyingOrder",selectBuyingOrder);
-		model.addAttribute("findBuyingProduct", findBuyingProduct);
 		model.addAttribute("buyingOrderCode", buyingOrderCode);
 		model.addAttribute("buyingOrderPrice", buyingOrderPrice);
 		model.addAttribute("productOptionSize", productOptionDTO.getProductOptionSize());
@@ -348,8 +349,20 @@ public class BuySellListController {
 	}
 
 
-	@GetMapping("/sellBid")
-	public String sellBid(){
+	@GetMapping("/normal6")
+	public String sellBid(@RequestParam("sellingOrderPrice") int sellingOrderPrice,
+			@RequestParam("sellingOrderDeadlineDate")Date sellingOrderDeadlineDate,
+						  ProductDTO productDTO,
+						  Model model) {
+
+//		log.info("구매 입찰로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
+			log.info("판매 입찰로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
+			log.info("판매 입찰로 넘어왔음2: sellingOrderDeadlineDate={}",sellingOrderDeadlineDate);
+			log.info("판매입찰 productDTO = {}",productDTO);
+
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		model.addAttribute("sellingOrderPrice", sellingOrderPrice);
+		model.addAttribute("sellingOrderDeadlineDate",date.format(sellingOrderDeadlineDate));
 		return "bid/sellBid";
 
 	}

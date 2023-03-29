@@ -62,7 +62,7 @@
       const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
 
       if (buyingOrderPrice === '0') { // 가격이 0원인 경우
-        location.href = '/list/normalSell3?productOptionSize=' + productOptionSize;
+        location.href = '/list/normal6?productOptionSize=' + productOptionSize;
       } else { // 그 외의 경우
         location.href = '/list/normalSell2?buyingOrderCode=' + buyingOrderCode + '&buyingOrderPrice=' + buyingOrderPrice;
       }

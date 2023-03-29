@@ -23,11 +23,10 @@
 
         
     <div class="info" style="text-align: left;">
-            <div th:each="productDTO : ${selectBuyingOrder}">
-                <p style="margin: 0;" th:text="${productDTO.productCode}"></p>
-                <p style="margin: 0;" th:text="${productDTO.productName}"></p>
-                <p style="margin: 0; color: gray;" th:text="${productDTO.productNameKr}"></p>
-		   <p th:text="${productDTO.productOption[0].productOptionSize}"></p>
+          <p style="margin: 0;" id="productName" th:text="${productName}"></p>
+          <p style="margin: 0;" id="productCode" th:text="${productCode}"></p>
+          <p style="margin: 0; color: gray;" id="productNameKr" th:text="${productNameKr}"></p>
+          <p style="margin-top: 0px;" id="productOptionSize" th:text="${productOptionSize}"></p>
 
 		</div>
         </section>

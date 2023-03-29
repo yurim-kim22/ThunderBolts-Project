@@ -79,41 +79,34 @@ public class OrderController {
 	@PostMapping("/normalSellPage")
 	public String NormalSellPage(@RequestParam("buyingOrderCode") int buyingOrderCode,
 								  @RequestParam("buyingOrderPrice") int buyingOrderPrice,
-								 Model model,ProductDTO productDTO, ProductOptionDTO productOptionDTO,
-								 BuyingOrdersDTO buyingOrdersDTO,
-								 @AuthenticationPrincipal MembersDTO members,
-									AddressDTO address) {
+								 Model model,@AuthenticationPrincipal MembersDTO members
+									) {
 
 		log.info("결제요청으로 넘어왔음: buyingOrderCode={}", buyingOrderCode);
 		log.info("결제요청으로 넘어왔음: buyingOrderPrice={}", buyingOrderPrice);
-		
 		
 		int memberNo = members.getMembersNo();
 		
 		//주소조회
 		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
-		
-	    model.addAttribute("selectAddress", selectAddress);
+
+		ProductDTO findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
+
+		model.addAttribute("selectAddress", selectAddress);
 		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
 		log.info("멤버 조회 members : {}", members);
 
-		//프로덕트 셀링 넘버 받기
-		List<ProductDTO> findBuyingProduct = listService.findBuyingProduct(buyingOrderCode);
-		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
-
-
-
-		// 뷰에서 사용할 모델 객체에 데이터 추가
-		model.addAttribute("findBuyingProduct",findBuyingProduct);
-		model.addAttribute("buyinOrderCode",buyingOrderCode);
+		model.addAttribute("productDTO", findBuyingProduct);
+		model.addAttribute("buyingOrderCode", buyingOrderCode);
 		model.addAttribute("buyingOrderPrice", buyingOrderPrice); //여 주석을 풀면 에러떠
-		model.addAttribute("productCode", productDTO.getProductCode()); //이
-		model.addAttribute("productName", productDTO.getProductName()); //이거
-		model.addAttribute("productNameKr", productDTO.getProductNameKr());//이
-		model.addAttribute("productOptionSize", productOptionDTO.getProductOptionSize());
-		
+		model.addAttribute("productCode", findBuyingProduct.getProductCode()); //이
+		model.addAttribute("productName", findBuyingProduct.getProductName()); //이거
+		model.addAttribute("productNameKr",findBuyingProduct.getProductNameKr());//이
+		model.addAttribute("productOptionSize", findBuyingProduct.getProductOption().get(0).getProductOptionSize());
+
 		model.addAttribute("selectAddress", selectAddress);
 		model.addAttribute("members",members);
+
 		
 		return "orderPage/normalSellPage";
 	}
