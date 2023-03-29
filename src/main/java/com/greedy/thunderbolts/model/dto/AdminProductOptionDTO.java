@@ -15,5 +15,6 @@ public class AdminProductOptionDTO {
 	private int productOptionQuantitiy;
 	private List<SellingOrdersDTO> sellingOrders;
 	private List<BuyingOrdersDTO> buyingOrders;
+	private AdminProductDTO product;
 
 }

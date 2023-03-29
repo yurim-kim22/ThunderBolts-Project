@@ -12,21 +12,17 @@
 		<result property="categoriesCode" column="CATEGORIES_CODE"></result>
 		<result property="brandNo" column="BRAND_NO"></result>
 		<result property="productCount" column="PRODUCT_COUNT"></result>
-		<collection property="productOption"
-			resultMap="productOptionResultMap" />
+		<collection property="productOption" resultMap="productOptionResultMap" />
 
 	</resultMap>
 	<resultMap id="productOptionResultMap"
 		type="com.greedy.thunderbolts.model.dto.AdminProductOptionDTO">
 		<id property="productOptionCode" column="PRODUCT_OPTION_CODE"></id>
 		<result property="productCode" column="PRODUCT_CODE"></result>
-		<result property="productOptionColor"
-			column="PRODUCT_OPTION_COLOR"></result>
-		<result property="productOptionSize"
-			column="PRODUCT_OPTION_SIZE"></result>
+		<result property="productOptionColor" column="PRODUCT_OPTION_COLOR"></result>
+		<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
 		<result property="productOptionEtc" column="PRODUCT_OPTION_ETC"></result>
-		<result property="productOptionQuantitiy"
-			column="PRODUCT_OPTION_QUANTITIY"></result>
+		<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"></result>
 
 
 	</resultMap>
@@ -60,7 +56,58 @@
 		<result property="ko" column="AUTH_KO" />
 	</resultMap>
 
+	
+	<select id="selectProductOptionList" resultMap="productOptionResultMap">
+		SELECT
+		A.PRODUCT_CODE,
+		A.PRODUCT_NAME,
+		A.PRODUCT_OPTION_SIZE,
+		A.PRODUCT_ENTRY_DATE,
+		A.PRODUCT_OPTION_QUANTITIY,
+		A.PRODUCT_OPTION_COLOR,
+		A.PRODUCT_OPTION_ETC
+		FROM (
+		SELECT
+		ROWNUM RNUM,
+		B.PRODUCT_CODE,
+		B.PRODUCT_NAME,
+		B.PRODUCT_OPTION_SIZE,
+		B.PRODUCT_ENTRY_DATE,
+		B.PRODUCT_OPTION_QUANTITIY,
+		B.PRODUCT_OPTION_COLOR,
+		B.PRODUCT_OPTION_ETC
+		FROM (
 
+		SELECT
+		C.PRODUCT_CODE,
+		C.PRODUCT_NAME,
+		D.PRODUCT_OPTION_SIZE,
+		C.PRODUCT_ENTRY_DATE,
+		D.PRODUCT_OPTION_QUANTITIY,
+		D.PRODUCT_OPTION_COLOR,
+		D.PRODUCT_OPTION_ETC
+		FROM PRODUCT C
+		LEFT JOIN PRODUCT_OPTION D ON (C.PRODUCT_CODE = D.PRODUCT_CODE)
+
+		<where>
+			<if test="searchCondition == 'productName'">
+				C.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+			</if>
+			<if test="searchCondition == 'productCode'">
+				C.PRODUCT_CODE  = #{searchValue}
+			</if>
+		</where>
+		ORDER BY C.PRODUCT_CODE ASC
+		) B
+	 	  		<![CDATA[
+	 	  		 WHERE ROWNUM <= #{endRow}
+	 	  		]]>
+		) A
+		WHERE A.RNUM >= #{startRow}
+		ORDER BY 1 DESC
+		</select>
+	
+	
 
 	<select id="selectProductList" resultMap="productResultMap">
 
