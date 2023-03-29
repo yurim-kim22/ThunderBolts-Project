@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/css/admin/decon.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+   <div class="a">
+    <div class="a-1">
+        <p>발송관리</p>
+
+        <button class="delite" >삭제</button>
+    </div>
+<div class="motherflex"> 
+    <div class="motherflexson">
+        
+            
+                <label class="ti">
+                    <span class="textcenter">주문번호</span>
+                    <input class="insert" type="text" placeholder="입력" id="orderNo">
+                <button class="johoe" onclick="orderNumber()">조회</button></label>
+            
+
+        
+
+        <br>
+
+
+        <label class="ti">
+            <span class="textcenter">ID</span>
+            <input class="insert" type="text" readonly id="id">
+        </label>
+        <br>
+
+        <label class="ti">
+            <span  class="textcenter">배송지</span>
+            <input class="insert" type="text" readonly id="qothdwl">
+        </label>
+        <br>
+        <label class="ti"><span class="textcenter">주문상품</span><input class="insert" type="text" readonly id="wnanstkdvna"></label>
+        <br>
+        <label class="ti"><span class="textcenter">구분</span><input class="insert" type="text" readonly id="rnqns"></label>
+      
+    </div>
+
+    <div class="mothersc">
+        <div >
+            <label class="ti"><span class="textcenter">회원명</span><input class="insert" type="text" readonly id="ghldnsjaud" ></label>
+            
+            <br>
+    
+            <label class="ti"><span class="textcenter">택배사</span><input class="insert" type="text" placeholder="대한통운,한진,편의점,우체국" id="xorqotk"></label>
+            <label class="ti"><span class="textcenter">송장</span><input class="insert" type="text" placeholder="입력" id="thdwkd"></label>
+        </div>
+                  
+               
+        <div class="sc">
+            <button class="cancel">취소</button>
+            <button class="save" onclick="deliverySave()">저장</button>
+            
+    
+    
+        </div>
+    
+    </div>
+</div>
+
+    <!---->
+</div>
+<script src="/js/delivery/deliverydeadmin.js"> </script>
+<script src="/js/delivery/deliverydeadmininsert.js"> </script>
+</body>
+
+</html>

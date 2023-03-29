@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.admin.DeliveryDeAdminInsertMapper">
+
+<resultMap id="comedelivery3" type="com.greedy.thunderbolts.model.dto.DeliveryDeAdminDTO">
+
+
+<id property="deliveryNo" column="DELIVERY_NO"/>
+<result property="membersName" column="MEMBERS_NAME"/>
+<result property="membersId" column="MEMBERS_ID"/>  <!-- SELECT 문과 다르게 여기는 조회되는 컬럼명을 기준으로 한다.  -->
+<result property="postAddmin" column="POST_ADDMAIN"/>
+<result property="productName" column="PRODUCT_NAME"/>
+<result property="postDiv" column="POST_DIV"/>
+<result property="checkingResult" column="CHECKING_RESULT"/>
+
+
+
+
+</resultMap>
+
+<!-- id 는 dao에 있는 메소드 이름과 같아야 한다. -->
+<update id="insertMapper"  parameterType="com.greedy.thunderbolts.model.dto.DeliveryDeAdminInsertDTO"><!-- bh의 타입이 무엇인지 던저준다.  -->
+<!-- inset 해야하는 과정일경우 정보가 여러가지이고 post로 body에 담아 보낸다. form tag id, 비밀번호, 이름, 전화번호의 여러가지 필드들을 
+파라미터로 하나하나 하는게 아니라DTO 타입으로 넘겼을것이고, dao 까지 DTO 객체가 온다. dao에서 mapper로 와서 insert 구문을 실행할떄 DTO 타입으로 파라미터 타입에 입력한다.  -->
+      
+      
+UPDATE DELIVERY
+SET DELIVERY_NUM = #{thdwkd},
+DELIVERY_COMPANY=#{xorqortk}  <!-- resultmap은 셀렉만 있다. -->
+WHERE ORDERS_NO=#{orderNo} 
+
+      
+      
+
+
+    </update>
+    
+
+
+
+
+
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.admin.DeliveryDeAdminListMapper">
+
+<resultMap id="comedelivery2" type="com.greedy.thunderbolts.model.dto.DeliveryDeAdminDTO">
+
+
+<id property="deliveryNo" column="DELIVERY_NO"/>
+<result property="membersName" column="MEMBERS_NAME"/>
+<result property="membersId" column="MEMBERS_ID"/>  <!-- SELECT 문과 다르게 여기는 조회되는 컬럼명을 기준으로 한다.  -->
+<result property="postAddmin" column="POST_ADDMAIN"/>
+<result property="productName" column="PRODUCT_NAME"/>
+<result property="postDiv" column="POST_DIV"/>
+<result property="checkingResult" column="CHECKING_RESULT"/>
+
+
+
+
+</resultMap>
+
+
+<select id="comedelivery" resultMap="comedelivery2" parameterType="string"><!-- bh의 타입이 무엇인지 던저준다.  -->
+<!-- inset 해야하는 과정일경우 정보가 여러가지이고 post로 body에 담아 보낸다. form tag id, 비밀번호, 이름, 전화번호의 여러가지 필드들을 
+파라미터로 하나하나 하는게 아니라DTO 타입으로 넘겼을것이고, dao 까지 DTO 객체가 온다. dao에서 mapper로 와서 insert 구문을 실행할떄 DTO 타입으로 파라미터 타입에 입력한다.  -->
+      
+      
+SELECT 
+    DELIVERY_NO,
+    MEMBERS_NAME,
+    MEMBERS_ID,
+    POST_ADDMAIN,
+    PRODUCT_NAME,
+    POST_DIV,
+    CHECKING_RESULT,
+    RECEIVE_STATE
+FROM DELIVERY 
+INNER JOIN ORDERS ON DELIVERY.ORDERS_NO = ORDERS.ORDERS_NO
+INNER JOIN CHECKING ON ORDERS.ORDERS_NO = CHECKING.ORDERS_NO
+INNER JOIN MEMBERS ON ORDERS.MEMBERS_BUYER = MEMBERS.MEMBERS_NO
+INNER JOIN BUYING_ORDERS ON MEMBERS.MEMBERS_NO = BUYING_ORDERS.MEMBERS_NO
+INNER JOIN PRODUCT_OPTION ON BUYING_ORDERS.PRODUCT_OPTION_CODE = PRODUCT_OPTION.PRODUCT_OPTION_CODE
+INNER JOIN PRODUCT ON PRODUCT_OPTION.PRODUCT_CODE = PRODUCT.PRODUCT_CODE
+INNER JOIN CATEGORIES ON PRODUCT.CATEGORIES_CODE= CATEGORIES.CATEGORIES_CODE
+INNER JOIN BRAND ON PRODUCT.BRAND_NO= BRAND.BRAND_NO
+WHERE DELIVERY.ORDERS_NO = #{orderNo}     
+   
+      
+       <!--  (
+  CASE
+  WHEN RECEIVE_STATE = 0 THEN '미수취'
+  WHEN RECEIVE_STATE = 1 THEN '수취'
+  END
+  
+) AS RECEIVE_STATE
+ -->
+
+    </select>
+    
+
+
+
+
+
+</mapper>
