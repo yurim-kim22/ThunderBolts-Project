@@ -31,60 +31,14 @@ public class BuySellListController {
 		this.listService = listService;
 	}
 
-	@GetMapping("/index")
-	public String productList(Model model) {
-		List<ProductDTO> productList = listService.findProduct();
 
-		log.info("productList : {}", productList);
-		model.addAttribute("productList", productList);
-
-		List<ProductDTO> productSize = listService.findSizePrice();
-
-		log.info("productSize: {}", productSize);
-		model.addAttribute("productSize", productSize);
-
-		return "product/list";
-	}
-
-	@PostMapping("/index")
-	public String productList(@RequestParam("sellingOrderNo") int sellingOrderNo, Model model1) {
-		log.info("구매 요청: sellingOrderNo=" + sellingOrderNo); // 로그 출력
-
-		// 구매 처리 로직 구현
-
-		return "agreeAtc/buyAgree";
-	}
-
-	@GetMapping("/normalBuy")
-	public String GetnormalBuy(Model model) {
-		List<ProductDTO> productList = listService.findProduct();
-		List<ProductDTO> productSize = listService.findSizePrice();
-
-		log.info("productList : {}", productList);
-		log.info("productSize: {}", productSize);
-
-		for (ProductDTO product : productList) {
-			log.info(product.toString());
-			for (ProductOptionDTO option : product.getProductOption()) {
-				log.info(option.getSellingOrders().toString());
-			}
-		}
-
-		// 뷰에 보이는거
-
-		model.addAttribute("productList", productList);
-		model.addAttribute("productSize", productSize);
-
-		return "product/normalBuy";
-
-	}
 
 	@PostMapping("/normalBuy")
 	public String PostnormalBuy(Model model) {
 		List<ProductDTO> productList = listService.findProduct();
 		List<ProductDTO> productSize = listService.findSizePrice();
 
-		log.info("productList : {}", productList);
+		log.info("포스트 productList : {}", productList);
 		log.info("productSize: {}", productSize);
 
 		for (ProductDTO product : productList) {
@@ -101,22 +55,6 @@ public class BuySellListController {
 
 		return "product/normalBuy";
 
-	}
-
-	// 셀오더 조회 1
-	@GetMapping("/normalSell")
-	public String GetnormalSell(Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
-			BuyingOrdersDTO buyingOrdersDTO) {
-
-		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
-
-		log.info("selectBuyingOrder: {}", selectBuyingOrder);
-		log.info("구매 의향서 ProductDTO: {}", productDTO);
-		model.addAttribute("selectBuyingOrder", selectBuyingOrder);
-		model.addAttribute("productDTO", productDTO);
-		model.addAttribute("buyingOrdersDTO", buyingOrdersDTO);
-
-		return "product/normalSell";
 	}
 
 	// 셀오더 조회 포스트 2
