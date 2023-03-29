@@ -44,19 +44,27 @@
             </div>
             <div class="maintitle name">🔥 요즘 뜨는 핫 상품 🔥</div>
             <div class="product" id="producthot">
-          
-                <div class="pro item1">	
-                    <div class="item1hotimg">
-                        <div class="item1 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem1.png)"></div>
-                        <i class="eheart"></i>
-                    </div>
-                    <div class="itemtxt">
-                        <div class="brandname">burberry</div>
-                        <div class="pname">23SS 버버리 남성 아카이브 벨크로 스니커즈 8048577 A7028</div>
-                        <div class="price">834,200</div>
-                    </div>
-                </div>
-                <div class="pro item2">
+            
+               <div class="pro item1" th:each="hotProductList,i: ${ hotProductList }">
+					<div th:data-product-no=${hotProductList.productCode} class="productCode">
+						
+							<div class="item1hotimg" th:classappend="${i.count < 6}? ${i.count} : ${i.count}-1">
+								<div class="item1 hotimg"
+									th:style="'background-image:url(' + ${ hotProductList.attachmentFile[0].filePath }+${ hotProductList.attachmentFile[0].fileDecoded } + ');'"></div>
+								<i class="eheart"></i>
+							</div>
+							<div class="itemtxt">
+							<div class="brandname"
+								th:text="${ hotProductList.brandNo.brandName }"></div>
+							<div class="pname" th:text="${ hotProductList.productName }"></div>
+							<div class="price"
+								th:text="${ hotProductList.productOption[0].sellingOrders[0].sellingOrderPrice }"></div>
+							</div>
+		
+					</div>
+				</div>
+
+						<div class="pro item2">
                     <div class="item2hotimg">
                         <div class="item2 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem2.png)"></div>
                         <i class="eheart"></i>
@@ -67,6 +75,7 @@
                         <div class="price">489,900</div>
                     </div>
                 </div>
+                
                 <div class="pro item3">
                     <div class="item3hotimg">
                         <div class="item3 hotimg" style="background-image: url(/upload/image/main/hotitem/hitem3.png)"></div>

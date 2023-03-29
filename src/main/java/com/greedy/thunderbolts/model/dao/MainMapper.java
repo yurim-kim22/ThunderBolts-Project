@@ -11,4 +11,6 @@ public interface MainMapper {
 
 	List<ProductDTO> findNewProduct();
 
+	List<ProductDTO> findHotroduct();
+
 }

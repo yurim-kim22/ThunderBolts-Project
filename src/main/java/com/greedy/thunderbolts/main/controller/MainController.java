@@ -27,9 +27,16 @@ public class MainController {
 		List<ProductDTO> newProductList = mainService.findNewProduct();
 		log.info("[ControllerMain newProduct : {}",newProductList);
 		
-		log.info("[ControllerMain {} : " , newProductList);
 	
 		model.addAttribute("newProductList",newProductList);
+		
+		
+		List<ProductDTO> hotProductList = mainService.findHotroduct();
+		log.info("[ControllerMain hotProductList : {}", hotProductList);
+		
+	
+		model.addAttribute("hotProductList", hotProductList);		
+		
 		
 		return "main";
 	}

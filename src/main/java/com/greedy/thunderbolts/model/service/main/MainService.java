@@ -23,6 +23,14 @@ public class MainService {
 		
 		return newProductList;
 	}
+	
+	public List<ProductDTO> findHotroduct() {
+		
+		List<ProductDTO> findHotroduct = mapper.findHotroduct();
+		
+		
+		return findHotroduct;
+	}
 
 	
 
