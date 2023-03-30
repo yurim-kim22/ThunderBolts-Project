@@ -76,5 +76,8 @@ public interface MypageMapper {
 	//판매상세내역
 	DetailDTO detailSell(Long no);
 	
+	//프로필 사진 띄우기
+	AttachmentFileDTO selectprofile(String memberId);
+	
 
 }

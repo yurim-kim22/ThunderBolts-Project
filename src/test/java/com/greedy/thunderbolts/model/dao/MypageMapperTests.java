@@ -225,5 +225,13 @@ public class MypageMapperTests {
 		assertNotNull(detailList);
 		log.info("판매 내역 : {} ", detailList);
 	}
+	@Disabled
+	@Test
+	public void 프로필_사진띄우기_테스트() {
+
+		int memberNo = 2;
+		AttachmentFileDTO selectprofile = mypageMapper.selectprofile(memberNo);
+		assertNotNull(selectprofile);
+	}
 
 }

@@ -217,7 +217,13 @@ public class MypageServiceTests {
 		log.info("판매 내역 : {} ", detailList);
 	}
 
+	@Test
+	public void 프로필_사진띄우기_테스트() {
 
+		String memberId = "1111";
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		assertNotNull(selectprofile);
+	}
 	
 	
 

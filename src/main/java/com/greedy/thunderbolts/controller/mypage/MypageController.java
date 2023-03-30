@@ -62,6 +62,12 @@ public class MypageController {
 
 		model.addAttribute("memberId", memberId);
 		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+		
+		log.info("[selectprofile] : {}", selectprofile);
+		
 		//판매 조건문 추가
 		if(null != mypageService.selectSellList(memberId)) {
 			SellListDTO sellList = mypageService.selectSellList(memberId);

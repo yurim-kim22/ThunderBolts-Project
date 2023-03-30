@@ -214,5 +214,11 @@ public class MypageServiceImpl implements MypageService {
 		// TODO Auto-generated method stub
 		return mypageMapper.detailSell(no);
 	}
+	
+	//프로필 사진 띄우기
+	@Override
+	public AttachmentFileDTO selectprofile(String memberId) {
+		return mypageMapper.selectprofile(memberId);
+	}
 
 }

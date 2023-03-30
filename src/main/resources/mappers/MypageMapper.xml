@@ -506,5 +506,20 @@
           AND DELI_DIV LIKE '착송'
 	</select>
 	
+	<!-- 프로필 사진 띄우기 -->
+	<select id="selectprofile" resultMap="attachmentFileResultMap">
+		SELECT 
+				*
+		  FROM (
+		    SELECT 
+		    	  *
+			    FROM ATTACHMENT_FILE
+			    WHERE FILE_DIV = 'profile' 
+			    AND MEMBERS_NO = 2
+			    ORDER BY FILE_DATE DESC
+			  )
+		 WHERE ROWNUM = 1
+	</select>
+	
 	
 </mapper>
