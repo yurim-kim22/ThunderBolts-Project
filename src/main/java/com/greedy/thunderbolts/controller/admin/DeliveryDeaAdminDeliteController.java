@@ -37,7 +37,7 @@ public class DeliveryDeaAdminDeliteController {
           log.info("controller : {}",success);   //getter 꺼내는것(자바)
           log.info("controller : {}",delite.getOrderNo());
           
-          
+           
           Map<String, Integer > mapsuccess= new HashMap<>();  //Integer
           
           mapsuccess.put("suceesskey", success);
