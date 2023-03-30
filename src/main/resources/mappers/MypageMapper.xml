@@ -148,7 +148,7 @@
 		<result property="brandName" column="BRAND_NAME"/>
 	</resultMap>
 
-	
+	 
 	
 	<!-- 프로필 사진 가져오기 -->
 	<select id="selectProfileImg" resultType="String">
