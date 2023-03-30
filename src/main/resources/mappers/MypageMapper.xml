@@ -48,7 +48,7 @@
 		<result property="productPrice" column="PRODUCT_PRICE" />
 		<result property="productCount" column="PRODUCT_COUNT" />
 		
-		<association property="brandNo" resultMap="BrandResultMap"/>
+		<association property="brandNo" resultMap="brandResultMap"/>
 	</resultMap>
  
  <!-- OrdersDTO -->
@@ -64,7 +64,7 @@
 		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
 	</resultMap>
 
-	<!-- BrandDTO -->
+   <!-- BrandDTO -->	
 	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
 		<id property="brandNo" column="BRAND_NO"/>
 		<result property="brandName" column="BRAND_NAME"/>
