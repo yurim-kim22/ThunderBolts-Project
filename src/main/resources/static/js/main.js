@@ -66,7 +66,8 @@ bannerNext();
 
 /* 관심상품 클릭시 하트 이미지 변경*/
 $(".eheart").on('click', function(e) {
-	e.target.classList.toggle('heart')
+	event.stopPropagation();
+	e.target.classList.toggle('heart');
 });
 
 /* 슬라이드 클릭시 변경 */
