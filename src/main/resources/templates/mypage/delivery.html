@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -11,9 +11,8 @@
     <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
-    <link href="/css/mypage/myBuyDetail.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/delivery.css" rel="stylesheet" type="text/css">
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
-    
     
 </head>
 
@@ -30,8 +29,8 @@
             <!-- Sidebar 쇼핑정보 -->
             <div class="sidebar-heading">쇼핑정보</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side1">구매 내역</a>
-                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side2">판매 내역</a>
                 <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
             </div>
 
@@ -50,41 +49,45 @@
         <div id="page-content-wrapper">
             <!-- Page content-->
             <div class="container-fluid">
-                <!-- 구매 상세 내역 -->
-                <h3>구매 상세 내역</h3>   
-                <div class="buy_detail">
-                    <ul>
-                        <li>
-                        	<img th:src="${ detail.file.filePath }+${ detail.file.fileDecoded  }" class="buy_detail_img">
-                        </li>
-                        <ul class="buy_detail_text">
-                            <li th:text="${ detail.brand.brandName }" >브랜드</li>
-                            <li th:text="${ detail.product.productName }">상품명</li>
-                            <li ><button class="buy_detail_btn">상품 상세</button></li>
-                        </ul>
-                    </ul>
-                </div> <!-- profile -->
-                
-                <div class="buy_detail_cont">
+                <!-- 발송 정보 등록 -->
+                <h3>발송 정보 등록</h3> 
+                <div class="gray">운송장 번호를 정확하게 입력해주세요</div>                  
+                <div class="delivery_cont">
                     <div>
-                        <h4>결제 내역</h4>
+                        <h4>택배사</h4>
                         <p></p>
-                        <div class="buy_detail_cont_txt">총 결제 금액 <span th:text="${ detail.order.ordersPrice }">214,500원</span></div>
+                        <select name="delivery" id="delivery_select">
+                            <option value="post">우체국택배</option>
+                            <option value="cj">CJ대한통운</option>
+                            <option value="hj">한진택배</option>
+                            <option value="lo">롯데택배</option>
+                        </select>
                     </div>
                     
                     <div>
-                        <h4>배송 정보</h4>
+                        <h4>운송장번호</h4>
                         <p></p>
-                        <div th:text="${ detail.delivery.deliveryCompany }" class="buy_detail_cont_txt"><a href="#">CJ대한통운</a></div>
-                        <div th:text="${ detail.delivery.deliveryNum }" class="buy_detail_cont_txt">5147862488996</div>
+                        <input type="text" placeholder="- 없이 입력" id="delivery_num">
                     </div>
 
                     <div>
-                        <h4>배송 주소</h4>
-                        <p></p>
-                        <div class="buy_detail_cont_txt">받는사람 <span th:text="${ detail.delivery.postReceiver }">김**</span> </div>
-                        <div class="buy_detail_cont_txt">우편번호 <span th:text="${ detail.delivery.deliveryNum }">12222</span> </div>
-                        <div class="buy_detail_cont_txt">주        소 <span th:text="${ detail.delivery.postAddmain }">서울시 강남구 테헤란로</span> </div>
+                        
+                        <ul class="delivery_detail">
+                            <li >
+                                <ul class="delivery_detail_cont">
+                                    <li class="delivery_detail_tit">발송 정보를 정확히 입력하였으며, 판매자의 책임사항과 미입고 규정을 확인하였습니다.</li>
+                                    <li class="gray">발송 정보 입력 후 24시간 이내 조회 불가(택배사 휴무일 제외)</li>
+                                    <li class="gray">오입력으로 인한 입고 지연은 판매자의 책임에 포함되며, 5영업일내에 도착하지 않을시 허위정보로 간주하여 미입고 페널티를 부과합니다</li>
+                                </ul>
+                            </li>    
+                            <div class="checkbox-wrapper">
+                                <label>
+                                  <input type="checkbox" id="checkbox-agree">
+                                  <span class="checkmark"></span>
+                                </label>
+                                </div>
+                        </ul>
+                        <button class="delivery_detail_btn">저장하기</button>
                     </div>
                     
                 </div>
@@ -93,4 +96,6 @@
     </div><!-- 사이드바 -->
     <!-- 푸터 -->
 	<div th:replace="common/footer/mainFooter.html"></div>
+	
+	
 </body></html>

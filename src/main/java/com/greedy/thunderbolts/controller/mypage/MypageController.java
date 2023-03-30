@@ -139,27 +139,6 @@ public class MypageController {
 	}
 	
 	
-	// 마이페이지 판매내역 상세
-	@GetMapping("/myselldetail")
-	public String mySellDetail(@RequestParam Long no, Model model) {
-		
-		DetailDTO myselldetail = mypageService.detailSell(no);
-		model.addAttribute("detail", myselldetail);
-		
-		return "mypage/mySellDetail";
-	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
 	
 
 	// 마이페이지 판매내역
@@ -178,6 +157,21 @@ public class MypageController {
 		log.info("[paging] paging : {}", selectSellingList.get("paging"));
 		
 		return "mypage/mySell";
+	}
+	
+	// 마이페이지 판매내역 상세
+	@GetMapping("/myselldetail")
+	public String mySellDetail(@RequestParam Long no, Model model) {
+		
+		DetailDTO myselldetail = mypageService.detailSell(no);
+		model.addAttribute("detail", myselldetail);
+		
+		return "mypage/mySellDetail";
+	}
+	//판매내역 상세버튼 - 배송등록 
+	@GetMapping("/delivery")
+	public String myDelivery() {
+		return "mypage/delivery";
 	}
 
 	
@@ -349,6 +343,18 @@ public class MypageController {
 		 
 
 		return "redirect:/mypage/info";
+	}
+	
+	//내문의메인
+	@GetMapping("/board")
+	public String myBoard() {
+		return "mypage/board";
+	}
+	
+	//내문의 등록
+	@GetMapping("/boardupload")
+	public String myBoardUpload() {
+		return "mypage/boardUpload";
 	}
 
 	// 주소록

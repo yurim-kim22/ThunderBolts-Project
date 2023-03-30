@@ -13,6 +13,7 @@
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/mySellDetail.css" rel="stylesheet" type="text/css">
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    <script src="/js/mydelivery.js" type="text/Javascript" defer></script>
     
 </head>
 
@@ -84,7 +85,7 @@
                         <ul class="delivery">
                             <li th:text="${ detail.delivery.deliveryCompany }" class="delivery_txt">CJ대한통운</li>
                             <li th:text="${ detail.delivery.deliveryNum }" class="delivery_txt">5147862488996</li>
-                            <li><button class="delivery_btn">등록하기</button></li>
+                            <li><button id="mydel_btn" class="delivery_btn">등록하기</button></li>
                         </ul>
                     </div>
                     
