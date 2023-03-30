@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>orderMain</title>
 <link rel="stylesheet" type="text/css" href="/css/admin/orderMain.css">
-<script src="/js/openOrder.js"></script>
 </head>
 <body>
 	<div class="sidebar-background">
@@ -76,8 +75,8 @@
 
 	<div class="buttonselection">
         <div class="buttonstosub">
-            <button id="purchase">추가</button>
-            <button id="selling">삭제</button>
+            <button id="productAdd">추가</button>
+            <button id="productDelete">삭제</button>
      </div></div>
 	
 						
@@ -162,5 +161,20 @@
 			</form>
 
 		</div>
+		
+
+	<script>
+        document.getElementById("productAdd").onclick = function() {
+    window.open("http://localhost:8002/admin/product/productAdd", "Add product", "width=1366,height=768");
+}
+
+document.getElementById("productDelete").onclick = function() {
+    window.open("http://localhost:8002/admin/productDelete", "Delete product", "width=1366,height=768");
+}
+    </script>		
+		
 </body>
+
+
+
 </html>

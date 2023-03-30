@@ -18,6 +18,11 @@ public interface AdminProductMapper {
 	List<AdminProductDTO> selectProductList(SelectCriteria selectCriteria);
 	
 	List<AdminProductOptionDTO> selectProductOptionList(SelectCriteria selectCriteria);
+
+	void insertProduct(AdminProductDTO product);
+
+	void insertProduct2(AdminProductOptionDTO productOption);
+
 	
 	
 }

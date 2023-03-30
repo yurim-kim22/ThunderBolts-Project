@@ -2,7 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.AdminProductMapper">
 
-
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+	<id property="brandNo" column="BRAND_NO"></id>
+	<result property="brandName" column="BRAND_NAME"></result>
+	</resultMap>
+	
+	<resultMap id="categoryResultMap" type="com.greedy.thunderbolts.model.dto.CategoriesDTO">
+	<id property="categoriesCode" column="CATEGORIES_CODE"></id>
+	<result property="categoriesName" column="CATEGORIES_NAME"></result>
+	</resultMap>
+	
+	
+	
 	<resultMap id="productResultMap"
 		type="com.greedy.thunderbolts.model.dto.AdminProductDTO">
 		<id property="productCode" column="PRODUCT_CODE"></id>
@@ -12,6 +23,8 @@
 		<result property="categoriesCode" column="CATEGORIES_CODE"></result>
 		<result property="brandNo" column="BRAND_NO"></result>
 		<result property="productCount" column="PRODUCT_COUNT"></result>
+		<association property="brand" resultMap="brandResultMap"></association>
+		<association property="categories" resultMap="categoryResultMap"></association>
 	
 
 	</resultMap>
@@ -42,7 +55,7 @@
 			resultMap="authRoleResultMap" />
 	</resultMap>
 
-
+	
 	<resultMap id="authRoleResultMap"
 		type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
 		<id property="membersNo" column="MEMBERS_NO" />
@@ -192,11 +205,47 @@
 		, #{ productName }
 		, #{ productNameKr }
 		, SYSDATE
-		, #{ category.categoriesCode }
+		, #{ category.categoryCode }
 		, #{ brand.brandNo }
-
 		)
-		
+	</insert>
+	
+	<insert id="insertProductOption">
+		INSERT INTO
+		PRODUCT_OPTION O
+		(O.PRODUCT_OPTION_CODE
+		, O.PRODUCT_CODE
+		, O.PRODUCT_OPTION_COLOR
+		, O.PRODUCT_OPTION_SIZE
+		, O.PRODUCT_OPTION_ETC
+		, O.PRODUCT_OPTION_QUANTITIY
+		)
+			VALUES(
+			( SEQ_PRODUCT_OPTION_CODE.NEXTVAL
+		, (SELECT P.PRODUCT_CODE FROM PRODUCT P WHERE PRODUCT_CODE LIKE '%' || #{searchValue} || '%' )
+		, #{ color }
+		, #{ size }
+		, #{ etc }
+		, O,PRODUCT_OPTION_QUANTITIY +  { quantitiy })  
+			
+			
+	
+			
+			
+			
+			
+			
+			
+			
+			)
+			
+			
+			
+			
+			)
+	
+	
+	
 	</insert>
 
 	

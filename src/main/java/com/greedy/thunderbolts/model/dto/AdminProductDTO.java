@@ -15,6 +15,10 @@ public class AdminProductDTO {
 	    private int brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
-		private brandDTO brand;
-		private categoriesDTO categories;
+		private BrandDTO brand;
+		private CategoriesDTO categories;
+		public void setwriter(MembersDTO member) {
+		
+			
+		}
 }

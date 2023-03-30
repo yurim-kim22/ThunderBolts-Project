@@ -15,7 +15,8 @@ public class ProductDTO {
 	    private int brandNo;
 	    private int productCount;
 		private List<ProductOptionDTO> productOption;
-
+		private CategoriesDTO categories;
+		private BrandDTO brand;
 
 
 }

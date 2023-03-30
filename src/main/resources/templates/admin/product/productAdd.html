@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <div class="title">
+   <p>상품추가</p>
+   </div>
+   
+   
+   <div class="addingProduct" style : margin-top = "30px">
+   		<form action="POST">
+   		
+   		
+   		<br>
+   		  		
+   		<label class="product">상품명
+   		<input class="insert" type="text" placeholder="상품명을 입력해주세요" >
+   		</label>
+ 			<br>
+ 		<label class="product">한글명
+ 		<input class="insert" type="text" placeholder="한글상품명을 입력해주세요">
+ 		</label>
+ 			<br>
+ 		<label class="product">카테고리
+ 		<input class="insert" type="text" placeholder="카테고리번호를 입력해주세요">
+ 		</label>
+ 			<br>
+ 		<label class="product">브랜드
+ 		<input class="insert" type="text" placeholder="브랜드번호를 입력해주세요">
+ 		</label>
+ 			<br>
+ 		
+ 		
+ 		<button class="confirm" type="submit">상품추가</button>
+ 		<button class="cancel" type="reset">취소</button>
+ 		</form>
+   </div>
+   		
+  	<div class="addingProductOption">
+  	<form action="/admin/productAddPage" method="post" style="display: inline-block;">
+  		
+  		<label class="productOption">상품번호조회</label>
+  		<input class="insert" type="text" placeholder="상품번호를 입력해주세요">
+  		<button type="submit">조회</button>
+  		<label class="productOption"> 상품명
+  		<input class="insert" type="text" placeholder="" readonly>
+  		</label>
+  		<label class="productOption">사이즈 입력
+  		<input type="text">
+  		</label>
+  		<label class="productOption">색상 입력
+  		<input type="text">
+  		</label>
+  		<label class="productOption">수량 입력
+  		<input type="text">
+  		</label>
+  	</form>
+  	
+  	
+  	</div>
+   
+  
+ 
+            
+    
+    
+
+</body>
+
+</html>

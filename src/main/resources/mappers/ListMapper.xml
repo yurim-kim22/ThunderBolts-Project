@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.ListMapper">
-
+	
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+	<id property="brandNo" column="BRAND_NO"></id>
+	<result property="brandName" column="BRAND_NAME"/>
+	
+	</resultMap>
+	
+	<resultMap id="CategoryResultMap" type="com.greedy.thunderbolts.model.dto.CategoriesDTO">
+	<id property="categoriesCode" column="CATEGORIES_CODE"></id>
+	<result property="categoriesName" column="CATEGORIES_NAME"></result>
+	</resultMap>
+	
+	
     <resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.ProductDTO">
         <id property="productCode" column="PRODUCT_CODE"/>
         <result property="productName" column="PRODUCT_NAME"/>

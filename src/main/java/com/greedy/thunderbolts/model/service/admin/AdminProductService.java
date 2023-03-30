@@ -72,4 +72,16 @@ public Map<String, Object> selectProductOptionList(Map<String, String> searchMap
 	return productOptionListAndPaging;
 }
 
+public  void add(AdminProductDTO insertProduct) {
+	
+	productMapper.insertProduct(insertProduct);
+
+	
+	
+}
+
+public void add2( AdminProductOptionDTO productOption) {
+	productMapper.insertProduct2(productOption);
+}
+
 }

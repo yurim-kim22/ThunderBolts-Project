@@ -3,7 +3,7 @@ package com.greedy.thunderbolts.model.dto;
 import lombok.Data;
 
 @Data
-public class categoriesDTO {
+public class CategoriesDTO {
 	private int categoriesCode;
-	private int categoriesName;
+	private String categoriesName;
 }

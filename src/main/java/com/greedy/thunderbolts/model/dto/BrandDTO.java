@@ -3,9 +3,9 @@ package com.greedy.thunderbolts.model.dto;
 import lombok.Data;
 
 @Data
-public class brandDTO {	
+public class BrandDTO {	
 	
 	private int brandNo;
-	private int brandName;
-	
+	private String brandName;
+	private AdminProductDTO product;
 }
