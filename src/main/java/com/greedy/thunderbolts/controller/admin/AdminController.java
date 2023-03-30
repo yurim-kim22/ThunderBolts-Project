@@ -17,9 +17,11 @@ public class AdminController {
 	@GetMapping("/admin/arrive")
 	public String arrive() {
 		return "admin/arrive";
-		
+	}
 	
-	
+	@GetMapping("/admin/home")
+	public String member() {
+		return "admin/home";
 	}
 }
 

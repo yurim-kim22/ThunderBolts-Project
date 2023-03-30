@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/admin/home.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+<title>THUNDER_BOLT</title>
+
+
+<div class="sidebar-background">
+	<!-- 사이드 바-->
+	<div class="sidebar">
+		<div class="logo">
+			<img src="/image/icon/mainlogo.png" id="logoimg">
+		</div>
+		<ul>
+			<div class="sidebar-menu" id="sidebarcontainer">
+			
+				<li class="sidebartexts" id="main-serv">
+				<a href="/admin/home"><img
+						class="sidebaricons" id="truckimg"
+						src="/image/icon/home_icon-icons.com_73532.png">MAIN</a></li>
+						
+				<li class="sidebartexts" id="delivery-serv"><a
+					href="/admin"><img class="sidebaricons"
+						id="truckimg" src="/image/icon/truck_13241.png">배송관리</a></li>
+						
+				<li class="sidebartexts" id="order-serv"><a
+					href="https://www.naver.com">
+					
+					<img class="sidebaricons"
+						id="basketimg"
+						src="/image/icon/basket_icon-icons.com_56201.png">주문관리</a></li>
+								
+				<li class="sidebartexts" id="client-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="personimg" src="/image/icon/user_84308.png">회원관리</a></li>
+				<li class="sidebartexts" id="product-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="boximg"
+						src="/image/icon/box_cube_d_perspective_shape_icon_142362.png">상품관리</a>
+				</li>
+				<li class="sidebartexts" id="board-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="helpimg"
+						src="/image/icon/help-button-speech-bubble-with-question-mark_icon-icons.com_72707.png">게시판관리</a>
+				</li>
+				<li class="sidebartexts" id="logout-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="cancelimg"
+						src="/image/icon/home_icon-icons.com_73532.png">logout</a></li>
+			</div>
+		</ul>
+	</div>
+
+
+
+
+</div>
+</head>
+
+<body>
+	<div class="bodyback">
+
+		<!-- 페이지 제목 -->
+
+		<div id="page-title"></div>
+
+		<!-- 페이지 몸통-->
+
+
+
+		<div class="page-body">
+
+
+			<div class="order-select1">
+				<div class="mother-order-select2">
+
+<div>
+  <img src="/image/icon/logimg.png" id="welcomelogo">
+</div>
+<div class="membersface"> 
+<img src="/image/icon/a.jpg"  id="welcome">
+<img src="/image/icon/b.jpg"  id="welcome">
+<img src="/image/icon/c.jpg"  id="welcome">
+<img src="/image/icon/d.jpg"  id="welcome">
+<img src="/image/icon/e.jpg"  id="welcome">
+</div>
+<div id="co">관리자님 환영합니다. </div>
+
+
+
+
+
+
+				</div>
+			</div>
+
+			<!--착송관리-->
+
+			</div>
+		</div>
+
+
+
+
+	</div>
+<script type="text/javascript" src="js/delivery/delivery.js"> </script>
+	<script>
+        document.getElementById("selling").onclick = function() {
+    window.open("http://localhost:8002/admin/decon", "Order Update", "width=1366,height=768");
+}
+
+document.getElementById("arrive").onclick = function() {
+    window.open("http://localhost:8002/admin/arrive", "Order Delete", "width=1366,height=768");
+}
+    </script>
+
+</body>
+
+</html>
