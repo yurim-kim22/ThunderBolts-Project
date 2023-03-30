@@ -47,7 +47,7 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
 
     List<BuyingOrdersDTO> selectBuyingOrderAll();
     
-    
+     
     
     //카드 결제 구매
 	int buyInsertPay(PaymentDTO payment);
