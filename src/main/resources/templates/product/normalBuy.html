@@ -42,7 +42,9 @@
         <div class="box product" style="display: block; width:180px; margin: 0 50px;"
           th:if="${productOption.sellingOrders != null and not #lists.isEmpty(productOption.sellingOrders)}"
 	          th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
-	          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}">
+	          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}"
+	          th:data-product-code="${productOption.productCode}"
+	          >
           <div style="line-height: 0.5;">
             <b th:text="${productOption.productOptionSize}"></b>
           </div>
@@ -63,10 +65,11 @@ $products.forEach(div => {
     
     const sellingOrderNo = e.currentTarget.dataset.sellingOrderNo;
     const sellingOrderPrice = e.currentTarget.dataset.sellingOrderPrice;
+    const productCode = e.currentTarget.dataset.productCode;
     const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
     
     if (sellingOrderPrice === '0') { // 가격이 0원인 경우
-        location.href = '/list/normalBuy3?productOptionSize=' + productOptionSize;
+        location.href = '/list/normalBuy3?productOptionSize=' + productOptionSize+'&productCode='+productCode;
     } else { // 그 외의 경우
         location.href = '/list/normalBuy2?sellingOrderNo=' + sellingOrderNo + '&sellingOrderPrice=' + sellingOrderPrice;
     }

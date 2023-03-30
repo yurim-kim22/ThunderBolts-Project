@@ -37,7 +37,7 @@ public interface ListMapper {
 	
 	ProductDTO findBuyingProduct(int buyingOrderCode);
 	
-	ProductDTO findProductOptionSizeSell(String productOptionSize);
+	ProductDTO findProductOptionSizeSell(String productOptionSize,int productCode);
 	
 
 	List<ProductDTO> finalBuyBidOrderPage();

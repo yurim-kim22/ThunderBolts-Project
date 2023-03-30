@@ -216,9 +216,9 @@ public class BuySellListController {
 	@GetMapping("/normal6")
 	public String sellBid(@RequestParam("productOptionSize") String productOptionSize,
 
-			Model model) {
+			@RequestParam("productCode") int productCode,Model model) {
 
-		ProductDTO findProductOptionSizeSell = listService.findProductOptionSizeSell(productOptionSize);
+		ProductDTO findProductOptionSizeSell = listService.findProductOptionSizeSell(productOptionSize, productCode);
 
 //		log.info("구매 입찰로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
 		log.info("판매 입찰로 넘어왔음: productOptionSize={}", productOptionSize);

@@ -27,7 +27,7 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
 
     ProductDTO findBuyingProduct(int buyingOrderCode);
     
-    ProductDTO findProductOptionSizeSell(String productOptionSize);
+    ProductDTO findProductOptionSizeSell(String productOptionSize,int productCode);
   
 
 
