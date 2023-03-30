@@ -22,7 +22,7 @@ public interface ListMapper {
 	   List<ProductDTO> findSizePrice(int productCode);
 
 	   //바잉오더 조회
-	   List<ProductDTO> selectBuyingOrder();
+	   List<ProductDTO> selectBuyingOrder(int productCode);
 
 	   List<ProductDTO> findBuyingProduct();
 

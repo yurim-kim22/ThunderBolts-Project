@@ -39,7 +39,7 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
 	//주소록 조회
 	List<AddressDTO> selectAddress(int memberNo);
 
-    List<ProductDTO> selectBuyingOrder();
+    List<ProductDTO> selectBuyingOrder(int productCode);
 
     List<BuyingOrdersDTO> selectBuyingOrderAll();
     

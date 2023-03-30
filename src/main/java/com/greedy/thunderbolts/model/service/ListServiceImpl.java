@@ -9,14 +9,18 @@ import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.OrdersDTO;
 import com.greedy.thunderbolts.model.dto.PaymentDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
+
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.greedy.thunderbolts.controller.buselllist.BuySellListController;
 import com.greedy.thunderbolts.model.dao.ListMapper;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 
-
+@Slf4j
 @Service("listService")
 @Transactional
 public class ListServiceImpl implements ListService {
@@ -39,8 +43,8 @@ public class ListServiceImpl implements ListService {
 	//바잉오더 조
 	//
 	@Override
-	public  List<ProductDTO> selectBuyingOrder(){
-		return listMapper.selectBuyingOrder();
+	public  List<ProductDTO> selectBuyingOrder(int productCode){
+		return listMapper.selectBuyingOrder(productCode);
 	}
 
 	@Override
@@ -83,6 +87,8 @@ public class ListServiceImpl implements ListService {
 
 	@Override
 	public ProductDTO findProductOptionSize(String productOptionSize) {
+		
+		log.info("productOptionSize: {} ",productOptionSize);
 		return listMapper.findProductOptionSize(productOptionSize);
 	}
 	

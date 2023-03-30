@@ -59,10 +59,11 @@ public class BuySellListController {
 
 	// 셀오더 조회 포스트 2
 	@PostMapping("/normalSell")
-	public String PostnormalSell(Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
+	public String PostnormalSell(@RequestParam("productCode")int productCode,
+			Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
 			BuyingOrdersDTO buyingOrdersDTO) {
 
-		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
+		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder(productCode);
 		
 		log.info("selectBuyingOrder: {}", selectBuyingOrder);
 		log.info("구매 의향서 ProductDTO: {}", productDTO);
@@ -195,7 +196,7 @@ public class BuySellListController {
 
 		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
 		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize);
-
+		
 		// 뷰에서 사용할 모델 객체에 데이터 추가
 		model.addAttribute("productDTO", findProductOptionSize);
 		model.addAttribute("productDTO", findProductOptionSize);
