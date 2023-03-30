@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=\, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/list/orderBuyStyle.css"
+	type="text/css">
+<body>
+
+
+	<!-- 헤더 -->
+	<div th:replace="common/header/orderHeader.html"></div>
+
+
+	<section id="section01">
+
+		<img src="../img/신발.png " width="100" height="100"
+			style="float: left; margin-right: 20px;">
+
+		<div style="text-align: left;">
+			<p th:text="${productDTO.productCode}"></p>
+			<p th:text="${productDTO.productName}"></p>
+			<p th:text="${productDTO.productNameKr}"></p>
+			<p th:text="${productDTO.productOption[0].productOptionSize}"></p>
+
+			<p th:value="${sellingOrderPrice}"></p>
+
+
+		</div>
+
+
+
+
+
+	</section>
+
+	<section id="section02">
+		<div style="display: flex; align-items: center;">
+
+			<h3 style="flex: 1;">
+				<br>배송 주소
+			</h3>
+			<hr
+				style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+			<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+			<div id="modalBtn1" style="color: gray;">
+				<u></u>
+			</div>
+		</div>
+
+		<div class="order">
+			<!--디티오뒤에 : 리스트뒤에 변수 -->
+			<div th:each="address : ${selectAddress}">
+				<p01>받는 분 | </p01>
+				<p01 style="color: gray;" th:text="${address.receiverName}"></p01>
+				<br>
+				<p01>배송 주소 | </p01>
+				<p01 style="color: gray;" th:text="${address.addressesPostNo}">|</p01>
+				<p01 style="color: gray;" th:text="${address.addressesName}"></p01>
+				|
+				<p01 style="color: gray;" th:text="${address.addressesAdds}"></p01>
+				<br>
+			</div>
+			<div th:each="members : ${members}">
+				<input type="hidden" id="membersName" th:value="${membersName}">
+				<p01>연락처 | </p01>
+				<p01 style="color: gray;" th:text="${members.membersTel}"></p01>
+			</div>
+			<div class="box001">
+				<div id="modalBtn2" style="color: gray;">
+					<u>변경</u>
+				</div>
+
+			</div>
+		</div>
+		<div class="box2" style="text-align: left; margin-top: 10px;"></div>
+
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+
+
+		<h3>배송 방법</h3>
+
+		<div class="box3">
+			<img src="/image/icon/deliveryIcon.png" width="50" height="50"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<span style="position: relative; top: 10px;"><b>일반배송
+					3,000원</b></span><br> <span style="position: relative; top: 12px;">검수
+				후 배송 5-7일 내 도착 예정</span>
+		</div>
+
+
+	</section>
+
+	<section id="section03">
+
+		<!-- 모달 2 -->
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h1>주소록</h1>
+				<hr style="border: solid 1px rgb(229, 228, 228); width: 100%;">
+			</div>
+		</div>
+
+		<div id="modal1" class="modal">
+			<span class="close">&times;</span>
+			<form>
+				<div class="modal-content">
+					<h5>새 주소 추가</h5>
+					<!-- 이름 입력 필드 -->
+					<label for="name">이름</label> <input type="text" id="name"
+						name="name" placeholder="이름">
+					<!-- <div class="modify_text gray"></div> -->
+					<span></span>
+					<!-- 우편번호 입력 필드 -->
+					<label for="postnum" class="mt">우편번호</label>
+					<ul class="postnum_wrap">
+						<li><input type="text" id="postnum" name="postnum"
+							placeholder="우편번호를 검색하세요."></li>
+						<li><button type="button" class="postnum_del_btn">검색</button></li>
+					</ul>
+					<span></span>
+					<!-- 주소 입력 필드 -->
+					<label for="myaddress" class="mt">주소</label> <input type="text"
+						disabled id="myaddress" name="myaddress"
+						placeholder="우편번호 검색 후 자동 입력 됩니다. "> <span></span>
+					<!-- 상세 주소 입력 필드 -->
+					<label for="myaddress_detail" class="mt">상세 주소</label> <input
+						type="text" id="myaddress_detail" name="myaddress_detail"
+						placeholder="건물, 아파트, 동/호수 입력"> <span></span> <input
+						type="submit" class="modify_btn" value="추가하기">
+				</div>
+			</form>
+		</div>
+
+
+		<div class="final">
+			<h3>최종 주문 정보</h3>
+			<p style="font-size: small;">총 결제 금액</p>
+			<hr
+				style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		</div>
+		<div class="final1">
+			<!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
+			<p id="final-price" style="color: red; font-size: large;"></p>
+
+		</div>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<div class="order">
+			<p01> <b>즉시 구매가</b></p01>
+			<br>
+			<p01 th:text="${sellingOrderPrice}"> <br>
+			</p01>
+			<p01>검수비</p01>
+			<br>
+			<p01>수수료</p01>
+			<br>
+			<p01>배송비</p01>
+			<br>
+		</div>
+		<div class="final1">
+			<p id="final-price" style="color: red; font-size: large;">
+				<b></b>
+			</p>
+		</div>
+
+		<div class="order1">
+			<p02> <b></b></p02>
+			<br>
+			<p02> <br>
+			</p02>
+			<p02>5,000원</p02>
+			<br>
+			<p02>6,000원</p02>
+			<br>
+			<p02>3,000원</p02>
+		</div>
+
+	</section>
+
+	<section id="section04">
+		<h3>결제 방법 - 간편 결제, 일반결제</h3>
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		<p style="font-size: small; color: grey;">약관 동의 후 결제창에서 선택 가능합니다.</p>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<div class="wrapper">
+			<img src="/image/icon/kakaopay.png" width="120" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<img src="/image/icon/naver.png" width="120" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<img src="/image/icon/kg이니시스.jpeg" width="150" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+		</div>
+	</section>
+
+
+	<section id="section05">
+		<h3>구매 전 동의사항</h3>
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<p>판매자의 판배거부, 배송지연, 미입고의 사유가 발생할 경우 거리가 취소될 수 있음을 확인합니다.</p>
+		<p style="font-size: small; color: grey;">알림을 확인하기 위해서 앱 알림해제, 알림톡
+			차단, 전화번호 변경 후 미등록 시에는 거래 진행 알림에 차질이 생길수 있습니다.</p>
+		<div id="modalBtn3" onclick="openModal(modal3)"
+			style="color: gray; font-size: 0.8em;">
+			<u>검수기준 확인하기</u>
+		</div>
+		<div class="checkbox-wrapper">
+			<label> <input type="checkbox" id="checkbox-agree1">
+				<span class="checkmark"></span> <span class="checkbox-text">위
+					내용에 동의합니다.</span>
+			</label>
+		</div>
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<p>'바로 결제하기'를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능 함을 알려드립니다.</p>
+		<p style="font-size: small; color: grey;">본 거래는 개인간 거래로
+			전자상거래법(제17조)에 따른 청약 철회(환불,교환)규정이 적용되지 않습니다.</p>
+		<div id="modalBtn4" onclick="openModal(modal4)"
+			style="color: gray; font-size: 0.8em;">
+			<u>검수기준 확인하기</u>
+		</div>
+		<div class="checkbox-wrapper">
+			<label> <input type="checkbox" id="checkbox-agree2">
+				<span class="checkmark"></span> <span class="checkbox-text">위
+					내용에 동의합니다.</span>
+			</label>
+		</div>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+
+		<div class="sec1">
+			<strong> <Br> 구매 조건을 모두 확인하였습니다.<Br> 거래를 진행합니다.<br>
+				<br> 총 결제금액
+				<div class="final2">
+					<p id="final-price" style="color: red; font-size: x-large;"></p>
+					<hr
+						style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+				</div>
+
+				<button id="my-button" onclick="requestPayKg()">결제하기</button>
+
+			</strong>
+		</div>
+
+
+		<!-- 첫 번째 모달창 -->
+		<div id="myModal" class="modal">
+			<!-- 모달창 내용 -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>첫 번째 모달창</p>
+			</div>
+		</div>
+
+
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<span class="close2 close">&times;</span>
+				<h3>모달 2</h3>
+				<p>내용 2</p>
+			</div>
+		</div>
+
+
+		<div id="modal3" class="modal">
+			<div class="modal-content">
+				<span class="close3 close">&times;</span>
+				<div class="button-container"></div>
+			</div>
+
+			<button id="modalBtn4" onclick="openModal(modal4)">모달 4 열기</button>
+			<div id="modal4" class="modal">
+				<div class="modal-content">
+					<span class="close4 close">&times;</span>
+					<h3>모달 4</h3>
+					<p>내용 4</p>
+				</div>
+			</div>
+
+			<button id="modalBtn5" onclick="openModal(modal5)">모달 5 열기</button>
+			<div id="modal5" class="modal">
+				<div class="modal-content">
+					<span class="close5 close">&times;</span>
+					<h3>모달 5</h3>
+					<p>내용 5</p>
+				</div>
+			</div>
+
+
+			<script>
+      const modalBtn1 = document.getElementById("modalBtn1");
+      const modalBtn2 = document.getElementById("modalBtn2");
+      const modal1 = document.getElementById("modal1");
+      const modal2 = document.getElementById("modal2");
+      const modal3 = document.getElementById("modal3");
+      const modal4 = document.getElementById("modal4");
+      const modal5 = document.getElementById("modal5");
+      const closeBtns = document.getElementsByClassName("close");
+      const accordions = document.getElementsByClassName("accordion");
+
+      function openModal(modal) {
+        modal.style.display = "block";
+      }
+
+
+      modalBtn1.onclick = () => {
+        modal1.style.display = "block";
+      };
+
+      modalBtn2.onclick = () => {
+        modal2.style.display = "block";
+      };
+
+      for (let closeBtn of closeBtns) {
+        closeBtn.onclick = (event) => {
+          event.target.parentElement.parentElement.style.display = "none";
+        };
+      }
+
+      for (let accordion of accordions) {
+        accordion.onclick = () => {
+          const otherAccordions = Array.from(accordions).filter(acc => acc !== accordion);
+          otherAccordions.forEach(otherAcc => {
+            otherAcc.classList.remove("active");
+            otherAcc.nextElementSibling.style.display = "none";
+          });
+
+          accordion.classList.toggle("active");
+          const panel = accordion.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        };
+      }
+
+      window.onclick = (event) => {
+        if (event.target === modal1 || event.target === modal2 || event.target === modal3 || event.target ===
+          modal4 || event.target === modal5) {
+          event.target.style.display = "none";
+        }
+      };
+      /*박스에 대한 코드*/
+      function createInputBox() {
+        var inputBox = document.createElement("input");
+        inputBox.type = "text";
+        inputBox.style.width = "100%";
+        inputBox.style.height = "calc(100% - 30px)";
+        inputBox.style.border = "none";
+        inputBox.style.padding = "15px";
+        inputBox.style.boxSizing = "border-box";
+
+        inputBox.addEventListener("focus", function (event) {
+          event.stopPropagation();
+        });
+
+        inputBox.addEventListener("blur", function () {
+          var inputText = inputBox.value.trim();
+          if (inputText.length === 0) {
+            inputBox.parentNode.removeAttribute("data-input-text");
+            inputBox.parentNode.setAttribute("data-input-placeholder", "배송 시 요청사항을 입력하세요.");
+          } else {
+            inputBox.style.display = "none";
+            inputBox.parentNode.setAttribute("data-input-text", inputText);
+          }
+        });
+
+        var box2 = document.querySelector(".box2");
+        box2.appendChild(inputBox);
+        inputBox.focus();
+      }
+
+      var box2 = document.querySelector(".box2");
+      box2.addEventListener("click", function () {
+        var inputBox = box2.querySelector("input[type='text']");
+        if (!inputBox) {
+          createInputBox();
+        }
+      });
+
+      const myButton = document.getElementById('my-button');
+      const checkboxAgree1 = document.getElementById('checkbox-agree1');
+      const checkboxAgree2 = document.getElementById('checkbox-agree2');
+
+      myButton.addEventListener('mouseover', function () {
+        myButton.style.color = '#fff';
+      });
+
+      myButton.addEventListener('mouseout', function () {
+        myButton.style.color = '#000';
+      });
+
+      function updateButtonStatus() {
+        if (checkboxAgree1.checked && checkboxAgree2.checked) {
+          myButton.style.opacity = 1;
+          myButton.style.pointerEvents = 'auto';
+        } else {
+          myButton.style.opacity = 0.5;
+          myButton.style.pointerEvents = 'none';
+        }
+      }
+
+      checkboxAgree1.addEventListener('change', updateButtonStatus);
+      checkboxAgree2.addEventListener('change', updateButtonStatus);
+
+      /**/
+    window.onload = function() {
+        var sellingOrderPrice = [[${sellingOrderPrice}]];
+        var finalPrice = sellingOrderPrice + 14000;
+        document.getElementById("final-price").innerHTML = finalPrice;
+    }
+
+    //카카오페이 결제코드
+       var IMP = window.IMP;
+        IMP.init("imp48741283");
+        
+        const onError = xhr => console.log(xhr);
+        const onSuccess = data => console.log(data);
+
+        var today = new Date();
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+
+        const $productName = document.getElementById('productName').innerText;
+        const $productCode = document.getElementById('productCode').innerText;
+        const $sellingOrderPrice = document.getElementById('sellingOrderPrice').innerText;
+
+
+
+        function requestPayKg() {
+      // IMP.request_pay(param, callback) 결제창 호출
+      IMP.request_pay({ // param
+          pg: "html5_inicis",
+          pay_method: "card",
+          merchant_uid: "ORD20180131-0000011",
+          name: $productName,
+          amount: 64900,
+          buyer_email: "gildong@gmail.com",
+          buyer_name: "홍길동",
+          buyer_tel: "010-4242-4242",
+          buyer_addr: "서울특별시 강남구 신사동",
+          buyer_postcode: "01181"
+      }, function (rsp) { // callback
+          if (rsp.success) {
+              console.log();
+              // 결제 성공 시 로직,
+
+          } else {
+            console.log();
+          }
+      });
+    }
+
+
+
+    </script>
+</body>
+
+</html>

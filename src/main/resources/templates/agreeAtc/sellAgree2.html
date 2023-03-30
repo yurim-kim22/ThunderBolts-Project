@@ -24,10 +24,10 @@
     <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
 
     <div class="info" style="text-align: left;">
-      <p th:text="${productCode}"></p>
-      <p th:text="${productName}"></p>
-      <p th:text="${productNameKr}"></p>
-      <p th:text="${productOptionSize}"></p>
+		<p th:text="${productDTO.productCode}"></p>
+      <p th:text="${productDTO.productName}"></p>
+      <p th:text="${productDTO.productNameKr}"></p>
+      <p th:text="${productDTO.productOption[0].productOptionSize}"></p>
     <hr
       style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
@@ -126,14 +126,17 @@
 
     </div>
 
-    <form id="selectForm" action="/orderPage/normalSellPage" method="POST">
-  <input type="hidden" name="buyingOrderCode" th:value="${buyingOrderCode}" />
-   <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}"/>
-
-  		<button id="my-button" type="submit">
-    즉시 판매 계속
-  		</button>
-  		</form>
+<form id="selectForm" action="/orderPage/sellBidOrderPage" method="POST">
+      <input type="hidden" id="test3" name="productName" th:value="${productDTO.productName}">
+      <input type="hidden" id="test4" name="productNameKr" th:value="${productDTO.productNameKr}">
+      <input type="hidden" id="test5" name="productCode" th:value="${productDTO.productCode}">
+      <input type="hidden" id="test6" name="productOption[0].productOptionSize" th:value="${productDTO.productOption[0].productOptionSize}">
+      <input type="hidden" id="test" name="sellingOrderPrice" th:value="${sellingOrderPrice}">
+      <input type="hidden" id="test2" name="sellingOrderDeadlineDate" th:value="${sellingOrderDeadlineDate}">
+      <button id="my-button" type="submit">
+동의 후 구매 계속
+      </button>
+    </form>
 
     <div id="modal1" class="modal">
       <div class="modal-content">

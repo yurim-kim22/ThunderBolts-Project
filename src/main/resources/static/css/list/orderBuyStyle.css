@@ -99,7 +99,7 @@ margin-bottom: 10px;
 
 
 .box001 {
-border: 2.5px solid rgb(181, 181, 181);
+border: 2.5px solid transparent;
 width: 50px;
 border-radius: 30px;
 height: 30px;
@@ -413,7 +413,7 @@ main{
   }
 
   /*결제하기 버튼*/
-  #my-button {
+#my-button {
     display: inline-block;
     width: 100%;
     height: 50px;
@@ -422,16 +422,18 @@ main{
     color: #000;
     background-color: #fff;
     border: 1px solid #000;
-    border-radius: 100px;
+    border-radius: 50px;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    /* 버튼 비활성화 스타일 */
-    opacity: 0.5;
-    pointer-events: none;
-  }
+}
+
+.parent-element {
+    text-align: center;
+}
+
 
   #my-button:hover {
     background-color: #000;

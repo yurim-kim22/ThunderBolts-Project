@@ -32,7 +32,7 @@
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
 <form id="selectForm" action="/list/normalSell" method="post">
-  <div class="box" style="display: block;">
+  
     <div th:each="productDTO : ${selectBuyingOrder}">
       <div th:each="productOption: ${productDTO.productOption}">
         <div class="box product" style="display: block;"
@@ -62,7 +62,7 @@
       const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
 
       if (buyingOrderPrice === '0') { // 가격이 0원인 경우
-        location.href = '/list/normalSell3?productOptionSize=' + productOptionSize;
+        location.href = '/list/normal6?productOptionSize=' + productOptionSize;
       } else { // 그 외의 경우
         location.href = '/list/normalSell2?buyingOrderCode=' + buyingOrderCode + '&buyingOrderPrice=' + buyingOrderPrice;
       }
@@ -98,9 +98,6 @@
     </div>
 
       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
-      <button id="my-button">
-        즉시 판매 계속
-      </button>
     </div>
 </section>
 
