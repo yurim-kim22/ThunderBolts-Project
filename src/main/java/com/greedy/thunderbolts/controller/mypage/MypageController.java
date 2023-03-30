@@ -205,6 +205,12 @@ public class MypageController {
 		String memberId = membersId.getMembersId();
 
 		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+				
+		log.info("[selectprofile] : {}", selectprofile);
 
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("selectInfo", selectInfo);
@@ -219,6 +225,12 @@ public class MypageController {
 		String memberId = membersId.getMembersId();
 
 		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+				
+		log.info("[selectprofile] : {}", selectprofile);
 
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("selectInfo", selectInfo);
