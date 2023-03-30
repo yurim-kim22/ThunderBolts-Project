@@ -13,7 +13,7 @@ public class ProductOptionDTO {
     private String productOptionEtc;
     private int productOptionQuantity; 
     private List<SellingOrdersDTO> sellingOrders;
-    private List<BuyingOrdersDTO> buyingOrders;
+    private List<BuyingOrdersDTO> buyingOrders; 
 
     
 }
