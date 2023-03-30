@@ -33,9 +33,10 @@ public class BuySellListController {
 
 
 	@PostMapping("/normalBuy")
-	public String PostnormalBuy(Model model) {
-		List<ProductDTO> productList = listService.findProduct();
-		List<ProductDTO> productSize = listService.findSizePrice();
+	public String PostnormalBuy(@RequestParam("productCode") int productCode, Model model) {
+		List<ProductDTO> productList = listService.findProduct(productCode);
+		List<ProductDTO> productSize = listService.findSizePrice(productCode);
+		
 
 		log.info("포스트 productList : {}", productList);
 		log.info("productSize: {}", productSize);
@@ -62,7 +63,7 @@ public class BuySellListController {
 			BuyingOrdersDTO buyingOrdersDTO) {
 
 		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder();
-
+		
 		log.info("selectBuyingOrder: {}", selectBuyingOrder);
 		log.info("구매 의향서 ProductDTO: {}", productDTO);
 		model.addAttribute("selectBuyingOrder", selectBuyingOrder);
@@ -126,7 +127,8 @@ public class BuySellListController {
 	@GetMapping("/normalBuy2")
 	public String normalBuy2(@RequestParam("sellingOrderNo") int sellingOrderNo,
 			@RequestParam(value = "sellingOrderPrice", required = false) String sellingOrderPrice,
-			@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model) {
+			@AuthenticationPrincipal MembersDTO members, AddressDTO address, Model model
+			) {
 		log.info("구매 요청 어그리로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
 		log.info("구매 요청 어그리로 넘어왔음: sellingOrderPrice={}", sellingOrderPrice);
 
@@ -134,7 +136,18 @@ public class BuySellListController {
 
 		// 주소조회
 		List<AddressDTO> selectAddress = listService.selectAddress(memberNo);
-
+//		
+//		OrdersDTO ordersDTO = new OrdersDTO();
+//		
+//		ordersDTO.setSellingOrderNo(sellingOrderNo);
+//		
+//		//셀링 오더 프라이즈를 셀링 오더로 바꿔준다.
+//		// 이건 new 에서 하는 거(Integer)
+//		ordersDTO.setOrdersPrice(Integer.parseInt(sellingOrderPrice));
+//		ordersDTO.setMemberBuyer(members.getMembersNo());
+//		listService.insertBuy(ordersDTO);
+//		
+		
 		model.addAttribute("selectAddress", selectAddress);
 		log.info("멤버주소 조회 selectAddress : {}", selectAddress);
 		log.info("멤버 조회 members : {}", members);
@@ -150,9 +163,11 @@ public class BuySellListController {
 		model.addAttribute("productName", findSellingProduct.getProductName());
 		model.addAttribute("productNameKr", findSellingProduct.getProductNameKr());
 		model.addAttribute("productOptionSize", findSellingProduct.getProductOption().get(0).getProductOptionSize());
-		// 주소 조회
-		model.addAttribute("selectAddress", selectAddress);
-
+//		// 주소 조회
+//		model.addAttribute("selectAddress", selectAddress);
+//		model.addAttribute("membersNo",members.getMembersNo());
+//		model.addAttribute("ordersPrice",ordersDTO.getOrdersPrice());
+		
 		return "agreeAtc/buyAgree";
 	}
 
@@ -190,6 +205,8 @@ public class BuySellListController {
 		model.addAttribute("productOptionSize", findProductOptionSize.getProductOption().get(0).getProductOptionSize());
 
 		return "bid/buyBid";
+		
+		
 	}
 
 	@GetMapping("/normal6")

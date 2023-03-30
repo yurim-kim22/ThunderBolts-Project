@@ -8,4 +8,5 @@ public class MembersAccountsDTO {
     private String accountNo;
     private String accountBank;
     private String accountMaster;
+    
 }

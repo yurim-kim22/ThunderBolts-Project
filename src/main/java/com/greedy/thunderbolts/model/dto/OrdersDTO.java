@@ -16,5 +16,15 @@ public class OrdersDTO {
 	private int membersSeller;
 	private String ordersStatus;
 	private int buyingOrderCode;
+	
+	   private int sellingOrderPrice;
+
+	   public int getSellingOrderPrice() {
+	      return sellingOrderPrice;
+	   }
+
+	   public void setSellingOrderPrice(int sellingOrderPrice) {
+	      this.sellingOrderPrice = sellingOrderPrice;
+	   }
 
 }

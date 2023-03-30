@@ -72,6 +72,7 @@
 
   <section id="section07">
     <p><b>판매 정산 계좌</b></p><br>
+
    <label>은행 이름:</label><br>
    <label>계좌 번호:</label><br>
   </section>
@@ -122,24 +123,12 @@
   <div class="order1">
      <p02><b th:text="${buyingOrderPrice}"></b></p02><br>
     <p02><br></p02>
-    <p02>무료</p02><br>
+    <p02>5,000원</p02><br>
     <p02>6,000원</p02><br>
-    <p02>3,000원</p02>
+    <p02>선불, 판매자 부담</p02>
   </div>
     </div>
   </section>
-
-    <section id="section04">
-      <h3>패널티 결제 방법</h3>
-      <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-
-      <div class="wrapper">
-        <p class="left">카드 간편결제</p>
-        <p style="margin-left: 10px; color: gray;">일시불</p>
-      </div>
-      <a href="#" class="button"><p>카드를 등록하세요.</p></a>
-      <p style="color: #5673BE;"><u>패널티 정책</u></p>
-</section>
 
 
 <section id="section05">
@@ -177,11 +166,19 @@
     <br>
     총 결제금액
     <div class="final2">
-      <p style="color: #45922A;">00,000원</p>
+      <p style="color: #45922A;" h:text="${buyingOrderPrice + 11000}"></p>
     </div>
-    <button id="my-button">
-      결제하기
-    </button>
+<form id="selectForm" action="/orderPage/orderComplete" method="POST">
+   <input type="hidden" name="buyingOrderCode" th:value="${buyingOrderCode}" />
+   <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}"/>
+  		      <input type="hidden" id="test3" name="productName" th:value="${productDTO.productName}">
+      <input type="hidden" id="test4" name="productNameKr" th:value="${productDTO.productNameKr}">
+      <input type="hidden" id="test5" name="productCode" th:value="${productDTO.productCode}">
+      <input type="hidden" id="test6" name="productOption[0].productOptionSize" th:value="${productDTO.productOption[0].productOptionSize}">
+  		<button id="my-button" type="submit">
+    결제하기 
+  		</button>
+</form>
   </strong>
 </div>
 </div>

@@ -69,24 +69,11 @@
   </section>
 
   <section id="section07">
-    <p><b>판매 정산 계좌</b></p>
-    <div id="accountActions">
-      <a href="#" id="registerAccount" class="button2"><p>클릭하여 계좌를 등록하세요.</p></a>
-      <a href="#" id="editAccount" class="button2" style="display: none;">수정하기</a>
-    </div>
-    <div id="registerAccountForm" style="display: none;" class="button2">
-      <form>
-        <label>은행 이름:</label>
-        <input type="text" id="bankName" name="bankName"><br>
-        <label>계좌 번호:</label>
-        <input type="text" id="accountNumber" name="accountNumber">
-        <input type="submit" value="등록" class="button2">
-      </form>
-    </div>
-    <div id="accountInfo" style="display:none;">
-      <p>등록된 계좌: <span id="accountNumberSpan"></span></p>
-      <p>은행 이름: <span id="bankNameSpan"></span></p>
-    </div>
+    <p><b>판매 정산, 패널티 결제 계좌 등록</b></p>
+    <p><b>판매 정산 계좌</b></p><br>
+   <label>은행 이름:</label><br>
+   <label>계좌 번호:</label><br>
+
   </section>
 
 <section id="section06">
@@ -133,26 +120,14 @@
     <p01>배송비</p01><br>
   </div>
   <div class="order1">
-     <p02><b th:text="${buyingOrderPrice}"></b></p02><br>
+     <p02><b th:text="${buyingOrderPrice + 11000}"></b></p02><br>
     <p02><br></p02>
-    <p02>무료</p02><br>
+    <p02>5,000원</p02><br>
     <p02>6,000원</p02><br>
-    <p02>3,000원</p02>
+    <p02>선불, 판매자 부담</p02>
   </div>
     </div>
   </section>
-
-    <section id="section04">
-      <h3>패널티 결제 방법</h3>
-      <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-
-      <div class="wrapper">
-        <p class="left">카드 간편결제</p>
-        <p style="margin-left: 10px; color: gray;">일시불</p>
-      </div>
-      <a href="#" class="button"><p>카드를 등록하세요.</p></a>
-      <p style="color: #5673BE;"><u>패널티 정책</u></p>
-</section>
 
 
 <section id="section05">
@@ -190,11 +165,19 @@
     <br>
     총 결제금액
     <div class="final2">
-      <p style="color: #45922A;">00,000원</p>
+      <p style="color: #45922A;" th:text="${buyingOrderPrice + 11000}"></p>
     </div>
-    <button id="my-button">
-      결제하기
-    </button>
+<form id="selectForm" action="/orderPage/orderComplete" method="POST">
+   <input type="hidden" name="buyingOrderCode" th:value="${buyingOrderCode}" />
+	  <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}"/>
+	  	<input type="hidden" id="test3" name="productName" th:value="${productDTO.productName}">
+	      	<input type="hidden" id="test4" name="productNameKr" th:value="${productDTO.productNameKr}">
+	      	<input type="hidden" id="test5" name="productCode" th:value="${productDTO.productCode}">
+	      		<input type="hidden" id="test6" name="productOption[0].productOptionSize" th:value="${productDTO.productOption[0].productOptionSize}">
+  		<button id="my-button" type="submit">
+    결제하기 
+  		</button>
+</form>
   </strong>
 </div>
 </div>
@@ -231,29 +214,6 @@ const myButton = document.getElementById('my-button');
       $("#cashReceiptForm").fadeIn();
     });
 
-    //여기는 모냐모냐하면 계좌등록
-    $(document).ready(function() {
-    $("#registerAccount").click(function() {
-      $("#registerAccountForm").fadeIn();
-      $("#accountActions").fadeOut();
-    });
-    $("#editAccount").click(function() {
-      $("#accountInfo").fadeOut();
-      $("#registerAccountForm").fadeIn();
-    });
-    $("#registerAccountForm").submit(function(event) {
-      event.preventDefault();
-      var accountNumber = $("#accountNumber").val();
-      var bankName = $("#bankName").val();
-      $("#accountNumberSpan").text(accountNumber);
-      $("#bankNameSpan").text(bankName);
-      $("#registerAccountForm").fadeOut();
-      $("#registerAccount").fadeOut();
-      $("#accountActions").fadeIn();
-      $("#accountInfo").fadeIn();
-      $("#editAccount").fadeIn();
-    });
-  });
 
 
     // 여기는 모냐모냐하면 현금영수증 등록
