@@ -38,6 +38,12 @@ public class MainController {
 		model.addAttribute("hotProductList", hotProductList);		
 		
 		
+		List<ProductDTO> bestProductList = mainService.bestHotroduct();
+		log.info("[ControllerMain bestProductList : {}", bestProductList);
+		
+	
+		model.addAttribute("bestProductList", bestProductList);		
+		
 		return "main";
 	}
 	

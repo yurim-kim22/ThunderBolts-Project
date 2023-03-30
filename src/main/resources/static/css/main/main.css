@@ -274,7 +274,7 @@ main{
     position: relative;
 }
 
-.item1.hotimg{
+.hotimg{
  
     background-size:contain;
     background-attachment: local;
@@ -308,13 +308,6 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item2.hotimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 .item3hotimg{
     margin-left: 10%;
@@ -325,13 +318,7 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item3.hotimg{
-  
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .item4hotimg{
     margin-left: 10%;
@@ -342,30 +329,18 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item4.hotimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .item5hotimg{
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #E2E2E2;
+    background-color: #D6EEE1;
     width: 80%;
     height: 60%;
     min-height: 60%;
     position: relative;
 }
-.item5.hotimg{
-  
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .nextimg{
     background-image: url(/image/icon/next.png);
@@ -1277,14 +1252,14 @@ main{
     position:absolute;    
 }
 
-.first.rankimg{
+.rankimg.img1{
     background-image: url(/image/icon/rank1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.first.prankimg{
+.prankimg.pimg1{
     background-size:contain;
     background-attachment: local;
     background-position: center center;

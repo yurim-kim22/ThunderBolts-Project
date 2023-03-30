@@ -13,4 +13,6 @@ public interface MainMapper {
 
 	List<ProductDTO> findHotroduct();
 
+	List<ProductDTO> bestHotroduct();
+
 }

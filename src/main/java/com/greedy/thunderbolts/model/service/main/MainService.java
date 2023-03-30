@@ -32,6 +32,14 @@ public class MainService {
 		return findHotroduct;
 	}
 
+	public List<ProductDTO> bestHotroduct() {
+		
+		List<ProductDTO> bestHotroduct = mapper.bestHotroduct();
+		
+		
+		return bestHotroduct;
+	}
+
 	
 
 }

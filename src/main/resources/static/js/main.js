@@ -126,10 +126,6 @@ infinite: true,
 	prevArrow: "<i class='preimg'></i>"
 });
 
-/*
-$(".product").on('click', function(){
-	  location.href = "/detail/Main";
-})*/
 
 const productCode = document.querySelectorAll(".productCode");
 
