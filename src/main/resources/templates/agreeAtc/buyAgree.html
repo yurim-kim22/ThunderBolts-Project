@@ -116,7 +116,9 @@
 <form id="selectForm" action="/orderPage/normalOrderPage" method="POST">
   <input type="hidden" name="sellingOrderNo" th:value="${sellingOrderNo}" />
    <input type="hidden" name="sellingOrderPrice" th:value="${sellingOrderPrice}"/>
-
+	<input type="hidden" name="productCode" th:value="${productCode}"/>
+		<input type="hidden" name="productName" th:value="${productName}"/>
+		<input type="hidden" name="productName" th:value="${productNameKr}"/>
   		<button id="my-button" type="submit">
     즉시 판매 계속
   		</button>

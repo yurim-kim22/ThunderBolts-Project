@@ -2,7 +2,12 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
+import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.OrdersDTO;
+import com.greedy.thunderbolts.model.dto.PaymentDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,6 +65,11 @@ public class ListServiceImpl implements ListService {
 		return listMapper.findSellingProduct(sellingOrderNo);
 	}
 	
+	@Override
+	public ProductDTO findProductOptionSizeSell(String productOptionSize) {
+		return listMapper.findProductOptionSizeSell(productOptionSize);
+	}
+	
 	
 	@Override
 	//findSellingProduc
@@ -74,6 +84,10 @@ public class ListServiceImpl implements ListService {
 	@Override
 	public ProductDTO findProductOptionSize(String productOptionSize) {
 		return listMapper.findProductOptionSize(productOptionSize);
+	}
+	
+	public ProductDTO findBuyingProduct(int buyingOrderCode) {
+		return listMapper.findBuyingProduct(buyingOrderCode);
 	}
 
 
@@ -97,20 +111,45 @@ public class ListServiceImpl implements ListService {
 		public List<AddressDTO> selectAddress(int memberNo) {
 			return listMapper.selectAddress(memberNo);
 		}
-		//계좌 조회
-
-
+	//주문에서 넘길 데이터들 
 		@Override
-		public List<ProductDTO> findBuyingProduct(int buyingOrderCode) {
-			// TODO Auto-generated method stub
-			return listMapper.findBuyingProduct(buyingOrderCode);
+		public int buyInsertPay(PaymentDTO payment) {
+			return listMapper.buyInsertPay(payment);
+		}
+		
+		@Override
+		public int sellInsertPay(String accountBank) {
+			return listMapper.sellInsertPay(accountBank);
+		}
+		
+		@Override
+		public OrdersDTO insertBuy(OrdersDTO ordersDTO) {
+			return listMapper.insertBuy(ordersDTO);
 		}
 
 
 		@Override
-		public List<ProductDTO> findBuyingProduct() {
+		public MembersDTO memberOrder(int memberNo) {
 			// TODO Auto-generated method stub
-			return listMapper.findBuyingProduct();
+			return null;
 		}
+
+
+		@Override
+		public MembersDTO memberAccounts(int membersNo) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+//		public 	MembersDTO memberOrder(int memberNo) {
+//			return listMapper.memberOrder(memberNo);
+//		}
+		
+//		//멤버 계좌 조회 
+//		public MembersDTO memberAccounts(int membersNo) {
+//			return listMapper.memberAccounts(membersNo);
+//		}
+
+	
 
 }

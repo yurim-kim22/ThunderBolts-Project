@@ -36,14 +36,14 @@
     <div class="centerler">
         <p id="toto">즉시 구매가<br></p>
         <div class="vertical-line"></div>
-        <p id="gogo">입찰하기 등록가</p>
+        <p id="gogo">입찰하기 등록가를 입력하세요.</p>
 
     </div>
-    <div class="centerler">
+<!--     <div class="centerler">
         <p id="price1">-<br></p>
         <div class="vertical-line"></div>
-        <p id="price2">10000</p>
-    </div>
+        <p id="price2"></p>
+    </div> -->
     <hr
             style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
     <!--여기에 버튼 넣기-->
@@ -118,11 +118,8 @@
                 </div>
             </div>
             <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
-            <button id="my-button">
-                판매 입찰 계속
-            </button>
 
-
+			<div class="parent-element">
             <form id="selectForm" action="/list/normalBuy4" method="POST">
 
                 <input type="hidden" id="test3" name="productName" th:value="${productName}">
@@ -135,6 +132,7 @@
                     입찰 구매 계속
                 </button>
             </form>
+            </div>
 
         </div>
 </section>
