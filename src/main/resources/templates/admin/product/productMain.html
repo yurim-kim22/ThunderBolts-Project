@@ -48,7 +48,7 @@
 						
 						<!-- 본문 -->
 						
-						<h2 style="align: center">상품정보</h2>
+						<div class="title"><p style="align: center">상품정보</p></div>
 <table id="listArea" style="text-align: center">
   <tr>
     <th style="width: 200px">상품코드</th>
@@ -73,15 +73,10 @@
 </table>
 
 
-	<div class="buttonselection">
-        <div class="buttonstosub">
-            <button id="productAdd">추가</button>
-            <button id="productDelete">삭제</button>
-     </div></div>
 	
 						
 		<!-- 페이징 바 -->
-		<div id="paging" align="center" >
+		<div id="paging2" align="center" >
 
 			<th:block
 				th:if="${ paging.searchCondition != null and paging.searchValue != null }">
@@ -162,7 +157,12 @@
 
 		</div>
 		
-
+<div class="buttonselection">
+       
+            <button id="productAdd">추가</button>
+            <button id="productDelete">삭제</button>
+     </div>
+	
 	<script>
         document.getElementById("productAdd").onclick = function() {
     window.open("http://localhost:8002/admin/product/productAdd", "Add product", "width=1366,height=768");

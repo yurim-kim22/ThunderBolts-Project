@@ -2,11 +2,21 @@ package com.greedy.thunderbolts.model.dto;
 
 import java.util.Date;
 
-import lombok.Data;
-	@Data
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
 public class AdminSellingOrdersDTO {
 
 	
+		@Override
+	public String toString() {
+		return "AdminSellingOrdersDTO [sellingOrderNo=" + sellingOrderNo + ", productOptionCode=" + productOptionCode
+				+ ", membersNo=" + membersNo + ", sellingOrderDate=" + sellingOrderDate + ", sellingOrderPrice="
+				+ sellingOrderPrice + ", sellingOrderStatus=" + sellingOrderStatus + ", sellingOrderCancellationDate="
+				+ sellingOrderCancellationDate + ", sellingOrderSuccessingDate=" + sellingOrderSuccessingDate
+				+ ", sellingOrderDeadlineDate=" + sellingOrderDeadlineDate + ", members=" + members + "]";
+	}
 		private int sellingOrderNo;
 		private int productOptionCode;
 		private int membersNo;

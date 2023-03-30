@@ -12,6 +12,5 @@ public interface MypageMapper {
 	BuyListDTO selectBuyList(String memberId);
 	
 	SellListDTO selectSellList(String memberId);
-	
-	
+
 }
