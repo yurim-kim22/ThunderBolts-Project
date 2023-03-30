@@ -12,15 +12,13 @@ function reOrderNumber(){
 				success : responseJson => { //메소드를 받을떄 내가 다시 이름을 지을 수 있는것이고, 이것은 remapdelist의 객체이다. 
 					
 					
-					console.log(responseJson);
-					console.log(responseJson.remapdelist);
-				    console.log(document.getElementById("deliveryde"));//deliver.html에 있는 저 id의 태그들을 가져온다. 
+		             console.log(responseJson);
+					console.log(responseJson.mapdelistkey);
+				     
 				    
 				    
 				    
-				    
-				    
-				    re=responseJson.remapdelist
+				    re=responseJson.mapdelistkey
 				    
 				  
 				    document.getElementById("thdwkdqjsgh").value=re.deliveryNum

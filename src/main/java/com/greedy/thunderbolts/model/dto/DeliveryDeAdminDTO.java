@@ -13,6 +13,8 @@ public class DeliveryDeAdminDTO {
     private String productName; 
     private String postDiv;
     private String checkingResult;
+    private String deliveryNum;
+    private String deliveryCompany;
   
 
 

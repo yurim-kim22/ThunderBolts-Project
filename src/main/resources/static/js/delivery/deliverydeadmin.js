@@ -28,6 +28,8 @@ function orderNumber(){
 				    document.getElementById("wnanstkdvna").value=re.productName
 				    document.getElementById("rnqns").value=re.checkingResult
 				    document.getElementById("ghldnsjaud").value=re.membersName
+				    document.getElementById("xorqotk").value=re.deliveryCompany
+				    document.getElementById("thdwkd").value=re.deliveryNum
 				    
 				    
 				    

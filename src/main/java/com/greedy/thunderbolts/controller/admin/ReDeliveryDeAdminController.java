@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.greedy.thunderbolts.model.dto.DeliveryDeAdminDTO;
 import com.greedy.thunderbolts.model.dto.ReDeliveryDeAdminDTO;
-import com.greedy.thunderbolts.model.service.admin.RedeliveryAdminServiceImpl;
+import com.greedy.thunderbolts.model.service.admin.RedeliveryAdminService;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
@@ -21,7 +20,7 @@ public class ReDeliveryDeAdminController {
 
 	
 	@Autowired
-	RedeliveryAdminServiceImpl redeliveryServiceAdminImpl;
+	RedeliveryAdminService redeliveryServiceAdminImpl;
 
 	@GetMapping("admin/redeliveryadmin")// url이 비동기 이기 때문에 브라우저상 url이 바뀌어 보이지 않는다.
 	public Map<String, ReDeliveryDeAdminDTO > redeliveryadmin(@RequestParam("reOrderNumber") String reOrderNumber,HttpServletRequest request) {
@@ -30,11 +29,12 @@ public class ReDeliveryDeAdminController {
 		
 		ReDeliveryDeAdminDTO redelist=redeliveryServiceAdminImpl.redeliveryadmin(reOrderNumber);
 		
-	
+		  log.info("controller : {}",redelist);
+
 		
 		  Map<String, ReDeliveryDeAdminDTO > remapdelist= new HashMap<>();
 		  remapdelist.put("mapdelistkey", redelist); //,maplist라는 map에 deliveryde DTO객체들을 가지고 있는 list라는 이름의 list가 maplistkey라는 이름으로  들어있다. 
-			
+		  log.info("controller : {}",remapdelist);
 		  return remapdelist;
 	 
 	

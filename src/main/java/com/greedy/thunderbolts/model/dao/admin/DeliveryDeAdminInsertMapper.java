@@ -14,3 +14,4 @@ public interface DeliveryDeAdminInsertMapper {
     int insertMapper(DeliveryDeAdminInsertDTO insert) ;
 
 }
+ 

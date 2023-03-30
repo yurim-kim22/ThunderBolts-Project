@@ -23,7 +23,7 @@ public class RedeliveryAdminServiceImpl implements RedeliveryAdminService {
 		log.info("service1 : {}",reOrderNumber);
 		ReDeliveryDeAdminDTO relist= reDeliveryAdminListMapper.recomedelivery(reOrderNumber);
 		
-		log.info("service2 : {}",reOrderNumber);
+		log.info("service2 : {}",relist);
 		
 		
 		return relist;
