@@ -42,4 +42,13 @@ window.onload = function() {
             location.href = "/mypage/wish";
         }
     }
+    
+            if(document.getElementById("admin")) {
+        const $heartProduct = document.getElementById("admin");
+        $heartProduct.onclick = function() {
+            location.href = "/admin";
+        }
+    }
+    
+    
 }

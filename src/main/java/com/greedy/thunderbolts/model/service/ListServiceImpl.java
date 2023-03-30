@@ -26,8 +26,8 @@ public class ListServiceImpl implements ListService {
 	
 
 	@Override
-	public List<ProductDTO> findSizePrice() {
-		return listMapper.findSizePrice();
+	public List<ProductDTO> findSizePrice(int productCode) {
+		return listMapper.findSizePrice(productCode);
 		
 		
 	}
@@ -45,9 +45,9 @@ public class ListServiceImpl implements ListService {
 
 
 	@Override
-	public List<ProductDTO> findProduct() {
+	public List<ProductDTO> findProduct(int productCode) {
 
-		return listMapper.findProduct();
+		return listMapper.findProduct(productCode);
 	}
 	
 	

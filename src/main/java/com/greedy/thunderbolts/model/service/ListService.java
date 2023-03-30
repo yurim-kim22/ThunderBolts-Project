@@ -9,9 +9,9 @@ import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.apache.ibatis.annotations.Param;
 
 public interface ListService {
-   List<ProductDTO> findProduct();
+   List<ProductDTO> findProduct(int productCode);
 
-   List<ProductDTO> findSizePrice();
+   List<ProductDTO> findSizePrice(int productCode);
 
    ProductDTO findSellingProduct(int sellingOrderNo);
 
