@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>THUNDER_BOLT</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/myBuyDetail.css" rel="stylesheet" type="text/css">
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    
+    
+</head>
+
+<body>
+    <!-- 헤더 -->
+	<div th:replace="common/header/mypageHeader.html"></div>
+    <!-- 바디 -->
+    <!-- 사이드바 -->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <a href="#">
+                <div class="sidebar-title " id="side0">마이 페이지</div>
+            </a>
+            <!-- Sidebar 쇼핑정보 -->
+            <div class="sidebar-heading">쇼핑정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side1">구매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
+            </div>
+
+            <!-- Sidebar 내정보 -->
+            <div class="sidebar-heading">내정보</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side5">내 문의 내역</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+                <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
+            </div>
+        </div>
+        <!--sidebar-wrapper-->
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <!-- 구매 상세 내역 -->
+                <h3>구매 상세 내역</h3>   
+                <div class="buy_detail">
+                    <ul>
+                        <li>
+                        	<img th:src="${ detail.file.filePath }+${ detail.file.fileDecoded  }" class="buy_detail_img">
+                        </li>
+                        <ul class="buy_detail_text">
+                            <li th:text="${ detail.brand.brandName }" >브랜드</li>
+                            <li th:text="${ detail.product.productName }">상품명</li>
+                            <li ><button class="buy_detail_btn">상품 상세</button></li>
+                        </ul>
+                    </ul>
+                </div> <!-- profile -->
+                
+                <div class="buy_detail_cont">
+                    <div>
+                        <h4>결제 내역</h4>
+                        <p></p>
+                        <div class="buy_detail_cont_txt">총 결제 금액 <span th:text="${ detail.order.ordersPrice }">214,500원</span></div>
+                    </div>
+                    
+                    <div>
+                        <h4>배송 정보</h4>
+                        <p></p>
+                        <div th:text="${ detail.delivery.deliveryCompany }" class="buy_detail_cont_txt"><a href="#">CJ대한통운</a></div>
+                        <div th:text="${ detail.delivery.deliveryNum }" class="buy_detail_cont_txt">5147862488996</div>
+                    </div>
+
+                    <div>
+                        <h4>배송 주소</h4>
+                        <p></p>
+                        <div class="buy_detail_cont_txt">받는사람 <span th:text="${ detail.delivery.postReceiver }">김**</span> </div>
+                        <div class="buy_detail_cont_txt">우편번호 <span th:text="${ detail.delivery.deliveryNum }">12222</span> </div>
+                        <div class="buy_detail_cont_txt">주        소 <span th:text="${ detail.delivery.postAddmain }">서울시 강남구 테헤란로</span> </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
+</body></html>

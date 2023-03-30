@@ -1,0 +1,234 @@
+
+/*reset*/
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+body{line-height: 100%;}
+
+ul, ol, li{list-style: none; padding-left: 0 !important}
+
+a{text-decoration: none; color: inherit;}
+
+.clear_fix::after, .clear_fix::before{
+    content: ""; display: block; clear: both;
+}
+
+.font_weight{
+    color: black;
+ }
+
+#wrapper{
+    width: 60vw; 
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+.bobo{
+    width: 40vw;
+    border-bottom: 1px solid #ddd;
+}
+
+h3{
+    margin-bottom: 2.4vw;
+}
+
+.tit_sub{
+    color: #535353;
+    margin: 0.6vw;
+    margin-left: -0.1vw;
+    /* padding: 0.2vw; */
+}
+
+/* 새 배송지 추가 버튼 */
+.address_regist{
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    padding: 0.3vw !important; 
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    width: 8vw;
+    height: 1.8vw; 
+    color: #fff;
+    background-color: #BA85D1;
+    margin-left: 32vw;    
+}
+
+/* 게시판 */
+.address_wrap{
+    display: flex;
+    margin-top: 2vh;
+    width: 40vw;
+    justify-content: space-between;
+}
+
+.address_wrap li{
+    height: 3vh;
+    line-height: 3vh;
+}
+
+.address_tit{
+    width: 20vw;
+    /* border: 1px solid red; */
+}
+
+.address_detail{
+    width: 90vw;
+    /* border: 1px solid red; */
+
+}
+
+.se{
+    height: 3vw !important;
+}
+
+.none{
+    width: 3vw;
+    height: 1.8vw;
+}
+
+.address_del_btn{
+    text-align: center;
+    width: 2.2vw;
+    height: 1.6vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.gray{
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    color: #666565 !important;
+    border: 5px solid #fff;
+    /* margin-top: 0.3vw;
+    padding: 0.2vw; */
+}
+
+/* 팝업 */
+/* 폼 */
+input{
+    display: block;
+    margin-top: 1vw;
+    border: none;
+}
+
+h5{
+    margin: 0 auto;
+    padding: 2vw 0;
+}
+
+span{
+    width: 25.5vw;
+    margin: 1vw 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 우편번호 */
+.postnum_wrap{
+    display: flex;
+    /* border: 1px solid red; */
+    height: 6vh;
+    margin-bottom: -1vw;
+}
+
+.postnum_wrap li{
+    justify-content: space-between;
+    /* margin-bottom: -10vw !important; */
+}
+
+.postnum_del_btn{
+    text-align: center;
+    width: 2.2vw;
+    height: 1.6vw;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    margin-top: 1vw;
+    margin-left: 11.5vw;
+    
+}
+
+.modify_cont{
+    position: relative;
+ }
+ 
+ .modify_text{
+     line-height: 3.2vh;
+     height: 3.2vh;
+     
+ }
+ 
+ .gray{
+     color: #888;
+     font-weight: 300;
+     font-size: 0.8rem;
+ }
+ 
+ /* 버튼 */
+ .modify_btn{
+     text-align: center;
+     width: 5vw;
+     height: 1.8vw;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     padding: 0.3vw !important; 
+     margin-top: 2vw;
+     margin-left: 10vw;
+     background-color: #BA85D1;
+     color: #fff;
+ }
+ 
+
+#address_modal{
+    display: none; 
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4);  
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 12% auto !important; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 28% !important; 
+    position: relative;
+}
+.close {
+    color: #aaaaaa;
+    /* float: right; */
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    float: right !important;
+    right: 5px;
+    /* margin-top: -7px; */
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#paging > button{
+	border: none;
+	font-size: 1.2rem;
+	background: none;
+	margin-top: -100px;
+	padding: 5px;
+}

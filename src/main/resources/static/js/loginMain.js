@@ -1,18 +1,4 @@
 
-
-if (document.getElementById("naverIdLogin")) {
-	const $naverIdLogin = document.getElementById("naverIdLogin");
-	$naverIdLogin.onclick = function() {
-		location.href = "/oauth2/authorization/naver";
-	}
-}	
-if (document.getElementById("kakaoIdLogin")) {
-	const $kakaoIdLogin = document.getElementById("kakaoIdLogin");
-	$kakaoIdLogin.onclick = function() {
-		location.href = "/oauth2/authorization/kakao";
-	}
-
-}
 /* 회원 가입 */
 if (document.getElementById("loginRegist")) {
 	const $loginRegist = document.getElementById("loginRegist");

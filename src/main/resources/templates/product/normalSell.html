@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,22 +15,23 @@
 	<div th:replace="common/header/orderHeader2.html"></div>
 
 
-  <section id="section03">
-    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
-
-    <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
-
-    <div class="info" style="text-align: left;">
-    <div th:each="product : ${ productList }">
-		  <p style="margin: 0;" th:text="${ product.productCode }"></p>
-		  <p style="margin: 0;" th:text="${ product.productName }"></p>
-		  <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
+    <section id="section03">
+        <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+        <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+        <div class="info" style="text-align: left;">
+            <div th:each="productDTO : ${selectBuyingOrder}">
+                <p style="margin: 0;" th:text="${productDTO.productCode}"></p>
+                <p style="margin: 0;" th:text="${productDTO.productName}"></p>
+                <p style="margin: 0; color: gray;" th:text="${productDTO.productNameKr}"></p>
+ 				
+</script>
 	</div>
 	</div>
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
+<<<<<<< HEAD
     
 
 <form id="select2Form" action="/list/normalSell" method="post">
@@ -47,122 +48,63 @@
                             th:href="@{/list/normalSell2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
                             th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
                     </div>
-                </div>s
+                </div>
             </div>  
         </div>
-    </div>
+      </span>
+    </span>
+  </div>
 </form>
 
+<script>
+  const $products = document.querySelectorAll(".product");
 
-  
+  $products.forEach(div => {
+    div.addEventListener('click', (e) => {
+      console.log(e.currentTarget.dataset);
+
+      const buyingOrderCode = e.currentTarget.dataset.buyingOrderCode;
+      const buyingOrderPrice = e.currentTarget.dataset.buyingOrderPrice;
+      const productCode = e.currentTarget.dataset.productCode;
+      const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
+
+      if (buyingOrderPrice === '0') { // 가격이 0원인 경우
+        location.href = '/list/normal6?productOptionSize=' + productOptionSize+'&productCode='+productCode;
+      } else { // 그 외의 경우
+        location.href = '/list/normalSell2?buyingOrderCode=' + buyingOrderCode + '&buyingOrderPrice=' + buyingOrderPrice;
+      }
+    });
+  });
+
+  // 중복된 프로덕트 옵션 사이즈를 제거하는 함수
+  function removeDuplicatesForBuyingOrder() {
+    const sizeSet = new Set(); // Set 객체 생성
+    const $sizes = document.querySelectorAll(".product b");
+
+    $sizes.forEach(size => {
+      const sizeText = size.textContent.trim();
+      if (sizeSet.has(sizeText)) { // 중복인 경우
+        size.parentNode.parentNode.style.display = "none"; // 해당 div 숨기기
+      } else { // 중복이 아닌 경우
+        sizeSet.add(sizeText); // Set에 추가
+      }
+    });
+  }
+
+  removeDuplicatesForBuyingOrder(); // 중복 제거 함수 호출
+
+</script>
 
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-      
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
-
-      <div class="box" style="display: block;">
-        <p style="line-height: 0.5;"><b>220</b></p>
-        <p style="line-height: 0.5; color: rgb(9, 120, 9);">270,000</p>
-      </div>
 
 
     </div>
 
       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
-      <button id="my-button">
-        즉시 판매 계속
-      </button>
     </div>
 </section>
 

@@ -1,3 +1,4 @@
+
 package com.greedy.thunderbolts.model.dto;
 
 import java.util.Date;
@@ -26,7 +27,4 @@ public class DeliveryDTO {
 		
 //		private SellingOrdersDTO sellingOrder;
 }
-
-
-
 

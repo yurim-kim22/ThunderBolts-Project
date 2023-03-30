@@ -66,7 +66,8 @@ bannerNext();
 
 /* 관심상품 클릭시 하트 이미지 변경*/
 $(".eheart").on('click', function(e) {
-	e.target.classList.toggle('heart')
+	event.stopPropagation();
+	e.target.classList.toggle('heart');
 });
 
 /* 슬라이드 클릭시 변경 */
@@ -127,6 +128,12 @@ infinite: true,
 });
 
 
-$(".product").on('click', function(){
-	  location.href = "/detail/Main";
-})
+const productCode = document.querySelectorAll(".productCode");
+
+	productCode.forEach(block => {
+			block.addEventListener("click", (e) => {
+			const productNo = e.currentTarget.dataset.productNo;
+			console.log(productNo);
+			window.location.href = '/detail/main?proCode=' + productNo;
+		});
+	});

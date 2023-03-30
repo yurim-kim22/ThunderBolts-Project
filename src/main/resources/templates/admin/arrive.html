@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/css/admin/arrive.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+   <div class="a">
+    <div class="a-1">
+        <p>착송관리</p>
+
+        <button class="delite" >삭제</button>
+    </div>
+<div class="motherflex"> 
+    <div>
+        <form>
+            
+                <label class="ti">
+                    <span class="textcenter">송장번호</span>
+                    <input class="insert" type="text"  id=thdwkdqjsgh>
+                </label>
+            
+
+        </form>
+
+        <br>
+
+
+        <label class="ti">
+            <span class="textcenter">주문번호</span>
+            <input class="insert" type="text"  placeholder="입력" id="reOrderNumber"  >
+            <button class="johoe" onclick="reOrderNumber()" >조회</button>
+        </label>
+        <br>
+
+        <label class="ti">
+            <span  class="textcenter">회원명</span>
+            <input class="insert" type="text" readonly id="ghldnjsaud">
+        </label>
+        <br>
+        <label class="ti"><span class="textcenter">ID</span><input class="insert" type="text" readonly id="id"></label>
+        <br>
+
+        <label class="ti"><span  class="textcenter" >상품정보</span>
+            <div class="product-impo">
+             <table>
+                    <tr>
+                      <td class="productcon" >상품명</td>
+                      <td class="productcon-ex" id="productname" >Jordan 4 x Nike SB Retro Pine Green</td>
+                    </tr>
+                    <tr>
+                      <td class="productcon">상품코드</td>
+                      <td class="productcon-ex" id="productcode">10201</td>
+                    </tr>
+                    <tr>
+                      <td class="productcon">색상</td>
+                      <td class="productcon-ex" id="productcolor">black</td>
+                    </tr>
+                    <tr>
+                      <td class="productcon">사이즈</td>
+                      <td class="productcon-ex" id="productsize">free</td>
+                    </tr>
+                    
+                  </table>
+                
+                
+            </div>
+
+        </label>
+    </div>
+
+    <div class="gi">
+       
+               
+        <div class="sc">
+            <button class="cancel">취소</button>
+            <button class="save">저장</button>
+            
+    
+    
+        </div>
+    
+    </div>
+</div>
+<script src="/js/delivery/redeliveryadmin.js"> </script>
+    <!---->
+</div>
+</body>
+
+</html>

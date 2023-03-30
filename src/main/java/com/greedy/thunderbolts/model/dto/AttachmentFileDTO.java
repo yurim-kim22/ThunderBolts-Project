@@ -2,7 +2,6 @@ package com.greedy.thunderbolts.model.dto;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

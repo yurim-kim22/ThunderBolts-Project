@@ -1,0 +1,94 @@
+
+/*reset*/
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+body{line-height: 100%;}
+
+ul, ol, li{list-style: none;}
+
+a{text-decoration: none; color: inherit;}
+
+.clear_fix::after, .clear_fix::before{
+    content: ""; display: block; clear: both;
+}
+
+#wrapper{
+    width: 60vw; 
+    margin: 0 auto;
+    /* border: 1px solid red; */
+}
+
+.font_weight{
+   color: black;
+}
+
+/* 구매 상세 내역 */
+.buy_detail{
+    width: 40vw;
+    height: 10vw;
+    border: 1px solid #ddd;
+    border-radius: 1vw;
+    margin-top: 2vw;
+    /* margin: 0 auto; */
+}
+
+.buy_detail_img{
+    width: 6vw;
+    height: 6vw;
+    border: 1px solid #ddd;
+    border-radius: 30%;
+}
+
+.buy_detail > ul{
+    margin-top: 2vw;
+    display: flex;
+}
+
+.buy_detail > ul li{
+    padding: 0.6vw;
+}
+
+.buy_detail_btn{
+    text-align: center;
+    width: 100px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 0.3vw !important; 
+    margin-top: 5px;
+    width: 5vw;
+    height: 1.8vw; 
+
+}
+
+/* 구매 상세 박스 아래 cont */
+.buy_detail_cont{
+    /* margin-top: 2vw; */
+}
+
+.buy_detail_cont h4{
+    margin-top: 3vw;
+}
+
+.buy_detail_cont p{
+    width: 40vw;
+    border-bottom: 1px solid #ddd;
+}
+
+.buy_detail_cont_txt{
+    font-size: 1rem;
+    margin-top: 2vw;
+    white-space: pre;
+}
+
+.buy_detail_cont_txt span{
+    /* border: 1px solid red; */
+    margin-left: 1vw;
+}

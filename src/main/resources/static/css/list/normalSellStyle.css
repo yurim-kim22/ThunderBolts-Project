@@ -1,0 +1,499 @@
+  body {
+    background-color: #ECECEC;
+    margin: 0;
+  }
+
+  #header{
+    height: 20vh;
+    text-align: right;
+    padding-top: 1%;
+    padding-right: 2%;
+    background-color: #fff;
+}
+.back{
+  margin-bottom: 500px;
+  height: 20vh;
+    text-align: right;
+    padding-right: 2%;
+    width: 60vw; margin: 0 auto;
+    background-color: #fff;
+}
+
+.title22{
+  margin-right: 00px;
+}
+
+.header_menu {
+    
+    display: inline-block;
+    text-align: center;
+    width : auto;
+    height: auto;
+    font-size: 0.8rem;
+    border-right: 0.5px solid black;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 1%;
+    font-family: 'Noto Sans';
+    font-style: normal;
+
+} 
+
+.header_menuend {
+    display: inline-block;
+    text-align: center;
+    width : auto;
+    height: auto;
+    font-size: 0.8rem;
+    padding-left: 1%;
+    padding-right: 1%;
+    margin-bottom: 1%;
+    font-family: 'Noto Sans';
+    font-style: normal;
+
+} 
+
+.header_img{
+    /* position: absolute; */
+    width: 15vw;
+    height: 5vw;
+    top: 5vh;
+    left: -2%;
+    background: url(../img/로고글자.png);
+    background-size:contain;
+    /* background-attachment: local; */
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+  
+  
+  
+  #section01 {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 40px;
+  text-align: center;
+  width: 50%; /* 너비 조절 */
+  height: 100px; /* 높이 조절 */
+  margin: 0 auto; /* 가운데 정렬 */
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+img {
+  border-radius: 20%;
+}
+  
+#section02 {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px 40px;
+  text-align: left;
+  width: 50%; /* 너비 조절 */
+  height: auto; /* 높이 조절 */
+  margin: 0 auto; /* 가운데 정렬 */
+  margin-bottom: 10px;
+}
+
+
+.box001 {
+  border: 2.5px solid rgb(181, 181, 181);
+  width: 50px;
+  border-radius: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  font-size: 90%;
+  color: gray;
+  margin-top: -30px; /* 위치 조절을 위해 margin-top 값을 음수로 조정 */
+}
+
+.box002 {
+ 
+  width: 50px;
+  border-radius: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  font-size: 90%;
+  color: gray;
+  margin-top: -50px; /* 위치 조절을 위해 margin-top 값을 음수로 조정 */
+}
+
+.button2 {
+  text-decoration: none;
+  color: gray;
+}
+
+
+input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+
+
+input[type="text2"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  background-color: transparent;
+  margin-bottom: -10px;
+}
+
+
+
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 90%;
+  color: gray;
+}
+
+.order p01 {
+  width: 50%;
+  margin-bottom: 1px;
+
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 90%;
+  color: gray;
+}
+
+.order1 {
+  text-align: right;
+  margin-top: auto;
+  margin-top: -80px; /* 위치 조절을 위해 margin-top 값을 음수로 조정 */
+}
+
+.final1 {
+  text-align: right;
+  margin-top: -30px;
+}
+
+.final2 {
+  text-align: right;
+  margin-top: -30px;
+}
+
+.order > * {
+  margin-right: 10px;
+}
+
+.box2 {
+  text-align: left;
+}
+  
+    .p01{line-height:60%}
+    .h3{line-height:60%}
+  
+    #section03 {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 40px;
+      text-align: left;
+      width: 50%; /* 너비 조절 */
+      height: auto; /* 높이 조절 */
+      margin: 0 auto; /* 가운데 정렬 */
+      margin-bottom: 10px;
+      
+    }
+    #section05{
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 40px;
+      text-align: left;
+      width: 50%; /* 너비 조절 */
+      height: auto; /* 높이 조절 */
+      margin: 0 auto; /* 가운데 정렬 */
+      margin-bottom: 10px;
+    }
+    #section06{
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 40px;
+      text-align: left;
+      width: 50%; /* 너비 조절 */
+      height: auto; /* 높이 조절 */
+      margin: 0 auto; /* 가운데 정렬 */
+      margin-bottom: 10px;
+    }
+
+    #section07{
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 40px;
+      text-align: left;
+      width: 50%; /* 너비 조절 */
+      height: auto; /* 높이 조절 */
+      margin: 0 auto; /* 가운데 정렬 */
+      margin-bottom: 10px;
+    }
+    .sec1{
+      font-size: 120%;
+    }
+  
+    #section04{
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px 40px;
+      text-align: left;
+      width: 50%; /* 너비 조절 */
+      height: auto; /* 높이 조절 */
+      margin: 0 auto; /* 가운데 정렬 */
+      margin-bottom: 10px;
+    }
+
+    /*카드 간편결제 , 일시불 */
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      color: #333;
+      padding: 10px;
+    }
+  
+    .left {
+      flex: 1;
+      text-align: left;
+    }
+  
+    .right {
+      flex: 1;
+      text-align: right;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      background-color: #ccc;
+      color: #646464;
+      text-align: left;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      width: 95%;
+      height: 40px;
+    }
+
+  
+
+    
+    .box {
+      border: 1px solid black;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+  .box {
+    border-radius: 30px;
+    border: 2.5px solid rgb(181, 181, 181);
+    width: 200px;
+    height: 80px;
+  }
+  
+  .title1 {
+    text-align: center;
+    flex-grow: 1;
+  }
+
+
+
+
+
+  .box3 {
+   border-radius: 15px;
+   border: 2px solid rgb(181, 181, 181);
+   width: 100%;
+   height: 60px;
+   text-align: left;
+       /*클릭하면 까만 선이 생기게 만들기 자바스크립트로 */
+ }
+ p001 {
+  text-align: left;
+}
+
+
+ .box4 {
+  font-size: 80%;
+  border-radius: 15px;
+  color: #ECECEC;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background-color:rgb(0, 0, 0)
+      /*클릭하면 까만 선이 생기게 만들기 자바스크립트로 */
+}
+  
+  
+  h1 {
+    text-align: center;
+    margin-top: -20px;
+  }
+  main{
+    text-align: center;
+  
+  }
+
+
+  /*일반 결제 버튼*/
+
+  .btn-container {
+    display: flex;
+    justify-content: center; /* 수평 방향 가운데 정렬 */
+    align-items: center; /* 수직 방향 가운데 정렬 */
+    margin-top: -10px;
+  }
+  .naver-btn {
+    border: 2px solid rgb(181, 181, 181);
+    border-radius: 12px;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-size: 100%;
+  }
+
+ .credit-btn {
+    border: 2px solid rgb(181, 181, 181);
+    border-radius: 12px;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    font-size: 100%;
+  }
+
+  .naver-btn:hover {
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+  }
+
+  .credit-btn:hover {
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+  }
+
+  	/* 체크박스 디자인 */
+	.checkbox-wrapper label {
+		display: inline-block;
+		position: relative;
+		padding-left: 24px;
+		margin-bottom: 12px;
+		cursor: pointer;
+		font-size: 14px;
+		line-height: 1.4;
+		color: #333;
+	}
+
+	.checkbox-wrapper label input[type="checkbox"] {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	.checkbox-wrapper label .checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 18px;
+		width: 18px;
+		background-color: #fff;
+		border: 1px solid #bbb;
+	}
+
+	.checkbox-wrapper label:hover input ~ .checkmark {
+		background-color: #ccc;
+	}
+
+	.checkbox-wrapper label input:checked ~ .checkmark {
+		background-color: #000000;
+	}
+
+	.checkbox-wrapper label .checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+
+	.checkbox-wrapper label input:checked ~ .checkmark:after {
+		display: block;
+	}
+
+	.checkbox-wrapper label .checkmark:after {
+		left: 6px;
+		top: 2px;
+		width: 4px;
+		height: 9px;
+		border: solid white;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+		border-radius: 5px;
+	}
+
+	/* 체크박스 텍스트 */
+	.checkbox-text {
+		margin-left: 8px;
+		font-size: 12px;
+		color: #aaa;
+	}
+
+	/*결제하기 버튼*/
+	#my-button {
+		display: inline-block;
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		color: #000;
+		background-color: #fff;
+		border: 1px solid #000;
+		border-radius: 100px;
+		font-size: 16px;
+		font-weight: bold;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: background-color 0.2s ease-in-out;
+		/* 버튼 비활성화 스타일 */
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	#my-button:hover {
+		background-color: #000;
+		color: #fff;
+	}
+
+	/* 버튼 활성화 스타일 */
+	#checkbox-agree:checked ~ #my-button {
+		opacity: 1;
+		pointer-events: auto;
+	}

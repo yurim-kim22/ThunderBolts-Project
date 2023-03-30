@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.9</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.greedy</groupId>
 	<artifactId>thunderbolts</artifactId>
@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -38,14 +38,12 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency> 
-
+		</dependency>
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
@@ -66,50 +64,34 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-				<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 		<dependency>
-		    <groupId>net.coobird</groupId>
-		    <artifactId>thumbnailator</artifactId>
-		    <version>0.4.19</version>
-		</dependency>	
-		
-		<!-- 소셜 로그인  -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-oauth2-client</artifactId>
-		    
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-oauth2-client</artifactId>
-		  
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose -->
-		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-oauth2-jose</artifactId>
-		    
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.19</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-email</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-
-
-		<dependency>
-	   		<groupId>org.springframework.boot</groupId>
-	  	  	<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 		
+		<!--아임 포트-->
+		<dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.22</version>
+		</dependency>
+		<!-- SpringBoot mailService -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-mail</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<scope>runtime</scope>
+		<optional>true</optional>
+		</dependency>
+
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -126,5 +108,13 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
+	<!--아임포트 레파지토리 -->
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	
 </project>

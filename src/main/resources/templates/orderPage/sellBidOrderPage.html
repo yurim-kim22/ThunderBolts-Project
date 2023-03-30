@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="/css/list/normalSellStyle.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+</head>
+<body>
+    <!-- 헤더 -->
+    	<div th:replace="common/header/orderHeader.html"></div>
+
+
+  
+      <section id="section01">
+
+        <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+
+        
+    <div class="info" style="text-align: left;">
+    <p th:text="${productDTO.productCode}"></p>
+    <p th:text="${productDTO.productName}"></p>
+    <p th:text="${productDTO.productNameKr}"></p>
+    <p th:text="${productDTO.productOption[0].productOptionSize}"></p>
+
+    <p  th:value="${sellingOrderPrice}">
+		</div>
+        </section>
+
+        <section id="section02">
+          <div style="display: flex; align-items: center;">
+            <h3 style="flex: 1;">반송 주소</h3>
+            <p style="margin-left: 10px; color: gray;"></p>
+          </div>
+
+          <div class="order">
+    <div th:each="address : ${selectAddress}" >
+      <p01>받는 분 </p01><p01 style="color: gray;" th:text="${address.receiverName}"></p01><br>
+      <p01>배송 주소 </p01><p01 style="color: gray;" th:text="${address.addressesPostNo}"></p01>
+      <p01 style="color: gray;" th:text="${address.addressesName}"></p01><p01 style="color: gray;" th:text="${address.addressesAdds}"></p01><br>
+     </div>
+     <p01>연락처</p01>
+
+
+          <div class="box2" style="text-align: left; margin-top: 10px;">
+            <label for="deliveryRequest" style="color: gray; font-size: small;">배송 요청사항을 아래에 입력하세요. 최대15자만 전달됩니다.</label>
+            <input type="text2" id="deliveryRequest" name="deliveryRequest" size="50">
+          </div>
+          </div>
+
+    <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
+      
+    
+    <h3>배송 방법</h3>
+
+      <div class="box3">
+     <img src="/image/icon/deliveryIcon.png" width="50" height="50"
+     style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+        <span style="position: relative; top: 10px;"><b>택배배송 선불</b></span><br>
+        <span style="position: relative; top: 12px;">착불 발송 시 정산 금액에서 차감</span>
+    </div>
+      </div>
+
+  </section>
+
+  <section id="section07">
+    <p><b>판매 정산, 패널티 결제 계좌 등록</b></p>
+    <p><b>판매 정산 계좌</b></p><br>
+   <label>은행 이름:</label><br>
+   <label>계좌 번호:</label><br>
+
+  </section>
+
+<section id="section06">
+  <h3>현금영수증 정보</h3>
+  <div class="cashpay">
+    <p><span id="cashReceiptTypeText">형태: </span><span id="cashReceiptNumberText"></span></p><br>
+    <div class="box002">
+      <a href="#" id="cashReceiptButton" class="button2">등록</a>
+      <a href="#" id="cashReceiptEditButton" class="button2" style="display: none;">수정</a>
+    </div>
+  </div>
+  <div id="cashReceiptForm" style="display: none;">
+    <label for="cashReceiptType" style="font-size: 14px;">영수증 종류:</label>
+
+    <select id="cashReceiptType" name="cashReceiptType">
+      <option value="phone">휴대폰번호</option>
+      <option value="residentID">주민등록번호</option>
+    </select><br><br>
+    <label for="cashReceiptNumber" style="font-size: 14px;">영수증 번호:</label>
+    <input type="text" id="cashReceiptNumber" name="cashReceiptNumber">
+    <button type="submit" id="submitCashReceiptButton" class="button2">적용</button>
+  </div>
+  <div id="cashReceiptInfo" style="display: none;">
+    <p><span id="cashReceiptTypeText"></span><span id="cashReceiptNumberText"></span></p>
+  </div>
+</section>
+
+
+
+  <section id="section03">
+    <div class="final">
+    <h3>최종 주문 정보</h3>
+    <p style="font-size: small;">총 결제 금액</p>
+  </div>
+  <div class="final1">
+    <p style="color: #45922A; font-size: large;" th:text="${sellingOrderPrice + 11000}"><b></b></p>
+  </div>
+    <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
+    <div class="order">
+    <p01><b>입찰 판매가</b></p01><br>
+    <p01><br></p01>
+    <p01>검수비</p01><br>
+    <p01>수수료</p01><br>
+    <p01>배송비</p01><br>
+  </div>
+  <div class="order1">
+     <p02><b th:text="${buyingOrderPrice + 11000}"></b></p02><br>
+    <p02><br></p02>
+    <p02>5,000원</p02><br>
+    <p02>6,000원</p02><br>
+    <p02>선불, 판매자 부담</p02>
+  </div>
+    </div>
+  </section>
+
+
+<section id="section05">
+  <h3>판매 전 동의사항</h3>
+
+  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
+  <p>판매자와 썬더볼트와의 거래가 체결되면 공휴일 및 일요일을 제외하고 48시간 이내에 발송을 완료한 후 발송정보를 입력해야 합니다.</p>
+<p style="font-size: small; color: grey;">착불 배송 시 판매 금액에서 차감 정산이 되며, 미정산 시 별도 고지없이 해당 금액을 결제 시도할 수 있습니다. 결제가 안될 시 자동 취소됩니다.</p>
+<div class="checkbox-wrapper">
+  <label>
+    <input type="checkbox" id="checkbox-agree1">
+    <span class="checkmark"></span>
+    <span class="checkbox-text">위 내용에 동의합니다.</span>
+  </label>
+</div> 
+
+<hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">  
+  <p>검수 기준과 패널티 및 이용 정책을 확인 하였습니다.</p>
+  <p style="font-size: small; color: grey;">이용정책 위반 시, 판매 금액의 최대 15.0%의 패널티가 부과됩니다. 패널티 회피 시 이후 거래가 제한 되며 별도 고지 없이 해당 금액을 결제 시도할 수 있습니다.</p>
+  <div class="checkbox-wrapper">
+  <label>
+    <input type="checkbox" id="checkbox-agree2">
+    <span class="checkmark"></span>
+    <span class="checkbox-text">위 내용에 동의합니다.</span>
+  </label>
+  </div>
+  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">  
+
+
+  <div class="sec1">
+  <strong>
+    <br>
+    판매 조건을 모두 확인하였습니다.<Br>
+    거래를 진행합니다.<br>
+    <br>
+    총 결제금액
+    <div class="final2">
+      <p style="color: #45922A;" th:text="${buyingOrderPrice + 11000}"></p>
+    </div>
+<form id="selectForm" action="/orderPage/orderComplete" method="POST">
+   <input type="hidden" name="buyingOrderCode" th:value="${buyingOrderCode}" />
+	  <input type="hidden" name="buyingOrderPrice" th:value="${buyingOrderPrice}"/>
+	  	<input type="hidden" id="test3" name="productName" th:value="${productDTO.productName}">
+	      	<input type="hidden" id="test4" name="productNameKr" th:value="${productDTO.productNameKr}">
+	      	<input type="hidden" id="test5" name="productCode" th:value="${productDTO.productCode}">
+	      		<input type="hidden" id="test6" name="productOption[0].productOptionSize" th:value="${productDTO.productOption[0].productOptionSize}">
+  		<button id="my-button" type="submit">
+    결제하기 
+  		</button>
+</form>
+  </strong>
+</div>
+</div>
+
+<script>
+
+const myButton = document.getElementById('my-button');
+	  const checkboxAgree1 = document.getElementById('checkbox-agree1');
+	  const checkboxAgree2 = document.getElementById('checkbox-agree2');
+  
+	  myButton.addEventListener('mouseover', function() {
+		myButton.style.color = '#fff';
+	  });
+  
+	  myButton.addEventListener('mouseout', function() {
+		myButton.style.color = '#000';
+	  });
+  
+	  function updateButtonStatus() {
+		if (checkboxAgree1.checked && checkboxAgree2.checked) {
+		  myButton.style.opacity = 1;
+		  myButton.style.pointerEvents = 'auto';
+		} else {
+		  myButton.style.opacity = 0.5;
+		  myButton.style.pointerEvents = 'none';
+		}
+	  }
+  
+	  checkboxAgree1.addEventListener('change', updateButtonStatus);
+	  checkboxAgree2.addEventListener('change', updateButtonStatus);
+
+    $(document).ready(function() {
+    $("#cashReceiptButton").click(function() {
+      $("#cashReceiptForm").fadeIn();
+    });
+
+
+
+    // 여기는 모냐모냐하면 현금영수증 등록
+    $("#submitCashReceiptButton").click(function(event) {
+      event.preventDefault();
+      var cashReceiptType = $("#cashReceiptType").val();
+      var cashReceiptNumber = $("#cashReceiptNumber").val();
+      if (cashReceiptType == "phone") {
+        $("#cashReceiptTypeText").text("휴대폰번호: ");
+      } else if (cashReceiptType == "residentID") {
+        $("#cashReceiptTypeText").text("주민등록번호: ");
+      }
+      $("#cashReceiptNumberText").text(cashReceiptNumber);
+      $("#cashReceiptForm").fadeOut();
+      $("#cashReceiptButton").fadeOut();
+      $("#cashReceiptInfo").fadeIn();
+      $("#cashReceiptEditButton").fadeIn();
+    });
+
+    $("#cashReceiptEditButton").click(function() {
+      $("#cashReceiptTypeText").text("형태: ");
+      $("#cashReceiptNumberText").text("");
+      $("#cashReceiptForm").fadeIn();
+      $("#cashReceiptEditButton").fadeOut();
+    });
+  });
+</script>
+
+  </body>
+</html>
