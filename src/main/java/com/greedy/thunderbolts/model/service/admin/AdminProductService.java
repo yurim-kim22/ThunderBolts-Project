@@ -53,17 +53,17 @@ public Map<String, Object> selectProductList(Map<String, String> searchMap, int 
 public Map<String, Object> selectProductOptionList(Map<String, String> searchMap, int page){
 	
 	int totalCount = productMapper.selectTotalCount(searchMap);
-	log.info("[AdminproductService] totalCount : {}" , totalCount);
+	log.info("[AdminproductService OptionList] totalCount : {}" , totalCount);
 	
 	int limit = 10;
 	
 	int buttonAmount = 5;
 	
 	SelectCriteria selectCriteria = Pagenation.getSelectCriteria(page, totalCount, limit, buttonAmount, searchMap);
-	log.info("[BoardService] selectCriteria : {}", selectCriteria);	
+	log.info("[BoardService OptionListOptionList] selectCriteria : {}", selectCriteria);	
 	
 	List<AdminProductOptionDTO> productOptionList = productMapper.selectProductOptionList(selectCriteria);
-	log.info("[AdminproductService] productOptionList : {}" , productOptionList);
+	log.info("[AdminproductService OptionList] productOptionList : {}" , productOptionList);
 	
 	Map<String, Object> productOptionListAndPaging = new HashMap<>();
 	productOptionListAndPaging.put("paging", selectCriteria);

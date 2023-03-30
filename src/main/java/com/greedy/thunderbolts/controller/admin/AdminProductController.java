@@ -38,9 +38,9 @@ public class AdminProductController {
 
 		log.info("[AdminProductController] searchMap : {}", searchMap);
 
-		Map<String, Object> ProductListAndPaging = productService.selectProductList(searchMap, page);
+		Map<String, Object> ProductListAndPaging = productService.selectProductOptionList(searchMap, page);
 		model.addAttribute("paging", ProductListAndPaging.get("paging"));
-		model.addAttribute("productList", ProductListAndPaging.get("productList"));
+		model.addAttribute("productOptionList", ProductListAndPaging.get("productOptionList"));
 		
 		
 		return "/admin/product/productMain";

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>orderMain</title>
 <link rel="stylesheet" type="text/css" href="/css/admin/orderMain.css">
-<script src="/js/openOrder.js"></script>
+
 </head>
 <body>
  <div class="sidebar-background">
@@ -23,12 +23,12 @@
 					href="localhost:8002/admin"><img class="sidebaricons"
 						id="truckimg" src="/image/icon/truck_13241.png">배송관리</a></li>
 				<li class="sidebartexts" id="order-serv"><a
-					href="https://www.naver.com"><img class="sidebaricons"
+					href="localhost:8002/admin/orderMainPage"><img class="sidebaricons"
 						id="basketimg"
 						src="http://localhost:8002/admin/orderMainPage">주문관리</a></li>
 				<li class="sidebartexts" id="client-serv"><a
 					href="https://www.naver.com"><img class="sidebaricons"
-						id="personimg" src="/image/icon/user_84308.png">회원관리</a></li>
+						id="personimg" src="http://localhost:8002/admin/productMainPage">회원관리</a></li>
 				<li class="sidebartexts" id="product-serv"><a
 					href="http://localhost:8002/admin/productMainPage"><img class="sidebaricons"
 						id="boximg"
@@ -80,15 +80,15 @@
         <div class="buttonstogo"><button id="orders">주문관리</button></div>
     </div>
     <div class="buttonstomenu">
-        <button id="orderupdate">주문수정</button>
-        <button id="orderdelete">주문삭제</button>
+        <button id="orderupdate" ><a href="localhost:8002/admin/orderupdate">주문수정</a></button>
+        <button id="orderdelete"><a href="localhost:8002/admin/orderdelete">주문삭제</a></button>
     </div>
 	
 
 	</div>
 
 <!-- 페이징 바 -->
-	<div id="paging" align="center" style="margin-top: 20px;">
+	<div id="paging" align="center" >
 
 		<th:block
 			th:if="${ paging.searchCondition != null and paging.searchValue != null }">
@@ -172,7 +172,9 @@
 		</form>
 		
 	</div>
-
+	
+	
+	
 	
 </body>
 </html>

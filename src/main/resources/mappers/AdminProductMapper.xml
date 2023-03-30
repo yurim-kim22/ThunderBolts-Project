@@ -12,7 +12,7 @@
 		<result property="categoriesCode" column="CATEGORIES_CODE"></result>
 		<result property="brandNo" column="BRAND_NO"></result>
 		<result property="productCount" column="PRODUCT_COUNT"></result>
-		<collection property="productOption" resultMap="productOptionResultMap" />
+	
 
 	</resultMap>
 	<resultMap id="productOptionResultMap"
@@ -23,6 +23,7 @@
 		<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
 		<result property="productOptionEtc" column="PRODUCT_OPTION_ETC"></result>
 		<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"></result>
+		<association property="product" resultMap="productResultMap"></association>
 
 
 	</resultMap>
@@ -86,8 +87,8 @@
 		D.PRODUCT_OPTION_QUANTITIY,
 		D.PRODUCT_OPTION_COLOR,
 		D.PRODUCT_OPTION_ETC
-		FROM PRODUCT C
-		LEFT JOIN PRODUCT_OPTION D ON (C.PRODUCT_CODE = D.PRODUCT_CODE)
+		FROM PRODUCT_OPTION D 
+		LEFT JOIN PRODUCT C ON (C.PRODUCT_CODE = D.PRODUCT_CODE)
 
 		<where>
 			<if test="searchCondition == 'productName'">
