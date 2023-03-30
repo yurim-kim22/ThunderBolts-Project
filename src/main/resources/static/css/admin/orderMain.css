@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+     .sidebar {
+        position: absolute;
+        
+        
+        top: 0;
+        left: 0;
+        width: 18vw;
+        height: 100vh;
+        
+        background-color: #FFFFFF;
+        padding: 20px;
+        float: left;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        width:300px;
+    }
+
+    .sidebar li {
+        border-radius: 10%;
+        margin-bottom: 3px;
+        padding: 27px;
+       
+        color: #000000;
+    }
+
+    .sidebartexts {
+        margin : 20px;
+        padding : 10px;
+        color : black;
+        font-size: 2rem;
+        text-align: left;
+        
+    }
+
+    a { text-decoration: none;
+        color: black;}
+
+    .sidebar li:hover {
+       
+        transition-duration: 1s;
+    }
+
+    .sidebaricons {
+        margin-right: 20px;
+        width: 3vh;
+        height: 2vw;
+        
+    }   
+
+
+    #logoimg{
+        margin-top: 30px;
+       width: 15vw;
+    height: 4vw;
+    }
+
+    .sidebar :hover {
+        color : #cccccc;
+    }
+
+
+    
+    #page-title {
+        position : relative;
+        margin-left: 38vw;
+        margin-top: 4vh;
+        display: flex;
+        font-size: xx-large;
+        font-family: sans-serif;
+        font-weight: bolder;
+        
+    }
+
+    .order-range {
+        position: absolute;
+        margin-left: 60vw;
+        margin-top : 5vh;
+       
+        font-size: 19px;
+    }
+    
+    .order-select1 {
+       
+
+        margin-top : 1vh;
+        width: 500px;
+        height: 50px;
+        font-size : 19px;
+        
+
+    }
+    .order-select2{
+       
+        
+       /* display: flex;
+        width:2300px;
+        /*border:1px solid blue;*/
+       /* justify-content: space-between;*/
+    }
+    .order-select4{
+        
+      
+        margin-top : 10px;
+        width: 500px;
+        height: 50px;
+        font-size : 19px;
+        
+
+    }
+
+    .order-select3{
+        position:absolute;
+        margin-top:3vh;
+        
+        
+        /*border:1px solid blue;*/
+        
+        border-top: #686868 solid 3px;
+
+    }
+    
+    .page-body { 
+        
+    
+        display :flex;
+    }
+
+    
+    
+    #purchase{
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #BA85D1;
+        font-size: larger;
+        color: white;
+        border: none;
+        text-align: center;
+        margin-left: 2vw;
+        margin-top : 7vh;
+    }
+
+    .buttonstosub{
+        width: 45%;
+        text-align: right;
+       
+    }
+
+    #selling {
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #BA85D1;
+        font-size: larger;
+        color: white;
+        border: none;
+        text-align: center;
+        margin-left: 2vw;
+        margin-top : 7vh;
+    }
+    
+    .buttonselection {
+        display: flex;
+        
+    }
+
+    #checking {
+        width: 150px;
+        height: 50px;
+        border-radius : 10px;
+        background-color: #BA85D1;
+        font-size: larger;
+        font-weight: bold;
+        color: white;
+        border: none;
+        text-align: center;
+        margin-left: 30vw;
+       
+    }
+
+    #orders{
+        width: 150px;
+        height: 50px;
+        border-radius : 10px;
+        background-color: #BA85D1;
+        font-size: larger;
+        font-weight: bold;
+        color: white;
+        border: none;
+        text-align: center;
+        margin-left: 2vw;
+    }
+
+  .buttonstogo { 
+    margin-top: 7vh;
+    display: flex;
+        
+    }
+    /* .buttonstosub  button {
+        display: flex;
+  justify-content: space-between;
+  align-items: center;
+    } */
+
+  #orderupdate {
+    width : 150px;
+    height : 50px;
+    border-radius : 10px;
+    background-color: #BA85D1;
+    font-size: larger;
+    color: white;
+    border: none;
+    text-align: center;
+    margin-left: 2vw;
+
+  }
+
+  #orderdelete {
+    width : 150px;
+    height : 50px;
+    border-radius : 10px;
+    background-color: #BA85D1;
+    font-size: larger;
+    color: white;
+    border: none;
+    text-align: center;
+    margin-left: 2vw;
+    position: relative;
+
+
+  }
+  .buttonstomenu{
+    
+    display: flex;
+    margin-left: 70vw;
+    margin-top: 10vh;
+    position: relative;
+  }
+
+
+  #selection {
+    display: inline-block;
+    margin-left: 3vw;
+    margin-top : 1.3vw;
+    border: none;
+    background-color: #FFFFFF;
+
+  }
+  
+  .inputtexts {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 75vw;
+    margin-top: 3.3vh;
+  }
+  
+  #forms{
+    display: flex;
+  }
+  
+  #listArea
+  {
+  	border :  1px solid black;
+  	border-style: dotted;
+    margin-top: 20vh;
+    margin-left : 20vw;
+    position : absolute;
+  }
+  
+  #searchForm
+  {
+  	margin-top : 5vh;
+  	margin-left : 19vw;
+  	position : relative;
+  
+  }
+  
+  #productlistArea
+  {
+  	 margin-top: 20vh;
+    margin-left : 20vw;
+    position : absolute;
+  }
+  
+  #paging
+  {
+  	margin-left : 0vw;
+  	 margin-top: 60vh;
+  	text-align: center;
+  	position : relative;
+  
+  }
+  
+  #paging2
+  {
+  	margin-left : 0vw;
+  	 margin-top: 80vh;
+  	text-align: center;
+  	position : relative;
+  
+  }
+  
+  #searchForm2
+  {
+   margin-top: 10vh;
+    margin-left : 0vw;
+    position : absolute;
+  
+  }
+  
+  .buttonselection{
+   		margin-left : 70vw;
+        position : relative;
+        
+  }
+  
+  
+  
+  #productAdd{
+   width : 150px;
+    height : 50px;
+    border-radius : 10px;
+    background-color: #BA85D1;
+    font-size: larger;
+    color: white;
+    border: none;
+    text-align: center;
+    margin-left: 2vw;
+  
+  }
+  
+  #productDelete{
+   width : 150px;
+    height : 50px;
+    border-radius : 10px;
+    background-color: #BA85D1;
+    font-size: larger;
+    color: white;
+    border: none;
+    text-align: center;
+    margin-left: 2vw;
+  
+  }
+  
+  .title{
+  margin-left: 50vw;
+  margin-top : 10vh;
+  }

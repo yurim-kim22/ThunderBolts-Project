@@ -3,12 +3,17 @@ package com.greedy.thunderbolts.model.dao;
 
 import java.util.List;
 
-import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
-import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import org.apache.ibatis.annotations.Mapper;
 
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
+import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
+import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
+import com.greedy.thunderbolts.model.dto.MembersDTO;
+import com.greedy.thunderbolts.model.dto.OrdersDTO;
+import com.greedy.thunderbolts.model.dto.PaymentDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 
 
 @Mapper
@@ -18,7 +23,7 @@ public interface ListMapper {
 	   List<ProductDTO> findSizePrice(int productCode);
 
 	   //바잉오더 조회
-	   List<ProductDTO> selectBuyingOrder();
+	   List<ProductDTO> selectBuyingOrder(int productCode);
 
 	   List<ProductDTO> findBuyingProduct();
 
@@ -28,10 +33,12 @@ public interface ListMapper {
 
     ProductDTO findSellingProduct(String productOptionSize);
 
-	ProductDTO findProductOptionSize(String productOptionSize);
+	ProductDTO findProductOptionSize(String productOptionSize,int productCode);
 	
-	//이거야
-    List<ProductDTO> findBuyingProduct(int buyingOrderCode);
+	ProductDTO findBuyingProduct(int buyingOrderCode);
+	
+	ProductDTO findProductOptionSizeSell(String productOptionSize,int productCode);
+	
 
 	List<ProductDTO> finalBuyBidOrderPage();
 
@@ -41,6 +48,20 @@ public interface ListMapper {
 	List<AddressDTO> selectAddress(int memberNo);
 
 	List<BuyingOrdersDTO> selectBuyingOrderAll();
+	
+	//주문    //카드 결제 구매
+	int buyInsertPay(PaymentDTO payment);
+	//카드 결제 판매
+	int sellInsertPay(String accountBank);
+	//구매 오더
+	OrdersDTO insertBuy(OrdersDTO ordersDTO);
+	//멤버의 주소와 멤버 번호
+	List<MembersDTO> memberOrder(int memberNo);
+	
+	//멤버 계좌 조회 
+	List<MembersDTO> memberAccounts(int membersNo);
+	
+	AttachmentFileDTO selectProfileImg(int productCode);
 
 
 //	//주소록 인서트

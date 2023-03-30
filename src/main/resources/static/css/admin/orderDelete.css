@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+
+.title {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 50px;
+
+}
+
+.updateinside
+{ text-decoration: none;
+    list-style: none;
+    margin-left: 2vw;
+    margin-top: 3vw;
+
+}
+
+.updateinside li {
+    margin-top: 50px;
+    font-size: larger;
+    font-stretch: expanded;
+    font-weight: 800;
+
+}
+
+.inputtypes {
+    width : 300px;
+    height : 23px;
+}
+
+.selectbutton {
+    width : 130px;
+    height : 33px;
+    margin-left: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #BA85D1;
+    color: white;
+}
+.tomain {
+    margin-left: 1200px;
+    margin-top: 100px;
+}
+
+.tomain button {
+    width: 100px;
+    height: 3vw;
+    margin-left: 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+    font-weight: bold;
+    color:white;
+
+}
+#confirm {
+    background-color: green;
+}
+
+#cancel {
+    background-color: #BA85D1;
+}

@@ -37,7 +37,7 @@
 	const $inquiryHistory = document.getElementById("side5")
 	console.log($inquiryHistory);
 	$inquiryHistory.addEventListener('click', function(){
-		location.href ="/";
+		location.href ="/mypage/board";
 	})
 
 	// 주소록

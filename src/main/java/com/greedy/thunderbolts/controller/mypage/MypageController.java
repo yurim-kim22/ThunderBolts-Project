@@ -2,8 +2,6 @@ package com.greedy.thunderbolts.controller.mypage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -26,6 +24,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.service.mypage.MypageService;
 
@@ -63,6 +62,12 @@ public class MypageController {
 
 		model.addAttribute("memberId", memberId);
 		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+		
+		log.info("[selectprofile] : {}", selectprofile);
+		
 		//판매 조건문 추가
 		if(null != mypageService.selectSellList(memberId)) {
 			SellListDTO sellList = mypageService.selectSellList(memberId);
@@ -70,6 +75,8 @@ public class MypageController {
 			String formattedSellDate = sellDateFormat.format(sellList.getOrder().getOrdersDate());
 			model.addAttribute("sellList", sellList);
 			model.addAttribute("sellDate", formattedSellDate);
+			
+			log.info("[] getOrders : {}", sellList.getOrder());
 
 		}
 		
@@ -88,34 +95,100 @@ public class MypageController {
 		
 	}
 
+	
+	
+	
+	
+	
 	// 마이페이지 구매내역
 	@GetMapping("/mybuy")
-	public String myBuy() {
+	public String myBuy(@AuthenticationPrincipal MembersDTO members
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+		
+		int memberNo = members.getMembersNo();
+		
+		Map<String, Object> selectbuyingList = mypageService.buyingList(memberNo, page);
+		model.addAttribute("paging" , selectbuyingList.get("paging"));
+		model.addAttribute("buyingList" , selectbuyingList.get("buyingList"));
+		
+		log.info("[selectbuyingList] selectbuyingList : {}", selectbuyingList);
+		
 		return "mypage/myBuy";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 마이페이지 구매내역 상세
 	@GetMapping("/mybuydetail")
-	public String myBuyDetail() {
+	public String myBuyDetail(@RequestParam Long no, Model model) {
+		
+		DetailDTO mybuydetail = mypageService.detailBuy(no);
+		log.info("[buydetail] detail : {}", mybuydetail);
+		
+		model.addAttribute("detail", mybuydetail);
+		
 		return "mypage/myBuyDetail";
 	}
+	
+	
+	
 
 	// 마이페이지 판매내역
 	@GetMapping("/mysell")
-	public String mySell() {
+	public String mySell(@AuthenticationPrincipal MembersDTO members
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+		
+		int memberNo = members.getMembersNo();
+	
+		Map<String, Object> selectSellingList = mypageService.sellingList(memberNo, page);
+		model.addAttribute("paging" , selectSellingList.get("paging"));
+		model.addAttribute("sellingList" , selectSellingList.get("sellingList"));
+		
+		log.info("[selectSellingList] selectSellingList : {}", selectSellingList);
+		log.info("[paging] paging : {}", selectSellingList.get("paging"));
+		
 		return "mypage/mySell";
 	}
-
+	
 	// 마이페이지 판매내역 상세
 	@GetMapping("/myselldetail")
-	public String mySellDetail() {
+	public String mySellDetail(@RequestParam Long no, Model model) {
+		
+		DetailDTO myselldetail = mypageService.detailSell(no);
+		model.addAttribute("detail", myselldetail);
+		
 		return "mypage/mySellDetail";
 	}
+	//판매내역 상세버튼 - 배송등록 
+	@GetMapping("/delivery")
+	public String myDelivery() {
+		return "mypage/delivery";
+	}
 
+	
 	// 마이페이지 관심상품
 	@GetMapping("/wish")
-	public String wish() {
-
+	public String wish(@AuthenticationPrincipal MembersDTO members
+			, Model model
+			, @RequestParam(defaultValue="1") int page) {
+			
+		int memberNo = members.getMembersNo();
+		
+		Map<String, Object> wishList = mypageService.wishList(memberNo, page);
+		model.addAttribute("paging" , wishList.get("paging"));
+		model.addAttribute("wishList" , wishList.get("wishList"));
+		
+		log.info("[wishList] wishList : {}", wishList);
+		
 		return "mypage/wish";
 	}
 
@@ -126,6 +199,12 @@ public class MypageController {
 		String memberId = membersId.getMembersId();
 
 		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+				
+		log.info("[selectprofile] : {}", selectprofile);
 
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("selectInfo", selectInfo);
@@ -140,6 +219,12 @@ public class MypageController {
 		String memberId = membersId.getMembersId();
 
 		MembersDTO selectInfo = mypageService.selectInfo(memberId);
+		
+		//프로필사진
+		AttachmentFileDTO selectprofile = mypageService.selectprofile(memberId);
+		model.addAttribute("profile", selectprofile);
+				
+		log.info("[selectprofile] : {}", selectprofile);
 
 		model.addAttribute("memberId", memberId);
 		model.addAttribute("selectInfo", selectInfo);
@@ -259,6 +344,18 @@ public class MypageController {
 
 		return "redirect:/mypage/info";
 	}
+	
+	//내문의메인
+	@GetMapping("/board")
+	public String myBoard() {
+		return "mypage/board";
+	}
+	
+	//내문의 등록
+	@GetMapping("/boardupload")
+	public String myBoardUpload() {
+		return "mypage/boardUpload";
+	}
 
 	// 주소록
 	@GetMapping("/address")
@@ -340,7 +437,8 @@ public class MypageController {
 
 		return "redirect:/mypage/bank";
 	}
-
+	
+	//정산계좌 수정
 	@PostMapping("/bankModify")
 	public String bankModify(@AuthenticationPrincipal MembersDTO members, MembersAccountsDTO account, Model model,
 			RedirectAttributes rttr) {
@@ -360,5 +458,8 @@ public class MypageController {
 
 		return "redirect:/mypage/bank";
 	}
+	
+	
+	
 
 }

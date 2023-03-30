@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
@@ -13,6 +13,7 @@
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/myBuyDetail.css" rel="stylesheet" type="text/css">
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    
     
 </head>
 
@@ -53,11 +54,13 @@
                 <h3>구매 상세 내역</h3>   
                 <div class="buy_detail">
                     <ul>
-                        <li class="buy_detail_img"></li>
-                        <ul  class="buy_detail_text">
-                            <li>상품명</li>
-                            <li>상품옵션</li>
-                            <li><button class="buy_detail_btn">상품 상세</button></li>
+                        <li>
+                        	<img th:src="${ detail.file.filePath }+${ detail.file.fileDecoded  }" class="buy_detail_img">
+                        </li>
+                        <ul class="buy_detail_text">
+                            <li th:text="${ detail.brand.brandName }" >브랜드</li>
+                            <li th:text="${ detail.product.productName }">상품명</li>
+                            <li ><button class="buy_detail_btn">상품 상세</button></li>
                         </ul>
                     </ul>
                 </div> <!-- profile -->
@@ -66,21 +69,22 @@
                     <div>
                         <h4>결제 내역</h4>
                         <p></p>
-                        <div class="buy_detail_cont_txt">총 결제 금액 <span>214,500원</span></div>
+                        <div class="buy_detail_cont_txt">총 결제 금액 <span th:text="${ detail.order.ordersPrice }">214,500원</span></div>
                     </div>
                     
                     <div>
                         <h4>배송 정보</h4>
                         <p></p>
-                        <div class="buy_detail_cont_txt"><a href="#">CJ대한통운5147862488996</a></div>
+                        <div th:text="${ detail.delivery.deliveryCompany }" class="buy_detail_cont_txt"><a href="#">CJ대한통운</a></div>
+                        <div th:text="${ detail.delivery.deliveryNum }" class="buy_detail_cont_txt">5147862488996</div>
                     </div>
 
                     <div>
                         <h4>배송 주소</h4>
                         <p></p>
-                        <div class="buy_detail_cont_txt">받는사람 <span>김**</span> </div>
-                        <div class="buy_detail_cont_txt">우편번호 <span>12222</span> </div>
-                        <div class="buy_detail_cont_txt">주        소 <span>서울시 강남구 테헤란로</span> </div>
+                        <div class="buy_detail_cont_txt">받는사람 <span th:text="${ detail.delivery.postReceiver }">김**</span> </div>
+                        <div class="buy_detail_cont_txt">우편번호 <span th:text="${ detail.delivery.deliveryNum }">12222</span> </div>
+                        <div class="buy_detail_cont_txt">주        소 <span th:text="${ detail.delivery.postAddmain }">서울시 강남구 테헤란로</span> </div>
                     </div>
                     
                 </div>

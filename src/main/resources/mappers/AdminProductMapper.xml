@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.AdminProductMapper">
+
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+	<id property="brandNo" column="BRAND_NO"></id>
+	<result property="brandName" column="BRAND_NAME"></result>
+	</resultMap>
+	
+	<resultMap id="categoryResultMap" type="com.greedy.thunderbolts.model.dto.CategoriesDTO">
+	<id property="categoriesCode" column="CATEGORIES_CODE"></id>
+	<result property="categoriesName" column="CATEGORIES_NAME"></result>
+	</resultMap>
+	
+	
+	
+	<resultMap id="productResultMap"
+		type="com.greedy.thunderbolts.model.dto.AdminProductDTO">
+		<id property="productCode" column="PRODUCT_CODE"></id>
+		<result property="productName" column="PRODUCT_NAME"></result>
+		<result property="productNameKr" column="PRODUCT_NAME_KR"></result>
+		<result property="productEntryDate" column="PRODUCT_ENTRY_DATE"></result>
+		<result property="categoriesCode" column="CATEGORIES_CODE"></result>
+		<result property="brandNo" column="BRAND_NO"></result>
+		<result property="productCount" column="PRODUCT_COUNT"></result>
+		<association property="brand" resultMap="brandResultMap"></association>
+		<association property="categories" resultMap="categoryResultMap"></association>
+	
+
+	</resultMap>
+	<resultMap id="productOptionResultMap"
+		type="com.greedy.thunderbolts.model.dto.AdminProductOptionDTO">
+		<id property="productOptionCode" column="PRODUCT_OPTION_CODE"></id>
+		<result property="productCode" column="PRODUCT_CODE"></result>
+		<result property="productOptionColor" column="PRODUCT_OPTION_COLOR"></result>
+		<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
+		<result property="productOptionEtc" column="PRODUCT_OPTION_ETC"></result>
+		<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"></result>
+		<association property="product" resultMap="productResultMap"></association>
+
+
+	</resultMap>
+
+	<resultMap id="membersResultMap"
+		type="com.greedy.thunderbolts.model.dto.AdminMembersDTO">
+		<id property="membersNo" column="MEMBERS_NO" />
+		<result property="membersName" column="MEMBERS_NAME" />
+		<result property="membersId" column="MEMBERS_ID" />
+		<result property="membersPwd" column="MEMBERS_PWD" />
+		<result property="membersTel" column="MEMBERS_TEL" />
+		<result property="membersRegDate" column="MEMBERS_REG_DATE" />
+		<result property="membersEntire" column="MEMBERS_ENTIRE" />
+
+		<collection property="authRoleList"
+			resultMap="authRoleResultMap" />
+	</resultMap>
+
+	
+	<resultMap id="authRoleResultMap"
+		type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
+		<id property="membersNo" column="MEMBERS_NO" />
+		<result property="authNum" column="AUTH_NUM" />
+		<association property="auth" resultMap="authResultMap" />
+
+	</resultMap>
+	<resultMap id="authResultMap"
+		type="com.greedy.thunderbolts.model.dto.AuthDTO">
+		<id property="num" column="AUTH_NUM" />
+		<result property="name" column="AUTH_NAME" />
+		<result property="ko" column="AUTH_KO" />
+	</resultMap>
+
+	
+	<select id="selectProductOptionList" resultMap="productOptionResultMap">
+		SELECT
+		A.PRODUCT_CODE,
+		A.PRODUCT_NAME,
+		A.PRODUCT_OPTION_SIZE,
+		A.PRODUCT_ENTRY_DATE,
+		A.PRODUCT_OPTION_QUANTITIY,
+		A.PRODUCT_OPTION_COLOR,
+		A.PRODUCT_OPTION_ETC
+		FROM (
+		SELECT
+		ROWNUM RNUM,
+		B.PRODUCT_CODE,
+		B.PRODUCT_NAME,
+		B.PRODUCT_OPTION_SIZE,
+		B.PRODUCT_ENTRY_DATE,
+		B.PRODUCT_OPTION_QUANTITIY,
+		B.PRODUCT_OPTION_COLOR,
+		B.PRODUCT_OPTION_ETC
+		FROM (
+
+		SELECT
+		C.PRODUCT_CODE,
+		C.PRODUCT_NAME,
+		D.PRODUCT_OPTION_SIZE,
+		C.PRODUCT_ENTRY_DATE,
+		D.PRODUCT_OPTION_QUANTITIY,
+		D.PRODUCT_OPTION_COLOR,
+		D.PRODUCT_OPTION_ETC
+		FROM PRODUCT_OPTION D 
+		LEFT JOIN PRODUCT C ON (C.PRODUCT_CODE = D.PRODUCT_CODE)
+
+		<where>
+			<if test="searchCondition == 'productName'">
+				C.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+			</if>
+			<if test="searchCondition == 'productCode'">
+				C.PRODUCT_CODE  = #{searchValue}
+			</if>
+		</where>
+		ORDER BY C.PRODUCT_CODE ASC
+		) B
+	 	  		<![CDATA[
+	 	  		 WHERE ROWNUM <= #{endRow}
+	 	  		]]>
+		) A
+		WHERE A.RNUM >= #{startRow}
+		ORDER BY 1 DESC
+		</select>
+	
+	
+
+	<select id="selectProductList" resultMap="productResultMap">
+
+		SELECT
+		A.PRODUCT_CODE,
+		A.PRODUCT_NAME,
+		A.PRODUCT_OPTION_SIZE,
+		A.PRODUCT_ENTRY_DATE,
+		A.PRODUCT_OPTION_QUANTITIY,
+		A.PRODUCT_OPTION_COLOR,
+		A.PRODUCT_OPTION_ETC
+		FROM (
+		SELECT
+		ROWNUM RNUM,
+		B.PRODUCT_CODE,
+		B.PRODUCT_NAME,
+		B.PRODUCT_OPTION_SIZE,
+		B.PRODUCT_ENTRY_DATE,
+		B.PRODUCT_OPTION_QUANTITIY,
+		B.PRODUCT_OPTION_COLOR,
+		B.PRODUCT_OPTION_ETC
+		FROM (
+
+		SELECT
+		C.PRODUCT_CODE,
+		C.PRODUCT_NAME,
+		D.PRODUCT_OPTION_SIZE,
+		C.PRODUCT_ENTRY_DATE,
+		D.PRODUCT_OPTION_QUANTITIY,
+		D.PRODUCT_OPTION_COLOR,
+		D.PRODUCT_OPTION_ETC
+		FROM PRODUCT C
+		LEFT JOIN PRODUCT_OPTION D ON (C.PRODUCT_CODE = D.PRODUCT_CODE)
+
+		<where>
+			<if test="searchCondition == 'productName'">
+				C.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+			</if>
+			<if test="searchCondition == 'productCode'">
+				C.PRODUCT_CODE  = #{searchValue}
+			</if>
+		</where>
+		ORDER BY C.PRODUCT_CODE ASC
+		) B
+	 	  		<![CDATA[
+	 	  		 WHERE ROWNUM <= #{endRow}
+	 	  		]]>
+		) A
+		WHERE A.RNUM >= #{startRow}
+		ORDER BY 1 DESC
+		</select>
+
+	<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+
+	SELECT
+			COUNT(*)
+			FROM PRODUCT P
+		LEFT JOIN PRODUCT_OPTION O ON (P.PRODUCT_CODE = O.PRODUCT_CODE)
+		 <where>
+		 	<if test="searchCondition == 'productName'">
+		 	    P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+		 	</if>
+			<if test="searchCondition == 'productCode'">
+				P.PRODUCT_CODE = #{searchValue}
+			</if>
+		</where>
+</select>
+
+	<insert id="insertProduct">
+		INSERT INTO
+		PRODUCT P
+		(P.PRODUCT_CODE
+		,P.PRODUCT_NAME
+		,P.PRODUCT_NAME_KR
+		,P.PRODUCT_ENTRY_DATE
+		,CATEGORIES_CODE
+		,BRAND_NO
+		,PRODUCT_COUNT)
+		VALUES
+		( SEQ_PRODUCT_CODE.NEXTVAL
+		, #{ productName }
+		, #{ productNameKr }
+		, SYSDATE
+		, #{ category.categoryCode }
+		, #{ brand.brandNo }
+		)
+	</insert>
+	
+	<insert id="insertProductOption">
+		INSERT INTO
+		PRODUCT_OPTION O
+		(O.PRODUCT_OPTION_CODE
+		, O.PRODUCT_CODE
+		, O.PRODUCT_OPTION_COLOR
+		, O.PRODUCT_OPTION_SIZE
+		, O.PRODUCT_OPTION_ETC
+		, O.PRODUCT_OPTION_QUANTITIY
+		)
+			VALUES(
+			( SEQ_PRODUCT_OPTION_CODE.NEXTVAL
+		, (SELECT P.PRODUCT_CODE FROM PRODUCT P WHERE PRODUCT_CODE LIKE '%' || #{searchValue} || '%' )
+		, #{ color }
+		, #{ size }
+		, #{ etc }
+		, O,PRODUCT_OPTION_QUANTITIY +  { quantitiy })  
+			
+			
+	
+			
+			
+			
+			
+			
+			
+			
+			)
+			
+			
+			
+			
+			)
+	
+	
+	
+	</insert>
+
+	
+
+</mapper>

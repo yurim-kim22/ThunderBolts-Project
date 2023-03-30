@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+/*버튼*/
+*{
+    font-weight: 1000;
+}
+.delite {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    /* text-shadow: 1px 1px 1px #000; */
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    /* background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0)); */
+    /* box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6); */
+    float: right;
+    font-size: 18px;
+    
+
+}
+
+
+
+
+.delite:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.delite:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cancel{ 
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #73c157;
+   
+    float: right;
+    font-size:18px;
+
+}
+.cancel:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cancel:hover {
+    background-color: #60a148;
+}
+.save{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #CEA9DE;
+   
+    float: right;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.save:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.save:hover {
+    background-color: #977ca2;
+}
+.johoe{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #BA85D1;
+   
+    float: right;
+    margin-left: 10px;
+    width:90px;
+    font-size: 20px;
+
+
+}
+
+.johoe:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.johoe:hover {
+    background-color: #966aaa;
+}
+
+.a{
+    margin: 80px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    padding:25px;
+    width: 1070px;
+    font-size: 24px;
+    
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),  2px 2px 3px rgba(0, 0, 0, 0.6);
+    /*여기에 박스 쉐도우 넣기*/
+    
+    
+}
+.a-1{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline
+}
+.b-1{
+    display:flex;
+    justify-content: space-between;
+
+}
+.b-2{
+    display:flex;
+}
+.b-3{
+    display:flex;
+    justify-content: end;
+    
+}
+.ti{
+    display: flex;
+}
+.ti span{
+    display: block;
+    width: 95.5px;
+
+
+}
+
+.motherflex{
+    display: flex;
+    justify-content:space-around;
+    padding-top:10px;
+
+    
+}
+.sc{
+    
+    text-align: right;
+    margin-top: 180px;
+    
+}
+.textcenter{
+    text-align: center;
+}
+
+.insert{
+    border-radius: 10px;
+    text-align:center;
+}
+.mother-order-select2{
+    height: 200px;
+}
+
+
+ .mothersc{
+    align-content: space-between; /*왜 안먹지*/
+ }

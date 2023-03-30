@@ -11,6 +11,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 
 public interface MypageService {
@@ -43,6 +44,24 @@ public interface MypageService {
 	//계좌 수정
 	int modifyAccounts(@Param("account")MembersAccountsDTO account , @Param("memberNo") int memberNo);
 	
+	
+	//구매내역목록 페이징
+	Map<String, Object> buyingList(int memberNo, int page);
+	//판매내역목록 페이징
+	Map<String, Object> sellingList(int memberNo, int page);
+	
+	//관심상품목록 페이징
+	Map<String, Object> wishList(int memberNo, int page);
+	
+	
+	//구매상세내역
+	DetailDTO detailBuy(Long no);
+		
+	//판매상세내역
+	DetailDTO detailSell(Long no);
+	
+	//프로필 사진 띄우기
+	AttachmentFileDTO selectprofile(String memberId);
 	
 	
 }

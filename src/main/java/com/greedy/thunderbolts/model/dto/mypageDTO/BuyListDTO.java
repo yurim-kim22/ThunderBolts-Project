@@ -18,5 +18,5 @@ public class BuyListDTO {
 	private AttachmentFileDTO file;
 	private ProductDTO product;
 	private OrdersDTO order;
-
+	
 }

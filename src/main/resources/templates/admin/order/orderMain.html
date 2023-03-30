@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>orderMain</title>
+<link rel="stylesheet" type="text/css" href="/css/admin/orderMain.css">
+
+</head>
+<body>
+ <div class="sidebar-background">
+	<!-- 사이드 바-->
+	<div class="sidebar">
+		<div class="logo">
+			<img src="/image/icon/mainlogo.png" id="logoimg">
+		</div>
+		<ul>
+			<div class="sidebar-menu" id="sidebarcontainer">
+				<li class="sidebartexts" id="main-serv"><a
+					href="http://localhost:8002/admin/orderMainPage"><img
+						class="sidebaricons" id="truckimg"
+						src="/image/icon/home_icon-icons.com_73532.png">MAIN</a></li>
+				<li class="sidebartexts" id="delivery-serv"><a
+					href="localhost:8002/admin"><img class="sidebaricons"
+						id="truckimg" src="/image/icon/truck_13241.png">배송관리</a></li>
+				<li class="sidebartexts" id="order-serv"><a
+					href="localhost:8002/admin/orderMainPage"><img class="sidebaricons"
+						id="basketimg"
+						src="http://localhost:8002/admin/orderMainPage">주문관리</a></li>
+				<li class="sidebartexts" id="client-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="personimg" src="http://localhost:8002/admin/productMainPage">회원관리</a></li>
+				<li class="sidebartexts" id="product-serv"><a
+					href="http://localhost:8002/admin/productMainPage"><img class="sidebaricons"
+						id="boximg"
+						src="/image/icon/box_cube_d_perspective_shape_icon_142362.png">상품관리</a>
+				</li>
+				<li class="sidebartexts" id="board-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="helpimg"
+						src="/image/icon/help-button-speech-bubble-with-question-mark_icon-icons.com_72707.png">게시판관리</a>
+				</li>
+				<li class="sidebartexts" id="logout-serv"><a
+					href="https://www.naver.com"><img class="sidebaricons"
+						id="cancelimg"
+						src="/image/icon/home_icon-icons.com_73532.png">logout</a></li>
+			</div>
+		</ul>
+	</div>
+  
+    
+
+	<h2>주문정보</h2>
+	<table  id="listArea" style="text-align: center" >
+		<tr>
+			<th style="width : 200px">주문번호</th>
+			<th style="width : 200px">아이디</th>
+			<th style="width : 200px">상품코드</th>
+			<th style="width : 200px">상품명</th>
+			<th style="width : 200px">가격</th>
+			<th style="width : 200px">구분</th>
+		
+		</tr>
+		
+		<tr th:each=" order : ${ orderList }" >
+			<td th:text="${ order.ordersNo }" >
+			<td th:text="${ order.members.membersId }">
+			<td th:text="${ order.product.productCode }">
+			<td th:text="${ order.product.productName }">
+			<td th:text="${ order.ordersPrice }" >
+			<td th:text="${ order.ordersDiv }">
+		</tr>
+	</table>
+
+	<div class="buttonselection">
+        <div class="buttonstosub">
+            <button id="purchase">구매</button>
+            <button id="selling">판매</button>
+        </div>
+        <div class="buttonstogo"><button id="checking">정산관리</button></div>
+        <div class="buttonstogo"><button id="orders">주문관리</button></div>
+    </div>
+  
+	
+
+	</div>
+
+<!-- 페이징 바 -->
+	<div id="paging" align="center" >
+
+		<th:block
+			th:if="${ paging.searchCondition != null and paging.searchValue != null }">
+			<!-- 맨 앞으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=1&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''">&lt;&lt;</button>
+
+			<!-- 이전 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.page - 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
+				th:disabled="${ paging.page <= 1 }">&lt;</button>
+
+			<!-- 숫자 버튼 -->
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${page}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${paging.searchValue}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.page eq page }">
+				</button>
+			</th:block>
+
+			<!-- 다음 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.page + 1}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''"
+				th:disabled="${ paging.page >= paging.maxPage }">></button>
+
+			<!-- 맨 끝으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.maxPage}} + '&searchCondition=' + @{${paging.searchCondition}} + '&searchValue=' + @{${searchValue}} + '\''">>></button>
+
+		</th:block>
+
+		<th:block
+			th:if="${ paging.searchCondition == null || paging.searchCondition.isEmpty() || paging.searchValue == null || paging.searchValue.isEmpty()}">
+			<!-- 맨 앞으로 이동 -->
+			<button th:onclick="'location.href=\'/admin/orderMainPage?page=1\''">&lt;&lt;</button>
+
+			<!-- 이전 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.page - 1}} + '\''"
+				th:disabled="${ paging.page <= 1 }">&lt;</button>
+
+			<!-- 숫자 버튼 -->
+			<th:block
+				th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+				<button
+					th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${page}} + '\''"
+					th:text="${ page }" th:disabled="${ paging.page eq page }">
+				</button>
+			</th:block>
+
+			<!-- 다음 페이지로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.page + 1}} + '\''"
+				th:disabled="${ paging.page >= paging.maxPage }">></button>
+
+			<!-- 맨 끝으로 이동 -->
+			<button
+				th:onclick="'location.href=\'/admin/orderMainPage?page=' + @{${paging.maxPage}} + '\''">>></button>
+		</th:block>
+
+	</div>
+
+
+	<!-- 검색 폼 -->
+	<div align="center">
+		<form id="searchForm" action="/admin/orderMainPage" method="get"
+			style="display: inline-block">
+			<select id="searchCondition" name="searchCondition">
+				<option value="productName"
+					th:selected="${ paging.searchCondition eq 'productName'}">상품명</option>
+				<option value="membersBuyer"
+					th:selected="${ paging.searchCondition eq 'membersBuyer'}">구매자</option>
+				<option value="membersSeller"
+					th:selected="${ paging.searchCondition eq 'membersSeller'}">판매자</option>
+				<option value="ordersNo"
+					th:selected="${ paging.searchCondition eq 'ordersNo'}">주문번호</option>
+			</select> <input type="search" id="searchValue" name="searchValue"
+				th:value="${ paging.searchValue }">
+			<button type="submit">검색하기</button>
+		</form>
+		
+	</div>
+	  <div class="buttonstomenu">
+        <button id="orderupdate" ><a href="localhost:8002/admin/orderupdate">주문수정</a></button>
+        <button id="orderdelete"><a href="localhost:8002/admin/orderdelete">주문삭제</a></button>
+    </div>
+	
+	
+	
+</body>
+</html>

@@ -39,20 +39,27 @@
   <div style="display: flex; align-items: center;">
 
     <h3 style="flex: 1;"><br>배송 주소</h3>
-    <div id="modalBtn1" style="color: gray;"><u>+새 주소 추가</u></div>
+    <div id="modalBtn1" style="color: gray;"><u></u></div>
   </div>
-
+	
+	
+	<!--넘길 값-->
+	<input type="hidden" id="membersName" th:value="${membersName}" >
   <div class="order">
     <!--디티오뒤에 : 리스트뒤에 변수 -->
     <div th:each="address : ${selectAddress}" >
-      <p01>받는 분 </p01><p01 style="color: gray;" th:text="${address.receiverName}"></p01><br>
-      <p01>배송 주소 </p01><p01 style="color: gray;" th:text="${address.addressesPostNo}"></p01>
-      <p01 style="color: gray;" th:text="${address.addressesName}"></p01><p01 style="color: gray;" th:text="${address.addressesAdds}"></p01><br>
+      <p01>받는 분 </p01><p01 id="receiverName" style="color: gray;" th:text="${address.receiverName}"></p01><br>
+      <p01>배송 주소 </p01><p01 id="addressesPostNo" style="color: gray;" th:text="${address.addressesPostNo}"></p01>
+      <p01 id="addressesName" style="color: gray;" th:text="${address.addressesName}"></p01><p01 id="addressesAdds" style="color: gray;" th:text="${address.addressesAdds}"></p01><br>
     </div>
-    <p01>연락처</p01>
-    <div class="box001">
-      <div id="modalBtn2" style="color: gray;"><u>변경</u></div>
+    <div th:each="members : ${members}" >
+    <input type="hidden" id="membersName" th:value="${membersName}" >
 
+    <p01>연락처 | </p01><p01 id="membersTel "style="color: gray;" th:text="${members.membersTel}"></p01>
+   </div>
+    <div class="box001">
+      <div id="modalBtn2" style="color: gray;"><u></u></div>
+      
     </div>
   </div>
   <div class="box2" style="text-align: left; margin-top: 10px;"></div>
@@ -86,41 +93,13 @@
     </div>
   </div>
 
-  <div id="modal1" class="modal">
-    <span class="close">&times;</span>
-    <form>
-      <div class="modal-content">
-        <h5>새 주소 추가</h5>
-        <!-- 이름 입력 필드 -->
-        <label for="name">이름</label>
-        <input type="text" id="name" name="name" placeholder="이름">
-        <!-- <div class="modify_text gray"></div> -->
-        <span></span>
-        <!-- 우편번호 입력 필드 -->
-        <label for="postnum" class="mt">우편번호</label>
-        <ul class="postnum_wrap">
-          <li><input type="text" id="postnum" name="postnum" placeholder="우편번호를 검색하세요."></li>
-          <li><button type="button" class="postnum_del_btn">검색</button></li>
-        </ul>
-        <span></span>
-        <!-- 주소 입력 필드 -->
-        <label for="myaddress" class="mt">주소</label>
-        <input  type="text" disabled id="myaddress" name="myaddress" placeholder="우편번호 검색 후 자동 입력 됩니다. ">
-        <span></span>
-        <!-- 상세 주소 입력 필드 -->
-        <label for="myaddress_detail" class="mt">상세 주소</label>
-        <input  type="text" id="myaddress_detail" name="myaddress_detail" placeholder="건물, 아파트, 동/호수 입력">
-        <span></span>
-
-        <input type="submit" class="modify_btn" value="추가하기">
-      </div>
-    </form>
-  </div>
 
 
   <div class="final">
     <h3>최종 주문 정보</h3>
     <p style="font-size: small;">총 결제 금액</p>
+       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+    
   </div>
   <div class="final1">
     <!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
@@ -146,33 +125,29 @@
     <p02>6,000원</p02><br>
     <p02>3,000원</p02>
   </div>
-  <!--       <div class="order1">
-          <p02 th:text="${sellingOrderPrice}"><b></b></p02><br>
-          <p02><br></p02>
-          <p02>무료</p02><br>
-          <p02>6,000원</p02><br>
-          <p02>3,000원</p02>
-        </div> -->
+
 </section>
 
 <section id="section04">
   <h3>결제 방법 - 간편 결제, 일반결제</h3>
+  <p style="font-size: small; color: grey;">약관 동의 후 결제창에서 선택 가능합니다.</p>
+     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+  
   <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
   <div class="wrapper">
-    <img src="/image/icon/kakaopay.png" width="50" height="50"
+    <img src="/image/icon/kakaopay.png" width="120" height="65"
          style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-    <img src="/image/icon/naver.png" width="50" height="50"
+    <img src="/image/icon/naver.png" width="120" height="65"
          style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-    <img src="/image/icon/kg이니시스.jpeg" width="50" height="50"
+    <img src="/image/icon/kg이니시스.jpeg" width="150" height="65"
          style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-  </div>
-
   </div>
 </section>
 
 
 <section id="section05">
-  <h3>구매 전 동의사항</h3>
+  <h4>구매 전 동의사항</h4>
+   <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
 
   <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
   <p>판매자의 판배거부, 배송지연, 미입고의 사유가 발생할 경우 거리가 취소될 수 있음을 확인합니다.</p>
@@ -208,13 +183,20 @@
       총 결제금액
       <div class="final2">
         <p id="final-price" th:text="${sellingOrderPrice + 14000}" style="color: red; font-size: x-large;"></p>
+         <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+      
       </div>
+  
+  <!--     	<input type="hidden" name="productCode" th:value="${productCode}"/>
+		<input type="hidden" name="productName" th:value="${productName}"/>
+		<input type="hidden" name="productName" th:value="${productNameKr}"/>
+      		<input type="hidden" name="productOptionSize" th:value="${productOptionSize}"/> -->
       <button id="my-button" onclick="requestPayKg()">
         결제하기
       </button>
     </strong>
   </div>
-  </div>
+ 
 
   <!-- 첫 번째 모달창 -->
   <div id="myModal" class="modal">
@@ -240,622 +222,11 @@
       <span class="close3 close">&times;</span>
       <div class="button-container">
         <table>
-          <tr>
-            <td><button class="text-button" onclick="toggleContent('content-1')">신발</button></td>
-            <td><button class="text-button" onclick="toggleContent('content-2')">아우터 상의 하의</button></td>
-            <td><button class="text-button" onclick="toggleContent('content-3')">가방 시계 지갑 패션 잡화</button></td>
-          </tr>
-          <tr>
-            <td><button class="text-button" onclick="toggleContent('content-4')">테크</button></td>
-            <td><button class="text-button" onclick="toggleContent('content-5')">리빙</button></td>
-            <td><button class="text-button" onclick="toggleContent('content-6')">프리미엄 시계와 가방</button></td>
-          </tr>
-        </table>
-      </div>
-      <div id="content-1" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 신발 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-
-
-
-
-      </div>
-      <div id="content-2" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 아우터, 상의, 하의 거래 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-
-
-
-      </div>
-      <div id="content-3" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 가방, 시계, 지갑, 패션잡화 등 거래 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-
-
-
-      </div>
-      <div id="content-4" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 테크 거래 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-
-
-
-      </div>
-      <div id="content-5" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 리빙 거래 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-
-
-
-      </div>
-      <div id="content-6" class="content">
-        <br>THUNDERBOLTS의 검수기준은 거래 당사자간 원활한 거래와 보다 균형있는 검수기준 확립을 위해 지속적으로 업데이트 되고 있습니다. 거래에 앞서 최신 검수기준을 참고하시기 바랍니다. <br> <br>
-
-        회원님께서 판매 또는 구매하신 모든 상품은 THUNDERBOLTS의 전문 검수팀이 제품의 컨디션을 꼼꼼하게 확인한 후, 검수 합격 시에만 출고하고 있습니다. <br>
-
-
-        <b>※ 프리미엄 시계와 가방 거래 관련 주의사항<br></b>
-        THUNDERBOLTS은 정가품 판정 및 검수기준에 의한 기본 품질 확인을 수행하고 있으나, 통신판매 중개자로서 제조업체의 제품별 보증에 대해서는 책임을 지지 않습니다. <br>
-
-        제품 기능에 관한 사항이나 기타 제품 관련 질문은 제조업체에 문의하시기 바랍니다. <br>
-        단, 제조업체의 A/S 여부는 보장하지 않습니다. (이용약관 제22조 3항 참고) <br><br>
-
-        THUNDERBOLTS의 검수기준으로 고지된 사항 이외 아래와 같이 제조사에서 불량으로 인정하지 않는 기준, 또는 당사 검수기준에 따라 그 여부를 명확히 분별할 수 없는 상품의 경우 하자로 판단하지 않으며,이로
-        인한 구매 취소는 불가하므로 신중한 거래 부탁드립니다.<br>
-
-        <li>제조공정, 유통과정 또는 소재 특성 상 발생할 수 있는 사항</li>
-        <li> 도장, 마킹 등의 제조사 또는 판매처에서 진행되는 사항</li>
-        <li> 검수 중 발생할 수 있는 사항 (속지, 슈트리 손상 등)</li>
-        <li> 택배 개봉 또는 적재 및 상품 이동 중 발생할 수 있는 사항 (칼자국, 박스 눌림, 이염 등)</li>
-        <li> 상품택, 구성품 등의 고리 누락/이탈</li>
-        <li> 고지드린 검수 기준으로 판정하기 모호한 상품 상태, 비특정적 상품 상태, 특정 모델의 제조공정에 따른 개체차이와 관련하여서는 검수센터 책임자의 최종 판단 하에 결정하게 됩니다.</li>
-
-        <br>THUNDERBOLTS의 검수기준에 동의하지 않으실 경우 거래가 불가하오니 거래 당사자는 거래에 앞서 THUNDERBOLTS의 검수기준을 반드시 검토하시기 바랍니다.<br>
-
-        <b>불합격/페널티 부과 사항</b>불
-        모조품/가품 - 패널티 15%<br>손상/오염/사용감 - 패널티 15% 이용정지<br>상품 불일치, 사이즈 불일치, 기본 구성품 누락 - 패널티 10%<br>
-
-        <p style="font-size: small; color: gray;">※ 손상/오염/사용감 판정의 경우 사용으로 인한 아웃솔 마모, 오염, 수선/보강, 페인팅 등의 기준을 종합하여 검수원과
-          검수센터 책임자의 최종 판단하에 결정하게 됩니다.</p>
-        <b>패키지 및 구성품<br></b>
-
-        박스(BOX) 손상-길이 총합 - 불합격 - ≥12.0cm 합격 - 12.0cm<br>
-        박스(BOX) 부분 변색 - ○ -<br>
-        라벨지 손상/상이<br>
-        그래픽 속지 상이/누락 - ○ -<br>
-        그래픽 속지 유실 - 불합격 - ≥40% 합격 - 40%
-        <p style="font-size: small; color: gray;">※ 마킹, 펜자국, 본드 등 기타 오염의 경우 검수 책임자의 최종 판단에 따라 합격 처리됩니다.<br>
-          ※ 무지 속지의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 생산 시기별 상이한 속지의 경우 합격 처리됩니다.</p>
-
-        구성품 불합격<br>
-
-        상품 정보택 손상/유실 - - ○<br>
-        끈 기능 상실 - ○ -<br>
-        추가 구성품 누락<br>
-        스티커, 슈트리, 여분끈 등<br>
-
-        - ○ -
-        발매 최초의 구성과 상이함
-        여분끈 교체, 체결 방식 상이함, 벨크로, 뱃지 교체 등
-
-        - ○ -
-        오염
-        스티커, 슈트리, 끈 등
-        <p style="font-size: small; color: gray;">
-          <br>※ 국내/해외 발매 제품 간의 정보택의 구성은 다를 수 있습니다.<br>
-          ※ 상품 정보택의 경우 정보의 일부가 상이할 수 있습니다.<br>
-          ※ 신발끈 팁 파손의 경우 기능상 교차 및 매듭에 문제가 없을 경우 합격 처리됩니다.<br>
-          ※ 박스 재질 및 종이 뭉치 형태 슈트리의 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 점프맨 스티커, 설명서, 슬라이드 제품걸이 등 판매처에 따라 구성품이 다른 경우 누락되어도 합격 처리됩니다.<br>
-          ※ 추가 구성품의 상태(나염유실, 변색, 스크래치, 오염 등)는 검수 기준에 포함되지 않습니다.<br>
-          ※ 랩핑, 타 업체 검수택 및 최초 구매 영수증의 경우 포함되는 것을 보장하지 않으며, 검수 과정 중 제거될 수 있습니다.
-          제품 상태<br>
-        </p>
-
-        상태 기준 구분/불합격/구매자 의사 확인/합격 표
-        구분 불합격 구매자
-        의사 확인 합격
-        어퍼 재봉 불량-부위별
-        건너뜀, 올풀림 등
-
-        <p style="font-size: small; color: gray;">
-          ※ 소재 특성상 클리어 솔, 스펀지, 사출소재 등의 변색 진행의 경우 합격 처리됩니다.<br>
-          ※ 오프화이트 신발끈("), 윙로고™, 인솔Ⓡ 등 일부 소재 및 공정 특성상 발생 가능한 나염 유실의 경우 합격 처리됩니다.<br>
-        </p>
-
-        <b>유의사항</b>
-        <p style="font-size: small; color: gray;">
-          ※ '구매자 의사 확인'의 상품은 최초 보류 알림 기준 24시간 이내 회신이 없을 경우에 자동 검수 합격 처리되며 이와 관련한 취소는 불가능합니다.<br>
-
-          ※ 모조품/가품 판매 및 페널티 회피 시 해당 계정은 회원 자격이 정지되며, 새로운 아이디로 가입을 하여도 이전 거래 기록을 근거로 서비스 이용을 제재할 수 있습니다.<br>
-
-          ※ 국내 발매 제품/해외 발매 제품의 여부는 검수 불합격 사항이 아니며, 이로 인한 구매 취소 또한 불가합니다.<br>
-
-          ※ THUNDERBOLTS을 통해 거래된 모든 상품은 입고 시 자동화 처리를 위해 고유의 정보를 포함한 스티커가 부착됩니다. 부착 위치는 제품에 따라 차이가 있으며 이는 발송(반송) 시에도 제거되지
-          않습니다.<br></p>
-
-        <b>검수 불합격 시 반송 택배 운임<br></b>
-
-        [착불]<br>
-
-        검수 기준상 '불합격' 에 해당하는 반송건<br>
-
-        [선불]<br>
-
-        '구매의사 확인' 이후 발생하는 반송건<br>
-      </div>
     </div>
   </div>
   </div>
   </div>
 
-  <button id="modalBtn4" onclick="openModal(modal4)">모달 4 열기</button>
   <div id="modal4" class="modal">
     <div class="modal-content">
       <span class="close4 close">&times;</span>
@@ -864,7 +235,7 @@
     </div>
   </div>
 
-  <button id="modalBtn5" onclick="openModal(modal5)">모달 5 열기</button>
+
   <div id="modal5" class="modal">
     <div class="modal-content">
       <span class="close5 close">&times;</span>
@@ -997,9 +368,19 @@
         document.getElementById("final-price").innerHTML = finalPrice;
     }
 
-    //카카오페이 결제코드
-       var IMP = window.IMP;
+    	//통합결제 결제코드
+        var IMP = window.IMP;
         IMP.init("imp48741283");
+        
+        const onError = xhr => console.log(xhr);
+        const onSuccess = data => {
+        	console.log(data);
+        	if(confirm("주문이 완료되었습니다. 주문 내역으로 이동을 원하시면 확인을 눌러주세요.")){
+        	location.href="/mypage/mybuy";
+        	} else {
+        	location.href="/main";
+        	}
+        	}
 
         var today = new Date();
         var hours = today.getHours(); // 시
@@ -1008,62 +389,89 @@
         var milliseconds = today.getMilliseconds();
         var makeMerchantUid = hours +  minutes + seconds + milliseconds;
 
-        const $productName = document.getElementById('productName').innerText;
-        const $productCode = document.getElementById('productCode').innerText;
-        const $sellingOrderPrice = document.getElementById('sellingOrderPrice').innerText;
-
-
-
-
-
-
-        function requestPayKakao() {
-            IMP.request_pay({
-                pg : 'kcp',
-                pay_method : 'card',
-                merchant_uid: "IMP"+makeMerchantUid,
-                name : $productName,
-                amount : '1004',
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
-                buyer_addr : '서울특별시 강남구 삼성동',
-                buyer_postcode : '123-456'
-            }, function (rsp) { // callback
-                if (rsp.success) {
-                    console.log(rsp);
-                } else {
-                    console.log(rsp);
-                }
-            });
-        }
-
-
-
         function requestPayKg() {
       // IMP.request_pay(param, callback) 결제창 호출
       IMP.request_pay({ // param
           pg: "html5_inicis",
-          pay_method: "card",
-          merchant_uid: "ORD20180131-0000011",
-          name: $productName,
-          amount: 64900,
-          buyer_email: "gildong@gmail.com",
-          buyer_name: "홍길동",
-          buyer_tel: "010-4242-4242",
-          buyer_addr: "서울특별시 강남구 신사동",
-          buyer_postcode: "01181"
-      }, function (rsp) { // callback
+          pay_method: "card", //여기도 넘기려면 어떻게 할까 실시간 계좌이체-셀렉트 박스에 넣어 놓기 영문명 확인
+          merchant_uid: 'merchant_' + makeMerchantUid,
+          name: document.getElementById("productName").innerText,
+          amount: document.getElementById("final-price").innerText,
+          buyer_name:document.getElementById("membersName").innerText,
+		
+          
+          //성공하면 아래 호출
+      }, function (rsp) { // callback -> 어떤 것이 처리가 되면 이것 수행
           if (rsp.success) {
-              console.log();
-              // 결제 성공 시 로직,
+        	  console.log(
+        	
+        	  );
+        	 //요
+             
+            		  //페이지로 호출
+            		  //pg는 2번 호출 승인완료->결제->이커머스 시스템에 결제완료 기록
+            		//에이잭스는 제이슨 포맷이  
+            
+           var msg = '결제가 완료되었습니다.';
+            msg += '\n고유ID : ' + rsp.imp_uid;
+            msg += '\n상점거래 ID : ' + rsp.merchant_uid;
+            msg += '\n결제금액 : ' + rsp.paid_amount;
+            msg += '\n결제수단 : ' + rsp.pg_provider;
+            msg += '\n결제날짜 : ' + rsp.paid_at;
+            msg += '\n구매자명 : ' + rsp.buyer_name;
+            
+            let result = {
+                    "imp_uid": rsp.imp_uid,
+                    "merchant_uid": rsp.merchant_uid,
+                    "pay_date": rsp.paid_at,
+                    "amount": rsp.paid_amount,
+                    "card_type": rsp.pg_provider,
+                    "refund": 'payed'
+                }
+                console.log("결제성공", msg);
+            
+            $.ajax({
+            	//여기 url은 뭘 적어야하지?
+            			//postMapping부분에 경로에 맞게 적기
+            			//경로에서 어떤 값을 받을 때 쓰는 것
+            			
+                url: '/verifyIamport/' + rsp.imp_uid, //+rsp.imp_uid
+                type: 'POST',
+                //데이터에 아래 것들 넘기기 //카드 결제 구매
+				/* 	int buyInsertPay(PaymentDTO payment);
+					//카드 결제 판매
+					int sellInsertPay(PaymentDTO payment);
+					//구매 오더
+					int insertBuy(OrdersDTO ordersDTO); */
+					
+					//셀링 오더, 멤버 넘버,insert한 것들 , 조회 따로 한거 넘기기
+					//1. 그냥 페이지 안에 있는 데이터
+					//2. 조회해서 가져오는 데이터
+					//3. insert한 데이터
+					//key :value 
+                data: { "receiveName" : document.getElementById("receiverName").innerText,
+                	"sellingOrderNo" :  document.getElementById("sellingOrderNo").innerText
+                	
+                }
+                ,        
+                error: onError,
+                success: onSuccess
+            }) //ajax
+
+				//예전에는 리ㅜ퀘스트파람, 재이슨-> 리쿼리스
+				//{ "memberNo" : 1, "sellPrice" : 23000, "sellOrderNo" : 10 }
+				              // 결제 성공 시 로직,
 
           } else {
-            console.log();
+        	  msg = '결제에 실패하였습니다. 다시 시도해주세요!';
+              msg += '에러내용 : ' + rsp.error_msg;
+              alert(msg);
+              // 실패시 이둉할 페이지
+     /*          location.href = 'http://localhost:8002/'; */
           }
+        
       });
-    }
-
+  }
 
 
     </script>

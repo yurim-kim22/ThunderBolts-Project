@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;
+}
+
+/*버튼*/
+*{
+    font-weight: 1000;
+}
+.delite {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    /* text-shadow: 1px 1px 1px #000; */
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    /* background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0)); */
+    /* box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6); */
+    float: right;
+    font-size: 18px;
+    
+
+}
+
+.delite:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.delite:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cancel{ 
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #73c157;
+   
+    float: right;
+    font-size: 18px;
+
+}
+.cancel:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.cancel:hover {
+    background-color: #60a148;
+}
+.save{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #CEA9DE;
+   
+    float: right;
+    margin-right: 10px;
+    font-size:18px;
+
+
+}
+
+.save:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.save:hover {
+    background-color: #977ca2;
+}
+.johoe{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #fff;
+    
+    border-radius: 10px;
+    background-color: #BA85D1;
+   
+    float: right;
+    margin-left: 10px;
+
+
+}
+
+.johoe:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.johoe:hover {
+    background-color: #966aaa;
+}
+
+
+
+
+.a{
+    margin: 80px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    padding:25px;
+    width: 1070px;
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),  2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 23px;   
+}
+.a-1{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline
+}
+.b-1{
+    display:flex;
+    justify-content: space-between;
+
+}
+.b-2{
+    display:flex;
+}
+.b-3{
+    display:flex;
+    justify-content: end;
+    
+}
+.ti{
+    display: flex;
+}
+.ti span{
+    display: block;
+    width: 85.5px;
+
+
+}
+
+.motherflex{
+    display: flex;
+    justify-content:space-between;
+    padding-top:10px;
+
+    
+}
+.sc{
+    
+    text-align: right;
+    margin-top: 270px;
+    
+}
+.textcenter{
+    text-align: center;
+    margin-right: 10px;
+}
+
+.insert{
+    border-radius: 10px;
+}
+.product-impo{
+    width:  570px;
+    height: 150px;
+   
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.yesno{ 
+    display:flex;
+    font-size: 20px;
+
+    
+    
+    
+
+}
+
+.yesno input[type="radio"] {
+    display: none;
+    
+}
+
+.yesno input[type="radio"] + span {
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.yesno input[type="radio"]:checked + span {
+    background-color: #113a6b;
+    color: #ffffff;
+}
+.gi{
+    border-radius: 10px; /*이거 왜 안먹지?*/
+}
+
+.productinfo{
+    text-align: center;
+    border-right: solid 1px #dfdfdf;
+}
+.productinfo-ex{
+    text-align: center;
+    width:450px;
+    
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>THUNDER_BOLT</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
+    <link href="/css/mypage/boardUpload.css" rel="stylesheet" type="text/css">
+    <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+</head>
+
+<body>
+    <!-- 헤더 -->
+	<div th:replace="common/header/mypageHeader.html"></div>
+    <!-- 바디 -->
+    <!-- 사이드바 -->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <a href="#">
+                <div class="sidebar-title " id="side0">마이 페이지</div>
+            </a>
+           <!-- Sidebar 쇼핑정보 -->
+           <div class="sidebar-heading">쇼핑정보</div>
+           <div class="list-group list-group-flush">
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side1">구매 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side2">판매 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side3">관심 상품</a>
+           </div>
+
+           <!-- Sidebar 내정보 -->
+           <div class="sidebar-heading">내정보</div>
+           <div class="list-group list-group-flush">
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side4">내 정보 관리</a>
+               <a class="list-group-item list-group-item-action list-group-item-light font_weight" id="side5">내 문의 내역</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side6">주소록</a>
+               <a class="list-group-item list-group-item-action list-group-item-light" id="side7">정산계좌</a>
+           </div>
+        </div>
+        <!--sidebar-wrapper-->
+
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Page content-->
+            <div class="container-fluid">
+                <form>
+                  <!-- 내 문의 내역 -->
+                  <h3>내 문의 내역</h3>
+                  <div>
+                    <div class="tit_sub">⦁ 한번 등록한 문의내용은 수정이 불가능합니다. 수정을 원하시는 경우, 삭제 후 재등록 하셔야 합니다.</div>
+                    <div class="tit_sub">⦁ 1:1 문의는 24시간 신청가능하며 접수된 내용은 빠른 시간내에 답변을 드리도록 하겠습니다.</div>
+                  </div>
+              
+                  <div class="upload_cont">
+                    <ul class="upload_wrap">
+                      <li class="upload_tit">문의분야</li>
+                      <li class="upload_date">
+                        <label for="board_category_order">주문 문의</label>
+                        <input type="radio" id="board_category_order" name="board_category" value="주문 문의">
+                      </li>
+                      <li class="upload_date">
+                        <label for="board_category_delivery">배송 문의</label>
+                        <input type="radio" id="board_category_delivery" name="board_category" value="배송 문의">
+                      </li>
+                      <li class="upload_date">
+                        <label for="board_category_member">회원 문의</label>
+                        <input type="radio" id="board_category_member" name="board_category" value="회원 문의">
+                      </li>
+                      <li class="upload_date">
+                        <label for="board_category_etc">기타 문의</label>
+                        <input type="radio" id="board_category_etc" name="board_category" value="기타 문의">
+                      </li>
+                    </ul>
+              
+                    <ul class="upload_wrap">
+                      <li class="upload_tit">문의 제목</li>
+                      <li class="upload_content_box">
+                        <input type="text" id="board_name" name="board_name" placeholder="제목을 입력하세요.">
+                      </li>
+                    </ul>
+                  </div>
+              
+                  <div class="box_area">
+                    <ul class="upload_wrap">
+                      <li class="upload_tit">문의 내용</li>
+                      <li class="upload_content_box ">
+                        <textarea id="board_content" name="board_content" placeholder="내용을 입력하세요."></textarea>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- <button type="submit">문의 등록</button> -->
+                </form>
+              </div>
+              
+
+            <!-- 버튼 -->
+            <div class="bottom_btn">
+                <button class="bottom_cancel">취소하기</button>
+                <button class="bottom_request">신청하기</button>
+            </div>
+            
+        </div>
+    </div><!-- 사이드바 -->
+    <!-- 푸터 -->
+	<div th:replace="common/footer/mainFooter.html"></div>
+
+</body></html>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.AdminOrderMapper">
+
+	<resultMap id="adminOrderResultMap" type="com.greedy.thunderbolts.model.dto.AdminOrderDTO">
+	<id property ="ordersNo" column="ORDERS_NO"/>
+	<result property="membersBuyer" column="MEMBERS_BUYER"></result>
+	<result property="ordersPrice" column="ORDERS_PRICE"></result>
+	<result property="ordersDate" column="ORDERS_DATE"></result>
+	<result property="ordersDiv" column="ORDERS_DIV"></result>
+	<result property="sellingorderNo" column="SELLINGORDER_NO"></result>
+	<result property="membsersSeller" column="MEMBERS_SELLER"></result>
+	<result property="ordersStatus" column="ORDERS_STATUS"></result>
+	<result property="buyingOrderCode" column="BUYING_ORDER_CODE"></result>
+	<association property="buyingOrdersDTO"  resultMap="buyingResultMap" ></association>	
+	<association property="sellingOrdersDTO" resultMap="sellingResultMap"></association>
+	<association property="members" resultMap="membersResultMap"></association>
+	<association property="product" resultMap="productResultMap"></association>
+	</resultMap>
+
+	<resultMap id="buyingResultMap" type="com.greedy.thunderbolts.model.dto.AdminBuyingOrdersDTO">
+	<id property="buyingOrderCode" column="BUYING_ORDER_CODE"></id>
+	<result property="membersNo" column="MEMBERS_NO"></result>
+	<result property="productOptionCode" column="PRODUCT_OPTION_CODE"></result>
+	<result property="buyingOrderRegistdate" column="BUYING_ORDER_REGIST_DATE"></result>
+	<result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"></result>
+	<result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"></result>
+	<result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"></result>
+	<result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"></result>
+	<association property="members" resultMap="membersResultMap"></association>
+	<association property="orders" resultMap="adminOrderResultMap"></association>
+	</resultMap>
+	
+	<resultMap id="sellingResultMap" type="com.greedy.thunderbolts.model.dto.AdminSellingOrdersDTO">
+	<id property="sellingOrderNo" column="SELLINGORDER_NO"></id>
+	<result property="productOptionCode" column="PRODUCT_OPTION_CODE"></result>
+	<result property="membersNo" column="MEMBERS_NO"></result>
+	<result property="sellingOrderDate" column="SELLINGORDER_DATE"></result>
+	<result property="sellingOrderPrice" column="SELLINGORDER_PRICE"></result>
+	<result property="sellingOrderStatus" column="SELLINGORDER_STATUS"></result>
+	<result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"></result>
+	<result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"></result>
+	<result property="sellingOrderDeadlineDate" column="SELLINGORDER_DEADLINE_DATE"></result>
+	<association property="members" resultMap="membersResultMap"></association>
+	<association property="OrdersDTO" resultMap="adminOrderResultMap"></association>
+	</resultMap>
+	
+	
+	<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.AdminProductDTO">
+	<id property="productCode" column="PRODUCT_CODE"></id>
+	<result property="productName" column="PRODUCT_NAME"></result>
+	<result property="productNameKr" column="PRODUCT_NAME_KR"></result>
+	<result property="productEntryDate" column="PRODUCT_ENTRY_DATE"></result>
+	<result property="categoriesCode" column="CATEGORIES_CODE"></result>
+	<result property="brandNo" column="BRAND_NO"></result>
+	<result property="productCount" column="PRODUCT_COUNT"></result>
+	<collection property="productOption" resultMap="productOptionResultMap"/>
+
+	</resultMap>
+	<resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.AdminProductOptionDTO">
+	<id property="productOptionCode"  column="PRODUCT_OPTION_CODE"></id>
+	<result property="productCode"  column="PRODUCT_CODE"></result>
+	<result property="productOptionColor"  column="PRODUCT_OPTION_COLOR"></result>
+	<result property="productOptionSize"  column="PRODUCT_OPTION_SIZE"></result>
+	<result property="productOptionEtc"  column="PRODUCT_OPTION_ETC"></result>
+	<result property="productOptionQuantitiy"  column="PRODUCT_OPTION_QUANTITIY"></result>
+	
+		
+	</resultMap>
+	
+	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.AdminMembersDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="membersName" column="MEMBERS_NAME"/>
+		<result property="membersId" column="MEMBERS_ID"/>
+		<result property="membersPwd" column="MEMBERS_PWD"/>
+		<result property="membersTel" column="MEMBERS_TEL"/>
+		<result property="membersRegDate" column="MEMBERS_REG_DATE"/>
+		<result property="membersEntire" column="MEMBERS_ENTIRE"/>
+	
+		<collection property="authRoleList" resultMap="authRoleResultMap"/>
+	</resultMap>
+
+
+	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
+		<id property="membersNo" column="MEMBERS_NO"/>
+		<result property="authNum" column="AUTH_NUM"/>
+		<association property="auth" resultMap="authResultMap"/>
+
+	</resultMap>
+		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
+		<id property="num" column="AUTH_NUM"/>
+		<result property="name" column="AUTH_NAME"/>
+		<result property="ko" column="AUTH_KO"/>
+	</resultMap>	
+	
+	<resultMap id="checkingResultMap" type="com.greedy.thunderbolts.model.dto.CheckingDTO">
+		<id property="checkingNo" column="CHECKING_NO"></id>
+		<result property="ordersNo" column="ORDERS_NO"></result>
+		<result property="checkingStat" column="CHECKING_STAT"></result>
+		<result property="checkingResult" column="CHECKING_RESULT"></result>
+		<result property="checkingDate" column="CHECKING_DATE"></result>
+	</resultMap>
+	
+	<resultMap id="calculateResultMap" type="com.greedy.thunderbolts.model.dto.CalculateDTO">
+		<id property="calculateNo" column="CALCULATE_NO"></id>
+		<result property="membersNo" column="MEMBERS_NO"></result>
+		<result property="ordersNo" column="ORDERS_NO"></result>
+		<result property="calculateDate" column="CALCULATE_DATE"></result>
+		
+		
+	</resultMap>
+	
+	<select id="selectorderList" resultMap="adminOrderResultMap">
+  
+ SELECT
+    A.ORDERS_NO,
+    A.PRODUCT_CODE,
+    A.PRODUCT_NAME,
+    A.ORDERS_PRICE,
+    A.ORDERS_DATE,
+    A.ORDERS_DIV,
+    A.MEMBERS_ID
+FROM (
+    SELECT
+        ROWNUM RNUM,
+        D.ORDERS_NO,
+        D.MEMBERS_BUYER,
+        D.ORDERS_PRICE,
+        D.ORDERS_DATE,
+        D.ORDERS_DIV,
+        D.SELLINGORDER_NO,
+        D.MEMBERS_SELLER,
+        D.ORDERS_STATUS,
+        D.BUYING_ORDER_CODE
+        , D.PRODUCT_NAME
+        , D.PRODUCT_CODE
+        , D.MEMBERS_ID
+    FROM (
+        SELECT 
+            E.ORDERS_NO,
+            E.MEMBERS_BUYER,
+            E.ORDERS_PRICE,
+            E.ORDERS_DATE,
+            E.ORDERS_DIV,
+            E.SELLINGORDER_NO,
+            E.MEMBERS_SELLER,
+            E.ORDERS_STATUS,
+            E.BUYING_ORDER_CODE,
+            P.PRODUCT_CODE,
+            P.PRODUCT_NAME,
+            M.MEMBERS_ID
+        FROM ORDERS E
+        LEFT JOIN SELLING_ORDERS S ON E.SELLINGORDER_NO = S.SELLINGORDER_NO
+        LEFT JOIN BUYING_ORDERS Y ON E.BUYING_ORDER_CODE = Y.BUYING_ORDER_CODE
+        LEFT JOIN PRODUCT_OPTION H ON H.PRODUCT_OPTION_CODE = Y.PRODUCT_OPTION_CODE or H.PRODUCT_OPTION_CODE = s.product_option_code
+        left JOIN PRODUCT P ON H.PRODUCT_CODE = P.PRODUCT_CODE
+        LEFT JOIN MEMBERS M ON E.MEMBERS_SELLER = M.MEMBERS_NO
+      <where>
+        <if test="searchCondition == 'membersBuyer'">
+          E.MEMBERS_BUYER = #{searchValue}
+        </if>
+        <if test="searchCondition == 'membersSeller'">
+          E.MEMBERS_SELLER = #{searchValue}
+        </if>
+        <if test="searchCondition == 'productName'">
+          P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+        </if>     
+        <if test="searchCondition == 'ordersNo'">
+          E.ORDERS_NO = #{searchValue}
+        </if>
+      </where>
+      ORDER BY E.ORDERS_NO DESC
+    ) D
+    <![CDATA[
+      WHERE ROWNUM <= #{endRow}
+    ]]>
+  ) A
+  WHERE A.RNUM >= #{startRow}
+  ORDER BY 1 DESC
+</select>
+
+<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
+
+	SELECT
+			COUNT(*)
+			FROM ORDERS O
+		LEFT	JOIN SELLING_ORDERS S ON(S.SELLINGORDER_NO = O.SELLINGORDER_NO)
+		LEFT	JOIN BUYING_ORDERS B ON (B.BUYING_ORDER_CODE = O.BUYING_ORDER_CODE)
+			JOIN PRODUCT_OPTION T ON (T.PRODUCT_OPTION_CODE = B.BUYING_ORDER_CODE)
+			JOIN PRODUCT P ON (T.PRODUCT_CODE = P.PRODUCT_CODE)
+		 <where>
+		 	<if test="searchCondition == 'productName'">
+		 	    P.PRODUCT_NAME LIKE '%' || #{searchValue} || '%'
+		 	</if>
+		 	<if test="searchCondition == 'ordersNo'">
+		 		O.ORDERS_NO = #{ searchValue}
+		 	</if>
+		 	<if test="searchCondition == 'membersBuyer'">
+		 		B.MEMBERS_NO = #{ searchValue}
+		 	</if>
+		 	<if test="searchCondition == 'membersSeller'">
+		 		S.MEMBERS_NO = #{ searchValue }
+		 	</if>
+		 </where>
+
+</select>
+	
+	
+	
+	<select id="findByMemberId" resultMap="membersResultMap">
+        SELECT
+               A.MEMBERS_NO
+		     , A.MEMBERS_ID
+             , A.MEMBERS_PWD
+		     , A.MEMBERS_TEL
+		     , A.MEMBERS_REG_DATE
+		     , A.MEMBERS_ENTIRE
+		     , B.MEMBERS_NO REF_MEMBERS_NO
+		     , B.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NAME
+		     , C.AUTH_KO
+          FROM MEMBERS A
+          LEFT JOIN AUTH_ROLE B ON (A.MEMBERS_NO = B.MEMBERS_NO)
+		  LEFT JOIN AUTH C ON (B.AUTH_NUM = C.AUTH_NUM)
+         WHERE A.MEMBERS_ENTIRE = 'N'
+           AND A.MEMBERS_ID = #{ memberId }
+    </select>
+	
+	<insert id="insertMembers">
+
+		INSERT 
+		  INTO MEMBERS
+		(
+		  Members_No
+        , Members_Name    
+    	, Members_ID    
+    	, Members_PWD    
+    	, Members_Tel   
+    	, Members_Reg_Date   
+    	, Members_Entire 
+		)
+		VALUES
+		(
+		  SEQ_MEMBERS_NO.nextval
+		, #{ membersName }
+		, #{ membersId }
+		, #{ membersPwd }
+		, #{ membersTel }
+		, SYSDATE
+		, 'N'
+		)
+
+	</insert>
+	
+	
+	<insert id="insertMembersRole">
+		INSERT 
+		  INTO AUTH_ROLE
+		(
+		  Members_No
+        , AUTH_NUM    
+		)
+		VALUES
+		(
+		  SEQ_MEMBERS_NO.CURRVAL
+		, 2
+		)
+	</insert>
+	
+	<select id="selectIdByNum" resultType="string">
+		SELECT
+		       MEMBERS_ID
+          FROM MEMBERS
+         WHERE MEMBERS_ENTIRE = 'N'
+           AND MEMBERS_NO = #{ membersNo }
+	</select>
+	
+	<select id="findOrdersByBuyerID" resultMap="adminOrderResultMap">
+		SELECT
+			   ORDERS_NO
+			 , MEMBERS_BUYER
+			 , ORDERS_PRICE
+			 , ORDERS_DATE
+			 , ORDERS_DIV
+			 , SELLINGORDER_NO
+			 , MEMBERS_SELLER
+			 , ORDERS_STATUS
+			 , BUYING_ORDER_CODE
+			FROM ORDERS 
+			WHERE MEMBERS_BUYER = #{ membersBuyer }
+		
+	</select>
+	<select id="findOrderByOrderNo" resultMap="adminOrderResultMap">
+		SELECT
+			   ORDERS_NO
+			 , MEMBERS_BUYER
+			 , ORDERS_PRICE
+			 , ORDERS_DATE
+			 , ORDERS_DIV
+			 , SELLINGORDER_NO
+			 , MEMBERS_SELLER
+			 , ORDERS_STATUS
+			 , BUYING_ORDER_CODE
+			FROM ORDERS 
+			WHERE ORDERS_NO = #{ ordersNo }
+		
+		
+	</select>
+	
+	<select id="findBuyingOrders" resultMap="buyingResultMap">
+		SELECT 
+				 BUYING_ORDERS_CODE
+			,	 MEMBERS_NO
+				, PRODUCT_OPTION_CODE
+				, BUYING_ORDER_REGISTDATE
+				, BUYING_ORDER_PRICE
+				, BUYING_ORDER_STATUS
+				, BUYING_ORDER_CANCELLATION_DATE
+				, BUYING_ORDER_SUCCESSING_DATE
+				, BUYING_ORDER_DEADLINE_DATE
+				FROM BUYING_ORDERS
+				WHERE BUYING_ORDERS_CODE = #{buyingOrdersCode}
+				
+	</select>
+	
+	<select id="findSellingOrders" resultMap="sellingResultMap">
+		SELECT
+		
+				SELLINGORDER_NO,
+				PRODUCT_OPTION_CODE,
+				MEMBERS_NO,
+				SELLINGORDER_DATE,
+				SELLINGORDER_PRICE,
+				SELLINGORDER_STATUS,
+				SELLINGORDER_CANCELLATION_DATE,
+				SELLINGORDER_SUCCESSING_DATE,
+				SELLINGORDER_DEADLINE_DATE
+				FROM SELLING_ORDERS
+				WHERE SELLINGORDER_NO = #{sellingOrderNo}
+		
+	</select>
+	
+	<select id="findProductandOption" resultMap="productResultMap">
+		SELECT
+			   P.PRODUCT_CODE,
+			   P.PRODUCT_NAME,
+			   P.PRODUCT_NAME_KR,
+			   P.PRODUCT_ENTRY_DATE,
+			   P.CATEGORIES_CODE,
+			   P.BRAND_NO,
+			   P.PRODUCT_COUNT,
+			   O.PRODUCT_OPTION_COLOR
+			   O.PRODUCT_OPTION_SIZE
+			   O.PRODUCT_OPTION_ETC
+			   O.PRODUCT_OPTION_QUANTITIY
+			 	
+			 	FROM PRODUCT P
+			 	LEFT JOIN PRODUCT_OPTION_CODE O ON (P.PRODUCT_CODE = O.PRODUCT_CODE)
+			 	WHERE P.PRODUCT_CODE = #{productCode}
+			   
+		
+	</select>
+	
+	<select id="findProductbyName" resultMap="productResultMap">
+	SELECT
+			   P.PRODUCT_CODE,
+			   P.PRODUCT_NAME,
+			   P.PRODUCT_NAME_KR,
+			   P.PRODUCT_ENTRY_DATE,
+			   P.CATEGORIES_CODE,
+			   P.BRAND_NO,
+			   P.PRODUCT_COUNT,
+			   O.PRODUCT_OPTION_COLOR
+			   O.PRODUCT_OPTION_SIZE
+			   O.PRODUCT_OPTION_ETC
+			   O.PRODUCT_OPTION_QUANTITIY
+			 	
+			 	FROM PRODUCT P
+			 	LEFT JOIN PRODUCT_OPTION_CODE O ON (P.PRODUCT_CODE = O.PRODUCT_CODE)
+			 	WHERE P.PRODUCT_NAME LIKE '%' || #{productName} || '%'
+			 	
+			 	
+			 	</select>
+			 	
+	<select id="ordersList" resultMap="adminOrderResultMap">
+       SELECT 
+    O.ORDERS_NO,
+    B.MEMBERS_ID AS BUYER_ID,
+    S.MEMBERS_ID AS SELLER_ID,
+    P.PRODUCT_CODE,
+    P.PRODUCT_NAME,
+    O.ORDERS_PRICE,
+    O.ORDERS_DATE
+FROM ORDERS O 
+LEFT JOIN MEMBERS B ON (B.MEMBERS_NO = O.MEMBERS_BUYER)
+LEFT JOIN MEMBERS S ON (S.MEMBERS_NO = O.MEMBERS_SELLER)
+LEFT JOIN BUYING_ORDERS BO ON (O.BUYING_ORDER_CODE = BO.BUYING_ORDER_CODE)
+LEFT JOIN SELLING_ORDERS SO ON (O.SELLINGORDER_NO = SO.SELLINGORDER_NO)
+LEFT JOIN PRODUCT_OPTION PO ON (BO.PRODUCT_OPTION_CODE = PO.PRODUCT_OPTION_CODE)
+LEFT JOIN PRODUCT P ON (PO.PRODUCT_CODE = P.PRODUCT_CODE)
+ <where>
+ O.MEMBERS_SELLER != O.MEMBERS_BUYER
+ <if test="searchCondition == 'orders'">
+	 O.ORDERS_NO = #{ searchValue }
+	 </if>
+ <if test="searchCondition == 'buyers'">
+	 BUYER_ID LIKE '%' || #{ searchValue } || '%'
+ </if>
+ <if test="searchCondition == 'seller'">
+	 SELLER_ID LIKE '%' || #{ searchValue } || '%'
+ </if>
+ <if test="searchCondition == 'productName'">
+	 P.PRODUCT_NAME LIKE '%' || #{ searchValue } || '%'
+ </if>
+ </where>
+ ORDER BY O.ORDERS_NO DESC
+	</select>
+			 	
+	
+			 	
+			 	
+</mapper>
+	
