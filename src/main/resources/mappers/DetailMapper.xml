@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.greedy.thunderbolts.model.dao.DetailMapper">
+
+	<resultMap id="productResultMap" type="com.greedy.thunderbolts.model.dto.MainPageDTO">
+		<id property="productCode" column="PRODUCT_CODE"/>
+		<result property="productName" column="PRODUCT_NAME"/>
+		<result property="productNameKr" column="PRODUCT_NAME_KR"/>
+		<result property="productEntryDate" column="PRODUCT_ENTRY_DATE"/>
+		<result property="categoriesCode" column="CATEGORIES_CODE"/>
+		<result property="productCount" column="PRODUCT_COUNT"/>
+		
+		<association property="brandNo" resultMap="brandResultMap"/>
+		<collection property="productOption" resultMap="productOptionResultMap"/>
+		<collection property="attachmentFile" resultMap="attachmentFileResultMap"/>
+	</resultMap>
+	
+	
+	<!-- ProductOptionDTO -->	
+	<resultMap id="productOptionResultMap" type="com.greedy.thunderbolts.model.dto.ProductOptionDTO">
+		<id property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+		<result property="productCode" column="PRODUCT_CODE"/>
+		<result property="productOptionColor" column="PRODUCT_OPTION_COLOR"/>
+		<result property="productOptionSize" column="PRODUCT_OPTION_SIZE"/>
+		<result property="productOptionEtc" column="PRODUCT_OPTION_ETC"/>
+		<result property="productOptionQuantitiy" column="PRODUCT_OPTION_QUANTITIY"/>
+		
+		<collection property="sellingOrders" resultMap="sellingOrderResultMap"/>
+		<collection property="buyingOrders" resultMap="buyingOrderResultMap"/>
+	</resultMap>
+
+	<!-- SellingOrdersDTO -->		
+	<resultMap id="sellingOrderResultMap" type="com.greedy.thunderbolts.model.dto.SellingOrdersDTO">
+		<id property="sellingOrderNo" column="SELLINGORDER_NO"/>
+		<result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+		<result property="membersNo" column="MEMBERS_NO"/>
+		<result property="sellingOrderDate" column="SELLINGORDER_DATE"/>
+		<result property="sellingOrderPrice" column="SELLINGORDER_PRICE"/>
+		<result property="sellingOrderStatus" column="SELLINGORDER_STATUS"/>
+		<result property="sellingOrderCancellationDate" column="SELLINGORDER_CANCELLATION_DATE"/>
+		<result property="sellingOrderSuccessingDate" column="SELLINGORDER_SUCCESSING_DATE"/>
+	</resultMap>
+	
+   <!-- BrandDTO -->	
+	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
+		<id property="brandNo" column="BRAND_NO"/>
+		<result property="brandName" column="BRAND_NAME"/>
+	</resultMap>
+	
+   <!-- AttachmentFileDTO -->
+	<resultMap id="attachmentFileResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
+		<id property="fileCode" column="FILE_CODE"/>
+		<result property="fileOriginalName" column="FILE_ORIGINALNAME"/>
+		<result property="fileDiv" column="FILE_DIV"/>
+		<result property="reviewCode" column="REVIEW_CODE"/>
+		<result property="productOptionCode" column="PRODUCT_CODE"/>
+		<result property="noticeNo" column="NOTICE_NO"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileDecoded" column="FILE_DECODED"/>
+		<result property="fileDate" column="FILE_DATE"/>
+		<result property="fileThumbnailChecking" column="FILE_THUMBNAIL_CHECKING"/>
+		<result property="membersNo" column="MEMBERS_NO"/>
+	</resultMap>
+	
+	 <!-- BuyingOrdersDTO-->
+	<resultMap id="buyingOrderResultMap" type="com.greedy.thunderbolts.model.dto.BuyingOrdersDTO">
+        <id property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
+        <result property="membersNo" column="MEMBERS_NO"/>
+        <result property="productOptionCode" column="PRODUCT_OPTION_CODE"/>
+        <result property="buyingOrderRegistdate" column="BUYING_ORDER_REGISTDATE"/>
+        <result property="buyingOrderPrice" column="BUYING_ORDER_PRICE"/>
+        <result property="buyingOrderStatus" column="BUYING_ORDER_STATUS"/>
+        <result property="buyingOrderCancellationDate" column="BUYING_ORDER_CANCELLATION_DATE"/>
+        <result property="buyingOrderSuccessingDate" column="BUYING_ORDER_SUCCESSING_DATE"/>
+        <result property="buyingOrderDeadlineDate" column="BUYING_ORDER_DEADLINE_DATE"/>
+    </resultMap>
+
+	<select id="finddetailProductbyProductCode" resultType="_int" resultMap="productResultMap">
+	SELECT
+			P.PRODUCT_CODE,
+			P.PRODUCT_NAME,
+			B.BRAND_NO,
+			B.BRAND_NAME,
+			MAX(S.SELLINGORDER_PRICE) SELLINGORDER_PRICE,
+			P.PRODUCT_ENTRY_DATE,
+			AF.FILE_PATH,
+			AF.FILE_DECODED
+	   FROM PRODUCT P
+	   JOIN PRODUCT_OPTION PO ON (P.PRODUCT_CODE = PO.PRODUCT_CODE)
+	   JOIN SELLING_ORDERS S ON ( PO.PRODUCT_OPTION_CODE = S.PRODUCT_OPTION_CODE)
+	   JOIN BRAND B ON (P.BRAND_NO = B.BRAND_NO)
+	   JOIN ATTACHMENT_FILE AF ON ( AF.PRODUCT_CODE = P.PRODUCT_CODE)
+	   WHERE P.PRODUCT_CODE = #{ ProductCode }
+	   GROUP BY P.PRODUCT_CODE, P.PRODUCT_NAME, B.BRAND_NO, B.BRAND_NAME, P.PRODUCT_ENTRY_DATE, AF.FILE_PATH, AF.FILE_DECODED	
+	</select>
+	
+	
+	<select id="finddetailProductbyProductCodeSell" resultMap="productResultMap">
+		SELECT
+			P.PRODUCT_CODE,
+			P.PRODUCT_NAME,
+			B.BRAND_NO,
+			B.BRAND_NAME,
+			MAX(B.BUYING_ORDER_PRICE) BUYING_ORDER_PRICE,
+			P.PRODUCT_ENTRY_DATE,
+			AF.FILE_PATH,
+			AF.FILE_DECODED
+	   FROM PRODUCT P
+	   JOIN PRODUCT_OPTION PO ON (P.PRODUCT_CODE = PO.PRODUCT_CODE)
+	   JOIN BUYING_ORDERS B ON ( PO.PRODUCT_OPTION_CODE = B.PRODUCT_OPTION_CODE)
+	   JOIN BRAND B ON (P.BRAND_NO = B.BRAND_NO)
+	   JOIN ATTACHMENT_FILE AF ON ( AF.PRODUCT_CODE = P.PRODUCT_CODE)
+	   WHERE P.PRODUCT_CODE = 2
+       
+	   GROUP BY P.PRODUCT_CODE, P.PRODUCT_NAME, B.BRAND_NO, B.BRAND_NAME, P.PRODUCT_ENTRY_DATE, AF.FILE_PATH, AF.FILE_DECODED	
+		
+	
+	</select>
+</mapper>

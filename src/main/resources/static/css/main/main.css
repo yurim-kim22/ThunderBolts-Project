@@ -251,6 +251,12 @@ main{
 
 }
 
+.productCode{
+    width: 100%;
+    height: 100%;
+    text-align: left;	
+}
+
 
 .hotimg{
 
@@ -268,7 +274,7 @@ main{
     position: relative;
 }
 
-.item1.hotimg{
+.hotimg{
  
     background-size:contain;
     background-attachment: local;
@@ -302,13 +308,6 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item2.hotimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 .item3hotimg{
     margin-left: 10%;
@@ -319,13 +318,7 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item3.hotimg{
-  
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .item4hotimg{
     margin-left: 10%;
@@ -336,30 +329,18 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item4.hotimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .item5hotimg{
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #E2E2E2;
+    background-color: #D6EEE1;
     width: 80%;
     height: 60%;
     min-height: 60%;
     position: relative;
 }
-.item5.hotimg{
-  
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .nextimg{
     background-image: url(/image/icon/next.png);
@@ -465,7 +446,7 @@ main{
     position: relative;
 }
 
-.item1.newimg{
+.newimg{
  
     background-size:contain;
     background-attachment: local;
@@ -481,13 +462,7 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item2.newimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+
 
 .item3newimg{
     margin-left: 10%;
@@ -498,13 +473,6 @@ main{
     min-height: 60%;
     position: relative;
 }
-.item3.newimg{
-  
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 .item4newimg{
     margin-left: 10%;
@@ -514,13 +482,6 @@ main{
     height: 60%;
     min-height: 60%;
     position: relative;
-}
-.item4.newimg{
-    
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 .item5newimg{
@@ -1260,6 +1221,10 @@ main{
     position:absolute;
     width: 78%;
     height: 70%;  
+    background-size:contain;
+    background-attachment: local;
+    background-position: center center;
+    background-repeat: no-repeat;
 
 }
 
@@ -1291,71 +1256,42 @@ main{
     position:absolute;    
 }
 
-.first.rankimg{
+.rankimg.img1{
     background-image: url(/image/icon/rank1.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.first.prankimg{
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
-.second.rankimg{
+.rankimg.img2{
     background-image: url(/image/icon/rank2.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.second.prankimg{
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
-.third.rankimg{
+.rankimg.img3{
     background-image: url(/image/icon/rank3.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.third.prankimg{
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
-.fourth.rankimg{
+
+.rankimg.img4{
     background-image: url(/image/icon/rank4.png);
     background-size:cover;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;
 }
-.fourth.prankimg{
-    background-size:contain;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
-.fifth.rankimg{
+.rankimg.img5{
     background-image: url(/image/icon/rank5.png);
     background-size:cover;
-    background-attachment: local;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-.fifth.prankimg{
-    background-size:contain;
     background-attachment: local;
     background-position: center center;
     background-repeat: no-repeat;

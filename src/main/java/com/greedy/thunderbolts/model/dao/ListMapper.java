@@ -13,9 +13,9 @@ import com.greedy.thunderbolts.model.dto.ProductOptionDTO;
 
 @Mapper
 public interface ListMapper {
-	   List<ProductDTO> findProduct();
+	   List<ProductDTO> findProduct(int productCode);
 	   
-	   List<ProductDTO> findSizePrice();
+	   List<ProductDTO> findSizePrice(int productCode);
 
 	   //바잉오더 조회
 	   List<ProductDTO> selectBuyingOrder();

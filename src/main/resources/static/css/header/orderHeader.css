@@ -44,7 +44,6 @@
     padding-left: 1%;
     padding-right: 1%;
     margin-bottom: 1%;
-    font-family: 'Noto Sans';
     font-style: normal;
 
 } 
@@ -58,7 +57,6 @@
     padding-left: 1%;
     padding-right: 1%;
     margin-bottom: 1%;
-    font-family: 'Noto Sans';
     font-style: normal;
 
 } 
@@ -87,4 +85,8 @@
     /* background-attachment: local; */
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+#login, #home, #mypage, #csmenu, #heartProduct, #logout, #header_img, #admin{
+ 	cursor: url("/image/icon/cusor.png") 16 14, auto;
 }

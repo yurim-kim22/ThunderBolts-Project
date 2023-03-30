@@ -18,11 +18,10 @@
 
 	<resultMap id="authRoleResultMap" type="com.greedy.thunderbolts.model.dto.AuthRoleDTO">
 		<id property="membersNo" column="MEMBERS_NO"/>
-		<result property="authNum" column="AUTH_NUM"/>
+		<id property="authNum" column="REF_AUTH_NUM"/>
 		<association property="auth" resultMap="authResultMap"/>
 
-	</resultMap>
-	
+	</resultMap>	
 		<resultMap id="authResultMap" type="com.greedy.thunderbolts.model.dto.AuthDTO">
 		<id property="num" column="AUTH_NUM"/>
 		<result property="name" column="AUTH_NAME"/>
@@ -30,7 +29,7 @@
 	</resultMap>	
 
 
-<select id="findByMemberId" resultMap="membersResultMap">
+	<select id="findByMemberId" resultMap="membersResultMap">
         SELECT
                A.MEMBERS_NO
 		     , A.MEMBERS_ID
@@ -40,7 +39,7 @@
 		     , A.MEMBERS_ENTIRE
 		     , B.MEMBERS_NO REF_MEMBERS_NO
 		     , B.AUTH_NUM REF_AUTH_NUM
-		     , C.AUTH_NUM REF_AUTH_NUM
+		     , C.AUTH_NUM
 		     , C.AUTH_NAME
 		     , C.AUTH_KO
           FROM MEMBERS A

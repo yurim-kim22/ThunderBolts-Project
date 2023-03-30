@@ -6,8 +6,9 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class ProductDTO {
-	    private int productCode;
+public class MainPageDTO {
+		
+		private int productCode;
 	    private String productName;
 	    private String productNameKr;
 	    private Date productEntryDate;
@@ -15,10 +16,6 @@ public class ProductDTO {
 	    private int productCount;
 	    private BrandDTO brandNo;
 		private List<ProductOptionDTO> productOption;
-
+	    private List<AttachmentFileDTO> attachmentFile;
 
 }
-
-
-
-
