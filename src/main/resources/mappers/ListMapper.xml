@@ -38,6 +38,21 @@
         <result property="sellingOrderDeadlineDate" column="SELLING_ORDER_DEADLINE_DATE"/>
 
     </resultMap>
+    
+       <!-- AttachmentFileDTO -->
+	<resultMap id="attachmentFileResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
+		<id property="fileCode" column="FILE_CODE"/>
+		<result property="fileOriginalName" column="FILE_ORIGINALNAME"/>
+		<result property="fileDiv" column="FILE_DIV"/>
+		<result property="reviewCode" column="REVIEW_CODE"/>
+		<result property="productCode" column="PRODUCT_CODE"/>
+		<result property="noticeNo" column="NOTICE_NO"/>
+		<result property="filePath" column="FILE_PATH"/>
+		<result property="fileDecoded" column="FILE_DECODED"/>
+		<result property="fileDate" column="FILE_DATE"/>
+		<result property="fileThumbnailChecking" column="FILE_THUMBNAIL_CHECKING"/>
+		<result property="membersNo" column="MEMBERS_NO"/>
+	</resultMap>
 
     <resultMap id="buyingOrderResultMap" type="com.greedy.thunderbolts.model.dto.BuyingOrdersDTO">
         <id property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
@@ -260,6 +275,13 @@ SELECT P.PRODUCT_CODE,
 
 
     </select>
+    
+    <select id="selectProfileImg" resultType="String">
+		SELECT 
+			  FILE_PATH
+		FROM ATTACHMENT_FILE
+		WHERE PRODUCT_CODE = #{ productCode }
+	</select>
 
 
 

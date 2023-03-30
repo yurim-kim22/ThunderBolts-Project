@@ -86,10 +86,12 @@ public class ListServiceImpl implements ListService {
 	}
 
 	@Override
-	public ProductDTO findProductOptionSize(String productOptionSize) {
+	public ProductDTO findProductOptionSize(String productOptionSize,int productCode) {
 		
 		log.info("productOptionSize: {} ",productOptionSize);
-		return listMapper.findProductOptionSize(productOptionSize);
+		ProductDTO a = listMapper.findProductOptionSize(productOptionSize,productCode);
+		log.info("매퍼 반환 값  {}", a);
+		return listMapper.findProductOptionSize(productOptionSize,productCode);
 	}
 	
 	public ProductDTO findBuyingProduct(int buyingOrderCode) {

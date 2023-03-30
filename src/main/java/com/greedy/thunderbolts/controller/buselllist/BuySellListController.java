@@ -190,12 +190,14 @@ public class BuySellListController {
 	}
 
 	@GetMapping("/normalBuy3")
-	public String normalBuy3(@RequestParam("productOptionSize") String productOptionSize, Model model) {
+	public String normalBuy3(@RequestParam("productOptionSize") String productOptionSize,
+			@RequestParam("productCode") int productCode,Model model) {
 //		log.info("구매 입찰로 넘어왔음: sellingOrderNo={}", sellingOrderNo);
 		log.info("이 !!!구매 입찰로 넘어왔음: productOptionSize={}", productOptionSize);
+		log.info("이 !!!구매 입찰로 넘어왔음: productCode={}", productCode);
 
 		// sellingOrderNo에 해당하는 제품 정보와 제품 옵션 정보 조회
-		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize);
+		ProductDTO findProductOptionSize = listService.findProductOptionSize(productOptionSize,productCode);
 		
 		// 뷰에서 사용할 모델 객체에 데이터 추가
 		model.addAttribute("productDTO", findProductOptionSize);
@@ -205,6 +207,7 @@ public class BuySellListController {
 		model.addAttribute("productNameKr", findProductOptionSize.getProductNameKr());
 		model.addAttribute("productOptionSize", findProductOptionSize.getProductOption().get(0).getProductOptionSize());
 
+		log.info("이 !!!구매 입찰로 넘길꺼: findProductOptionSize={}", findProductOptionSize);
 		return "bid/buyBid";
 		
 		

@@ -23,7 +23,7 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
     //셀링오더프로덕트 찾기
     ProductDTO findSellingProduct(String productOptionSize);
     //옵션사이즈 찾기
-    ProductDTO findProductOptionSize (String productOptionSize);
+    ProductDTO findProductOptionSize (String productOptionSize,int productCode);
 
     ProductDTO findBuyingProduct(int buyingOrderCode);
     

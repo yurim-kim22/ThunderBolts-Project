@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
@@ -32,7 +33,7 @@ public interface ListMapper {
 
     ProductDTO findSellingProduct(String productOptionSize);
 
-	ProductDTO findProductOptionSize(String productOptionSize);
+	ProductDTO findProductOptionSize(String productOptionSize,int productCode);
 	
 	ProductDTO findBuyingProduct(int buyingOrderCode);
 	
@@ -59,6 +60,8 @@ public interface ListMapper {
 	
 	//멤버 계좌 조회 
 	List<MembersDTO> memberAccounts(int membersNo);
+	
+	AttachmentFileDTO selectProfileImg(int productCode);
 
 
 //	//주소록 인서트
