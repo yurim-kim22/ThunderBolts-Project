@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ThunderBolt Normal Sell</title>
+     <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
     <link rel="stylesheet" href="/css/list/normalBuyStyle.css" type="text/css">
     <link rel="stylesheet" href="/css/list/orderHeader.css" type="text/css">
 </head>
@@ -31,28 +32,23 @@
 
     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-<<<<<<< HEAD
-    
-
-<form id="select2Form" action="/list/normalSell" method="post">
-    <!-- 판매 의향서 번호 받는 클릭 이벤트 -->
-    <div class="all">
-        <div class="box" style="display: block;">
-            <div th:each="product : ${productList}">
-                <div th:each="productOption: ${product.productOption}">
-                    <div th:if="${!#lists.isEmpty(productOption.sellingOrders)}" class="box" style="display: block;">
-                        <a style="line-height: 2.5; width: 200px;" 
-                            th:href="@{/list/normalSell2?sellingOrderNo={no} (no=${productOption.sellingOrders[0].sellingOrderNo})}" 
-                            th:text="${productOption.productOptionSize}"></a>
-                        <p style="line-height: 0.5; color: rgb(9, 120, 9);" 
-                            th:href="@{/list/normalSell2?sellingOrderNo= {no}(no=${productOption.sellingOrders[0].sellingOrderNo})}" 
-                            th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></p>
-                    </div>
-                </div>
-            </div>  
+<form id="selectForm" action="/list/normalSell" method="post">
+  
+    <div style="display: flex; flex-wrap: wrap;"
+     th:each="productDTO : ${selectBuyingOrder}">
+      <div th:each="productOption: ${productDTO.productOption}">
+        <div class="box product" 
+        	style="display: block; width: 180px; margin: 0 10px 10px 10px;"
+          th:if="${productOption.buyingOrders != null and not #lists.isEmpty(productOption.buyingOrders)}"
+          th:data-buying-order-code="${productOption.buyingOrders[0].buyingOrderCode}"
+          th:data-buying-order-price="${productOption.buyingOrders[0].buyingOrderPrice}">
+          
+            <b th:text="${productOption.productOptionSize}"></b><br>
+         
+          <span style=" color: rgb(9, 120, 9);"
+            th:text="${productOption.buyingOrders[0].buyingOrderPrice} + '원'"></span>
         </div>
-      </span>
-    </span>
+        </div>
   </div>
 </form>
 
@@ -65,11 +61,10 @@
 
       const buyingOrderCode = e.currentTarget.dataset.buyingOrderCode;
       const buyingOrderPrice = e.currentTarget.dataset.buyingOrderPrice;
-      const productCode = e.currentTarget.dataset.productCode;
       const productOptionSize = e.currentTarget.querySelector("b").textContent.trim();
 
       if (buyingOrderPrice === '0') { // 가격이 0원인 경우
-        location.href = '/list/normal6?productOptionSize=' + productOptionSize+'&productCode='+productCode;
+        location.href = '/list/normal6?productOptionSize=' + productOptionSize;
       } else { // 그 외의 경우
         location.href = '/list/normalSell2?buyingOrderCode=' + buyingOrderCode + '&buyingOrderPrice=' + buyingOrderPrice;
       }

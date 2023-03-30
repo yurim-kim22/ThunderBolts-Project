@@ -151,6 +151,13 @@ public class ListServiceImpl implements ListService {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+
+		@Override
+		public AttachmentFileDTO selectProfileImg(int productCode) {
+			// TODO Auto-generated method stub
+			return listMapper.selectProfileImg(productCode);
+		}
 		
 //		public 	MembersDTO memberOrder(int memberNo) {
 //			return listMapper.memberOrder(memberNo);

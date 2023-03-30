@@ -289,16 +289,38 @@ SELECT P.PRODUCT_CODE,
 
     </select>
     
-    <select id="selectProfileImg" resultType="String">
-		SELECT 
+    <select id="selectProfileImg" resultMap="attachmentFileResultMap">
+			SELECT 
 			  FILE_PATH
+             , FILE_DECODED
 		FROM ATTACHMENT_FILE
 		WHERE PRODUCT_CODE = #{ productCode }
 	</select>
 
-
-
-
-
-
+    <insert id="insertBuy">
+        INSERT
+        INTO ORDERS
+        (
+            ORDERS_NO,
+            MEMBERS_BUYER,
+            ORDERS_PRICE,
+            ORDERS_DATE,
+            ORDERS_DIV,
+            SELLINGORDER_NO,
+            ORDERS_STATUS,
+            BUYING_ORDER_CODE,
+            MEMBERS_SELLER        )
+        VALUES
+        (
+            seq_orders_no.nextval,
+            #{ membersNo },
+            #{ amount },
+            SYSDATE,
+            '구매완료',
+            '',
+            'DEFAULT',
+            '',
+            #{ membersSeller}
+        )
+    </insert>
 </mapper>

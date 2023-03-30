@@ -33,25 +33,20 @@ public class BuySellListController {
 
 
 	@PostMapping("/normalBuy")
-	public String PostnormalBuy(@RequestParam("productCode") int productCode, Model model) {
+	public String PostnormalBuy(@RequestParam("productCode") int productCode,
+			
+			Model model) {
 		List<ProductDTO> productList = listService.findProduct(productCode);
 		List<ProductDTO> productSize = listService.findSizePrice(productCode);
-		
+//		
+//		AttachmentFileDTO selectProfileImg = listService.selectProfileImg(productCode);
 
 		log.info("포스트 productList : {}", productList);
-		log.info("productSize: {}", productSize);
-
-		for (ProductDTO product : productList) {
-			log.info(product.toString());
-			for (ProductOptionDTO option : product.getProductOption()) {
-				log.info(option.getSellingOrders().toString());
-			}
-		}
-
 		// 뷰에 보이는거
 
 		model.addAttribute("productList", productList);
-		model.addAttribute("productSize", productSize);
+//		model.addAttribute("selectProfileImg",selectProfileImg);
+//		model.addAttribute("AttachmentFileDTO",att);
 
 		return "product/normalBuy";
 
@@ -62,7 +57,7 @@ public class BuySellListController {
 	public String PostnormalSell(@RequestParam("productCode")int productCode,
 			Model model, ProductDTO productDTO, ProductOptionDTO productOptionDTO,
 			BuyingOrdersDTO buyingOrdersDTO) {
-
+		List<ProductDTO> productList = listService.findProduct(productCode);
 		List<ProductDTO> selectBuyingOrder = listService.selectBuyingOrder(productCode);
 		
 		log.info("selectBuyingOrder: {}", selectBuyingOrder);
@@ -70,6 +65,7 @@ public class BuySellListController {
 		model.addAttribute("selectBuyingOrder", selectBuyingOrder);
 		model.addAttribute("productDTO", productDTO);
 		model.addAttribute("buyingOrdersDTO", buyingOrdersDTO);
+		model.addAttribute("productList", productList);
 
 		return "product/normalSell";
 	}

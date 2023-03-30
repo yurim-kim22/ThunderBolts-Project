@@ -4,8 +4,12 @@ import java.util.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class OrdersDTO {
 	private int orderNo;
 	private int memberBuyer;
@@ -17,14 +21,22 @@ public class OrdersDTO {
 	private String ordersStatus;
 	private int buyingOrderCode;
 	
-	   private int sellingOrderPrice;
+   private int sellingOrderPrice;
 
-	   public int getSellingOrderPrice() {
-	      return sellingOrderPrice;
-	   }
+   private String impUid;
+   private String merchantUid;
+   private String payDate;
+   private int amount;
+   private String cardType;
+   private String refund;
+   private int membersNo;
 
-	   public void setSellingOrderPrice(int sellingOrderPrice) {
-	      this.sellingOrderPrice = sellingOrderPrice;
-	   }
+   public int getSellingOrderPrice() {
+	  return sellingOrderPrice;
+   }
+
+   public void setSellingOrderPrice(int sellingOrderPrice) {
+	  this.sellingOrderPrice = sellingOrderPrice;
+   }
 
 }
