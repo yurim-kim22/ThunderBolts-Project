@@ -56,7 +56,7 @@
                     <ul>
                        <li th:if="${sellingList != null}">
                            <ul th:each="sell : ${sellingList}"  id="side_myBuy" 
-                           th:onclick="|location.href='/mypage/mysell?no=${sell.orderNo}'|"
+                           th:onclick="|location.href='/mypage/myselldetail?no=${sell.orderNo}'|"
                            class="sell_list">
                                 <li>
                                 	<img th:src="${sell.file.filePath}+${sell.file.fileDecoded}" class="sell_img">

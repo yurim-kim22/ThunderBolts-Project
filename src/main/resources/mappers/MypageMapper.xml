@@ -31,17 +31,17 @@
 	</resultMap>
 	
 	<!-- 구매판매 상세 Detail DTO -->
-	<resultMap id="detailResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO">
+ 	<resultMap id="detailResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO">
 	    <id property="orderNo" column="ORDERS_NO" />
 	    <association property="file" resultMap="attachmentFileResultMap"/>
 	    <association property="brand" resultMap="brandResultMap" />
 		<association property="product" resultMap="productResultMap"/>
 		<association property="order" resultMap="ordersResultMap"/>
 		<association property="delivery" resultMap="deliveryResultMap"/>
-	</resultMap>
+	</resultMap>  
 	
 	<!-- 딜리버리 배송DTO -->
-	<resultMap id="deliveryResultMap" type="com.greedy.thunderbolts.model.dto.AttachmentFileDTO">
+	<resultMap id="deliveryResultMap" type="com.greedy.thunderbolts.model.dto.DeliveryDTO">
 		<id property="deliveryNo" column="DELIVERY_NO"/>
 		<result property="ordersNo" column="ORDERS_NO"/>
 		<result property="postNo" column="POST_NO"/>
@@ -459,7 +459,7 @@
 	</select>
 	
 	<!-- 구매상세 바이 -->
-	<select id="" resultMap="detailResultMap">
+	<select id="detailBuy" resultMap="detailResultMap">
 		SELECT O.ORDERS_NO
 	      , F.FILE_PATH
 	      , F.FILE_DECODED
@@ -480,12 +480,12 @@
         JOIN PRODUCT P ON ( PO.PRODUCT_CODE = P.PRODUCT_CODE)
         JOIN BRAND B ON ( P.BRAND_NO = B.BRAND_NO)
         JOIN ATTACHMENT_FILE F ON ( P.PRODUCT_CODE = F.PRODUCT_CODE )
-          WHERE O.ORDERS_NO = #{ no }
+          WHERE O.ORDERS_NO = 12
           AND DELI_DIV LIKE '발송'
 	</select>
 	
-	<!-- 판매상세 셀 -->
-	<select id="" resultMap="detailResultMap">
+	<!--  판매상세 셀  -->
+	<select id="detailSell" resultMap="detailResultMap">
 		SELECT O.ORDERS_NO
 	      , F.FILE_PATH
 	      , F.FILE_DECODED
@@ -494,10 +494,6 @@
           , O.ORDERS_PRICE
           , D.DELIVERY_COMPANY
           , D.DELIVERY_NUM
-<!--           , D.POST_RECEIVER
-          , D.POST_NO
-          , D.POST_ADDMAIN
-          , D.POST_ADDSUB -->
           FROM ORDERS O
           JOIN MEMBERS M ON(O.MEMBERS_BUYER = M.MEMBERS_NO)
           JOIN DELIVERY D ON ( O.ORDERS_NO = D.ORDERS_NO)
@@ -506,7 +502,7 @@
         JOIN PRODUCT P ON ( PO.PRODUCT_CODE = P.PRODUCT_CODE)
         JOIN BRAND B ON ( P.BRAND_NO = B.BRAND_NO)
         JOIN ATTACHMENT_FILE F ON ( P.PRODUCT_CODE = F.PRODUCT_CODE )
-          WHERE O.ORDERS_NO = #{ no }
+          WHERE O.ORDERS_NO = 31
           AND DELI_DIV LIKE '착송'
 	</select>
 	

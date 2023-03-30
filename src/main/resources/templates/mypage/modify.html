@@ -13,6 +13,7 @@
     <link href="/css/mypage/mypageBoot.css" rel="stylesheet" type="text/css">
     <link href="/css/mypage/modify.css" rel="stylesheet" type="text/css">
     <script src="/js/mypageSide.js" type="text/Javascript" defer></script>
+    <script src="/js/loginRegist.js" type="text/Javascript" defer></script>
     <script>
     	const message = '[[${message}]]';
     	message && alert(message);
@@ -95,12 +96,14 @@
                         <p></p>
                         <!-- 새 비밀번호 입력 필드 -->
                         <label for="new-password" class="mt">새 비밀번호</label>
-                        <input type="password" id="new-password" name="membersPwd" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
-                        <p></p>
+                        <input type="password" id="pw1" name="membersPwd" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
+                        
+                        <p id="pw1check"></p>
                         <!-- 새 비밀번호 확인 입력 필드 -->
                         <label for="new-password-confirm" class="mt">새 비밀번호 확인</label>
-                        <input type="password" id="new-password-confirm" name="new-password-confirm" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
-                        <p></p>
+                        <input type="password" id="pw2" name="new-password-confirm" placeholder="영문, 숫자, 특수문자 조합 8~16자로 입력하세요.">
+                        
+                        <p id="pw2check"></p>
                         <div class="modify_out_btn">회원탈퇴</div>
                         <input type="submit" class="modify_btn" value="수정하기">
                       </div>

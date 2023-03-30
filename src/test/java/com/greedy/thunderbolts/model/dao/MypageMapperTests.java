@@ -98,7 +98,6 @@ public class MypageMapperTests {
 		int memberNo = 2;
 		
 		AddressDTO address = new AddressDTO();
-		address.setAddressesNo(1);
 		address.setAddressesName("경기도");
 		address.setAddressesPostNo("12222");
 		address.setReceiverName("홍길동");
@@ -149,6 +148,7 @@ public class MypageMapperTests {
 
 		log.info("insertAddress : {}", inserAccounts);
 	}
+	
 	@Disabled
 	@Test
 	public void 계좌_수정_테스트() {
@@ -203,7 +203,6 @@ public class MypageMapperTests {
 	    System.out.println(selectAddress);
 	}
 
-	
 	@Disabled
 	@Test
 	public void 구매상세_테스트() {

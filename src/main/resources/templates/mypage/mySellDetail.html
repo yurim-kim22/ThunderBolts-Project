@@ -53,10 +53,12 @@
                 <h3>판매 상세 내역</h3>   
                 <div class="sell_detail">
                     <ul>
-                        <li class="sell_detail_img"></li>
+                    	<li>
+                        	<img th:src="${ detail.file.filePath }+${ detail.file.fileDecoded  }" class="sell_detail_img">
+                        </li>
                         <ul  class="sell_detail_text">
-                            <li>브랜드</li>
-                            <li>상품명</li>
+                            <li th:text="${ detail.brand.brandName }">브랜드</li>
+                            <li th:text="${ detail.product.productName }">상품명</li>
                             <li><button class="sell_detail_btn">상품 상세</button></li>
                         </ul>
                     </ul>
@@ -67,20 +69,21 @@
                     <div>
                         <h4>정산 금액</h4>
                         <p></p>
-                        <div class="sell_detail_cont_txt">총 정산 금액 <span>214,500원</span></div>
+                        <div class="sell_detail_cont_txt">총 정산 금액 <span th:text="${ detail.order.ordersPrice }">214,500원</span></div>
                     </div>
                     
                     <div>
                         <h4>보내실 곳</h4>
                         <p></p>
-                        <div class="sell_detail_cont_txt">서울시 강남구 테헤란로 123번길 12</div>
+                        <div class="sell_detail_cont_txt">서울시 강남구 테헤란로 123번길 12, 1층</div>
                     </div>
 
                     <div>
                         <h4>발송 정보 등록</h4>  
                         <p class="delivery_p"></p>
                         <ul class="delivery">
-                            <li class="delivery_txt">CJ대한통운5147862488996</li>
+                            <li th:text="${ detail.delivery.deliveryCompany }" class="delivery_txt">CJ대한통운</li>
+                            <li th:text="${ detail.delivery.deliveryNum }" class="delivery_txt">5147862488996</li>
                             <li><button class="delivery_btn">등록하기</button></li>
                         </ul>
                     </div>

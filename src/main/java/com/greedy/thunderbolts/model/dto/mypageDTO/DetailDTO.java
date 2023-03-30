@@ -6,6 +6,9 @@ import com.greedy.thunderbolts.model.dto.DeliveryDTO;
 import com.greedy.thunderbolts.model.dto.OrdersDTO;
 import com.greedy.thunderbolts.model.dto.ProductDTO;
 
+import lombok.Data;
+
+@Data
 public class DetailDTO {
 	
 	private int orderNo;

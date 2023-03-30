@@ -2,8 +2,6 @@ package com.greedy.thunderbolts.controller.mypage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -26,6 +24,7 @@ import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.AddressDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO;
+import com.greedy.thunderbolts.model.dto.mypageDTO.DetailDTO;
 import com.greedy.thunderbolts.model.dto.mypageDTO.SellListDTO;
 import com.greedy.thunderbolts.model.service.mypage.MypageService;
 
@@ -111,12 +110,24 @@ public class MypageController {
 		
 		return "mypage/myBuy";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 마이페이지 구매내역 상세
 	@GetMapping("/mybuydetail")
 	public String myBuyDetail(@RequestParam Long no, Model model) {
 		
-		//mypageService.selectBuyDetail(no)
+		DetailDTO mybuydetail = mypageService.detailBuy(no);
+		log.info("[buydetail] detail : {}", mybuydetail);
+		
+		model.addAttribute("detail", mybuydetail);
 		
 		return "mypage/myBuyDetail";
 	}
@@ -125,9 +136,23 @@ public class MypageController {
 	// 마이페이지 판매내역 상세
 	@GetMapping("/myselldetail")
 	public String mySellDetail(@RequestParam Long no, Model model) {
+		
+		DetailDTO myselldetail = mypageService.detailSell(no);
+		model.addAttribute("detail", myselldetail);
+		
 		return "mypage/mySellDetail";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 	
 
@@ -149,12 +174,6 @@ public class MypageController {
 		return "mypage/mySell";
 	}
 
-	
-	
-	
-	
-	
-	
 	
 	// 마이페이지 관심상품
 	@GetMapping("/wish")

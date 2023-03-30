@@ -205,15 +205,14 @@ public class MypageServiceImpl implements MypageService {
 	//구매상세 
 	@Override
 	public DetailDTO detailBuy(Long no) {
-		// TODO Auto-generated method stub
-		return null;
+		return mypageMapper.detailBuy(no);
 	}
 	
 	//판매상세
 	@Override
 	public DetailDTO detailSell(Long no) {
 		// TODO Auto-generated method stub
-		return null;
+		return mypageMapper.detailSell(no);
 	}
 
 }
