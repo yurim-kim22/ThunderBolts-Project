@@ -52,8 +52,8 @@
                 <!-- 프로필 -->
                 <div class="profile">
                     <ul>
-                        <li class="profile_wrap">
-                        	<img style="width: 120px; height: 120px;">
+                        <li class="profile_wrap ">
+                        	<img th:src="${profile.filePath}+${profile.fileDecoded}" style="width: 120px; height: 120px;">
                         </li>
                         <li>
                             <ul  class="prifile_text">
@@ -70,7 +70,7 @@
                             <div class="main_transaction_tit">구매내역</div>
                             <ul th:if="${buyList != null}" id="side_myBuy" class="main_transaction_list">
                                 <li>
-                                	<img th:src="@{${buyList.file.filePath}}" class="main_transaction_img">
+                                	<img th:src="${buyList.file.filePath}+${buyList.file.fileDecoded}" class="main_transaction_img">
                                 </li>
                                 <li th:text="${ buyList.product.productName }"></li>
                                 <li th:text="${ buyDate }"></li>
@@ -82,7 +82,7 @@
                             <div class="main_transaction_tit ">판매내역</div>
                             <ul th:if="${sellList != null}" id="side_mySell" class="main_transaction_list">
                                 <li>
-                                	<img th:src="@{${sellList.file.filePath}}" class="main_transaction_img">
+                                	<img th:src="${sellList.file.filePath}+${sellList.file.fileDecoded}" class="main_transaction_img">
                                 </li>
                                 <li th:text="${ sellList.product.productName }"></li>
                                 <li th:text="${ sellDate }"></li>

@@ -11339,6 +11339,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   }
 }
 .sidebar-title {
+	color:black;
     padding: 0.875rem 1.25rem;
     font-size: 1.5rem;
     font-weight: 600;

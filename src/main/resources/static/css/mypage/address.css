@@ -202,10 +202,10 @@ span{
 
 .modal-content {
     background-color: #fefefe;
-    margin: 12% auto; 
+    margin: 12% auto !important; 
     padding: 20px;
     border: 1px solid #888;
-    width: 28%; 
+    width: 28% !important; 
     position: relative;
 }
 .close {
@@ -216,7 +216,7 @@ span{
     position: absolute;
     float: right !important;
     right: 5px;
-    margin-top: -7px;
+    /* margin-top: -7px; */
 }
 .close:hover,
 .close:focus {
