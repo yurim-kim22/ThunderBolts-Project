@@ -2,249 +2,289 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=\, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/css/list/orderBuyStyle.css" type="text/css">
-  <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-  <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=\, initial-scale=1.0">
+<title>ThunderBolt Normal Buy Order</title>
+<link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
+<link rel="stylesheet" href="/css/list/orderBuyStyle.css"
+	type="text/css">
+<!-- jQuery -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <body>
 
 
-<!-- 헤더 -->
-<div th:replace="common/header/orderHeader.html"></div>
+	<!-- 헤더 -->
+	<div th:replace="common/header/orderHeader.html"></div>
 
 
-<section id="section01">
+	<section id="section01">
 
-  <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+		<img src="../img/신발.png " width="100" height="100"
+			style="float: left; margin-right: 20px;">
 
-  <div style="text-align: left;">
-
-
-    <p style="margin: 0;" id="productName" th:text="${productName}"></p>
-    <p style="margin: 0;" id="productCode" th:text="${productCode}"></p>
-    <p style="margin: 0; color: gray;" id="productNameKr" th:text="${productNameKr}"></p>
-    <p style="margin-top: 0px;" id="productOptionSize" th:text="${productOptionSize}"></p>
-
-  </div>
+		<div style="text-align: left;">
 
 
-</section>
+			<p style="margin: 0;" id="productName" th:text="${productName}"></p>
+			<p style="margin: 0;" id="productCode" th:text="${productCode}"></p>
+			<p style="margin: 0; color: gray;" id="productNameKr"
+				th:text="${productNameKr}"></p>
+			<p style="margin-top: 0px;" id="productOptionSize"
+				th:text="${productOptionSize}"></p>
 
-<section id="section02">
-  <div style="display: flex; align-items: center;">
-
-    <h3 style="flex: 1;"><br>배송 주소</h3>
-    <div id="modalBtn1" style="color: gray;"><u></u></div>
-  </div>
-	
-	
-	<!--넘길 값-->
-	<input type="hidden" id="membersName" th:value="${membersName}" >
-  <div class="order">
-    <!--디티오뒤에 : 리스트뒤에 변수 -->
-    <div th:each="address : ${selectAddress}" >
-      <p01>받는 분 </p01><p01 id="receiverName" style="color: gray;" th:text="${address.receiverName}"></p01><br>
-      <p01>배송 주소 </p01><p01 id="addressesPostNo" style="color: gray;" th:text="${address.addressesPostNo}"></p01>
-      <p01 id="addressesName" style="color: gray;" th:text="${address.addressesName}"></p01><p01 id="addressesAdds" style="color: gray;" th:text="${address.addressesAdds}"></p01><br>
-    </div>
-    <div th:each="members : ${members}" >
-    <input type="hidden" id="membersName" th:value="${membersName}" >
-
-    <p01>연락처 | </p01><p01 id="membersTel "style="color: gray;" th:text="${members.membersTel}"></p01>
-   </div>
-    <div class="box001">
-      <div id="modalBtn2" style="color: gray;"><u></u></div>
-      
-    </div>
-  </div>
-  <div class="box2" style="text-align: left; margin-top: 10px;"></div>
+		</div>
 
 
+	</section>
+
+	<section id="section02">
+		<div style="display: flex; align-items: center;">
+
+			<h3 style="flex: 1;">
+				<br>배송 주소
+			</h3>
+			<div id="modalBtn1" style="color: gray;">
+				<u></u>
+			</div>
+		</div>
 
 
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
+		<!--넘길 값-->
+		<input type="hidden" id="membersName" th:value="${membersName}">
+		<div class="order">
+			<!--디티오뒤에 : 리스트뒤에 변수 -->
+			<div th:each="address : ${selectAddress}">
+				<p01>받는 분 </p01>
+				<p01 id="receiverName" style="color: gray;"
+					th:text="${address.receiverName}"></p01>
+				<br>
+				<p01>배송 주소 </p01>
+				<p01 id="addressesPostNo" style="color: gray;"
+					th:text="${address.addressesPostNo}"></p01>
+				<p01 id="addressesName" style="color: gray;"
+					th:text="${address.addressesName}"></p01>
+				<p01 id="addressesAdds" style="color: gray;"
+					th:text="${address.addressesAdds}"></p01>
+				<br>
+			</div>
+			<div th:each="members : ${members}">
+				<input type="hidden" id="membersName" th:value="${membersName}">
 
+				<p01>연락처 | </p01>
+				<p01 id="membersTel " style="color: gray;"
+					th:text="${members.membersTel}"></p01>
+			</div>
+			<div class="box001">
+				<div id="modalBtn2" style="color: gray;">
+					<u></u>
+				</div>
 
-  <h3>배송 방법</h3>
-
-  <div class="box3">
-    <img src="/image/icon/deliveryIcon.png" width="50" height="50"
-         style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-    <span style="position: relative; top: 10px;"><b>일반배송 3,000원</b></span><br>
-    <span style="position: relative; top: 12px;">검수 후 배송 5-7일 내 도착 예정</span>
-  </div>
-
-
-</section>
-
-<section id="section03">
-
-  <!-- 모달 2 -->
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h1>주소록</h1>
-      <hr style="border:solid 1px rgb(229, 228, 228); width: 100%;">
-    </div>
-  </div>
+			</div>
+		</div>
+		<div class="box2" style="text-align: left; margin-top: 10px;"></div>
 
 
 
-  <div class="final">
-    <h3>최종 주문 정보</h3>
-    <p style="font-size: small;">총 결제 금액</p>
-       <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
-    
-  </div>
-  <div class="final1">
-    <!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
-    <p id="final-price" th:text="${sellingOrderPrice + 11000}" style="color: red; font-size: large;"></p>
 
-  </div>
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-  <div class="order">
-    <p01><b>즉시 구매가</b></p01><br>
-    <p01><br></p01>
-    <p01>검수비</p01><br>
-    <p01>수수료</p01><br>
-    <p01>배송비</p01><br>
-  </div>
-  <div class="final1">
-    <p id="final-price" style="color: red; font-size: large;"><b></b></p>
-  </div>
-
-  <div class="order1">
-    <p02><b th:text="${sellingOrderPrice}"></b></p02><br>
-    <p02><br></p02>
-    <p02>5,000원</p02><br>
-    <p02>6,000원</p02><br>
-    <p02>3,000원</p02>
-  </div>
-
-</section>
-
-<section id="section04">
-  <h3>결제 방법 - 간편 결제, 일반결제</h3>
-  <p style="font-size: small; color: grey;">약관 동의 후 결제창에서 선택 가능합니다.</p>
-     <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
-  
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-  <div class="wrapper">
-    <img src="/image/icon/kakaopay.png" width="120" height="65"
-         style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-    <img src="/image/icon/naver.png" width="120" height="65"
-         style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-    <img src="/image/icon/kg이니시스.jpeg" width="150" height="65"
-         style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
-  </div>
-</section>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
 
 
-<section id="section05">
-  <h4>구매 전 동의사항</h4>
-   <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+		<h3>배송 방법</h3>
 
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-  <p>판매자의 판배거부, 배송지연, 미입고의 사유가 발생할 경우 거리가 취소될 수 있음을 확인합니다.</p>
-  <p style="font-size: small; color: grey;">알림을 확인하기 위해서 앱 알림해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 알림에 차질이 생길수 있습니다.</p>
-  <div id="modalBtn3" onclick="openModal(modal3)" style="color: gray; font-size: 0.8em;"><u>검수기준 확인하기</u></div>
-  <div class="checkbox-wrapper">
-    <label>
-      <input type="checkbox" id="checkbox-agree1">
-      <span class="checkmark"></span>
-      <span class="checkbox-text">위 내용에 동의합니다.</span>
-    </label>
-  </div>
+		<div class="box3">
+			<img src="/image/icon/deliveryIcon.png" width="50" height="50"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<span style="position: relative; top: 10px;"><b>일반배송
+					3,000원</b></span><br> <span style="position: relative; top: 12px;">검수
+				후 배송 5-7일 내 도착 예정</span>
+		</div>
 
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
-  <p>'바로 결제하기'를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능 함을 알려드립니다.</p>
-  <p style="font-size: small; color: grey;">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약 철회(환불,교환)규정이 적용되지 않습니다.</p>
-  <div id="modalBtn4" onclick="openModal(modal4)" style="color: gray; font-size: 0.8em;"><u>검수기준 확인하기</u></div>
-  <div class="checkbox-wrapper">
-    <label>
-      <input type="checkbox" id="checkbox-agree2">
-      <span class="checkmark"></span>
-      <span class="checkbox-text">위 내용에 동의합니다.</span>
-    </label>
-  </div>
-  <hr style="border:solid 1px rgb(181, 180, 180); width: 100%;">
 
-  <div class="sec1">
-    <strong>
-      <Br>
-      구매 조건을 모두 확인하였습니다.<Br>
-      거래를 진행합니다.<br>
-      <br>
-      총 결제금액
-      <div class="final2">
-        <p id="final-price" th:text="${sellingOrderPrice + 14000}" style="color: red; font-size: x-large;"></p>
-         <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
-      
-      </div>
-  
-  <!--     	<input type="hidden" name="productCode" th:value="${productCode}"/>
+	</section>
+
+	<section id="section03">
+
+		<!-- 모달 2 -->
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h1>주소록</h1>
+				<hr style="border: solid 1px rgb(229, 228, 228); width: 100%;">
+			</div>
+		</div>
+
+
+
+		<div class="final">
+			<h3>최종 주문 정보</h3>
+			<p style="font-size: small;">총 결제 금액</p>
+			<hr
+				style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		</div>
+		<div class="final1">
+			<!-- <p id="final-price" style="color: red; font-size: large;"><b></b></p> -->
+			<p id="final-price" th:text="${sellingOrderPrice + 11000}"
+				style="color: red; font-size: large;"></p>
+
+		</div>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<div class="order">
+			<p01> <b>즉시 구매가</b></p01>
+			<br>
+			<p01> <br>
+			</p01>
+			<p01>검수비</p01>
+			<br>
+			<p01>수수료</p01>
+			<br>
+			<p01>배송비</p01>
+			<br>
+		</div>
+		<div class="final1">
+			<p id="final-price" style="color: red; font-size: large;">
+				<b></b>
+			</p>
+		</div>
+
+		<div class="order1">
+			<p02> <b th:text="${sellingOrderPrice}"></b></p02>
+			<br>
+			<p02> <br>
+			</p02>
+			<p02>5,000원</p02>
+			<br>
+			<p02>6,000원</p02>
+			<br>
+			<p02>3,000원</p02>
+		</div>
+
+	</section>
+
+	<section id="section04">
+		<h3>결제 방법 - 간편 결제, 일반결제</h3>
+		<p style="font-size: small; color: grey;">약관 동의 후 결제창에서 선택 가능합니다.</p>
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<div class="wrapper">
+			<img src="/image/icon/kakaopay.png" width="120" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<img src="/image/icon/naver.png" width="120" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+			<img src="/image/icon/kg이니시스.jpeg" width="150" height="65"
+				style="float: left; margin-right: 20px; margin-top: 5px; margin-left: 5px;">
+		</div>
+	</section>
+
+
+	<section id="section05">
+		<h4>구매 전 동의사항</h4>
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<p>판매자의 판배거부, 배송지연, 미입고의 사유가 발생할 경우 거리가 취소될 수 있음을 확인합니다.</p>
+		<p style="font-size: small; color: grey;">알림을 확인하기 위해서 앱 알림해제, 알림톡
+			차단, 전화번호 변경 후 미등록 시에는 거래 진행 알림에 차질이 생길수 있습니다.</p>
+		<div id="modalBtn3" onclick="openModal(modal3)"
+			style="color: gray; font-size: 0.8em;">
+			<u>검수기준 확인하기</u>
+		</div>
+		<div class="checkbox-wrapper">
+			<label> <input type="checkbox" id="checkbox-agree1">
+				<span class="checkmark"></span> <span class="checkbox-text">위
+					내용에 동의합니다.</span>
+			</label>
+		</div>
+
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+		<p>'바로 결제하기'를 선택하시면 즉시 결제가 진행되며, 단순 변심이나 실수에 의한 취소가 불가능 함을 알려드립니다.</p>
+		<p style="font-size: small; color: grey;">본 거래는 개인간 거래로
+			전자상거래법(제17조)에 따른 청약 철회(환불,교환)규정이 적용되지 않습니다.</p>
+		<div id="modalBtn4" onclick="openModal(modal4)"
+			style="color: gray; font-size: 0.8em;">
+			<u>검수기준 확인하기</u>
+		</div>
+		<div class="checkbox-wrapper">
+			<label> <input type="checkbox" id="checkbox-agree2">
+				<span class="checkmark"></span> <span class="checkbox-text">위
+					내용에 동의합니다.</span>
+			</label>
+		</div>
+		<hr style="border: solid 1px rgb(181, 180, 180); width: 100%;">
+
+		<div class="sec1">
+			<strong> <Br> 구매 조건을 모두 확인하였습니다.<Br> 거래를 진행합니다.<br>
+				<br> 총 결제금액
+				<div class="final2">
+					<p id="final-price" th:text="${sellingOrderPrice + 14000}"
+						style="color: red; font-size: x-large;"></p>
+					<hr
+						style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
+
+				</div> <!--     	<input type="hidden" name="productCode" th:value="${productCode}"/>
 		<input type="hidden" name="productName" th:value="${productName}"/>
 		<input type="hidden" name="productName" th:value="${productNameKr}"/>
       		<input type="hidden" name="productOptionSize" th:value="${productOptionSize}"/> -->
-      <button id="my-button" onclick="requestPayKg()">
-        결제하기
-      </button>
-    </strong>
-  </div>
- 
-
-  <!-- 첫 번째 모달창 -->
-  <div id="myModal" class="modal">
-    <!-- 모달창 내용 -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>첫 번째 모달창</p>
-    </div>
-  </div>
+				<button id="my-button" onclick="requestPayKg()">결제하기</button>
+			</strong>
+		</div>
 
 
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close2 close">&times;</span>
-      <h3>모달 2</h3>
-      <p>내용 2</p>
-    </div>
-  </div>
+		<!-- 첫 번째 모달창 -->
+		<div id="myModal" class="modal">
+			<!-- 모달창 내용 -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p>첫 번째 모달창</p>
+			</div>
+		</div>
 
 
-  <div id="modal3" class="modal">
-    <div class="modal-content">
-      <span class="close3 close">&times;</span>
-      <div class="button-container">
-        <table>
-    </div>
-  </div>
-  </div>
-  </div>
-
-  <div id="modal4" class="modal">
-    <div class="modal-content">
-      <span class="close4 close">&times;</span>
-      <h3>모달 4</h3>
-      <p>내용 4</p>
-    </div>
-  </div>
+		<div id="modal2" class="modal">
+			<div class="modal-content">
+				<span class="close2 close">&times;</span>
+				<h3>모달 2</h3>
+				<p>내용 2</p>
+			</div>
+		</div>
 
 
-  <div id="modal5" class="modal">
-    <div class="modal-content">
-      <span class="close5 close">&times;</span>
-      <h3>모달 5</h3>
-      <p>내용 5</p>
-    </div>
-  </div>
+		<div id="modal3" class="modal">
+			<div class="modal-content">
+				<span class="close3 close">&times;</span>
+				<div class="button-container">
+					<table>
+						</div>
+						</div>
+						</div>
+						</div>
 
-  <script>
+						<div id="modal4" class="modal">
+							<div class="modal-content">
+								<span class="close4 close">&times;</span>
+								<h3>모달 4</h3>
+								<p>내용 4</p>
+							</div>
+						</div>
+
+
+						<div id="modal5" class="modal">
+							<div class="modal-content">
+								<span class="close5 close">&times;</span>
+								<h3>모달 5</h3>
+								<p>내용 5</p>
+							</div>
+						</div>
+
+						<script>
       const modalBtn1 = document.getElementById("modalBtn1");
       const modalBtn2 = document.getElementById("modalBtn2");
       const modal1 = document.getElementById("modal1");
@@ -406,7 +446,7 @@
         	  console.log(
         	
         	  );
-        	 //요
+        	 //이쪽이구요 오더페이지가 여러개에 
              
             		  //페이지로 호출
             		  //pg는 2번 호출 승인완료->결제->이커머스 시스템에 결제완료 기록
@@ -475,8 +515,6 @@
 
 
     </script>
-
-
 </body>
 
 </html>

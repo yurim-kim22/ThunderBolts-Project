@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/list/normalBuyStyle.css" type="text/css">
-    <link rel="stylesheet" href="/css/list/orderHeader.css" type="text/css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderBolt Normal Buy</title>
+ <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico" />
+<link rel="stylesheet" href="/css/list/normalBuyStyle.css"
+	type="text/css">
+<link rel="stylesheet" href="/css/list/orderHeader.css" type="text/css">
 </head>
 <body>
 
-    <!-- 헤더 -->
-    	<div th:replace="common/header/orderHeader.html"></div>
+	<!-- 헤더 -->
+	<div th:replace="common/header/orderHeader.html"></div>
 
-  
- <section id="section03">
-    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
-    	<img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
-  			  <div class="info" style="text-align: left;">
-    			<div th:each="product : ${ productList }">
-				  <p style="margin: 0;" th:text="${ product.productCode }"></p>
-				  <p style="margin: 0;" th:text="${ product.productName }"></p>
-		 	 <p style="margin: 0; color: gray;" th:text="${ product.productNameKr }"></p>
-		 	 </div>
-		 	</div>
-    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
-    <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
+	<section id="section03">
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
+        <img src="../img/신발.png " width="100" height="100" style="float: left; margin-right: 20px;">
+		<div class="info" style="text-align: left;">
+			<div th:each="product : ${ productList }">
+				<p style="margin: 0;" th:text="${ product.productCode }"></p>
+				<p style="margin: 0;" th:text="${ product.productName }"></p>
+				<p style="margin: 0; color: gray;"
+					th:text="${ product.productNameKr }"></p>
+			</div>
+		</div>
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px; opacity: 0;">
 
-     
-    <div class="container">
-<!-- 1.div
-2.필요한 정보들(판매의향서 번호만 넘겨야 한다.)
-3.넘길때 폼태 -->
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-<form id="selectForm" action="/list/normalBuy" method="post">
-  
-    <div style="display:flex; flex-wrap: wrap;"th:each="product : ${productList}">
-      <div th:each="productOption: ${product.productOption}">
-        <div class="box product" style="display: block; width:180px; margin: 0 50px;"
-          th:if="${productOption.sellingOrders != null and not #lists.isEmpty(productOption.sellingOrders)}"
-	          th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
-	          th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}"
-	          th:data-product-code="${productOption.productCode}"
-	          >
-          <div style="line-height: 0.5;">
-            <b th:text="${productOption.productOptionSize}"></b>
-          </div>
-          <div style="line-height: 0.5; color: rgb(9, 120, 9);"
-            th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'"></span>
-        </div>
-      </div>
-    </div>
-    </div>
-</form>
 
-    <script>
+		<div class="container">
+			<form id="selectForm" action="/list/normalBuy" method="post">
+				<div style="display: flex; flex-wrap: wrap;"
+					th:each="product : ${productList}">
+					<div th:each="productOption: ${product.productOption}">
+						<div class="box product"
+							style="display: block; width: 180px; margin: 0 10px 10px 10px;"
+							th:if="${productOption.sellingOrders != null and not #lists.isEmpty(productOption.sellingOrders)}"
+							th:data-selling-order-no="${productOption.sellingOrders[0].sellingOrderNo}"
+							th:data-selling-order-price="${productOption.sellingOrders[0].sellingOrderPrice}"
+							th:data-product-code="${productOption.productCode}">
+							<b th:text="${productOption.productOptionSize}"></b><br>
+							<div style="color: rgb(198, 8, 27);"
+								th:text="${productOption.sellingOrders[0].sellingOrderPrice} + '원'">
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<script>
   const $products = document.querySelectorAll(".product");
 
 $products.forEach(div => {
@@ -97,12 +97,13 @@ removeDuplicates(); // 중복 제거 함수 호출
 
 
 
-    </div>
+		</div>
 
-      <hr style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
+		<hr
+			style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 10px 0px 10px 0px;">
 
-</section>
+	</section>
 
 
-  </body>
+</body>
 </html>

@@ -2,6 +2,7 @@ package com.greedy.thunderbolts.model.service;
 
 import java.util.List;
 
+import com.greedy.thunderbolts.model.dto.AttachmentFileDTO;
 import com.greedy.thunderbolts.model.dto.BuyingOrdersDTO;
 import com.greedy.thunderbolts.model.dto.MembersAccountsDTO;
 import com.greedy.thunderbolts.model.dto.MembersDTO;
@@ -18,7 +19,7 @@ public interface ListService {
 
    ProductDTO findSellingProduct(int sellingOrderNo);
 
-ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
+    ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
 
     //셀링오더프로덕트 찾기
     ProductDTO findSellingProduct(String productOptionSize);
@@ -59,6 +60,8 @@ ProductOptionDTO findSellingProduct2(int sellingOrderPrice);
 	
 	//멤버 계좌 조회 
 	MembersDTO memberAccounts(int membersNo);
+	
+	AttachmentFileDTO selectProfileImg(int productCode);
 	
 	
 //    int insertAddress(@Param("address") AddressDTO address , @Param("memberNo") int memberNo);
