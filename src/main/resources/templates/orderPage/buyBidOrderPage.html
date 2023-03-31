@@ -21,7 +21,7 @@
 
 	<section id="section01">
 
-		<img src="../img/신발.png " width="100" height="100"
+		<img img src="/image/icon/살로몬.png"width="100" height="100"
 			style="float: left; margin-right: 20px;">
 
 		<div style="text-align: left;">
@@ -54,22 +54,15 @@
 
 		<div class="order">
 			<!--디티오뒤에 : 리스트뒤에 변수 -->
-			<div th:each="address : ${selectAddress}">
-				<p01>받는 분 | </p01>
-				<p01 style="color: gray;" th:text="${address.receiverName}"></p01>
+		<div class="order">
+				<p01>받는 분 : 김유정 </p01>
 				<br>
-				<p01>배송 주소 | </p01>
-				<p01 style="color: gray;" th:text="${address.addressesPostNo}">|</p01>
-				<p01 style="color: gray;" th:text="${address.addressesName}"></p01>
-				|
-				<p01 style="color: gray;" th:text="${address.addressesAdds}"></p01>
+				<p01>배송 주소 : 전라남도 무안군 삼향읍 부영애시앙 111동 1203호</p01>
 				<br>
 			</div>
-			<div th:each="members : ${members}">
-				<input type="hidden" id="membersName" th:value="${membersName}">
-				<p01>연락처 | </p01>
-				<p01 style="color: gray;" th:text="${members.membersTel}"></p01>
+				<p01>연락처 : 010-5790-9857 </p01>
 			</div>
+		</div>
 			<div class="box001">
 				<div id="modalBtn2" style="color: gray;">
 					<u>변경</u>
@@ -155,7 +148,8 @@
 		<div class="order">
 			<p01> <b>즉시 구매가</b></p01>
 			<br>
-			<p01 th:text="${buyingOrderPrice}"> <br>
+			<p01 th:text="${buyingOrderPrice}" style="text-align: right;
+    margin-left: 460px;"> <br>
 			</p01>
 			<p01>검수비</p01>
 			<br>
@@ -242,7 +236,8 @@
 			<strong> <Br> 구매 조건을 모두 확인하였습니다.<Br> 거래를 진행합니다.<br>
 				<br> 총 결제금액
 				<div class="final2">
-					<p id="final-price" style="color: red; font-size: x-large;"></p>
+
+					<p id="final-price" style="color: red; font-size: x-large;"  th:text="${buyingOrderPrice + 14000}"></p>
 					<hr
 						style="border: none; border-top: 1px solid rgb(181, 180, 180); width: 100%; margin: 10px 0; padding: 9px 0px 5px 0px; opacity: 0;">
 

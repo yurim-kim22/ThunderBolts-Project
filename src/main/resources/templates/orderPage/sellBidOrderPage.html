@@ -22,7 +22,7 @@
 
 	<section id="section01">
 
-		<img src="../img/신발.png " width="100" height="100"
+		<img img src="/image/icon/살로몬.png" width="100" height="100"
 			style="float: left; margin-right: 20px;">
 
 
@@ -42,18 +42,16 @@
 			<p style="margin-left: 10px; color: gray;"></p>
 		</div>
 
+
 		<div class="order">
-			<div th:each="address : ${selectAddress}">
-				<p01>받는 분 </p01>
-				<p01 style="color: gray;" th:text="${address.receiverName}"></p01>
+				<p01>받는 분 : 김유정 </p01>
 				<br>
-				<p01>배송 주소 </p01>
-				<p01 style="color: gray;" th:text="${address.addressesPostNo}"></p01>
-				<p01 style="color: gray;" th:text="${address.addressesName}"></p01>
-				<p01 style="color: gray;" th:text="${address.addressesAdds}"></p01>
+				<p01>배송 주소 : 전라남도 무안군 삼향읍 부영애시앙 111동 1203호</p01>
 				<br>
 			</div>
-			<p01>연락처</p01>
+				<p01>연락처 : 010-5790-9857 </p01>
+			</div>
+		</div>
 
 
 			<div class="box2" style="text-align: left; margin-top: 10px;">
