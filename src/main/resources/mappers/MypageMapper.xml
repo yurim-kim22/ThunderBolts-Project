@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greedy.thunderbolts.model.dao.MypageMapper">
 
-	<resultMap id="buyListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO">
+<resultMap id="buyListResultMap" type="com.greedy.thunderbolts.model.dto.mypageDTO.BuyListDTO">
 		<id property="orderNo" column="ORDERS_NO"></id>
 		<association property="file" resultMap="attachmentFileResultMap"/>
 		<association property="product" resultMap="productResultMap"/>
@@ -100,7 +100,7 @@
 		<result property="buyingOrderCode" column="BUYING_ORDER_CODE"/>
 	</resultMap>
 	
-	<!-- 내정보관리 memberDTO -->
+	<!-- 내정보관리 memberDTO  --> 
 	<resultMap id="membersResultMap" type="com.greedy.thunderbolts.model.dto.MembersDTO">
 		<id property="membersNo" column="MEMBERS_NO"/>
 		<result property="membersName" column="MEMBERS_NAME"/>
@@ -135,20 +135,21 @@
 	    <result property="addressesAdds" column="ADDRESSES_ADDS" />
 	</resultMap>
 	
-	<!-- 계좌 -->
+	<!-- 계좌  -->
 	<resultMap id="membersAccountsMap" type="com.greedy.thunderbolts.model.dto.MembersAccountsDTO">
 	    <id property="accountNo" column="ACCOUNT_NO"/>
 	    <result property="accountBank" column="ACCOUNT_BANK"/>
 	    <result property="accountMaster" column="ACCOUNT_MASTER"/>
 	</resultMap>
-
-   <!-- BrandDTO -->	
+	
+	<!-- 브랜드 -->
 	<resultMap id="brandResultMap" type="com.greedy.thunderbolts.model.dto.BrandDTO">
 		<id property="brandNo" column="BRAND_NO"/>
 		<result property="brandName" column="BRAND_NAME"/>
 	</resultMap>
+	
 
-	 
+	
 	
 	<!-- 프로필 사진 가져오기 -->
 	<select id="selectProfileImg" resultType="String">
