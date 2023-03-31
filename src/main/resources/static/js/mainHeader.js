@@ -48,7 +48,7 @@ $main3.addEventListener('click', e =>{
         if(document.getElementById("admin")) {
         const $heartProduct = document.getElementById("admin");
         $heartProduct.onclick = function() {
-            location.href = "/admin";
+            location.href = "/admin/home";
         }
     }
     

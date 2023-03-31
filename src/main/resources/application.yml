@@ -2,7 +2,7 @@
 
 # server config
 server:
-  port: 8004
+  port: 8002
   
 # database config
 spring:
