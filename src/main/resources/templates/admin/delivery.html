@@ -18,23 +18,30 @@
 			<img src="/image/icon/mainlogo.png" id="logoimg">
 		</div>
 		<ul>
-			<div class="sidebar-menu" id="sidebarcontainer">
-				<li class="sidebartexts" id="main-serv"><a
-					href="/admin/home"><img
+				<div class="sidebar-menu" id="sidebarcontainer">
+			
+				<li class="sidebartexts" id="main-serv">
+				
+				<a href="/admin/home"><img
 						class="sidebaricons" id="truckimg"
 						src="/image/icon/home_icon-icons.com_73532.png">MAIN</a></li>
-				<li class="sidebartexts" id="delivery-serv"><a
-					href="localhost:8002/admin"><img class="sidebaricons"
+						
+				<li class="sidebartexts" id="delivery-serv">
+				<a href="/admin"><img class="sidebaricons"
 						id="truckimg" src="/image/icon/truck_13241.png">배송관리</a></li>
+						
 				<li class="sidebartexts" id="order-serv"><a
-					href="https://www.naver.com"><img class="sidebaricons"
+					href="/admin/orderMainPage">
+					
+					<img class="sidebaricons"
 						id="basketimg"
 						src="/image/icon/basket_icon-icons.com_56201.png">주문관리</a></li>
+								
 				<li class="sidebartexts" id="client-serv"><a
 					href="https://www.naver.com"><img class="sidebaricons"
 						id="personimg" src="/image/icon/user_84308.png">회원관리</a></li>
 				<li class="sidebartexts" id="product-serv"><a
-					href="https://www.naver.com"><img class="sidebaricons"
+					href="/admin/productMainPage"><img class="sidebaricons"
 						id="boximg"
 						src="/image/icon/box_cube_d_perspective_shape_icon_142362.png">상품관리</a>
 				</li>
@@ -210,11 +217,11 @@
 <script type="text/javascript" src="js/delivery/delivery.js"> </script>
 	<script>
         document.getElementById("selling").onclick = function() {
-    window.open("http://localhost:8002/admin/decon", "Order Update", "width=1366,height=768");
+    window.open("http://localhost:8003/admin/decon", "Order Update", "width=1366,height=768");
 }
 
 document.getElementById("arrive").onclick = function() {
-    window.open("http://localhost:8002/admin/arrive", "Order Delete", "width=1366,height=768");
+    window.open("http://localhost:8003/admin/arrive", "Order Delete", "width=1366,height=768");
 }
     </script>
 
