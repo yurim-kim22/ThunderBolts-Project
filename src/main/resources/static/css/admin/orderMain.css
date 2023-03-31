@@ -246,7 +246,7 @@
     
     display: flex;
     margin-left: 70vw;
-    margin-top: 10vh;
+    margin-top: 5vh;
     position: relative;
   }
 
@@ -275,7 +275,7 @@
   {
   	border :  1px solid black;
   	border-style: dotted;
-    margin-top: 20vh;
+    margin-top: 14vh;
     margin-left : 20vw;
     position : absolute;
   }
@@ -298,7 +298,7 @@
   #paging
   {
   	margin-left : 0vw;
-  	 margin-top: 60vh;
+  	 margin-top: 50vh;
   	text-align: center;
   	position : relative;
   
@@ -315,9 +315,9 @@
   
   #searchForm2
   {
-   margin-top: 10vh;
+   margin-top: 5vh;
     margin-left : 0vw;
-    position : absolute;
+    position : relative;
   
   }
   
