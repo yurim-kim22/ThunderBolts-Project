@@ -15,3 +15,12 @@ KREAM, SOLDOUT과 같은 리셀전문 거래중계 플랫폼으로 급성장하�
 <br>또한 Thuderbolt 프로젝트만의  추상적인 검색 ( 형용사로 검색) , 드로우 일정 알람 , 마네킹 기능 및  Thuderbolt처럼 빠른 배송등의 차별성을 가지는 플랫폼 입니다.<br>
 
 ![mainbanner1](https://user-images.githubusercontent.com/120998460/230248544-dae35a7c-567b-49fe-93b6-3a6b71e70862.png)
+
+
+<h2>메인/로그인 페이지 - 강병오 </h2>
+
+
+<h2>마이페이지 - 김유림 </h2>
+
+
+<h2>결제/주문/입찰 페이지 - 김유정 </h2>
