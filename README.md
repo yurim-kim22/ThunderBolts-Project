@@ -18,10 +18,30 @@ KREAM, SOLDOUT과 같은 리셀전문 거래중계 플랫폼으로 급성장하�
 ![mainbanner1](https://user-images.githubusercontent.com/120998460/230248544-dae35a7c-567b-49fe-93b6-3a6b71e70862.png)
 
 
-<h2>메인/로그인 페이지 - 강병오, 산출물 관리 </h2>
+<h2>메인/로그인 페이지 - 강병오, 산출물 관리자 </h2>
 
 
 <h2>마이페이지 - 김유림 </h2>
 
 
-<h2>결제/주문/입찰 페이지 - 김유정 , GIT  </h2>
+<h2>결제/주문/입찰 페이지 - 김유정 , GIT 형상관리자 </h2>
+###상품 클릭 후 -> 사이즈 구매 페이지
+![image](https://user-images.githubusercontent.com/120998460/230266291-4119629f-9318-41f7-bf6c-680c4da95313.png)
+
+![image](https://user-images.githubusercontent.com/120998460/230264422-e45ea115-3702-4e38-832c-e35dad149f84.png)
+
+![image](https://user-images.githubusercontent.com/120998460/230264529-aee68f13-6070-47ac-a6a7-3974639083b9.png)
+![image](https://user-images.githubusercontent.com/120998460/230265906-21c6cba9-ab6a-4358-9ba7-22fb93d39f5d.png)
+
+###상품 입찰 페이지 -> 자신이 원하는 가격 입력, 입찰 마감일 등록
+![image](https://user-images.githubusercontent.com/120998460/230266451-6bf0a433-1e4d-4ee6-8b17-cc05b31acef0.png)
+
+
+![image](https://user-images.githubusercontent.com/120998460/230265866-a20727f7-1fd5-4449-8c06-50eaf60415f6.png)
+
+###결제 / 구매
+
+###결제 / 판매
+![image](https://user-images.githubusercontent.com/120998460/230266098-1fe2b3c5-7374-4f2d-8203-e52c382c0b49.png)
+![image](https://user-images.githubusercontent.com/120998460/230266188-bc8c732d-f944-4d0a-bf9d-5c71eb511c1a.png)
+
