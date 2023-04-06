@@ -38,8 +38,9 @@ KREAM, SOLDOUT과 같은 리셀전문 거래중계 플랫폼으로 급성장하�
 ![image](https://user-images.githubusercontent.com/120998460/230265866-a20727f7-1fd5-4449-8c06-50eaf60415f6.png)
 
 ###결제 / 구매<br>
+![image](https://user-images.githubusercontent.com/120998460/230266911-6a700c71-ae92-4f68-9942-2ae26b5e3e25.png)
 
-###결제 / 판매<br>
+<br>###결제 / 판매<br>
 ![image](https://user-images.githubusercontent.com/120998460/230266814-ab47a207-731e-42e2-8f99-09709fc39d9e.png)
 #결제 완료<br>
 ![image](https://user-images.githubusercontent.com/120998460/230264422-e45ea115-3702-4e38-832c-e35dad149f84.png)
