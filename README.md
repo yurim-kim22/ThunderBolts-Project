@@ -10,7 +10,5 @@ KREAM, SOLDOUT과 같은 리셀전문 거래중계 플랫폼으로 급성장하�
 
 ![mainbanner2](https://user-images.githubusercontent.com/120998460/229054183-664b9309-e66b-4e82-b51b-228b8a214a70.png)
 
-<h2>결제/주문/입찰 페이지 - 김유정 , GIT 형상관리자 </h2>
-###상품 클릭 후 -> 사이즈 구매 페이지<br>
 
 
