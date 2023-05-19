@@ -18,6 +18,9 @@ Spring Boot를 활용하여 MVC 패턴에 기반한 애플리케이션 아키텍
 ![mainbanner2](https://user-images.githubusercontent.com/120998460/229054183-664b9309-e66b-4e82-b51b-228b8a214a70.png)
 
 
+<img width="869" alt="image" src="https://github.com/yujunglove/ThunderBolts-Project/assets/120998460/dd340ca4-9592-44c8-8a91-87ca52dc0df7">
+
+
 
 
 
