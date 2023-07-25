@@ -7,6 +7,9 @@
 [김유림](https://github.com/yurim-kim22), [김유정](), [강병오]()
   
   > 개발: 2023.02.20. ~ 2023.03.18.
+> 
+![메인](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/f5f1f5ba-f90c-4a9c-854a-49fc5f378e94)
+
 
   
 ## Purpose 
@@ -31,6 +34,26 @@
 <br>
 
 ## ERD
+![ERD](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/7bfef004-2ac7-4916-a0d0-bf82963d2347)
+
+
+## 담당업무
+
+🎁 마이페이지 
+- 로그인한 회원의 프로필
+- 회원의 구매 및 판매 내역 
+![마이페이지메인](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/2928c66d-6259-48cc-96db-0911ce14162d)
+
+![구매내역](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/1d4ccc7b-537b-4e5a-a312-55d88709259d)
+
+![판매상세](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/b45d5df2-bd84-4860-a9f7-edd80d94c40c)
+- 주소록 및 계좌 관리
+![주소록](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/20578353-67ba-4a7c-b369-b2963c498510)
+![주소록상세](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/32f3d630-3930-4f08-bda1-8d89bcb7c2cf)
+![계좌](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/b9ec9bd4-10e9-4335-8d4e-7ab8f55f9757)
+- 관심 상품
+![관심상품](https://github.com/yurim-kim22/ThunderBolts-Project/assets/121031400/9e374cae-e73f-4fd4-87d6-e85ae0dfd688)
+
 
 
 
